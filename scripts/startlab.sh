@@ -4,12 +4,35 @@ export TAG=demo
 
 # Supported AWS Lighsail Regions: 
 # https://lightsail.aws.amazon.com/ls/docs/en_us/articles/understanding-regions-and-availability-zones-in-amazon-lightsail
-export AWS_REGION=ap-southeast-1
-export AWS_AZ=${AWS_REGION}a
 
 # Instance Sizes
-# medium_2_0 => 4GB RAM
-# large_2_0 => 8GB RAM
+# medium = 4GB RAM; large = 8GB RAM
+# aws lightsail get-bundles
+
+# JAPAN/TOKYO
+# export AWS_REGION=ap-northeast-1
+# export AWS_AZ=${AWS_REGION}a
+# export VM_SIZE_MEDIUM=medium_2_0
+# export VM_SIZE_LARGE=large_2_0
+
+# # SINGAPORE
+# export AWS_REGION=ap-southeast-1
+# export AWS_AZ=${AWS_REGION}a
+# export VM_SIZE_MEDIUM=medium_2_0
+# export VM_SIZE_LARGE=large_2_0
+# 
+# # AUSTRALIA/SYDNEY
+# export AWS_REGION=ap-southeast-2
+# export AWS_AZ=${AWS_REGION}a
+# export VM_SIZE_MEDIUM=medium_2_2
+# export VM_SIZE_LARGE=large_2_2
+# 
+# # INDIA/MUMBAI
+export AWS_REGION=ap-south-1
+export AWS_AZ=${AWS_REGION}a
+export VM_SIZE_MEDIUM=medium_2_1
+export VM_SIZE_LARGE=large_2_1
+
 
 # CreateVM
 # First argument - vm-name
@@ -22,7 +45,7 @@ function create-vm() {
     --blueprint-id opensuse_15_2 \
     --bundle-id $2 \
     --ip-address-type ipv4 \
-    --user-data "systemctl enable docker;systemctl start docker;" \
+    --user-data "systemctl enable docker;systemctl start docker" \
     --tags key=$TAG \
     --no-cli-pager
 }
@@ -47,14 +70,14 @@ function list-vm() {
     --output table --no-cli-pager
 }
 
-create-vm demo-rancher medium_2_0
-create-vm demo-harbor  medium_2_0
-create-vm demo-devsecops-m1 medium_2_0
-create-vm demo-devsecops-w1 large_2_0
-create-vm demo-devsecops-w2 large_2_0
-create-vm demo-devsecops-w3 large_2_0
-create-vm demo-cluster1 medium_2_0
-create-vm demo-cluster2 medium_2_0
+create-vm demo-rancher $VM_SIZE_MEDIUM
+create-vm demo-harbor  $VM_SIZE_MEDIUM
+create-vm demo-devsecops-m1 $VM_SIZE_MEDIUM
+create-vm demo-devsecops-w1 $VM_SIZE_LARGE
+create-vm demo-devsecops-w2 $VM_SIZE_LARGE
+create-vm demo-devsecops-w3 $VM_SIZE_LARGE
+create-vm demo-cluster1 $VM_SIZE_MEDIUM
+create-vm demo-cluster2 $VM_SIZE_MEDIUM
 
 # wait until all VMs are running
 sleep 30s

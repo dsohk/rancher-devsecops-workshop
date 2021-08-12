@@ -1,8 +1,10 @@
 #! /bin/bash
 
+export AWS_REGION=ap-southeast-1
+
 function delete-vm() {
   aws lightsail delete-instance \
-    --region ap-southeast-1  \
+    --region $AWS_REGION \
     --instance-name $1 \
     --output table --no-cli-pager
 }
