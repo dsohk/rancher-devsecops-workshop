@@ -1,0 +1,70 @@
+# CreateVM
+# First argument - vm-name
+# Second argument - instance size
+function create-vm() {
+  aws lightsail create-instances \
+    --region $AWS_REGION \
+    --instance-names $1 \
+    --availability-zone $AWS_AZ \
+    --blueprint-id opensuse_15_2 \
+    --bundle-id $2 \
+    --ip-address-type ipv4 \
+    --user-data "systemctl enable docker;systemctl start docker;${3}" \
+    --tags key=suse \
+    --no-cli-pager
+}
+
+# DeleteVM
+# First argument - vm-name
+function delete-vm() {
+  aws lightsail delete-instance \
+    --region $AWS_REGION \
+    --instance-name $1 \
+    --output table --no-cli-pager
+}
+
+# Open Network Port for VM
+# First argument - vm-name
+function configure-vm-network-port() {
+  aws lightsail put-instance-public-ports \
+    --port-infos \
+    "fromPort=22,toPort=22,protocol=TCP" \
+    "fromPort=80,toPort=80,protocol=TCP" \
+    "fromPort=443,toPort=443,protocol=TCP" \
+    "fromPort=8,toPort=-1,protocol=ICMP" \
+    --instance-name $1 --output table --no-cli-pager
+}
+
+# List all VM
+function list-vm() {
+  aws lightsail get-instances \
+    --region $AWS_REGION \
+    --query 'instances[].{publicIpAddress:publicIpAddress,privateIpAddress:privateIpAddress,VMname:name,state:state.name}' \
+    --output table --no-cli-pager
+}
+
+# Get VM Status by name
+# first argument - vm name
+function get-vm-status() {
+  aws lightsail get-instances \
+    --region $AWS_REGION \
+    --query 'instances[].{publicIpAddress:publicIpAddress,privateIpAddress:privateIpAddress,VMname:name,state:state.name}' \
+    --output table --no-cli-pager | grep $1 | cut -d '|' -f 5 | xargs
+}
+
+# Get Public IP address of the VM based on the name
+# First Argument - vm name
+function get-vm-public-ip() {
+ aws lightsail get-instances \
+    --region $AWS_REGION \
+    --query 'instances[].{publicIpAddress:publicIpAddress,privateIpAddress:privateIpAddress,VMname:name,state:state.name}' \
+    --output table --no-cli-pager | grep $1 | cut -d '|' -f 4 | xargs
+}
+
+# Download key pair from the region
+function download-key-pair() {
+  aws lightsail download-default-key-pair --output text --query publicKeyBase64 > mylab.pub
+  chmod 644 mylab.pub
+  aws lightsail download-default-key-pair --output text --query privateKeyBase64 > mylab.key
+  chmod 600 mylab.key
+}
