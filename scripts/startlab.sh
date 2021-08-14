@@ -51,16 +51,19 @@ do
   list-vm
   sleep 10
 done
+echo "All VMs are up and running now..."
+list-vm
 
 echo "Configure firewall rules for the VMs on the lab"
-configure-vm-network-port demo-rancher
-configure-vm-network-port demo-harbor
-configure-vm-network-port demo-devsecops-m1
-configure-vm-network-port demo-devsecops-w1
-configure-vm-network-port demo-devsecops-w2
-configure-vm-network-port demo-devsecops-w3
-configure-vm-network-port demo-cluster1
-configure-vm-network-port demo-cluster2
+open-vm-standard-network-port demo-rancher
+open-vm-standard-network-port demo-harbor
+open-vm-specific-network-port demo-harbor 30443 30443
+open-vm-standard-network-port demo-devsecops-m1
+open-vm-standard-network-port demo-devsecops-w1
+open-vm-standard-network-port demo-devsecops-w2
+open-vm-standard-network-port demo-devsecops-w3
+open-vm-standard-network-port demo-cluster1
+open-vm-standard-network-port demo-cluster2
 
 echo "Capture all the VM IP addresses into a file"
 cat mylab_aws_region.sh > mylab_vm_list.txt
@@ -70,13 +73,16 @@ echo "Download default AWS lightsail SSH key pair from your region $AWS_REGION"
 download-key-pair
 
 export SSH_OPTS="-o StrictHostKeyChecking=no"
-for vm in demo-rancher demo-harbor; do
+for vm in rancher harbor; do
   VM_IP=`get-vm-public-ip $vm`
-  echo "SSH into $vm (IP:$VM_IP) and upload files into this server ..."
+  echo "SSH into demo-$vm (IP:$VM_IP) and upload files into this server ..."
   until ssh $SSH_OPTS -i mylab.key ec2-user@$VM_IP true; do
       sleep 5
   done
   scp $SSH_OPTS -i mylab.key mylab*.* ec2-user@$VM_IP:~/
+  scp $SSH_OPTS -i mylab.key ../setup/$vm/*.*  ec2-user@$VM_IP:~/
+  echo "ssh -i mylab.key ec2-user@$VM_IP" > mylab-ssh-$vm.sh
+  chmod +x mylab-ssh-$vm.sh
 done 
 
 echo 
@@ -88,7 +94,7 @@ list-vm
 echo
 echo "To SSH into the VM on the lab, you can run this command:"
 echo
-echo "ssh -i mylab.key ec2-user@<YOUR-VM-PUBLIC-IP>"
+echo "./mylab-ssh-rancher.sh"
 echo
 echo "Please continue the lab exercises according to our guide. Thank you! Have a nice day!"
 

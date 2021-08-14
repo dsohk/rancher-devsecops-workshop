@@ -25,13 +25,23 @@ function delete-vm() {
 
 # Open Network Port for VM
 # First argument - vm-name
-function configure-vm-network-port() {
+function open-vm-standard-network-port() {
   aws lightsail put-instance-public-ports \
     --port-infos \
     "fromPort=22,toPort=22,protocol=TCP" \
     "fromPort=80,toPort=80,protocol=TCP" \
     "fromPort=443,toPort=443,protocol=TCP" \
     "fromPort=8,toPort=-1,protocol=ICMP" \
+    --instance-name $1 --output table --no-cli-pager
+}
+
+# Open specific, not-default network port for VM
+# First argument - vm-name
+# Second argument - starting network port
+# Third argument - ending network port
+function open-vm-specific-network-port() {
+  aws lightsail open-instance-public-ports \
+    --port-info fromPort=$2,toPort=$3,protocol=TCP \
     --instance-name $1 --output table --no-cli-pager
 }
 
