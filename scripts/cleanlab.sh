@@ -16,7 +16,8 @@ function cleanup() {
   delete-vm demo-devsecops-w3
   delete-vm demo-cluster1
   delete-vm demo-cluster2
-  rm mylab*.*
+  rm {mylab.*,mylab*.txt}
+  echo "Your lab environment has been cleaned up."
 }
 
 echo "This script will clean up all the VMs provisioned in your AWS Lightsail environment."

@@ -34,7 +34,7 @@ export AWS_AZ=${AWS_REGION}a
 export AWS_SIZE_MEDIUM="medium${AWSLS_VM_SIZE_SUFFIX}"
 export AWS_SIZE_LARGE="large${AWSLS_VM_SIZE_SUFFIX}"
 
-echo "Starting VM in your AWS Lighsail region $AWS_REGION ..."
+echo "Provisioning VM in your AWS Lightsail region $AWS_REGION as lab environment ..."
 create-vm demo-rancher $AWS_SIZE_MEDIUM
 create-vm demo-harbor  $AWS_SIZE_MEDIUM
 create-vm demo-devsecops-m1 $AWS_SIZE_MEDIUM
@@ -69,11 +69,15 @@ list-vm >> mylab_vm_list.txt
 echo "Download default AWS lightsail SSH key pair from your region $AWS_REGION"
 download-key-pair
 
-export SSH_OPTS="-o ConnectTimeout=120 -o StrictHostKeyChecking=no"
-export RANCHER_IP=`get-vm-public-ip demo-rancher`
-echo "SSH into Rancher Server $RANCHER_IP and upload files into this server ..."
-scp $SSH_OPTS -i mylab.key mylab_vm_list.txt ec2-user@$RANCHER_IP:~/
-scp $SSH_OPTS -i mylab.key mylab.key ec2-user@$RANCHER_IP:~/
+export SSH_OPTS="-o StrictHostKeyChecking=no"
+for vm in demo-rancher demo-harbor; do
+  VM_IP=`get-vm-public-ip $vm`
+  echo "SSH into $vm (IP:$VM_IP) and upload files into this server ..."
+  until ssh $SSH_OPTS -i mylab.key ec2-user@$VM_IP true; do
+      sleep 5
+  done
+  scp $SSH_OPTS -i mylab.key mylab*.* ec2-user@$VM_IP:~/
+done 
 
 echo 
 echo
@@ -87,4 +91,5 @@ echo
 echo "ssh -i mylab.key ec2-user@<YOUR-VM-PUBLIC-IP>"
 echo
 echo "Please continue the lab exercises according to our guide. Thank you! Have a nice day!"
+
 
