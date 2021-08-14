@@ -1,0 +1,48 @@
+serviceAccount:
+  create: false
+  name: jenkins
+controller:
+  image: "susesamples/myjenkins"
+  tag: "v1.4"
+  imagePullPolicy: "Always"
+  installPlugins: false
+  jenkinsUrl: jenkins.suse.lab
+  jenkinsUrlProtocol: https
+  resources:
+    requests:
+      cpu: "250m"
+      memory: "1024Mi"
+    limits:
+      cpu: "2000m"
+      memory: "2048Mi"
+  sidecars:
+    configAutoReload:
+      enabled: false
+    other:
+    - name: smee
+      image: docker.io/twalter/smee-client:1.0.2
+      args: ["--port", "{{ .Values.controller.servicePort }}", "--path", "/github-webhook/", "--url", "https://smee.io/FqIskMikN91QAv7"]
+      resources:
+        limits:
+          cpu: 50m
+          memory: 128Mi
+        requests:
+          cpu: 10m
+          memory: 32Mi
+  prometheus:
+    enabled: true
+    # Additional labels to add to the ServiceMonitor object
+    serviceMonitorAdditionalLabels: {}
+    # Set a custom namespace where to deploy ServiceMonitor resource
+    # serviceMonitorNamespace: monitoring
+    scrapeInterval: 60s
+    # This is the default endpoint used by the prometheus plugin
+    scrapeEndpoint: /prometheus
+    # Additional labels to add to the PrometheusRule object
+    alertingRulesAdditionalLabels: {}
+    # An array of prometheus alerting rules
+    # See here: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
+    # The `groups` root object is added by default, simply add the rule entries
+    alertingrules: []
+    # Set a custom namespace where to deploy PrometheusRule resource
+    prometheusRuleNamespace: ""

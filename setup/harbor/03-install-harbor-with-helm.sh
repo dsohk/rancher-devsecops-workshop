@@ -21,6 +21,12 @@ helm install harbor-registry harbor/harbor --version 1.6.2 \
   --set harborAdminPassword="${HARBOR_ADMIN_PWD}"
 
 echo "Your Harbor instance is provisioning...."
+# while [`kubectl get deploy -n harbor | grep 1/1 | wc -l` -ne "8"]; do
+#   sleep 10
+#   echo "Wait while harbor is still provisioning..."
+#   kubectl get all,pv,pvc -n harbor
+# done
+
 echo
 kubectl get all,pv,pvc -n harbor
 echo
