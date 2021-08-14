@@ -1,17 +1,18 @@
 #! /bin/bash -e
 
 # Step 1 - Install K3S
-export INSTALL_K3S_VERSION="v1.21.1+k3s1" 
+export INSTALL_K3S_VERSION="v1.21.1+k3s1"
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" sh -s -
 mkdir -p $HOME/.kube && ln -sf /etc/rancher/k3s/k3s.yaml $HOME/.kube/config
 
+# Step 2 - Check if the node is ready
 echo "Wait for 10 seconds to initialize k3s cluster ..."
 sleep 10
-
-# Step 2 - Check if the node is ready
 kubectl get --kubeconfig=$HOME/.kube/config node
 
 # Step 3 - Ensure all the pods in kube-system namespace are up and running...
+echo "Wait for 15 seconds to wait until all the system pods are running in k3s cluster ..."
+sleep 15
 kubectl get po --kubeconfig=$HOME/.kube/config -A
 
 # The output should be something like below.
@@ -24,4 +25,3 @@ kubectl get po --kubeconfig=$HOME/.kube/config -A
 # kube-system   helm-install-traefik-wq7v5                0/1     Completed   1          64s
 # kube-system   svclb-traefik-pnx4w                       2/2     Running     0          30s
 # kube-system   traefik-97b44b794-zgbht                   1/1     Running     0          30s
-

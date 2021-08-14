@@ -81,9 +81,15 @@ for vm in rancher harbor; do
   done
   scp $SSH_OPTS -i mylab.key mylab*.* ec2-user@$VM_IP:~/
   scp $SSH_OPTS -i mylab.key ../setup/$vm/*.*  ec2-user@$VM_IP:~/
-  echo "ssh -i mylab.key ec2-user@$VM_IP" > mylab-ssh-$vm.sh
-  chmod +x mylab-ssh-$vm.sh
 done 
+
+# write ssh file for easy access
+for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 cluster1 cluster2; do
+  echo "Generating shortcut ssh files for VM access..."
+  VM_IP=`get-vm-public-ip $vm`
+  echo "ssh -i mylab.key ec2-user@$VM_IP" > ssh-mylab-$vm.sh
+  chmod +x ssh-mylab-$vm.sh
+done
 
 echo 
 echo
@@ -94,7 +100,7 @@ list-vm
 echo
 echo "To SSH into the VM on the lab, you can run this command:"
 echo
-echo "./mylab-ssh-rancher.sh"
+echo "./ssh-mylab-<vm>.sh"
 echo
 echo "Please continue the lab exercises according to our guide. Thank you! Have a nice day!"
 
