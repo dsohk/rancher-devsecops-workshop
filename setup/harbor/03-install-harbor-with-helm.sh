@@ -2,13 +2,14 @@
 
 # Install harbor with helm chart
 
+echo "Deploying harbor on k3s ...."
 export KUBECONFIG=$HOME/.kube/config
 kubectl create ns harbor
 helm repo add harbor https://helm.goharbor.io
 helm repo update
 helm search repo harbor
 
-export HARBOR_IP=`curl http://checkip.amazonaws.com`
+export HARBOR_IP=`curl -sq http://checkip.amazonaws.com`
 export HARBOR_ADMIN_PWD=`tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1`
 export HARBOR_NODEPORT=30443
 
@@ -19,25 +20,6 @@ helm install harbor-registry harbor/harbor --version 1.6.2 \
   --set expose.tls.auto.commonName=demo-harbor \
   --set externalURL=https://${HARBOR_IP}:${HARBOR_NODEPORT} \
   --set harborAdminPassword="${HARBOR_ADMIN_PWD}"
-
-echo "Your Harbor instance is provisioning...."
-# while [`kubectl get deploy -n harbor | grep 1/1 | wc -l` -ne "8"]; do
-#   sleep 10
-#   echo "Wait while harbor is still provisioning..."
-#   kubectl get all,pv,pvc -n harbor
-# done
-
-echo
-kubectl get all,pv,pvc -n harbor
-echo
-echo "URL: https://${HARBOR_IP}:${HARBOR_NODEPORT}" > harbor-credential.txt
-echo "User: admin" >> harbor-credential.txt
-echo "Password: ${HARBOR_ADMIN_PWD}" >> harbor-credential.txt
-echo "Your login credential is saved in a file: harbor-credential.txt"
-cat harbor-credential.txt
-
-echo "Wait for 2-3 minutes until all harbor components are fully up and running"
-kubectl get po -n harbor
 
 # Output should be like this when it's completed.
 # ec2-user@ip-172-26-3-222:~> kubectl get po -n harbor
@@ -53,3 +35,21 @@ kubectl get po -n harbor
 # harbor-registry-harbor-trivy-0                          1/1     Running   0          82s
 # harbor-registry-harbor-core-66bcd59b97-h5t94            1/1     Running   0          82s
 # harbor-registry-harbor-jobservice-7fbf95459b-hc2mh      1/1     Running   0          82s
+
+echo "Your Harbor instance is provisioning...."
+while [ `kubectl get deploy -n harbor | grep 1/1 | wc -l` -ne 8 ]
+do
+  sleep 10
+  echo "Wait while harbor is still provisioning..."
+  kubectl get deploy  -n harbor
+done
+
+echo "Your harbor instance on k3s is up and running!"
+echo "URL: https://${HARBOR_IP}:${HARBOR_NODEPORT}" > harbor-credential.txt
+echo "User: admin" >> harbor-credential.txt
+echo "Password: ${HARBOR_ADMIN_PWD}" >> harbor-credential.txt
+echo "Your login credential is saved in a file: harbor-credential.txt"
+cat harbor-credential.txt
+
+
+

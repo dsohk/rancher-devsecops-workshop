@@ -79,15 +79,15 @@ for vm in rancher harbor; do
   until ssh $SSH_OPTS -i mylab.key ec2-user@$VM_IP true; do
       sleep 5
   done
-  scp $SSH_OPTS -i mylab.key mylab*.* ec2-user@$VM_IP:~/
+  # scp $SSH_OPTS -i mylab.key mylab*.* ec2-user@$VM_IP:~/
   scp $SSH_OPTS -i mylab.key ../setup/$vm/*.*  ec2-user@$VM_IP:~/
 done 
 
 # write ssh file for easy access
+echo "Generating shortcut ssh files for VM access..."
 for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 cluster1 cluster2; do
-  echo "Generating shortcut ssh files for VM access..."
-  VM_IP=`get-vm-public-ip $vm`
-  echo "ssh -i mylab.key ec2-user@$VM_IP" > ssh-mylab-$vm.sh
+  VM_IP=`cat mylab_vm_list.txt | grep $vm | cut -d '|' -f 4 | xargs`
+  echo "ssh -o StrictHostKeyChecking=no -i mylab.key ec2-user@$VM_IP" > ssh-mylab-$vm.sh
   chmod +x ssh-mylab-$vm.sh
 done
 
