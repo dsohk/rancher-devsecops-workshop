@@ -72,6 +72,21 @@ list-vm >> mylab_vm_list.txt
 echo "Download default AWS lightsail SSH key pair from your region $AWS_REGION"
 download-key-pair
 
+# build mylab-ssh-config file
+touch mylab-ssh-config
+echo "Host *" > mylab-ssh-config
+echo "  StrictHostKeyChecking no" >> mylab-ssh-config
+echo >> mylab-ssh-config
+for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 cluster1 cluster2; do
+  VM_IP=`cat mylab_vm_list.txt | grep $vm | cut -d '|' -f 4 | xargs`
+  echo "Host $vm" >> mylab-ssh-config
+  echo "  HostName $VM_IP" >> mylab-ssh-config
+  echo "  User ec2-user" >> mylab-ssh-config
+  echo "  IdentityFile ~/.ssh/mylab.key" >> mylab-ssh-config
+  echo >> mylab-ssh-config
+done
+chmod 600 mylab-ssh-config
+
 export SSH_OPTS="-o StrictHostKeyChecking=no"
 for vm in rancher harbor; do
   VM_IP=`get-vm-public-ip $vm`
@@ -79,7 +94,8 @@ for vm in rancher harbor; do
   until ssh $SSH_OPTS -i mylab.key ec2-user@$VM_IP true; do
       sleep 5
   done
-  # scp $SSH_OPTS -i mylab.key mylab*.* ec2-user@$VM_IP:~/
+  scp $SSH_OPTS -i mylab.key mylab.key ec2-user@$VM_IP:~/.ssh/
+  scp $SSH_OPTS -i mylab.key mylab-ssh-config ec2-user@$VM_IP:~/.ssh/config
   scp $SSH_OPTS -i mylab.key ../setup/$vm/*.*  ec2-user@$VM_IP:~/
 done 
 

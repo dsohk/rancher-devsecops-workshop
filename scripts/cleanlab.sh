@@ -16,7 +16,7 @@ function cleanup() {
   delete-vm demo-devsecops-w3
   delete-vm demo-cluster1
   delete-vm demo-cluster2
-  rm {mylab.*,ssh-mylab*.*,mylab*.txt}
+  rm {mylab.*,ssh-mylab*.*,mylab*.txt,mylab-ssh-config}
   echo "Your lab environment has been cleaned up."
 }
 

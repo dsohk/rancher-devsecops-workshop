@@ -1,0 +1,21 @@
+1. upload the ssh key to harbor instance; setup ~/.ssh/config file
+
+2. write a script to copy the harbor ca.crt and docker login file into other VMs.
+
+3. write a script to build and publish jenkins image into harbor 
+
+
+
+
+4. download and configure devsecops kubeconfig file
+
+5. deploy jenkins on devsecops cluster
+
+6. deploy sonarqube on devsecops cluster
+
+7. deploy anchore on devsecops cluster
+
+
+With all these set, we are good ... hopefully, we can finish all the above within first 45 mins. 
+
+

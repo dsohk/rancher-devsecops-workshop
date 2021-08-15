@@ -16,5 +16,9 @@ sudo mv ca.crt /etc/docker/certs.d/demo-harbor
 
 echo "Try login to harbor with your credential now ..."
 cat harbor-credential.txt
+
+echo 
+echo "Enter your harbor admin credential below ..."
+echo "docker login $HARBOR_URL"
 sudo docker login $HARBOR_URL
 
