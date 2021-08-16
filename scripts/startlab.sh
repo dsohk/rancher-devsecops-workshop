@@ -102,7 +102,7 @@ done
 # write ssh file for easy access
 echo "Generating shortcut ssh files for VM access..."
 for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 cluster1 cluster2; do
-  VM_IP=`cat mylab_vm_list.txt | grep $vm | cut -d '|' -f 4 | xargs`
+  VM_IP=`cat mylab_vm_list.txt | grep demo-$vm | cut -d '|' -f 4 | xargs`
   echo "ssh -o StrictHostKeyChecking=no -i mylab.key ec2-user@$VM_IP" > ssh-mylab-$vm.sh
   chmod +x ssh-mylab-$vm.sh
 done
