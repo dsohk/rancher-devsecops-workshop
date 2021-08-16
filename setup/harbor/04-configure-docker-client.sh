@@ -1,5 +1,6 @@
 #! /bin/bash
 
+source myharbor.sh
 
 export HARBOR_IP=`curl -sq http://checkip.amazonaws.com`
 export HARBOR_PORT=30443

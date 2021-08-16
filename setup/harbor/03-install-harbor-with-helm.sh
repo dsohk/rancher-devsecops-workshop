@@ -44,6 +44,11 @@ do
   kubectl get deploy  -n harbor
 done
 
+# save the harbor credential for use at later stage
+echo "export HARBOR_URL=https://${HARBOR_IP}:${HARBOR_NODEPORT}" > myharbor.sh
+echo "export HARBOR_USR=admin" >> myharbor.sh
+echo "export HARBOR_PWD=${HARBOR_ADMIN_PWD}" >> myharbor.sh
+
 echo "Your harbor instance on k3s is up and running!"
 echo "URL: https://${HARBOR_IP}:${HARBOR_NODEPORT}" > harbor-credential.txt
 echo "User: admin" >> harbor-credential.txt

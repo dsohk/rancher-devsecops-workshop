@@ -1,11 +1,8 @@
-1. upload the ssh key to harbor instance; setup ~/.ssh/config file
+[done] 1. upload the ssh key to harbor instance; setup ~/.ssh/config file
 
 2. write a script to copy the harbor ca.crt and docker login file into other VMs.
 
 3. write a script to build and publish jenkins image into harbor 
-
-
-
 
 4. download and configure devsecops kubeconfig file
 
