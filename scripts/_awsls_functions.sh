@@ -11,7 +11,7 @@ function create-vm() {
     --ip-address-type ipv4 \
     --user-data "systemctl enable docker; systemctl start docker; echo 'export PS1=\"$1 \u@\h:\w>\"' >> /home/ec2-user/.bashrc; echo 'export PS1=\"$1 \u@\h:\w>\"' >> /root/.bashrc;" \
     --tags key=suse-rancher \
-    --no-cli-pager
+    --output table --no-cli-pager
 }
 
 # DeleteVM
@@ -20,6 +20,7 @@ function delete-vm() {
   aws lightsail delete-instance \
     --region $AWS_REGION \
     --instance-name $1 \
+    --force-delete-add-ons \
     --output table --no-cli-pager
 }
 

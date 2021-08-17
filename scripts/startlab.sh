@@ -118,6 +118,33 @@ for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 clu
   chmod +x ssh-mylab-$vm.sh
 done
 
+
+# install rancher now?
+function install_rancher() {
+  RANCHER_IP=`cat mylab_vm_list.txt | grep demo-rancher | cut -d '|' -f 4 | xargs`
+  ssh -o StrictHostKeyChecking=no -i mylab.key ec2-user@$RANCHER_IP sh 99-one-step-install-rancher.sh
+}
+read -p "Do you want to install Rancher now? (y/n)?" choice
+case "$choice" in
+  y|Y ) install_rancher;;
+  n|N ) echo "You can ssh into Rancher instance and follow the instruction guide to install Rancher.";;
+  *   ) echo "Please enter y or n.";;
+esac
+
+# # install harbor now?
+# function install_harbor() {
+#   HARBOR_IP=`cat mylab_vm_list.txt | grep demo-harbor | cut -d '|' -f 4 | xargs`
+#   ssh -o StrictHostKeyChecking=no -i mylab.key ec2-user@$HARBOR_IP sh 99-one-step-install-harbor.sh
+# }
+# read -p "Do you want to install Harbor now? (y/n)?" choice
+# case "$choice" in
+#   y|Y ) install_harbor;;
+#   n|N ) echo "You can ssh into Harbor instance and follow the instruction guide to install Harbor.";;
+#   *   ) echo "Please enter y or n.";;
+# esac
+
+
+
 echo 
 echo
 echo "Your lab environment on AWS Lightsail $AWS_REGION is ready. "
