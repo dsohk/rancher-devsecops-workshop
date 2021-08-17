@@ -56,6 +56,8 @@ list-vm
 
 echo "Configure firewall rules for the VMs on the lab"
 open-vm-standard-network-port demo-rancher
+open-vm-specific-network-port demo-rancher 80 80
+open-vm-specific-network-port demo-rancher 443 443
 open-vm-standard-network-port demo-harbor
 open-vm-specific-network-port demo-harbor 30443 30443
 open-vm-standard-network-port demo-devsecops-m1

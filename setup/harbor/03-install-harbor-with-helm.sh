@@ -45,7 +45,7 @@ do
 done
 
 # save the harbor credential for use at later stage
-echo "export HARBOR_URL=https://${HARBOR_IP}:${HARBOR_NODEPORT}" > myharbor.sh
+echo "export HARBOR_URL=${HARBOR_IP}:${HARBOR_NODEPORT}" > myharbor.sh
 echo "export HARBOR_USR=admin" >> myharbor.sh
 echo "export HARBOR_PWD=${HARBOR_ADMIN_PWD}" >> myharbor.sh
 
