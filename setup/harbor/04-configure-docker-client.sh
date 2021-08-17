@@ -14,8 +14,3 @@ sudo mv ca.crt /etc/docker/certs.d/demo-harbor
 echo "Login to harbor with docker client ..."
 sudo docker login $HARBOR_URL -u $HARBOR_USR -p $HARBOR_PWD
 
-echo "Distribute the self-signed harbor certs into other VMs in this lab ..."
-
-echo "Congrats! Your Harbor instance has been setup successfully."
-cat harbor-credential.txt
-

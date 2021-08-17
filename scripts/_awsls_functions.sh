@@ -29,8 +29,6 @@ function open-vm-standard-network-port() {
   aws lightsail put-instance-public-ports \
     --port-infos \
     "fromPort=22,toPort=22,protocol=TCP" \
-    "fromPort=80,toPort=80,protocol=TCP" \
-    "fromPort=443,toPort=443,protocol=TCP" \
     "fromPort=8,toPort=-1,protocol=ICMP" \
     --instance-name $1 --output table --no-cli-pager
 }
