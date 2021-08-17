@@ -2,21 +2,22 @@
 
 cat _banner.txt
 source mylab_aws_region.sh
+source mylab_vm_prefix.sh
 source _awsls_functions.sh
 echo
 echo "Welcome to SUSE Rancher DevSecOps Hands-on Lab on AWS Lightsail ..."
 echo
 
 function cleanup() {
-  delete-vm demo-rancher
-  delete-vm demo-harbor
-  delete-vm demo-devsecops-m1 
-  delete-vm demo-devsecops-w1
-  delete-vm demo-devsecops-w2
-  delete-vm demo-devsecops-w3
-  delete-vm demo-cluster1
-  delete-vm demo-cluster2
-  rm -f {mylab.*,ssh-mylab*.*,mylab*.txt,mylab-ssh-config}
+  delete-vm $VM_PREFIX-rancher
+  delete-vm $VM_PREFIX-harbor
+  delete-vm $VM_PREFIX-devsecops-m1 
+  delete-vm $VM_PREFIX-devsecops-w1
+  delete-vm $VM_PREFIX-devsecops-w2
+  delete-vm $VM_PREFIX-devsecops-w3
+  delete-vm $VM_PREFIX-cluster1
+  delete-vm $VM_PREFIX-cluster2
+  rm -f {mylab.*,ssh-mylab*.*,mylab*.txt,mylab-ssh-config,mylab_vm_prefix.sh}
   echo "Your lab environment has been cleaned up."
 }
 
