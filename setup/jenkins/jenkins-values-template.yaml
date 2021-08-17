@@ -2,10 +2,11 @@ serviceAccount:
   create: false
   name: jenkins
 controller:
-  image: "susesamples/myjenkins"
-  tag: "v1.4"
+  image: "${HARBOR_URL}/library/myjenkins"
+  tag: "v1.0"
   imagePullPolicy: "Always"
   installPlugins: false
+  serviceType: NodePort
   jenkinsUrl: jenkins.suse.lab
   jenkinsUrlProtocol: https
   resources:
