@@ -8,7 +8,7 @@ echo "This script will help you to provision VMs on AWS Lightsail to get started
 echo
 echo ""
 
-export VM_PREFIX=suse0817
+export VM_PREFIX=suse0908
 echo "export VM_PREFIX=$VM_PREFIX" > mylab_vm_prefix.sh
 
 # Supported AWS Lighsail Regions: 
