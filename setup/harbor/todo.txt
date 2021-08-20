@@ -2,9 +2,9 @@
 
 [done] 2. write a script to copy the harbor ca.crt and docker login file into other VMs.
 
-3. write a script to build and publish jenkins image into harbor 
+[done] 3. write a script to build and publish jenkins image into harbor 
 
-4. download and configure devsecops kubeconfig file
+[done] 4. download and configure devsecops kubeconfig file
 
 5. deploy jenkins on devsecops cluster
 

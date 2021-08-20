@@ -6,7 +6,33 @@ echo
 echo "Welcome to SUSE Rancher DevSecOps Hands-on Lab on AWS Lightsail ..."
 echo "This script will help you to provision VMs on AWS Lightsail to get started to run your lab exercise."
 echo
-echo ""
+
+function usage() {
+  echo "usage: ./startlab.sh [options]"
+  echo "-a    | --auto-deploy-rancher       Specify this flag to auto-deploy Rancher after the lab on AWS is up."
+  echo "-h    | --help                      Brings up this menu"
+  echo
+}
+
+# show help usage
+if [ "$1" == "" ]; then usage; fi
+
+cmdopt_auto_deploy_rancher=false
+while [ "$1" != "" ]; do
+    case $1 in
+        -a | --auto-deploy-rancher )
+            shift
+            cmdopt_auto_deploy_rancher=true
+            echo "NOTE: You have opted-in to deploy Rancher after your VM on AWS is up."
+            echo
+            break
+        ;;          
+        -h | --help )    usage
+            exit
+        ;;
+    esac
+    shift
+done
 
 export VM_PREFIX=suse0908
 echo "export VM_PREFIX=$VM_PREFIX" > mylab_vm_prefix.sh
@@ -127,12 +153,10 @@ function install_rancher() {
   RANCHER_IP=`cat mylab_vm_list.txt | grep $VM_PREFIX-rancher | cut -d '|' -f 4 | xargs`
   ssh -o StrictHostKeyChecking=no -i mylab.key ec2-user@$RANCHER_IP sh 99-one-step-install-rancher.sh
 }
-read -p "Do you want to install Rancher now? (y/n)?" choice
-case "$choice" in
-  y|Y ) install_rancher;;
-  n|N ) echo "You can ssh into Rancher instance and follow the instruction guide to install Rancher.";;
-  *   ) echo "Please enter y or n.";;
-esac
+if [[ 'true' == $cmdopt_auto_deploy_rancher ]]
+then
+  install_rancher
+fi
 
 
 echo 
@@ -147,5 +171,4 @@ echo
 echo "./ssh-mylab-<vm>.sh"
 echo
 echo "Please continue the lab exercises according to our guide. Thank you! Have a nice day!"
-
 
