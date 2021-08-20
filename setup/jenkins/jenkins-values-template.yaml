@@ -7,8 +7,8 @@ controller:
   imagePullPolicy: "Always"
   installPlugins: false
   serviceType: NodePort
-  jenkinsUrl: jenkins.suse.lab
-  jenkinsUrlProtocol: https
+  # jenkinsUrl: jenkins.suse.lab
+  # jenkinsUrlProtocol: https
   resources:
     requests:
       cpu: "250m"
@@ -16,20 +16,20 @@ controller:
     limits:
       cpu: "2000m"
       memory: "2048Mi"
-  sidecars:
-    configAutoReload:
-      enabled: false
-    other:
-    - name: smee
-      image: docker.io/twalter/smee-client:1.0.2
-      args: ["--port", "{{ .Values.controller.servicePort }}", "--path", "/github-webhook/", "--url", "https://smee.io/FqIskMikN91QAv7"]
-      resources:
-        limits:
-          cpu: 50m
-          memory: 128Mi
-        requests:
-          cpu: 10m
-          memory: 32Mi
+  # sidecars:
+  #   configAutoReload:
+  #     enabled: false
+  #   other:
+  #   - name: smee
+  #     image: docker.io/twalter/smee-client:1.0.2
+  #     args: ["--port", "{{ .Values.controller.servicePort }}", "--path", "/github-webhook/", "--url", "https://smee.io/FqIskMikN91QAv7"]
+  #     resources:
+  #       limits:https://smee.io/
+  #         cpu: 50m
+  #         memory: 128Mi
+  #       requests:
+  #         cpu: 10m
+  #         memory: 32Mi
   prometheus:
     enabled: true
     # Additional labels to add to the ServiceMonitor object

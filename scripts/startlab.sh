@@ -91,10 +91,16 @@ open-vm-standard-network-port $VM_PREFIX-harbor
 open-vm-specific-network-port $VM_PREFIX-harbor 30443 30443
 open-vm-standard-network-port $VM_PREFIX-devsecops-m1
 open-vm-standard-network-port $VM_PREFIX-devsecops-w1
+open-vm-specific-network-port $VM_PREFIX-devsecops-w1 30000 32767
 open-vm-standard-network-port $VM_PREFIX-devsecops-w2
+open-vm-specific-network-port $VM_PREFIX-devsecops-w2 30000 32767
 open-vm-standard-network-port $VM_PREFIX-devsecops-w3
+open-vm-specific-network-port $VM_PREFIX-devsecops-w3 30000 32767
 open-vm-standard-network-port $VM_PREFIX-cluster1
+open-vm-specific-network-port $VM_PREFIX-cluster1 30000 32767
 open-vm-standard-network-port $VM_PREFIX-cluster2
+open-vm-specific-network-port $VM_PREFIX-cluster2 30000 32767
+
 
 echo "Capture all the VM IP addresses into a file"
 cat mylab_aws_region.sh > mylab_vm_list.txt

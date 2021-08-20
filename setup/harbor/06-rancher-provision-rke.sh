@@ -1,4 +1,4 @@
-#! /bin/bash -e
+#! /bin/bash -ex
 
 read -p "Rancher URL: " RANCHER_URL
 read -p "Rancher token: " RANCHER_TOKEN
@@ -13,6 +13,8 @@ if [[ ! -f "/usr/local/bin/rancher" ]]; then
 fi
 
 # establish session
+echo "Connecting to Rancher URL: ${RANCHER_URL} ..."
+echo "Rancher Token: ${RANCHER_TOKEN}"
 rancher login --skip-verify --token $RANCHER_TOKEN $RANCHER_URL
 
 # provision devsecops RKE
