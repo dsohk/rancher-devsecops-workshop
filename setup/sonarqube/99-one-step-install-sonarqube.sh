@@ -1,6 +1,18 @@
-#! /bin/bash -e
+#! /bin/bash
 
+# Check if devsecops.cfg file exists
+if [ ! -f $HOME/.kube/devsecops.cfg ]; then
+  echo "Please copy the kubeconfig file of Rancher devsecops cluster into $HOME/kube/devsecops.cfg file before running this script."
+  exit
+fi
 export KUBECONFIG=$HOME/.kube/devsecops.cfg
+
+
+# check if the longhorn has been installed
+if [ `kubectl get sc | grep default | wc -l` -ne 1 ]; then
+  echo "Please deploy longhorn on devsecops cluster before running this script."
+  exit
+fi
 
 # check if git is installed
 git --version 2>&1 >/dev/null
@@ -8,6 +20,8 @@ GIT_IS_AVAILABLE=$?
 if [ $GIT_IS_AVAILABLE -ne 0 ]; then
   sudo zypper install -y git-core
 fi
+
+set -e
 
 git clone https://github.com/SonarSource/helm-chart-sonarqube.git
 cd helm-chart-sonarqube/charts/sonarqube
