@@ -1,5 +1,7 @@
 #! /bin/bash
 
+export KUBECONFIG=$HOME/.kube/devsecops.cfg
+
 helm repo add anchore https://charts.anchore.io
 helm repo update
 

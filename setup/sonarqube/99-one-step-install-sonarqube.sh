@@ -1,5 +1,7 @@
 #! /bin/bash -e
 
+export KUBECONFIG=$HOME/.kube/devsecops.cfg
+
 # check if git is installed
 git --version 2>&1 >/dev/null
 GIT_IS_AVAILABLE=$?
