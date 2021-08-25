@@ -10,18 +10,21 @@ RANCHER_REGCMD=${RANCHER_REGCMD/--worker/}
 RANCHER_REGCMD=${RANCHER_REGCMD/--node-name */}
 
 if [ -f ssh-mylab-devsecops-m1.sh ]; then
+  echo
   echo "Register devsecops-m1 cluster ..."
   SSH_VM=$(<ssh-mylab-devsecops-m1.sh)
-  eval "$SSH_VM $RANCHER_REGCMD --node-name devsecops-m1 --etcd --controlplane &> devsecops-m1.log"
+  eval "$SSH_VM $RANCHER_REGCMD --node-name devsecops-m1 --etcd --controlplane"
 fi
 
 
 # Count all worker nodes
-for n in 1 2 3 4; do
+for n in 1 2 3 4 
+do
   if [ -f ssh-mylab-devsecops-w$n.sh ]; then
+    echo
     echo "Register devsecops-w$n cluster ..."
     SSH_VM=$(<ssh-mylab-devsecops-w$n.sh)
-    eval "$SSH_VM $RANCHER_REGCMD --node-name devsecops-w$n --worker &> devsecops-w$n.log"
+    eval "$SSH_VM $RANCHER_REGCMD --node-name devsecops-w$n --worker"
   fi
 done 
 
