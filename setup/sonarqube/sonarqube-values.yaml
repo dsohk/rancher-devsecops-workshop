@@ -1,0 +1,35 @@
+image:
+  repository: sonarqube
+  tag: 8.9-community
+  pullPolicy: IfNotPresent
+  # If using a private repository, the name of the imagePullSecret to use
+  # pullSecret: my-repo-secret
+
+service:
+  type: NodePort
+  externalPort: 9000
+  internalPort: 9000
+
+tolerations:
+  - key: "sonarqube"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
+
+nodeSelector:
+  sonarqube: "true"
+
+## We usually don't make specific ressource recommandations, as they are heavily dependend on
+## The usage of SonarQube and the surrounding infrastructure.
+## Adjust these values to your needs, but make sure that the memory limit is never under 4 GB
+resources:
+  limits:
+    cpu: 800m
+    memory: 4096M
+  requests:
+    cpu: 250m
+    memory: 2Gi
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 5Gi

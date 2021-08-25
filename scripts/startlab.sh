@@ -50,7 +50,7 @@ select opt in "${options[@]}" "Quit"; do
   3) echo "You picked $opt "; export AWS_REGION=ap-southeast-1; export AWSLS_VM_SIZE_SUFFIX=_2_0; break;;
   4) echo "You picked $opt "; export AWS_REGION=ap-southeast-2; export AWSLS_VM_SIZE_SUFFIX=_2_2; break;;
   5) echo "You picked $opt "; export AWS_REGION=ap-south-1;     export AWSLS_VM_SIZE_SUFFIX=_2_1; break;;
-  $((${#options[@]}+1))) echo "Aborted. Bye!!"; break;;
+  $((${#options[@]}+1))) echo "Aborted. Bye!!"; exit;;
   *) echo "Invalid choice. Please try another one.";continue;;
   esac
 done
@@ -70,6 +70,7 @@ create-vm $VM_PREFIX-devsecops-m1 $AWS_SIZE_MEDIUM
 create-vm $VM_PREFIX-devsecops-w1 $AWS_SIZE_LARGE
 create-vm $VM_PREFIX-devsecops-w2 $AWS_SIZE_LARGE
 create-vm $VM_PREFIX-devsecops-w3 $AWS_SIZE_LARGE
+create-vm $VM_PREFIX-devsecops-w4 $AWS_SIZE_LARGE
 create-vm $VM_PREFIX-cluster1 $AWS_SIZE_MEDIUM
 create-vm $VM_PREFIX-cluster2 $AWS_SIZE_MEDIUM
 
@@ -96,6 +97,8 @@ open-vm-standard-network-port $VM_PREFIX-devsecops-w2
 open-vm-specific-network-port $VM_PREFIX-devsecops-w2 30000 32767
 open-vm-standard-network-port $VM_PREFIX-devsecops-w3
 open-vm-specific-network-port $VM_PREFIX-devsecops-w3 30000 32767
+open-vm-standard-network-port $VM_PREFIX-devsecops-w4
+open-vm-specific-network-port $VM_PREFIX-devsecops-w4 30000 32767
 open-vm-standard-network-port $VM_PREFIX-cluster1
 open-vm-specific-network-port $VM_PREFIX-cluster1 30000 32767
 open-vm-standard-network-port $VM_PREFIX-cluster2
@@ -114,7 +117,7 @@ touch mylab-ssh-config
 echo "Host *" > mylab-ssh-config
 echo "  StrictHostKeyChecking no" >> mylab-ssh-config
 echo >> mylab-ssh-config
-for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 cluster1 cluster2; do
+for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 devsecops-w4 cluster1 cluster2; do
   VM_IP=`cat mylab_vm_list.txt | grep $VM_PREFIX-$vm | cut -d '|' -f 4 | xargs`
   echo "Host $vm" >> mylab-ssh-config
   echo "  HostName $VM_IP" >> mylab-ssh-config
@@ -140,6 +143,7 @@ done
 echo "Upload files to be executed onto devsecops cluster into harbor instance ..."
 HARBOR_IP=`get-vm-public-ip $VM_PREFIX-harbor`
 ssh $SSH_OPTS -i mylab.key ec2-user@$HARBOR_IP mkdir -p devsecops/{jenkins,sonarqube,anchore}
+scp $SSH_OPTS -i mylab.key mylab_vm_list.txt ec2-user@HARBOR_IP:~
 scp $SSH_OPTS -i mylab.key ../setup/jenkins/*.* ec2-user@$HARBOR_IP:~/devsecops/jenkins
 scp $SSH_OPTS -i mylab.key ../setup/sonarqube/*.* ec2-user@$HARBOR_IP:~/devsecops/sonarqube
 scp $SSH_OPTS -i mylab.key ../setup/anchore/*.* ec2-user@$HARBOR_IP:~/devsecops/anchore
@@ -147,7 +151,7 @@ scp $SSH_OPTS -i mylab.key ../setup/anchore/*.* ec2-user@$HARBOR_IP:~/devsecops/
 
 # write ssh file for easy access
 echo "Generating shortcut ssh files for VM access..."
-for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 cluster1 cluster2; do
+for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 devsecops-w4 cluster1 cluster2; do
   VM_IP=`cat mylab_vm_list.txt | grep $VM_PREFIX-$vm | cut -d '|' -f 4 | xargs`
   echo "ssh -o StrictHostKeyChecking=no -i mylab.key ec2-user@$VM_IP" > ssh-mylab-$vm.sh
   chmod +x ssh-mylab-$vm.sh
