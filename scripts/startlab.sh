@@ -143,7 +143,7 @@ done
 echo "Upload files to be executed onto devsecops cluster into harbor instance ..."
 HARBOR_IP=`get-vm-public-ip $VM_PREFIX-harbor`
 ssh $SSH_OPTS -i mylab.key ec2-user@$HARBOR_IP mkdir -p devsecops/{jenkins,sonarqube,anchore}
-scp $SSH_OPTS -i mylab.key mylab_vm_list.txt ec2-user@HARBOR_IP:~
+scp $SSH_OPTS -i mylab.key mylab_vm_list.txt ec2-user@$HARBOR_IP:~
 scp $SSH_OPTS -i mylab.key ../setup/jenkins/*.* ec2-user@$HARBOR_IP:~/devsecops/jenkins
 scp $SSH_OPTS -i mylab.key ../setup/sonarqube/*.* ec2-user@$HARBOR_IP:~/devsecops/sonarqube
 scp $SSH_OPTS -i mylab.key ../setup/anchore/*.* ec2-user@$HARBOR_IP:~/devsecops/anchore
