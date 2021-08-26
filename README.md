@@ -289,9 +289,11 @@ devsecops-w4   Ready    worker              14m   v1.20.9
 
 We are going to setup these 3 tools on devsecops cluster in parallel. 
 
-Open 3 linux terminal sessions, ssh into Harbor VM.
+Open 3 linux terminal windows, ssh into Harbor VM, as illustrated in the diagram below.
 
-In terminal 1, run the following command to setup Jenkins.
+![Terminal Windows in Harbor VM](./images/deploy-devsevops-tools.png)
+
+In terminal 1 of your Harbor VM, run the following command to setup Jenkins.
 
 ```
 cd ~/devsecops/jenkins
@@ -300,7 +302,7 @@ cd ~/devsecops/jenkins
 
 It should take awhile to build custom Jenkins images with our own choice of plugins for this lab, upload to your harbor private registry, and deploy Jenkins with helm chart onto your `devsecops` cluster.
 
-While we are waiting, run the following command to setup Anchore in terminal 2.
+While we are waiting, run the following command to setup Anchore in terminal 2 of your Harbor VM.
 
 ```
 cd ~/devsecops/anchore
@@ -309,7 +311,7 @@ cd ~/devsecops/anchore
 
 It will also take awhile to deploy anchore on your devsecops cluster. Likewise, let's continue while waiting it to finish.
 
-Run the following command to setup Sonarqube in terminal 3.
+Run the following command to setup Sonarqube in terminal 3 of your Harbor VM.
 
 ```
 cd ~/devsecops/sonarqube
