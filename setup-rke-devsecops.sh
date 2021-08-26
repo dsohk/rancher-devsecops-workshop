@@ -23,6 +23,7 @@ do
   if [ -f ssh-mylab-devsecops-w$n.sh ]; then
     echo
     echo "Register devsecops-w$n cluster ..."
+    sleep $((RANDOM % 10))
     SSH_VM=$(<ssh-mylab-devsecops-w$n.sh)
     eval "$SSH_VM $RANCHER_REGCMD --node-name devsecops-w$n --worker"
   fi
