@@ -1,6 +1,8 @@
 # Build Your Own DevSecOps using SUSE Rancher
 
-This repository contains all the scripts and kubernetes manifests for the above-captioned hands-on workshop.
+This repository contains all the scripts and kubernetes manifests for complimenting its hands-on workshop.
+
+Estimated Completion Time: 45 mins
 
 This script will help you setup a lab environment with 8 VMs running on AWS Lightsail.
 
@@ -9,7 +11,7 @@ This script will help you setup a lab environment with 8 VMs running on AWS Ligh
 * DevSecOps RKE cluster running `Jenkins`, `Anchore`, and `SonarQube` (5 VM - 1 master + 4 worker nodes)
 * 2 clusters (1 VM each) for deploying applications.
 
-## Pre-requisite
+## Pre-requisites
 
 * Github account
 * AWS account with AWS Lightsail full admin access
@@ -257,11 +259,13 @@ Scroll down to the bottom of the popup screen, click `Copy to Clipboard` link to
 
 From your Linux workstation, ssh into your harbor VM (using `ssh-mylab-harbor.sh` script). 
 
-Create a file `devsecops.cfg` under `~/.kube` folder and paste the content from your clipboard into this file with `vi` or any text editor command you like.
+Create a file `devsecops.cfg` under `~/.kube` folder.
 
 ```
 vi ~/.kube/devsecops.cfg
 ```
+
+Paste the kubeconfig content copied from Rancher UI for devsecops cluster into this file, save it and exit.
 
 Configure Kubernetes client to use this kubeconfig file. 
 
