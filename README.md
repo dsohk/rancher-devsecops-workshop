@@ -195,15 +195,19 @@ Password: J4diXo8ZKddi5mFGEgx1Z3XveoOuPw
 
 Open browser to navigate to the Rancher URL captured in earlier step. By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. Setup your own administrative password, accept the Terms and Conditions, leave the rest of settings as default to continue.
 
+![Rancher UI](./images/rancher-1st-screen.png)
 
 Accept the given IP as your Rancher Server URL to continue.
 
+![Rancher UI](./images/rancher-2nd-screen.png)
 
 You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create a new cluster with `Existing Node` method. 
 
+![Rancher UI](./images/rancher-add-cluster-existing-node.png)
 
 Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
 
+![Rancher UI](./images/rancher-customize-node-run-cmd.png)
 
 Open your Linux workstation terminal and switch to the working directory where this repo has been checked out. 
 
@@ -241,7 +245,11 @@ Return to your browser with Rancher UI, you should see the `devsecops` cluster i
 
 Navigate to `Cluster Explorer` of `devsecops` cluster from Rancher UI. 
 
+![Rancher UI](./images/rancher-devsecops-cluster-manager.png)
+
 Choose `Apps & Marketplace` from its top left pulldown menu.
+
+![Rancher UI](./images/rancher-devsecops-longhorn.png)
 
 Click `Longhorn` apps from the catalog.
 
