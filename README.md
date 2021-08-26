@@ -281,7 +281,7 @@ devsecops-w3   Ready    worker              14m   v1.20.9
 devsecops-w4   Ready    worker              14m   v1.20.9
 ```
 
-### Deploy Jenkins, Anchore and Sonarqube on devsecops RKE cluster from Harbor VM
+### 7. Deploy Jenkins, Anchore and Sonarqube on devsecops RKE cluster from Harbor VM
 
 We are going to setup these 3 tools on devsecops cluster in parallel. 
 
