@@ -65,7 +65,7 @@ export AWS_SIZE_LARGE="large${AWSLS_VM_SIZE_SUFFIX}"
 
 echo "Provisioning VM in your AWS Lightsail region $AWS_REGION as lab environment ..."
 create-vm $VM_PREFIX-rancher $AWS_SIZE_MEDIUM
-create-vm $VM_PREFIX-harbor  $AWS_SIZE_MEDIUM
+create-vm $VM_PREFIX-harbor  $AWS_SIZE_MEDIUM "zypper in -y git-core;"
 create-vm $VM_PREFIX-devsecops-m1 $AWS_SIZE_MEDIUM
 create-vm $VM_PREFIX-devsecops-w1 $AWS_SIZE_LARGE
 create-vm $VM_PREFIX-devsecops-w2 $AWS_SIZE_LARGE
@@ -112,6 +112,14 @@ list-vm >> mylab_vm_list.txt
 echo "Download default AWS lightsail SSH key pair from your region $AWS_REGION"
 download-key-pair
 
+# write ssh file for easy access
+echo "Generating shortcut ssh files for VM access..."
+for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 devsecops-w4 cluster1 cluster2; do
+  VM_IP=`cat mylab_vm_list.txt | grep $VM_PREFIX-$vm | cut -d '|' -f 4 | xargs`
+  echo "ssh -o StrictHostKeyChecking=no -i mylab.key ec2-user@$VM_IP" > ssh-mylab-$vm.sh
+  chmod +x ssh-mylab-$vm.sh
+done
+
 # build mylab-ssh-config file
 touch mylab-ssh-config
 echo "Host *" > mylab-ssh-config
@@ -147,15 +155,6 @@ scp $SSH_OPTS -i mylab.key mylab_vm_list.txt ec2-user@$HARBOR_IP:~
 scp $SSH_OPTS -i mylab.key setup/jenkins/*.* ec2-user@$HARBOR_IP:~/devsecops/jenkins
 scp $SSH_OPTS -i mylab.key setup/sonarqube/*.* ec2-user@$HARBOR_IP:~/devsecops/sonarqube
 scp $SSH_OPTS -i mylab.key setup/anchore/*.* ec2-user@$HARBOR_IP:~/devsecops/anchore
-
-
-# write ssh file for easy access
-echo "Generating shortcut ssh files for VM access..."
-for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 devsecops-w4 cluster1 cluster2; do
-  VM_IP=`cat mylab_vm_list.txt | grep $VM_PREFIX-$vm | cut -d '|' -f 4 | xargs`
-  echo "ssh -o StrictHostKeyChecking=no -i mylab.key ec2-user@$VM_IP" > ssh-mylab-$vm.sh
-  chmod +x ssh-mylab-$vm.sh
-done
 
 
 # install rancher now?

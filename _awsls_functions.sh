@@ -1,6 +1,7 @@
 # CreateVM
 # First argument - vm-name
 # Second argument - instance size
+# Third argument - extra cmd for user-data
 function create-vm() {
   aws lightsail create-instances \
     --region $AWS_REGION \
@@ -9,7 +10,7 @@ function create-vm() {
     --blueprint-id opensuse_15_2 \
     --bundle-id $2 \
     --ip-address-type ipv4 \
-    --user-data "systemctl enable docker; systemctl start docker; echo 'export PS1=\"$1 \u@\h:\w>\"' >> /home/ec2-user/.bashrc; echo 'export PS1=\"$1 \u@\h:\w>\"' >> /root/.bashrc;" \
+    --user-data "systemctl enable docker; systemctl start docker; echo 'export PS1=\"$1 \u@\h:\w>\"' >> /home/ec2-user/.bashrc; echo 'export PS1=\"$1 \u@\h:\w>\"' >> /root/.bashrc; $3" \
     --tags key=suse-rancher \
     --output table --no-cli-pager
 }
