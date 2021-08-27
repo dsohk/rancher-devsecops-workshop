@@ -38,9 +38,3 @@ echo "User: admin" >> $HOME/myanchore.txt
 echo "Password: $ANCHORE_PWD" >> $HOME/myanchore.txt
 cat $HOME/myanchore.txt
  
-
-
-Using the service endpoint from within the cluster you can use:
-    ANCHORE_CLI_URL=http://anchore-anchore-engine-api.anchore.svc.cluster.local:8228/v1/
-
-echo
