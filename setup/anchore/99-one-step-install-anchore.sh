@@ -28,5 +28,19 @@ do
   kubectl get deploy -n anchore
 done
 
-echo "Your Anchore is now successfully provisioned."
+# Get initial password for anchore
+ANCHORE_PWD=$(kubectl get secret --namespace anchore anchore-anchore-engine-admin-pass -o jsonpath="{.data.ANCHORE_ADMIN_PASSWORD}" | base64 --decode; echo)
+
+echo
+echo "Your Anchore is now successfully provisioned." > $HOME/myanchore.txt
+echo "URL: http://anchore-anchore-engine-api.anchore.svc.cluster.local:8228/v1/" >> $HOME/myanchore.txt
+echo "User: admin" >> $HOME/myanchore.txt
+echo "Password: $ANCHORE_PWD" >> $HOME/myanchore.txt
+cat $HOME/myanchore.txt
+ 
+
+
+Using the service endpoint from within the cluster you can use:
+    ANCHORE_CLI_URL=http://anchore-anchore-engine-api.anchore.svc.cluster.local:8228/v1/
+
 echo

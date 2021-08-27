@@ -37,4 +37,11 @@ kubectl create secret generic ca-bundle --from-file=additional-ca-cert-bundle.cr
 rm -f config.json
 rm -f additional-ca-cert-bundle.crt
 
+# show Jenkins information
+echo
+echo --------------------------------
+echo Your Jenkins instance is ready
+echo 
+cat $HOME/myjenkins.txt
+echo
 

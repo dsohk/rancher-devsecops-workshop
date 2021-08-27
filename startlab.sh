@@ -180,5 +180,15 @@ echo "To SSH into the VM on the lab, you can run this command:"
 echo
 echo "./ssh-mylab-<vm>.sh"
 echo
-echo "Please continue the lab exercises according to our guide. Thank you! Have a nice day!"
+
+# Display the Rancher URL
+if [[ 'true' == $cmdopt_auto_deploy_rancher ]]
+then
+  RANCHER_IP=`cat mylab_vm_list.txt | grep $VM_PREFIX-rancher | cut -d '|' -f 4 | xargs`
+  echo "Your Rancher Instance should be ready..."
+  echo
+  echo "Your Rancher URL: https://$RANCHER_IP"
+  echo
+fi
+
 
