@@ -4,12 +4,12 @@ cat _banner.txt
 source _awsls_functions.sh
 echo
 echo "Welcome to SUSE Rancher DevSecOps Hands-on Lab on AWS Lightsail ..."
-echo "This script will help you to provision VMs on AWS Lightsail to get started to run your lab exercise."
+echo "This script will help you to provision VMs on AWS Lightsail to get started to run your lab exercise. By default, this script will install Rancher for you after VM is up."
 echo
 
 function usage() {
   echo "usage: ./startlab.sh [options]"
-  echo "-a    | --auto-deploy-rancher       Specify this flag to auto-deploy Rancher after the lab on AWS is up."
+  echo "-s    | --skip-rancher              Skip deploying Rancher after VM is up."
   echo "-h    | --help                      Brings up this menu"
   echo
 }
@@ -17,13 +17,13 @@ function usage() {
 # show help usage
 if [ "$1" == "" ]; then usage; fi
 
-cmdopt_auto_deploy_rancher=false
+cmdopt_auto_deploy_rancher=true
 while [ "$1" != "" ]; do
     case $1 in
-        -a | --auto-deploy-rancher )
+        -s | --skip-rancher )
             shift
-            cmdopt_auto_deploy_rancher=true
-            echo "NOTE: You have opted-in to deploy Rancher after your VM on AWS is up."
+            cmdopt_auto_deploy_rancher=false
+            echo "NOTE: You chose to deploy Rancher on your own after your VM on AWS is up."
             echo
             break
         ;;          
@@ -185,7 +185,7 @@ echo
 if [[ 'true' == $cmdopt_auto_deploy_rancher ]]
 then
   RANCHER_IP=`cat mylab_vm_list.txt | grep $VM_PREFIX-rancher | cut -d '|' -f 4 | xargs`
-  echo "Your Rancher Instance should be ready..."
+  echo "Your Rancher Instance should be ready in a few minutes ..."
   echo
   echo "Your Rancher URL: https://$RANCHER_IP"
   echo
