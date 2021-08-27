@@ -30,9 +30,7 @@ do
 done 
 
 echo
-echo The devsecops cluster is now being provisioned by Rancher ...
-echo It may take a few minutes.
-echo 
-echo Once it's ready, please install Longhorn on it and download KUBECONFIG file into your Harbor VM. Thank you!
+echo "The devsecops cluster is now being provisioned by Rancher. It may take a few minutes to complete."
+echo "Once it's ready, please install Longhorn on it and download KUBECONFIG file into your Harbor VM. Thank you!"
 echo
 
