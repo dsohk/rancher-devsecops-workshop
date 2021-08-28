@@ -8,7 +8,7 @@ You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` 
 
 ![Rancher UI](./images/pg1.png)
 
-Enter the cluster name as `cluster1` and leave the rest of the setting as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
+Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Label with key value pair `env` and `dev`. Leave the rest of the setting as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
 
 ![Rancher UI](./images/pg2.png)
 
