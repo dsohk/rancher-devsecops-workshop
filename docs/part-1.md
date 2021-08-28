@@ -114,6 +114,9 @@ Your Rancher URL: https://3.25.57.210
 ```
 
 When you run `ls -lh *mylab*` command, you should see a list of shortcut files created for you as well.
+```
+ls -lh *mylab*
+```
 
 ```
 ❯ ls -lh *mylab*
