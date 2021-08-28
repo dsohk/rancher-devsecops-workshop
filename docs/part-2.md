@@ -4,77 +4,26 @@ With Jenkins, Sonarqube, Anchore running on the Rancher-managed devsecops cluste
 
 ## Build my first Jenkins Pipeline
 
+1. Login to Jenkins with the URL and credentials generated from Part 1.
+2. Click `Create Job`
+3. Enter a name `first`
+4. Choose `Pipeline` and click OK.
+5. Jenkins will navigate to the Configure Pipeline page, navigate to Pipeline section
+6. Choose `try sample Pipeline` pulldown menu.
+7. Choose `Declarative (Kubernetes)`
+8. Click `Save` button
+9. On the left menu, click `Build Now` to trigger the first jenkins pipeline.
 
+## Build my second Jenkins Pipeline
 
+Like the first pipeline, create the `second` pipeline but this time choose `Maven (Kubernetes)` from `try sample Pipeline` pulldown menu.
 
-# Github.com
+Click `Build Now` to trigger the second Jenkins pipeline.
 
-1. Generate Personal Access Token at github
+## Examine Cluster Explorer in Rancher
 
-My Avatar
-  => Settings
-  => Developer Settings
-  => Personal Access Tokens
-     - Generate new token
-       name: workshop
-       rights: repo, user:email
-     - Copy the generated token
+Now, let's examine in the pods in Rancher. You will notice the pods will be created on demand everytime when the Pipeline runs and got terminated once it's finished.
 
-2. Fork the spring-petclinic project into your own github account
+With the Jenkins being verified to work well with Rancher-managed Kubernetes, let's move on to 
+[Step 3 - Build CI Pipeline for spring-petclinic](part-3.md).
 
-https://github.com/dsohk/spring-petclinic
-
-3. From the spring-petclinic-helmchart project into your own github account
-
-https://github.com/dsohk/spring-petclinic-helmchart
-
-Update the values.yaml to replace harbor.example.com with your harbor URL (IP:PORT).
-
-
-# Sonarqube
-
-1. Login to sonarqube with initial password and change to your own one.
-2. Add a project > Manually
-3. Project Key: spring-petclinic (same for display name)
-4. Provide a token: spring-petclinic (then click Generate token)
-5. Record your spring-petclinic token:d5ef563080f0aa24f29500700f7aae2c543c3e56
-6. Run analysis on your project: maven
-
-mvn sonar:sonar \
-  -Dsonar.projectKey=spring-petclinic \
-  -Dsonar.host.url=http://18.139.3.119:30707 \
-  -Dsonar.login=f968d62703a0bf73fd1acd70cc5108fd26e61d67
-
-
-
-
-# Jenkins
-
-Setup Global Environment variables
-
-
-Configure Credentials
-
-Managing Jenkins > Manage Credentials
-
-https://www.jenkins.io/doc/book/using/using-credentials/
-
-Manage Jenkins > Configure System > Global propersties section
-
-https://www.lambdatest.com/blog/set-jenkins-pipeline-environment-variables-list/
-
-${YOUR_JENKINS_HOST}/env-vars.html
-
-${env.BUILD_NUMBER}
-
-
-
-
-Setup first pipeline
-
-Left menu:
-  Open BlueOcean
-  Create a New Pipeline
-  -> Choose Github
-  -> Enter your personal access token
-  -> Choose spring-petclinic project 
