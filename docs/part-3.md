@@ -20,11 +20,11 @@ In order to integrate Jenkins with your github account, we have to generate your
 
 https://github.com/dsohk/spring-petclinic
 
+In GitHub, update Jenkinsfile to replace `yourname` with your user name for your git account.
+
 ### 3. Fork the spring-petclinic-helmchart project into your own github account
 
 https://github.com/dsohk/spring-petclinic-helmchart
-
-Update the values.yaml to replace harbor.example.com with your harbor URL (IP:PORT).
 
 
 ## Setup my Sonarqube
@@ -55,7 +55,14 @@ mvn sonar:sonar \
 Define the following environment variables
 
 key: HARBOR_URL
-value: (Your Harbor_URL)
+value: (Your Harbor_URL) (just IP:PORT - no http:// or https://)
+
+
+
+#### Sonarqube
+
+1. Add URL: (Your Sonarqube URL)
+2. Add generated token (From previous step)
 
 #### Anchore Container Image Scanner
 
@@ -68,14 +75,16 @@ value: (Your Harbor_URL)
 1. Global Config user.name : jenkins
 2. Global Config user.email: jenkins@example.com
 
-
 ### Configure the credentials
 
-1. In Jenkins, navigate to `Managing Jenkins`, then `Manage Credentials`
+1. In Jenkins, navigate to `spring-petclinic` Project
+2. Choose `Credential` on the left menu
+3. Under store `spring-petclinic` global pull down menu and choose `Add Credential`
 
+spring-petclinic-helmchart-git-token
+(same git token)
 
-
-### Setup CI Pipeline for spring-petclinic
+## Setup CI Pipeline for spring-petclinic project
 
 Left menu:
   Open BlueOcean
@@ -83,3 +92,9 @@ Left menu:
   -> Choose Github
   -> Enter your personal access token
   -> Choose spring-petclinic project 
+
+Click `Build Now` to run this pipeline. It may take longer for the first time to run this pipeline. The subsequent run will be faster as all the builds or dependent artifacts are cached in the persistent volume used by the pods for this job.
+
+
+
+
