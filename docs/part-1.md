@@ -193,6 +193,8 @@ Accept the given IP as your Rancher Server URL to continue.
 
 ![Rancher UI](./images/rancher-2nd-screen.png)
 
+You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to import a existing cluster with `xxx` method.
+
 You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create a new cluster with `Existing Node` method. 
 
 ![Rancher UI](./images/rancher-add-cluster-existing-node.png)
