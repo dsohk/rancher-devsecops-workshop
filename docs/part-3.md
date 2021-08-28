@@ -1,15 +1,15 @@
-# Part 2 - My First Jenkins Pipeline
+# Part 3 - My Jenkins Pipeline for spring-petclinic App
 
-With Jenkins, Sonarqube, Anchore running on the Rancher-managed devsecops cluster, let's build our very first Jenkins pipeline.
+After we have configured and verify Jenkins is working, let's build the spring-petclinic application.
 
-## Build my first Jenkins Pipeline
+## Github - Generate my Personal Access Token
 
+In order to integrate Jenkins with your github account, we have to generate your personal access token for this.
 
-
-
-# Github.com
-
-1. Generate Personal Access Token at github
+1. Login to your github account
+2. Under your avatar icon, pull down the menu and choose `Settings` menu item.
+3. Choose `Developer Settings` menu on the left, choose `Personal Access Tokens`
+4. 
 
 My Avatar
   => Settings

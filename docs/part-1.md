@@ -84,11 +84,6 @@ Choose the region closiest to you to continue your lab setup. The script will th
 When the script has finished, you will see a table of VMs with IP addresses, the Rancher instance URL, and other useful files created in your local folder. For example, this is the extract of my output after running the startlab script. Obviously, the IP addresses listed will be different from yours.
 
 ```
----------------------------------------------------------
-Please wait for 5-10 mins to initializing Rancher server.
-
-Your Rancher Server URL: https://13.211.212.252
-
 Your lab environment on AWS Lightsail ap-southeast-2 is ready.
 
 Here's the list of VMs running in your lab environment (See file: mylab_vm_list.txt):
@@ -97,25 +92,28 @@ Here's the list of VMs running in your lab environment (See file: mylab_vm_list.
 +-----------------------+--------------------+-------------------+----------+
 |        VMname         | privateIpAddress   |  publicIpAddress  |  state   |
 +-----------------------+--------------------+-------------------+----------+
-|  suse0908-devsecops-w4|  172.26.7.1        |  3.106.59.234     |  running |
-|  suse0908-cluster1    |  172.26.5.29       |  52.63.55.97      |  running |
-|  suse0908-devsecops-w1|  172.26.9.38       |  3.25.197.232     |  running |
-|  suse0908-rancher     |  172.26.13.230     |  13.211.212.252   |  running |
-|  suse0908-devsecops-w3|  172.26.15.250     |  3.106.113.195    |  running |
-|  suse0908-devsecops-m1|  172.26.15.105     |  52.62.113.31     |  running |
-|  suse0908-harbor      |  172.26.2.249      |  54.153.196.73    |  running |
-|  suse0908-cluster2    |  172.26.8.163      |  52.64.52.130     |  running |
-|  suse0908-devsecops-w2|  172.26.4.218      |  3.25.72.2        |  running |
+|  suse0908-devsecops-w1|  172.26.0.133      |  3.25.58.209      |  running |
+|  suse0908-cluster1    |  172.26.0.59       |  54.206.211.81    |  running |
+|  suse0908-devsecops-m1|  172.26.13.211     |  13.239.1.61      |  running |
+|  suse0908-devsecops-w2|  172.26.12.139     |  52.65.89.125     |  running |
+|  suse0908-cluster2    |  172.26.5.80       |  3.25.219.16      |  running |
+|  suse0908-rancher     |  172.26.12.196     |  3.25.57.210      |  running |
+|  suse0908-harbor      |  172.26.6.184      |  3.25.226.182     |  running |
+|  suse0908-devsecops-w4|  172.26.1.75       |  13.236.178.85    |  running |
+|  suse0908-devsecops-w3|  172.26.14.214     |  54.252.44.198    |  running |
 +-----------------------+--------------------+-------------------+----------+
 
 To SSH into the VM on the lab, you can run this command:
 
 ./ssh-mylab-<vm>.sh
 
-Please continue the lab exercises according to our guide. Thank you! Have a nice day!
+Your Rancher Instance should be ready in a few minutes ...
+
+Your Rancher URL: https://3.25.57.210
+
 ```
 
-When you run `ls -l` command, you should see a list of shortcut files created for you as well.
+When you run `ls -lh *mylab*` command, you should see a list of shortcut files created for you as well.
 
 ```
 ❯ ls -lh *mylab*
@@ -175,16 +173,6 @@ You should see the output of like below. Capture the harbor URL and login creden
 *NOTE* Please do NOT change the harbor login credential as the lab assumes to use the randomly generated strong password throughout the rest of the setup.
 
 ```
-...
-Login to harbor with docker client ...
-WARNING! Using --password via the CLI is insecure. Use --password-stdin.
-WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-
-Login Succeeded
-
-
 ============================================================
 Congrats! Your Harbor instance has been setup successfully.
 URL: https://54.153.196.73:30443
@@ -233,10 +221,14 @@ v2.5.9: Pulling from rancher/rancher-agent
 e7ae86ffe2df: Pulling fs layer
 ..........
 ..........
+c7118343d245: Pull complete
 428cad6e906b: Pull complete
 Digest: sha256:fee10940c61c36055120ca9ef624810a740647cff4751d0b21266939c9da4b93
 Status: Downloaded newer image for rancher/rancher-agent:v2.5.9
-3fcdbe011deba7ddcd147e84660db91e37efd0df6a00c17099fd863982b8c118
+1b262467279045a6e5570a28df54051d8a8f2cdb8fb27556fa57aa679e1f8b22
+
+The devsecops cluster is now being provisioned by Rancher. It may take a few minutes to complete.
+Once it's ready, please install Longhorn on it and download KUBECONFIG file into your Harbor VM. Thank you!
 ```
 
 Return to your browser with Rancher UI, you should see the `devsecops` cluster is being initialized. It may take 5-10 minutes to complete the whole RKE cluster.
@@ -257,6 +249,10 @@ Click `Longhorn` apps from the catalog.
 When prompted the `Install Longhorn` page, leave all the settings as default and click `Install` button to continue. It should take 1-2 minutes to complete the longhorn deployment.  The Longhorn item should appear under the top left pulldown menu.
 
 ### 6. Download KUBECONFIG file of DevSecOps cluster to Harbor VM
+
+
+![Download Kubeconfig file](./images/rancher-kubeconfig.png)
+
 
 Navigate to `Cluster Manager` in Rancher UI. 
 
@@ -300,7 +296,7 @@ We are going to setup these 3 tools on devsecops cluster in parallel.
 
 Open 3 linux terminal windows, ssh into Harbor VM, as illustrated in the diagram below.
 
-![Terminal Windows in Harbor VM](./images/deploy-devsevops-tools.png)
+![Deploy Jenkins and others](./images/deploy-jenkins-and-others-start.png)
 
 In terminal 1 of your Harbor VM, run the following command to setup Jenkins.
 
@@ -327,7 +323,11 @@ cd ~/devsecops/sonarqube
 ./99-one-step-install-sonarqube.sh
 ```
 
-Once all the above scripts finished, you can retrieve the login credentials or URL for Jenkins and Sonarqube. Details are stored in the home directory of your harbor VM. For example, 
+Once all the above scripts finished, you can retrieve the login credentials or URL for Jenkins and Sonarqube. 
+
+![Deploy Jenkins and others finished](./images/deploy-jenkins-and-others-finish.png)
+
+Details are also stored in the home directory of your harbor VM. For example, 
 
 ```
 suse0908-harbor ec2-user@ip-172-26-2-249:~>ls -l ~/my*.*
@@ -337,5 +337,5 @@ suse0908-harbor ec2-user@ip-172-26-2-249:~>ls -l ~/my*.*
 -rw-r--r-- 1 ec2-user users  109 Aug 26 00:36 /home/ec2-user/mysonarqube.txt
 ```
 
-Congratulations!  With this, we are ready to follow the lab instructure to configure Jenkins and setup our first pipeline.
+Congratulations!  With this, we are ready to move to the [Step 2 - Build Your First Jenkins](part-2.md)
 
