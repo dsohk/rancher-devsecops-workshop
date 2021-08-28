@@ -199,7 +199,7 @@ You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` 
 
 Enter the custer name as `Harbor` and leave the rest of the setting as default & clikc `Next` button. You will be prompted with a command. Click the `copy` icon to copy the command into your clipboard.
 
-![Rancher UI](./images/rancher-2nd-screen.png)
+![Rancher UI](./images/rancher-customize-node-run-cmd.png)
 
 Open your Linux workstation terminal and switch to the working directory where this repo has been checked out. 
 
