@@ -12,17 +12,21 @@ Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Lab
 
 ![Rancher UI](./images/pg2.png)
 
-In your linux terminal, ssh into the vm - cluster1. 
-
-Run the script `./ssh-mylab-cluster1.sh` and paste the command you copied into the prompt from this script.
+On your linux terminal, execute the below script to access your cluster1 terminal 
 
 Copy the script below to ssh into the cluster1 
 ```
 ./ssh-mylab-cluster1.sh
 ```
-Copy the command from Rancher UI & execute it on the terminal of Cluster1.
+Copy & paste the command from Rancher UI on the terminal of Cluster1.
 
 ![Rancher UI](./images/pg3.png)
+
+On Rancher UI, you will see cluster 1 coming in few mins. 
+
+### 2. Provision all-in-one RKE cluster on VM (cluster2)
+
+Repeat all step from step1. Make sure you name the cluster as `Cluster2`
 
 
 
