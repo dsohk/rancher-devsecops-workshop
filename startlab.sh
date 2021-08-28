@@ -1,7 +1,7 @@
 #! /bin/bash -e
 
-cat _banner.txt
-source _awsls_functions.sh
+cat setup/_banner.txt
+source setup/_awsls_functions.sh
 echo
 echo "Welcome to SUSE Rancher DevSecOps Hands-on Lab on AWS Lightsail ..."
 echo "This script will help you to provision VMs on AWS Lightsail to get started to run your lab exercise. By default, this script will install Rancher for you after VM is up."
