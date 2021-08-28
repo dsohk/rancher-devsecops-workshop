@@ -1,9 +1,9 @@
 #! /bin/bash
 
-cat _banner.txt
 source mylab_aws_region.sh
 source mylab_vm_prefix.sh
-source _awsls_functions.sh
+source setup/_awsls_functions.sh
+cat setup/_banner.txt
 echo
 echo "Welcome to SUSE Rancher DevSecOps Hands-on Lab on AWS Lightsail ..."
 echo

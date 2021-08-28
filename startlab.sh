@@ -64,15 +64,16 @@ export AWS_SIZE_MEDIUM="medium${AWSLS_VM_SIZE_SUFFIX}"
 export AWS_SIZE_LARGE="large${AWSLS_VM_SIZE_SUFFIX}"
 
 echo "Provisioning VM in your AWS Lightsail region $AWS_REGION as lab environment ..."
-create-vm $VM_PREFIX-rancher $AWS_SIZE_MEDIUM
+create-vm $VM_PREFIX-rancher $AWS_SIZE_MEDIUM "docker pull rancher/rancher:v2.5.9;"
 create-vm $VM_PREFIX-harbor  $AWS_SIZE_MEDIUM "zypper in -y git-core;"
-create-vm $VM_PREFIX-devsecops-m1 $AWS_SIZE_MEDIUM
-create-vm $VM_PREFIX-devsecops-w1 $AWS_SIZE_LARGE
-create-vm $VM_PREFIX-devsecops-w2 $AWS_SIZE_LARGE
-create-vm $VM_PREFIX-devsecops-w3 $AWS_SIZE_LARGE
-create-vm $VM_PREFIX-devsecops-w4 $AWS_SIZE_LARGE
-create-vm $VM_PREFIX-cluster1 $AWS_SIZE_MEDIUM
-create-vm $VM_PREFIX-cluster2 $AWS_SIZE_MEDIUM
+create-vm $VM_PREFIX-devsecops-m1 $AWS_SIZE_MEDIUM "docker pull rancher/rancher-agent:v2.5.9;"
+create-vm $VM_PREFIX-devsecops-w1 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.5.9;"
+create-vm $VM_PREFIX-devsecops-w2 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.5.9;"
+create-vm $VM_PREFIX-devsecops-w3 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.5.9;"
+create-vm $VM_PREFIX-devsecops-w4 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.5.9;"
+create-vm $VM_PREFIX-cluster1 $AWS_SIZE_MEDIUM "docker pull rancher/rancher-agent:v2.5.9;"
+create-vm $VM_PREFIX-cluster2 $AWS_SIZE_MEDIUM "docker pull rancher/rancher-agent:v2.5.9;"
+
 
 # wait until all VMs are running
 while list-vm | grep -q 'pending'
