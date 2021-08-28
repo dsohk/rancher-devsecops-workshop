@@ -195,11 +195,11 @@ Accept the given IP as your Rancher Server URL to continue.
 
 You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to import a existing cluster with `Register an existing Kubernetes cluster - Other Cluster` method.
 
-![Rancher UI](./images/rancher-add-cluster-register-existing-cluster.png) ### To be added.
+![Rancher UI](./images/rancher-add-cluster-Register-Existing-Cluster-Other Cluster -pg1.png)
 
 Enter the custer name as `Harbor` and leave the rest of the setting as default & clikc `Next` button. You will be prompted with a command. Click the `copy` icon to copy the command into your clipboard.
 
-![Rancher UI](./images/rancher-customize-node-run-cmd.png)
+![Rancher UI](./images/rancher-add-cluster-Register-Existing-Cluster-Other Cluster-pg2.png)
 
 Open your Linux workstation terminal and switch to the working directory where this repo has been checked out. 
 
