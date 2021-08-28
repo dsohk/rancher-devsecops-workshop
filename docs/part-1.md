@@ -194,13 +194,18 @@ Accept the given IP as your Rancher Server URL to continue.
 ![Rancher UI](./images/rancher-2nd-screen.png)
 
 You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to import a existing cluster with `Register an existing Kubernetes cluster - Other Cluster` method.
+
 ![Rancher UI](./images/rancher-add-cluster-register-existing-cluster.png) ### To be added.
 
-Enter the custer name as `Harbo` and leave the rest of the setting as default & clikc `Next` button. You will be prompted with a command. Click the `copy` icon to copy the command into your clipboard.
+Enter the custer name as `Harbor` and leave the rest of the setting as default & clikc `Next` button. You will be prompted with a command. Click the `copy` icon to copy the command into your clipboard.
 
 Open your Linux workstation terminal and switch to the working directory where this repo has been checked out. 
 
 Run the script `ssh-mylab-harbor.sh` and paste the command you copied into the prompt from this script.
+
+```
+./ssh-mylab-harbor.sh
+```
 
 You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create a new cluster with `Existing Node` method. 
 
