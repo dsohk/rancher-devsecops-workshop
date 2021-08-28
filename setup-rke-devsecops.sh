@@ -14,6 +14,7 @@ if [ -f ssh-mylab-devsecops-m1.sh ]; then
   echo "Register devsecops-m1 cluster ..."
   SSH_VM=$(<ssh-mylab-devsecops-m1.sh)
   eval "$SSH_VM $RANCHER_REGCMD --node-name devsecops-m1 --etcd --controlplane"
+  sleep 10
 fi
 
 
@@ -23,7 +24,7 @@ do
   if [ -f ssh-mylab-devsecops-w$n.sh ]; then
     echo
     echo "Register devsecops-w$n cluster ..."
-    sleep $((RANDOM % 10))
+    sleep 5
     SSH_VM=$(<ssh-mylab-devsecops-w$n.sh)
     eval "$SSH_VM $RANCHER_REGCMD --node-name devsecops-w$n --worker"
   fi

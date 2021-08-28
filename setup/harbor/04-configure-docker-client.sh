@@ -1,6 +1,6 @@
 #! /bin/bash
 
-source myharbor.sh
+source $HOME/myharbor.sh
 
 echo "Configure docker client to access harbor instance with self-signed cert ..."
 sudo sed -i "2 i   \"insecure-registries\": [\"https://${HARBOR_URL}\"]," /etc/docker/daemon.json

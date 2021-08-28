@@ -1,6 +1,6 @@
 #! /bin/bash -e
 
-source ~/myharbor.sh
+source $HOME/myharbor.sh
 
 echo "Build my jenkins image with my own plugins..."
 sudo docker build -t myjenkins:v1.0 -f Dockerfile.x86 .

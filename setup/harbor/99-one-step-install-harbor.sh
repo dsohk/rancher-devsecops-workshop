@@ -110,7 +110,7 @@ cat harbor-credential.txt
 
 #! /bin/bash
 
-source myharbor.sh
+source $HOME/myharbor.sh
 
 echo "Configure docker client to access harbor instance with self-signed cert ..."
 sudo sed -i "2 i   \"insecure-registries\": [\"https://${HARBOR_URL}\"]," /etc/docker/daemon.json
@@ -126,13 +126,17 @@ sudo docker login $HARBOR_URL -u $HARBOR_USR -p $HARBOR_PWD
 
 #! /bin/bash -e
 
-for vm in rancher devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 cluster1 cluster2; do
-  echo
-  echo "Distribute the self-signed harbor certs to $vm ..."
-  scp myharbor.sh $vm:~
-  scp 04-configure-docker-client.sh $vm:~/configure-docker-client.sh
-  ssh $vm ./configure-docker-client.sh
-done
+echo "Download docker images for sample application build..."
+
+source $HOME/myharbor.sh
+
+sudo docker pull maven:3-jdk-8-slim
+sudo docker tag maven:3-jdk-8-slim $HARBOR_URL/library/java/maven:3-jdk-8-slim
+sudo docker push $HARBOR_URL/library/java/maven:3-jdk-8-slim
+
+sudo docker pull susesamples/sles15sp3-openjdk:11.0-3.56.1
+sudo docker tag susesamples/sles15sp3-openjdk:11.0-3.56.1 $HARBOR_URL/library/suse/sles15sp3-openjdk:11.0-3.56.1
+sudo docker push $HARBOR_URL/library/suse/sles15sp3-openjdk:11.0-3.56.1
 
 echo
 echo

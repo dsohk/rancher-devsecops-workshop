@@ -14,7 +14,7 @@ if [ `kubectl get sc | grep default | wc -l` -ne 1 ]; then
   exit
 fi
 
-source ../../myharbor.sh
+source $HOME/myharbor.sh
 
 echo Create jenkins namespace
 kubectl create ns jenkins
@@ -47,10 +47,10 @@ export NODE_PORT=$(kubectl get --namespace jenkins -o jsonpath="{.spec.ports[0].
 export JENKINS_PWD=$(kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/chart-admin-password)
 
 echo
-echo "Your Jenkins instance is ready ..." > ~/myjenkins.txt
-echo http://$NODE_IP:$NODE_PORT/login >> ~/myjenkins.txt
-echo Username: admin >> ~/myjenkins.txt
-echo Password: $JENKINS_PWD >> ~/myjenkins.txt
+echo "Your Jenkins instance is ready ..." > $HOME/myjenkins.txt
+echo http://$NODE_IP:$NODE_PORT/login >> $HOME/myjenkins.txt
+echo Username: admin >> $HOME/myjenkins.txt
+echo Password: $JENKINS_PWD >> $HOME/myjenkins.txt
 echo
-cat ~/myjenkins.txt
+cat $HOME/myjenkins.txt
 

@@ -39,23 +39,24 @@ Run the `startlab.sh --help` to get list of options. You should see the output l
 
 
 Welcome to SUSE Rancher DevSecOps Hands-on Lab on AWS Lightsail ...
-This script will help you to provision VMs on AWS Lightsail to get started to run your lab exercise.
+This script will help you to provision VMs on AWS Lightsail to get started to run your lab exercise. By default, this script will install Rancher for you after VM is up.
 
 usage: ./startlab.sh [options]
--a    | --auto-deploy-rancher       Specify this flag to auto-deploy Rancher after the lab on AWS is up.
+-s    | --skip-rancher              Skip deploying Rancher after VM is up.
 -h    | --help                      Brings up this menu
-```
-
-We will run `startlab.sh -a` to deploy VMs on AWS Lightsail and automatically setup Rancher management server. It will prompt you which AWS region you would like to run your lab. 
 
 ```
-./startlab.sh -a
+
+We will run `startlab.sh` to deploy VMs on AWS Lightsail and automatically setup Rancher management server. It will prompt you which AWS region you would like to run your lab. 
+
+```
+./startlab.sh
 ```
 
 You will be prompted to choose which AWS region you are going to run your lab environment.
 
 ```
-❯ ./startlab.sh -a
+❯ ./startlab.sh
   ___ _   _ ___ ___   ___              _
  / __| | | / __| __| | _ \__ _ _ _  __| |_  ___ _ _
  \__ \ |_| \__ \ _|  |   / _` | ' \/ _| ' \/ -_) '_|
@@ -63,20 +64,22 @@ You will be prompted to choose which AWS region you are going to run your lab en
 
 
 Welcome to SUSE Rancher DevSecOps Hands-on Lab on AWS Lightsail ...
-This script will help you to provision VMs on AWS Lightsail to get started to run your lab exercise.
+This script will help you to provision VMs on AWS Lightsail to get started to run your lab exercise. By default, this script will install Rancher for you after VM is up.
 
-NOTE: You have opted-in to deploy Rancher after your VM on AWS is up.
+usage: ./startlab.sh [options]
+-s    | --skip-rancher              Skip deploying Rancher after VM is up.
+-h    | --help                      Brings up this menu
 
 Select Your Preferred AWS Environment to run your lab:
 1) Tokyo      3) Singapore  5) Mumbai
 2) Seoul      4) Sydney	    6) Quit
 ```
 
-Choose the region closiest to you to continue the lab setup. The script will then
+Choose the region closiest to you to continue your lab setup. The script will then
 1) provision VMs on your AWS account with region you picked, 
 2) configure firewall rules of these VMs, 
-3) download AWS SSH keypair to your local folder to access to these VMs,
-4) setup shortcut files for you to access to the lab environment.
+3) download AWS SSH keypair to your local folder to access to these VMs, and
+4) create shortcut files for you to access to the VMs in your lab environment.
 
 When the script has finished, you will see a table of VMs with IP addresses, the Rancher instance URL, and other useful files created in your local folder. For example, this is the extract of my output after running the startlab script. Obviously, the IP addresses listed will be different from yours.
 
@@ -335,31 +338,4 @@ suse0908-harbor ec2-user@ip-172-26-2-249:~>ls -l ~/my*.*
 ```
 
 Congratulations!  With this, we are ready to follow the lab instructure to configure Jenkins and setup our first pipeline.
-
-
-## Clean Up the Lab
-
-Once you have finished your lab, you can run the script below from the folder of your linux workstation where this repository has been checked out. 
-
-```
-❯ ./cleanlab.sh
-  ___ _   _ ___ ___   ___              _
- / __| | | / __| __| | _ \__ _ _ _  __| |_  ___ _ _
- \__ \ |_| \__ \ _|  |   / _` | ' \/ _| ' \/ -_) '_|
- |___/\___/|___/___| |_|_\__,_|_||_\__|_||_\___|_|
-
-
-Welcome to SUSE Rancher DevSecOps Hands-on Lab on AWS Lightsail ...
-
-This script will clean up all the VMs provisioned in your AWS Lightsail environment.
-Continue (y/n)?
-```
-
-Hit `y` key to continue. The script will decommission all the VMs created for this lab from your AWS account. 
-
-
-
-# Feedback
-
-If you have any comments, suggestions or feedback to help improving this workshop, please feel free to reach out to our Team.
 
