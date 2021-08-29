@@ -75,6 +75,11 @@ Define git repo
 
 Git URL: https://github.com/dsohk/spring-petclinic-helmchart 
 
+https://github.com/dipakcpatel78/spring-petclinic-helmchart.git
+
+
+
+
 Target cluster: clustergroup-dev 
 
 Target namespace: spring-petclinic 
@@ -82,6 +87,44 @@ Target namespace: spring-petclinic
 Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
 
 ![Rancher UI](./images/rancher-customize-node-run-cmd.png)
+
+
+Comments:
+@ Derek, we should be forking your repo to personal github & then leveraging the git repo right ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### 1. Check out this repository
 
