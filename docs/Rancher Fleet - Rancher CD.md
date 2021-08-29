@@ -58,9 +58,10 @@ Continuious Delivery - Cluster Groups > Create > Provide necessary details
 ![Rancher UI](./images/rancher-ui-create-first-fleet-group-step3-pg3.png)
 
 Provide unique name  & in cluster selector we need to provide the labels used during cluster creation which will allow Rancher Fleet to associate the cluster to the group. 
-We have Labels a key value pair `env` and `dev`
-We must provide the same Label key value pair in our Cluster group to match cluster labels.
+We have Labels a key value pair `env` and `dev. We must provide the same Label key value pair in our Cluster group to match cluster labels.
+
 Once we provide label key value pair, Fleet will check existing cluster to match & will show you how many cluster match your request. 
+
 For us Cluster1 & Cluster2 has matching key value paid & Fleet how 2 cluster matching.
 
 ![Rancher UI](./images/rancher-ui-create-first-fleet-group-details-step4-pg4.png)
