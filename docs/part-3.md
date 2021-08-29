@@ -72,6 +72,17 @@ cat mysonarqube.txt
 
 ## Setup my Jenkins
 
+Execute the below script to log into Harbor
+```
+./ssh-mylab-harbor.sh
+```
+
+Execute the below command on the Harbor Terminal to get Jenkins URL & Credentials.
+
+```
+cat myjenkins.txt
+```
+
 ### Configure Jenkins System
 
 1. Login to Jenkins
