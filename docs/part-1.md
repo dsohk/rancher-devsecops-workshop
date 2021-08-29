@@ -318,6 +318,10 @@ export KUBECONFIG=~/.kube/devsecops.cfg
 Verify if it can connect to your devsecops cluster. If you see an output like below, you are good.
 
 ```
+kubectl get nodes
+```
+
+```
 suse0908-harbor ec2-user@ip-172-26-2-249:~>kubectl get node
 NAME           STATUS   ROLES               AGE   VERSION
 devsecops-m1   Ready    controlplane,etcd   16m   v1.20.9
