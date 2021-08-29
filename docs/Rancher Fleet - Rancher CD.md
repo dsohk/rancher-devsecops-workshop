@@ -38,6 +38,8 @@ Cluster 1 is successfully provision in Rancher
 Repeat all step from step1 for adding cluster 2
 Make sure you name the cluster as `Cluster2`
 
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster2-pg1-latest.png)
+
 ### 3. 
 
 Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
