@@ -6,12 +6,16 @@ Open browser to navigate to the Rancher URL captured in earlier steps. By pass t
 
 You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create new kubernetes cluster with RKE and existing bare-metal servers or virtual machine `Existing Node` option. 
 
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg1.png)
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg1-latest.png)
 
 
-Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Label with key value pair `env` and `dev`. Leave the rest of the setting as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
+Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Label with key value pair `env` and `dev`. Leave the rest of the setting as default and click `Next` button. 
 
-![Rancher UI](./images/pg2.png)
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2-latest.png)
+
+You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
+
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg3-latest.png)
 
 On your linux terminal, execute the below script to access your cluster1 terminal 
 
@@ -19,17 +23,22 @@ Copy the script below to ssh into the cluster1
 ```
 ./ssh-mylab-cluster1.sh
 ```
-Copy & paste the command from Rancher UI on the terminal of Cluster1.
+Copy & paste the command from Rancher UI on the terminal of VM - Cluster1.
 
-![Rancher UI](./images/pg3.png)
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg4-latest.png)
 
 On Rancher UI, you will see cluster 1 coming in few mins. 
 
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg5-latest.png)
+
+Cluster 1 is successfully provision in Rancher
+
 ### 2. Provision all-in-one RKE cluster on VM (cluster2)
 
-Repeat all step from step1. Make sure you name the cluster as `Cluster2`
+Repeat all step from step1 for adding cluster 2
+Make sure you name the cluster as `Cluster2`
 
-
+### 3. 
 
 Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
 
