@@ -6,7 +6,8 @@ Open browser to navigate to the Rancher URL captured in earlier steps. By pass t
 
 You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create new kubernetes cluster with RKE and existing bare-metal servers or virtual machine `Existing Node` option. 
 
-![Rancher UI](./images/pg1.png)
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg1.png)
+
 
 Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Label with key value pair `env` and `dev`. Leave the rest of the setting as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
 
