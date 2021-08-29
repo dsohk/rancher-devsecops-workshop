@@ -115,8 +115,6 @@ cat harbor-credential.txt
 
 Click on Environment Variable Enable injection of SonarQube
 
-![Configure Sonarqube integration in Jenkins](./images/jenkins-configure-sonarqube.png)
-
 1. Name: My SonarQube (Please use the name as mentioned in the instruction) or copy & paste using below clipboard
 ```
 My SonarQube
@@ -137,6 +135,11 @@ cat mysonarqube.txt
   Kind Secret text: 
   Secret: (from Sonarqube generated token)
   ID: sonarqube-spring-petclinic
+
+4. Sample Output would look like
+
+![Configure Sonarqube integration in Jenkins](./images/jenkins-configure-sonarqube.png)
+
 
 #### Git plugin
 
