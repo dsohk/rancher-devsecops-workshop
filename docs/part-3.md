@@ -57,7 +57,7 @@ Execute the below command on the Harbor Terminal to get Sonarqube URL & Credenti
 cat mysonarqube.txt
 ```
 
-1. Login to your Sonarqube instance with the generated credential from Part 1.
+1. Login to your Sonarqube instance with the generated credential from Part 1. Upon successful login, you will be prompt to change your inital password. 
 2. Choose `Add a Project`. 
 
 ![Add Project in Sonarqube](./images/sonarqube-add-project.png)
