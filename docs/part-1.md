@@ -195,13 +195,15 @@ Accept the given IP as your Rancher Server URL to continue.
 
 You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to import a existing cluster with `Register an existing Kubernetes cluster - Other Cluster` method.
 
-![Rancher UI](./images/rancher-add-cluster-Register-Existing-Cluster-Other Cluster-pg1-latest.png)
+![Rancher UI](./images/rancher-ui-add-cluster-harbor-pg1.png)
 
-![Rancher UI](./images/rancher-add-cluster-Register-Existing-Cluster-Other Cluster-pg1-latest.png)
+![Rancher UI](./images/rancher-ui-addcluster-register-existingcluster-harborpg2.png)
 
 Enter the custer name as `Harbor` and leave the rest of the setting as default & clikc `Next` button. You will be prompted with a command. Click the `copy` icon to copy the command into your clipboard.
 
-![Rancher UI](./images/rancher-add-cluster-Register-Existing-Cluster-Other Cluster-pg2.png)
+![Rancher UI](./images/rancher-ui-add-cluster-register-exstingcluster-harbor-pg3.png)
+
+![Rancher UI](./images/rancher-ui-addcluster-register-existingcluster-harbor-pg4.png)
 
 Open your Linux workstation terminal and switch to the working directory where this repo has been checked out. 
 
@@ -210,6 +212,14 @@ Run the script `ssh-mylab-harbor.sh` and paste the command you copied into the p
 ```
 ./ssh-mylab-harbor.sh
 ```
+Paste the command we copied from Rancher UI 
+
+![Rancher UI](./images/rancher-ui-copy-n-paste-harbor-terminal-pg5.png)
+
+Toggle to Rancher UI to verify if the Harbor Cluster is successfully imported!
+
+![Rancher UI](./images/rancher-ui-harbor-success-pg6.png)
+
 
 You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create a new cluster with `Existing Node` method. 
 
@@ -257,6 +267,8 @@ Once it's ready, please install Longhorn on it and download KUBECONFIG file into
 ```
 
 Return to your browser with Rancher UI, you should see the `devsecops` cluster is being initialized. It may take 5-10 minutes to complete the whole RKE cluster.
+
+![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
 
 
 ### 5. Install Longhorn on DevSecOps RKE cluster from Rancher UI
@@ -306,6 +318,10 @@ export KUBECONFIG=~/.kube/devsecops.cfg
 Verify if it can connect to your devsecops cluster. If you see an output like below, you are good.
 
 ```
+kubectl get nodes
+```
+
+```
 suse0908-harbor ec2-user@ip-172-26-2-249:~>kubectl get node
 NAME           STATUS   ROLES               AGE   VERSION
 devsecops-m1   Ready    controlplane,etcd   16m   v1.20.9
@@ -320,6 +336,10 @@ devsecops-w4   Ready    worker              14m   v1.20.9
 We are going to setup these 3 tools on devsecops cluster in parallel. 
 
 Open 3 linux terminal windows, ssh into Harbor VM, as illustrated in the diagram below.
+
+```
+./ssh-mylab-harbor.sh
+```
 
 ![Deploy Jenkins and others](./images/deploy-jenkins-and-others-start.png)
 
