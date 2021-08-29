@@ -117,12 +117,10 @@ Click on Environment Variable Enable injection of SonarQube
 
 ![Configure Sonarqube integration in Jenkins](./images/jenkins-configure-sonarqube.png)
 
-1. Name: My SonarQube (Please use the name as mentioned in the instruction)
+1. Name: My SonarQube (Please use the name as mentioned in the instruction) or copy & paste using below clipboard
 ```
 My SonarQube
 ```
-
-
 2. Add URL: (Your Sonarqube URL)
 2. Add generated token 
   Add Credential > Jenkins
