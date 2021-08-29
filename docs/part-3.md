@@ -92,10 +92,25 @@ cat myjenkins.txt
 
 Go to `Global Properties` section. Define the following environment variables
 
-1. Enable Global Environment Variables
+1. Enable Global Environment Variables by clicking in the box 
+
+Environment Varaiable will then show list of variables where you can click on `add` to add new varaiables. 
+
+Add 3 variables as mentioned below in step 2.
+
 2. Add New Environment Variable
    a) Key: HARBOR_URL
    b) Value: (Your Harbor_URL) (just IP:PORT - no http:// or https://)
+   
+To know your Harbor URL, execute the below commands
+
+```
+./ssh-mylab-harbor.sh
+```
+```
+cat harbor-credential.txt
+```
+
 
 #### Sonarqube
 
