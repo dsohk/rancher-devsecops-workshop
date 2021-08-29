@@ -37,6 +37,9 @@ You should now have 2 pipelines created in Jenkins which will create Kubernetes 
 
 Now, let's examine in the pods in Rancher. You will notice the pods will be created on demand everytime when the Pipeline runs and got terminated once it's finished.
 
+Rancher UI - DevSecOps Cluster & - Jenkins namespace. 
+
+
 ![Jenkins Pipeline Pods in RKE](./images/jenkins-pods-in-rke.png)
 
 With the Jenkins being verified to work well with Rancher-managed Kubernetes, let's move on to 
