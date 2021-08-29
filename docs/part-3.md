@@ -18,11 +18,12 @@ In order to integrate Jenkins with your github account, we have to generate your
 
 ### 2. Fork the spring-petclinic project into your own github account
 
-Open a new Browser & past the link below
+Open a new Browser & past the below link
 
 ```
 https://github.com/dsohk/spring-petclinic
 ```
+Click on Fork Icon on top right hand window pane & select your own account where the repo will be forked.
 
 In GitHub, navigate to your forked repoistory. Find the code in `Jenkinsfile` and replace `yourname` with your github account name.
 
@@ -30,7 +31,13 @@ In GitHub, navigate to your forked repoistory. Find the code in `Jenkinsfile` an
 
 ### 3. Fork the spring-petclinic-helmchart project into your own github account
 
+Open a new Browser & past the below link
+
+```
 https://github.com/dsohk/spring-petclinic-helmchart
+```
+Click on Fork Icon on top right hand window pane & select your own account where the repo will be forked.
+
 
 
 ## Setup my Sonarqube
