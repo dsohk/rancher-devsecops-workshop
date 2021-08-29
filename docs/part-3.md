@@ -40,9 +40,22 @@ Click on Fork Icon on top right hand window pane & select your own account where
 
 Once the above 2 Repo are forked, those repo are available in your GitHub account. 
 You can check your Repositories to validate. 
- 
+
 
 ## Setup my Sonarqube
+
+Sonarqube URL & details are stored in Harbor VM. 
+
+Execute the below script to log into Harbor
+```
+./ssh-mylab-harbor.sh
+```
+
+Execute the below command on the Harbor Terminal to get Sonarqube URL & Credentials.
+
+```
+cat mysonarqube.txt
+```
 
 1. Login to your Sonarqube instance with the generated credential from Part 1.
 2. Choose `Add a Project`. 
