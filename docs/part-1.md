@@ -337,6 +337,10 @@ We are going to setup these 3 tools on devsecops cluster in parallel.
 
 Open 3 linux terminal windows, ssh into Harbor VM, as illustrated in the diagram below.
 
+```
+./ssh-mylab-harbor.sh
+```
+
 ![Deploy Jenkins and others](./images/deploy-jenkins-and-others-start.png)
 
 In terminal 1 of your Harbor VM, run the following command to setup Jenkins.
