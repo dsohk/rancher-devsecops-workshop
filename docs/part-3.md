@@ -1,6 +1,6 @@
-# Part 3 - My Jenkins Pipeline for spring-petclinic App
+# Part 3 - Configure Jenkins with DevSecOps tools to deploy spring-petclinic App
 
-After we have configured and verify Jenkins is working, let's build the spring-petclinic application.
+After we have configured and have verified Jenkins is working, let's build the spring-petclinic application.
 
 ## Setup my Github
 
@@ -49,7 +49,7 @@ https://github.com/dsohk/spring-petclinic-helmchart
 ### Configure Jenkins System
 
 1. Login to Jenkins
-2. Navigate to `Managing Jenkins`, then `Configure System`.
+2. Navigate to `Managing Jenkins`, then choose `Configure System`.
 
 #### Setup Global Environment variables
 
@@ -82,26 +82,31 @@ Go to `Global Properties` section. Define the following environment variables
 2. Engine Username: (Your Anchore username)
 3. Engine Password: (Your Anchore password)
 
+Click `Ok` button to save the Jenkins configuration settings.
 
 ### Configure the credentials
 
-1. In Jenkins, navigate to `spring-petclinic` Project
-2. Choose `Credential` on the left menu
-3. Under store `spring-petclinic` global pull down menu and choose `Add Credential`
-
-spring-petclinic-helmchart-git-token
-(same git token)
+1. Navigate to the Jenkins Dashboard.
+2. Choose `Manage Jenkins` on the left menu
+3. Choose `Manage Credentials` on the security section.
+4. Under Stores scoped to `Jenkins`, click the `(global)` dropdown menu. Choose `Add credentials`.
+5. In the `Add Credentials` form, choose `Secret text` in `Kind` field.
+6. Enter your Github's personal access token in the `Secret` field.
+7. Enter `my-github` in the `ID` field. Please MAKE SURE this is correct as to match the value in our Jenkins Pipeline.
+8. Click `OK` button to continue
+9. Navigate back to the Jenkins Dashboard.
 
 ## Setup CI Pipeline for spring-petclinic project
 
-Left menu:
-  Open BlueOcean
-  Create a New Pipeline
-  -> Choose Github
-  -> Enter your personal access token
-  -> Choose spring-petclinic project 
+1. Navigate to the Jenkins Dashhoard page
+2. Choose `Open BlueOcean` item in the left menu
+3. Click `New Pipeline` button
+4. Choose `Github` tor respond to Where do you store your code question.
+5. Enter your Github personal access token and click `Connect`
+6. Choose your github organization.
+7. Choose your forked project `spring-petclinic` and click `Create Pipeline` to continue.
 
-Click `Build Now` to run this pipeline. It may take longer for the first time to run this pipeline. The subsequent run will be faster as all the builds or dependent artifacts are cached in the persistent volume used by the pods for this job.
+Click `Build Now` to run this pipeline. It may take about 20 minutes to finish this pipeline at  the first time. The subsequent run will be faster as all the builds or dependent artifacts are cached in the persistent volume used by the pods for this job.
 
 
 

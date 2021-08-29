@@ -9,8 +9,6 @@ This repository contains all the scripts and Kubernetes manifests for compliment
 * [Part 5 - Put it all together](./docs/part-5.md)
 * [Part 6 - Lab Clean Up](./docs/part-6.md)
 
-
-
 # Feedback
 
 If you have any comments, suggestions or feedback to help improving this workshop, please feel free to reach out to our Team.
