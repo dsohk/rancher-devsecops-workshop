@@ -14,13 +14,15 @@ In order to integrate Jenkins with your github account, we have to generate your
 4. Click `Generate new token` button.
 5. Enter `workshop` (or whatever you like) in the name field.
 6. Choose `repo` and `user:email` in the privieged for this token.
-7. Save and record down the generated token.
+7. Save and record down the generated token for configuring CI Pipeline in Jenkins later.
 
 ### 2. Fork the spring-petclinic project into your own github account
 
 https://github.com/dsohk/spring-petclinic
 
-In GitHub, update Jenkinsfile to replace `yourname` with your user name for your git account.
+In GitHub, navigate to your forked repoistory. Find the code in `Jenkinsfile` and replace `yourname` with your github account name.
+
+![Code change after forked repo](./images/github-repo-code-change-yourname.png)
 
 ### 3. Fork the spring-petclinic-helmchart project into your own github account
 
@@ -30,39 +32,49 @@ https://github.com/dsohk/spring-petclinic-helmchart
 ## Setup my Sonarqube
 
 1. Login to your Sonarqube instance with the generated credential from Part 1.
-2. Choose `Add a Project`. Select `Manually` to continue
+2. Choose `Add a Project`. 
+
+![Add Project in Sonarqube](./images/sonarqube-add-project.png)
+
+3. Select `Manually` to continue
 3. Enter `spring-petclinic` in Project Key and Display Name input field.
 4. In the Provide a token input field, enter `spring-petclinic` and click `Generate Token` button.
 5. Record the generate token.
 6. In responding to Run Analysis on your project, choose `maven`. This will give you a code snippet as part of your Pipeline. For example,
 
-```
-mvn sonar:sonar \
-  -Dsonar.projectKey=spring-petclinic \
-  -Dsonar.host.url=http://18.139.3.119:30707 \
-  -Dsonar.login=f968d62703a0bf73fd1acd70cc5108fd26e61d67
-```
+![Generated Token in Sonarqube](./images/sonarqube-add-project-generated-token.png)
 
 ## Setup my Jenkins
 
 ### Configure Jenkins System
 
 1. Login to Jenkins
-2. Navigate to `Managing Jenkins`, then `Configure System` and go to `Global Properties` section.
+2. Navigate to `Managing Jenkins`, then `Configure System`.
 
 #### Setup Global Environment variables
 
-Define the following environment variables
+Go to `Global Properties` section. Define the following environment variables
 
-key: HARBOR_URL
-value: (Your Harbor_URL) (just IP:PORT - no http:// or https://)
-
-
+1. Enable Global Environment Variables
+2. Add New Environment Variable
+   a) Key: HARBOR_URL
+   b) Value: (Your Harbor_URL) (just IP:PORT - no http:// or https://)
 
 #### Sonarqube
 
+![Configure Sonarqube integration in Jenkins](./images/jenkins-configure-sonarqube.png)
+
 1. Add URL: (Your Sonarqube URL)
-2. Add generated token (From previous step)
+2. Add generated token 
+  Add Credential > Jenkins
+  Kind Secret text: 
+  Secret: (from Sonarqube generated token)
+  ID: sonarqube-spring-petclinic
+
+#### Git plugin
+
+1. Global Config user.name : jenkins
+2. Global Config user.email: jenkins@example.com
 
 #### Anchore Container Image Scanner
 
@@ -70,10 +82,6 @@ value: (Your Harbor_URL) (just IP:PORT - no http:// or https://)
 2. Engine Username: (Your Anchore username)
 3. Engine Password: (Your Anchore password)
 
-#### Git plugin
-
-1. Global Config user.name : jenkins
-2. Global Config user.email: jenkins@example.com
 
 ### Configure the credentials
 
