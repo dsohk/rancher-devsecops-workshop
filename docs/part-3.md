@@ -164,6 +164,8 @@ cat mysonarqube.txt
 1. Global Config user.name : jenkins
 2. Global Config user.email: jenkins@example.com
 
+@Derek, this is the default Jenkins user created during Jenkins. This would be used when Jenkins connect to GitHub during the CI pipeline part, is my understanding correct ?
+
 #### Anchore Container Image Scanner
 
 1. Engine URL: (Your Anchore URL)
