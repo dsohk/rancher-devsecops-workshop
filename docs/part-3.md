@@ -18,7 +18,11 @@ In order to integrate Jenkins with your github account, we have to generate your
 
 ### 2. Fork the spring-petclinic project into your own github account
 
+Open a new Browser & past the link below
+
+```
 https://github.com/dsohk/spring-petclinic
+```
 
 In GitHub, navigate to your forked repoistory. Find the code in `Jenkinsfile` and replace `yourname` with your github account name.
 
