@@ -122,7 +122,12 @@ Click on Environment Variable Enable injection of SonarQube
 My SonarQube
 ```
 2. Add URL: (Your Sonarqube URL)
-2. Add generated token 
+```
+./ssh-mylab-harbor.sh
+```
+cat mysonarqube.txt
+```
+3. Add generated token 
   Add Credential > Jenkins
   Kind Secret text: 
   Secret: (from Sonarqube generated token)
