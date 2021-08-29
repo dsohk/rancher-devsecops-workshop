@@ -89,7 +89,20 @@ cat myjenkins.txt
 ### Configure Jenkins System
 
 1. Login to Jenkins
-2. Navigate to `Managing Jenkins`, then `Configure System`.
+2. Configure Credentials for Sonarqube 
+
+### Configure Credentials 
+Login into Jenkins. 
+Manage Credentials. 
+Click on Stores scoped to Jenkins to add additional credentials to Jenkins
+Click on Jenkins & then click on Global Credentials (unrestricted)
+Click on `Add Credentials`
+Under `Kind` click  on drop down menu & select `Secret text`
+Under Secret copy & paste the token derived during token generation in Sonarqube in previous steps.
+
+Under ID type `SonarQube-Spring-petclinic`
+
+3. Navigate to `Managing Jenkins`, then `Configure System`.
 
 #### Setup Global Environment variables
 
@@ -140,10 +153,6 @@ cat mysonarqube.txt
   Kind Secret text: 
   Secret: (from Sonarqube generated token)
   ID: sonarqube-spring-petclinic
-
-@Derek, On Services Authentication token, clicking on add does not bring me into jenkins page.....
-
-What is we pre-configure this using `Manager Credential` under Manage Jenkins ?
 
 4. Sample Output would look like
 
