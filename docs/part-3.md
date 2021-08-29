@@ -38,7 +38,9 @@ https://github.com/dsohk/spring-petclinic-helmchart
 ```
 Click on Fork Icon on top right hand window pane & select your own account where the repo will be forked.
 
-
+Once the above 2 Repo are forked, those repo are available in your GitHub account. 
+You can check your Repositories to validate. 
+ 
 
 ## Setup my Sonarqube
 
