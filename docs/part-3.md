@@ -111,7 +111,6 @@ To know your Harbor URL, execute the below commands
 cat harbor-credential.txt
 ```
 
-
 #### Sonarqube
 
 ![Configure Sonarqube integration in Jenkins](./images/jenkins-configure-sonarqube.png)
