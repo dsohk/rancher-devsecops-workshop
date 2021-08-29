@@ -40,7 +40,42 @@ Make sure you name the cluster as `Cluster2`
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster2-pg1-latest.png)
 
-### 3. 
+### 3. Connfigure Rancher Fleet - Continous Delivery
+
+Define Cluster Group
+
+Rancher UI > Tools > Continious Delivery
+
+![Rancher UI](./images/rancher-uI-fleet-step1-pg1.png)
+
+Before we go any further, let verify if we can see all our cluster in Rancher FLeet
+
+![Rancher UI](./images/rancher-uI-all-clusterlist-step2.png)
+
+Define Cluster Group 
+Continuious Delivery - Cluster Groups > Create > Provide necessary details 
+
+![Rancher UI](./images/rancher-ui-create-first-fleet-group-step3-pg3.png)
+
+Provide unique name  & in cluster selector we need to provide the labels used during cluster creation which will allow Rancher Fleet to associate the cluster to the group. 
+We have Labels a key value pair `env` and `dev`
+We must provide the same Label key value pair in our Cluster group to match cluster labels.
+
+![Rancher UI](./images/rancher-ui-create-first-fleet-group-details-step4-pg4.png)
+
+Finally we should have our first Rancher Fleet Group created successfully
+
+![Rancher UI](./images/rancher-ui-first-fleet-group-success-step5-pg5.png)
+
+#### 4. Configure Git Repo
+
+Define git repo 
+
+Git URL: https://github.com/dsohk/spring-petclinic-helmchart 
+
+Target cluster: clustergroup-dev 
+
+Target namespace: spring-petclinic 
 
 Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
 
