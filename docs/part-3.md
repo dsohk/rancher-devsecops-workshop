@@ -70,6 +70,9 @@ cat mysonarqube.txt
 
 ![Generated Token in Sonarqube](./images/sonarqube-add-project-generated-token.png)
 
+@Derek, is there somethings we need to using the above command ? 
+Its say you need to run the command in your project folder. Not able to follow this?
+
 ## Setup my Jenkins
 
 Execute the below script to log into Harbor
@@ -115,6 +118,8 @@ cat harbor-credential.txt
 
 Click on Environment Variable Enable injection of SonarQube
 
+Click on `Add SonarQube`
+
 1. Name: My SonarQube (Please use the name as mentioned in the instruction) or copy & paste using below clipboard
 ```
 My SonarQube
@@ -135,6 +140,10 @@ cat mysonarqube.txt
   Kind Secret text: 
   Secret: (from Sonarqube generated token)
   ID: sonarqube-spring-petclinic
+
+@Derek, On Services Authentication token, clicking on add does not bring me into jenkins page.....
+
+What is we pre-configure this using `Manager Credential` under Manage Jenkins ?
 
 4. Sample Output would look like
 
