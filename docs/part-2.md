@@ -52,7 +52,7 @@ Like the first pipeline, create the `second` pipeline but this time choose `Mave
 
 Click `Build Now` to trigger the second Jenkins pipeline.
 
-We are building a simple `Maven` container.
+With our 2nd job, we are building a simple `Maven` container.
 
 You should now have 2 pipelines created in Jenkins which will create Kubernetes pods on Rancher-managed cluster to run each job. 
 
