@@ -77,11 +77,15 @@ Click on Fork Icon on top right hand window pane & select your own account where
 
 In GitHub, navigate to your forked repoistory. Find the code in `Jenkinsfile` and replace `yourname` with your github account name.
 
-![Forked repo in your GitHub Account](./images/![Forked repo visibility in your GitHub Account](./images/step3-part2-forking-spring-petclinic-Jenkinsfile.png)
+Click on the Jenkinsfile to open & hit edit to change the file content in Github
+![Forked repo visibility in your GitHub Account](./images/step3-part2-forking-spring-petclinic-how-to-edit-jenkinsfile.png)
 
-step3-part2-forking-spring-petclinic-Jenkinsfile
-
+Look for section below in Jenkin files & replace `yourname` to `Your Github ID`
 ![Code change after forked repo](./images/github-repo-code-change-yourname.png)
+
+Sample Output for reference.
+![Code change after forked repo](./images/step3-part2-forking-spring-petclinic-editing-jenkinsfile-changing-userid.png)
+
 
 ### 3. Setup git webhook for spring-petclinic repo to your Jenkins server
 
