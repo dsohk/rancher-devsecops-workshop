@@ -57,11 +57,11 @@ To create Cluster Group in Continous Delivery, click on Cluster Groups option in
 
 ![Rancher UI](./images/rancher-ui-create-first-fleet-group-step3-pg3.png)
 
-Provide unique `Name` for cluster group `Development` and in `Cluster Selector` section, provide same Label key value pair which was used to create `Cluster1` and `Cluster2`
+Provide unique `Name` for cluster group and in `Cluster Selector` section, provide same Label key value pair which was used to create `Cluster1` and `Cluster2`
 
 Key:Value `(env=dev)` 
 
-Once you key in the key:value pair, Rancher will use the selector labels to indentify the clusters to be used as part of cluster group in Fleet. You will see it show 2/4 cluster been selected. 
+Once you key in the key:value pair, Rancher will use the selector labels to indentify the clusters to be associated with our newly created cluster group in Fleet. You will see it show 2/4 cluster been selected. 
 
 ![Rancher UI](./images/rancher-ui-create-first-fleet-group-details-step4-pg4.png)
 
@@ -69,24 +69,28 @@ Hit `Create` which will create our first Cluster Group.
 
 ![Rancher UI](./images/rancher-ui-first-fleet-group-success-step5-pg5.png)
 
+Once our Cluster Group is created, we then need to define a Git Repo for Fleet.
+
 #### 4. Configure Git Repo
 
-Define git repo 
+To configure Git Reop, click on `Create` in Git Repos page in Continous Delivery
 
-Git URL: https://github.com/dsohk/spring-petclinic-helmchart 
+You would need to provide 
+Name:
 
-https://github.com/dipakcpatel78/spring-petclinic-helmchart.git
+Repository URL: forked PetClinic repo to local github account. In my case it's `https://github.com/dipakcpatel78/spring-petclinic.git`
 
+Branch Name: Note Branche Name is `main` in our case & not `master`
 
+Deploy To - Cluster/Cluster Group. In my case `
 
+Rest all default.
 
-Target cluster: clustergroup-dev 
+Incase if you are not sure, please visit your GitHub Account & under Repo search for Spring-Petclinic & click on `Code` to get the URL. Sample below for reference. 
 
-Target namespace: spring-petclinic 
+![Rancher UI](./images/part4-configure-git-repo-forked-url.png)
 
-Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
-
-![Rancher UI](./images/rancher-customize-node-run-cmd.png)
+![Rancher UI](./images/![Rancher UI](./images/part4-configure-git-repo-config.png)
 
 With this, let's put everything together and proceed to [Part 5](part-5.md).
 
