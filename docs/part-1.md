@@ -357,7 +357,7 @@ cd ~/devsecops/jenkins
 
 It should take awhile to build custom Jenkins images with our own choice of plugins for this lab, upload to your harbor private registry, and deploy Jenkins with helm chart onto your `devsecops` cluster.
 
-While we are waiting, run the following command to setup Anchore in terminal 2 of your Harbor VM.
+In Terminal 2 of Harbor VM, run the following command to setup Anchore 
 
 ```
 cd ~/devsecops/anchore
@@ -366,7 +366,7 @@ cd ~/devsecops/anchore
 
 It will also take awhile to deploy anchore on your devsecops cluster. Likewise, let's continue while waiting it to finish.
 
-Run the following command to setup Sonarqube in terminal 3 of your Harbor VM.
+Likewise in Terminal 3 on Harbor VM, run the following command to setup Sonarqube.
 
 ```
 cd ~/devsecops/sonarqube
