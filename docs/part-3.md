@@ -70,9 +70,16 @@ Open a new Browser & past the below link
 ```
 https://github.com/dsohk/spring-petclinic
 ```
+
 Click on Fork Icon on top right hand window pane & select your own account where the repo will be forked.
 
+![Forked repo visibility in your GitHub Account](./images/step3-part2-forking-spring-petclinic.png)
+
 In GitHub, navigate to your forked repoistory. Find the code in `Jenkinsfile` and replace `yourname` with your github account name.
+
+![Forked repo in your GitHub Account](./images/![Forked repo visibility in your GitHub Account](./images/step3-part2-forking-spring-petclinic-Jenkinsfile.png)
+
+step3-part2-forking-spring-petclinic-Jenkinsfile
 
 ![Code change after forked repo](./images/github-repo-code-change-yourname.png)
 
