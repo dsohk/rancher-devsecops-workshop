@@ -89,5 +89,5 @@ Enter the cluster name as `devsecops` and leave the rest of the settings as defa
 
 ![Rancher UI](./images/rancher-customize-node-run-cmd.png)
 
-
+With this, let's put everything together and proceed to [Part 5](part-5.md).
 

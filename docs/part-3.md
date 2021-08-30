@@ -172,6 +172,6 @@ Click `Build Now` to run this pipeline.
 It may take about 20 minutes to finish this pipeline at  the first time. The next run will be faster as all the builds or dependent artifacts are cached in the persistent volume used by the pods for this job.
 
 
-While we are waiting the first run of this pipeline executing, let's move on to the [Part 4 - Rancher Continuous Delivery](./docs/part-4.md). We will come back to revisit the pipeline later. 
+While we are waiting the first run of this pipeline executing, let's move on to the [Part 4 - Rancher Continuous Delivery](part-4.md). We will come back to revisit the pipeline later. 
 
 

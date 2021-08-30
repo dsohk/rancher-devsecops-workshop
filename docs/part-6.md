@@ -18,4 +18,6 @@ Continue (y/n)?
 
 Hit `y` key to continue. The script will decommission all the VMs created for this lab from your AWS account. 
 
+Please login to your AWS account to ensure all your resources used in this lab has been cleaned up successfully.
+
 
