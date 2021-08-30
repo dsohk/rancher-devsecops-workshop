@@ -80,26 +80,11 @@ https://github.com/dsohk/spring-petclinic-helmchart
 ```
 Click on Fork Icon on top right hand window pane & select your own account where the repo will be forked.
 
-Once the above 2 Repo are forked, those repo are available in your GitHub account. 
-You can check your Repositories to validate. 
-
+Once the above 2 Repo are forked, those repos are available in your GitHub account. You can check your Repositories to validate. 
 
 ## Setup my Sonarqube
 
-Sonarqube URL & details are stored in Harbor VM. 
-
-Execute the below script to log into Harbor
-```
-./ssh-mylab-harbor.sh
-```
-
-Execute the below command on the Harbor Terminal to get Sonarqube URL & Credentials.
-
-```
-cat mysonarqube.txt
-```
-
-1. Login to your Sonarqube instance with the generated credential from Part 1. Upon successful login, you will be prompt to change your inital password. 
+1. Login to your Sonarqube instance. Upon successful login, you will be prompt to change your initial password. 
 2. Choose `Add a Project`. 
 
 ![Add Project in Sonarqube](./images/sonarqube-add-project.png)
@@ -107,26 +92,10 @@ cat mysonarqube.txt
 3. Select `Manually` to continue
 3. Enter `spring-petclinic` in Project Key and Display Name input field.
 4. In the Provide a token input field, enter `spring-petclinic` and click `Generate Token` button.
-5. Record the generate token.
-6. In responding to Run Analysis on your project, choose `maven`. This will give you a code snippet as part of your Pipeline. For example,
+5. Record the generate token in your `mylab_env.txt` file for configuring Jenkins later.
 
-![Generated Token in Sonarqube](./images/sonarqube-add-project-generated-token.png)
-
-@Derek, is there somethings we need to using the above command ? 
-Its say you need to run the command in your project folder. Not able to follow this?
 
 ## Setup my Jenkins
-
-Execute the below script to log into Harbor
-```
-./ssh-mylab-harbor.sh
-```
-
-Execute the below command on the Harbor Terminal to get Jenkins URL & Credentials.
-
-```
-cat myjenkins.txt
-```
 
 ### Configure Jenkins System
 
@@ -135,55 +104,28 @@ cat myjenkins.txt
 
 #### Setup Global Environment variables
 
-Go to `Global Properties` section. Define the following environment variables
+Go to `Global Properties` section.
 
-1. Enable Global Environment Variables by clicking in the box 
+1. Enable `Environment Variables` checkbox
+2. Click `Add` button to continue.
+3. Add New Environment Variable
+   * Key: `HARBOR_URL`
+   * Value: (Your Harbor_URL) (just IP:PORT - no http:// or https://)
 
-Environment Varaiable will then show list of variables where you can click on `add` to add new varaiables. 
-
-Add 3 variables as mentioned below in step 2.
-
-2. Add New Environment Variable
-   a) Key: HARBOR_URL
-   b) Value: (Your Harbor_URL) (just IP:PORT - no http:// or https://)
-   
-To know your Harbor URL, execute the below commands
-
-```
-./ssh-mylab-harbor.sh
-```
-```
-cat harbor-credential.txt
-```
+![Configure Global Variables in Jenkins](./images/jenkins-configure-global-vars.png)
 
 #### Sonarqube
 
-Click on Environment Variable Enable injection of SonarQube
+In the Sonarqube section, enter the following.
 
-Click on `Add SonarQube`
+* Name: `My SonarQube`
+* Server URL: (Your SonarQube URL)
+* Server authentication token: (Click `Add`) to pull down menu and choose `Add Credentials`. In the popup window, 
+  * Kind: `Secret text`
+  * Secret: (Enter the Sonarqube generated token)
+  * ID: `sonarqube-spring-petclinic`
 
-1. Name: My SonarQube (Please use the name as mentioned in the instruction) or copy & paste using below clipboard
-```
-My SonarQube
-```
-2. Add URL: (Your Sonarqube URL)
-
-To find Sonarqube URL ssh into Harbor VM using the script below. 
-
-```
-./ssh-mylab-harbor.sh
-```
-```
-cat mysonarqube.txt
-```
-
-3. Add generated token 
-  Add Credential > Jenkins
-  Kind Secret text: 
-  Secret: (from Sonarqube generated token)
-  ID: sonarqube-spring-petclinic
-
-4. Sample Output would look like
+Sample Output would look like
 
 ![Configure Sonarqube integration in Jenkins](./images/jenkins-configure-sonarqube.png)
 
@@ -203,7 +145,7 @@ Specify the github username and email account in this section. It can be any arb
 
 Click `Ok` button to save the Jenkins configuration settings.
 
-### Configure the credentials
+### Configure the credentials in Jenkins
 
 1. Navigate to the Jenkins Dashboard.
 2. Choose `Manage Jenkins` on the left menu
@@ -224,8 +166,6 @@ Click `Ok` button to save the Jenkins configuration settings.
 5. Enter your Github personal access token and click `Connect`
 6. Choose your github organization.
 7. Choose your forked project `spring-petclinic` and click `Create Pipeline` to continue.
-
-![BlueOcean - Create Pipeline in Jenkins](./images/jenkins-blueocean-create-pipeline.png)
 
 Click `Build Now` to run this pipeline. 
 

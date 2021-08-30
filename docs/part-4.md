@@ -90,12 +90,4 @@ Enter the cluster name as `devsecops` and leave the rest of the settings as defa
 ![Rancher UI](./images/rancher-customize-node-run-cmd.png)
 
 
-Comments:
-@ Derek, we should be forking your repo to personal github & then leveraging the git repo right ?
-
-
-
-
-
-
 
