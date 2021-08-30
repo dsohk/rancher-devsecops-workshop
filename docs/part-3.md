@@ -158,12 +158,15 @@ section, enter the following.
 
 * Server authentication token: (Click `Add`) to pull down menu and choose `Add Credentials`. If a popup windows does not come up, hit `save` & revist this section again.  
 
-Now clicking `Add` should bring up a windows to add credentials.
+Now clicking `Add` should bring up a windows `Jenkins Credentials Provider: Jenkins` to add credentials.
 
 In the popup window, 
-  * Kind: `Secret text`
+  * Kind: click on dropdown menu to select `Secret text`
   * Secret: (Enter the Sonarqube generated token)
   * ID: `sonarqube-spring-petclinic`
+
+  Click `Add` & Under `Server Authenticiation Token` dropdown menu we should see `sonarqube-spring-petclinic`. Selet it. 
+  
 
 Sample Output would look like
 
