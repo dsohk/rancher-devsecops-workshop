@@ -112,6 +112,8 @@ Click on Fork Icon on top right hand window pane & select your own account where
 
 Once the above 2 Repo are forked, those repos are available in your GitHub account. You can check your Repositories to validate. 
 
+![Saving changes to forked repo](./images/step3-part2-2-fork-repo-success.png)
+
 ## Setup my Sonarqube
 
 1. Login to your Sonarqube instance. Upon successful login, you will be prompt to change your initial password. 
