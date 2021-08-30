@@ -122,7 +122,7 @@ Once the above 2 Repo are forked, those repos are available in your GitHub accou
 ![Add Project in Sonarqube](./images/sonarqube-add-project.png)
 
 3. Select `Manually` to continue
-3. Enter `spring-petclinic` in Project Key and Display Name input field.
+3. Enter `spring-petclinic` in Project Key and Display Name input field and hit `Set up`
 4. In the Provide a token input field, enter `spring-petclinic` and click `Generate Token` button.
 5. Record the generate token in your `mylab_env.txt` file for configuring Jenkins later.
 
