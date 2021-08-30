@@ -30,7 +30,7 @@ helm search repo jenkinsci
 echo Customize jenkins-values.yaml
 sed "s/HARBOR_URL/$HARBOR_URL/g" jenkins-values-template.yaml > my-jenkins-values.yaml
 
-helm install jenkins jenkinsci/jenkins -n jenkins -f my-jenkins-values.yaml
+helm install jenkins jenkinsci/jenkins --version 3.5.14 -n jenkins -f my-jenkins-values.yaml
 
 echo "Your Jenkins instance is provisioning...."
 while [ `kubectl get sts -n jenkins | grep 1/1 | wc -l` -ne 1 ]

@@ -31,7 +31,7 @@ kubectl create namespace sonarqube
 kubectl taint nodes devsecops-w1 sonarqube=true:NoSchedule --overwrite=true
 kubectl label node devsecops-w1  sonarqube=true --overwrite=true
 
-helm install -f ~/devsecops/sonarqube/sonarqube-values.yaml -n sonarqube sonarqube ./
+helm install --version 1.0.19 -f ~/devsecops/sonarqube/sonarqube-values.yaml -n sonarqube sonarqube ./
 
 echo "Your Sonarqube instance is provisioning...."
 while [ `kubectl get sts -n sonarqube | grep 1/1 | wc -l` -ne 2 ]

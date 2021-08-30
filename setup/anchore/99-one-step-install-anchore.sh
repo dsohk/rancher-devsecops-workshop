@@ -17,6 +17,7 @@ helm repo add anchore https://charts.anchore.io
 helm repo update
 
 helm install anchore anchore/anchore-engine \
+  --version 1.14.2 \
   --create-namespace \
   -n anchore
 
