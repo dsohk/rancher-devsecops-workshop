@@ -246,21 +246,28 @@ The output will be like below. This script will help you to configure the given 
 
 ```
 ❯ ./setup-rke-devsecops.sh
-Enter Rancher registration command for devsecops cluster:
-sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run  rancher/rancher-agent:v2.5.9 --server https://13.211.212.252 --token tszcbp4j2qkx872j8vt9c6x57p5spv2fl7h5v7fsx8dghbc7jmpsh7 --ca-checksum 8e5121527a343c673c9c6660602c7f95fdd28d6ccc3c247d5cc3e437c8d1feec --worker
+Enter Rancher registration command for devsecops cluster: 
+sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run  rancher/rancher-agent:v2.5.9 --server https://13.234.238.165 --token 6k7x7px575lwvljxvcvq7rlfn5cqjs4vwmw5lfgkwshrklm56hcph7 --ca-checksum df4eea1dba1880a4f944cb9488db4328c7e374780bfd7578d496de78a3333e9d --worker
 
 Register devsecops-m1 cluster ...
-Warning: Permanently added '52.62.113.31' (ECDSA) to the list of known hosts.
-Unable to find image 'rancher/rancher-agent:v2.5.9' locally
-v2.5.9: Pulling from rancher/rancher-agent
-e7ae86ffe2df: Pulling fs layer
-..........
-..........
-c7118343d245: Pull complete
-428cad6e906b: Pull complete
-Digest: sha256:fee10940c61c36055120ca9ef624810a740647cff4751d0b21266939c9da4b93
-Status: Downloaded newer image for rancher/rancher-agent:v2.5.9
-1b262467279045a6e5570a28df54051d8a8f2cdb8fb27556fa57aa679e1f8b22
+Warning: Permanently added '13.234.186.113' (ECDSA) to the list of known hosts.
+aca02b8b2ddcdfce94531c2f0ca6c6dada0935ff1525c6617135429697d075d7
+
+Register devsecops-w1 cluster ...
+Warning: Permanently added '3.108.196.228' (ECDSA) to the list of known hosts.
+68f7d20dbc09460747d2ff84a315d6fd3aa4d3cc43563e3242b71273ebe7b42f
+
+Register devsecops-w2 cluster ...
+Warning: Permanently added '52.66.134.146' (ECDSA) to the list of known hosts.
+f292aca663dc23752a17dbc1da37225eca09cd5075b594fa3a7c0fc2037870b3
+
+Register devsecops-w3 cluster ...
+Warning: Permanently added '13.126.69.157' (ECDSA) to the list of known hosts.
+0d42f90e58ad6fad4ecd75651d241c31ee0b6de8107d3cd7c9e80c837d5de67f
+
+Register devsecops-w4 cluster ...
+Warning: Permanently added '65.2.34.12' (ECDSA) to the list of known hosts.
+d3915b754e46c5c93ed17f4236c2dd21d04e851157371a71ea72cffc2c3d078a
 
 The devsecops cluster is now being provisioned by Rancher. It may take a few minutes to complete.
 Once it's ready, please install Longhorn on it and download KUBECONFIG file into your Harbor VM. Thank you!
@@ -287,9 +294,7 @@ When prompted the `Install Longhorn` page, leave all the settings as default and
 
 ### 6. Download KUBECONFIG file of DevSecOps cluster to Harbor VM
 
-
 ![Download Kubeconfig file](./images/rancher-kubeconfig.png)
-
 
 Navigate to `Cluster Manager` in Rancher UI. 
 
@@ -335,7 +340,7 @@ devsecops-w4   Ready    worker              14m   v1.20.9
 
 We are going to setup these 3 tools on devsecops cluster in parallel. 
 
-Open 3 linux terminal windows, ssh into Harbor VM, as illustrated in the diagram below.
+Open 3 linux terminal windows, and paste below command to ssh into Harbor VM, as illustrated in the diagram below.
 
 ```
 ./ssh-mylab-harbor.sh
@@ -352,7 +357,7 @@ cd ~/devsecops/jenkins
 
 It should take awhile to build custom Jenkins images with our own choice of plugins for this lab, upload to your harbor private registry, and deploy Jenkins with helm chart onto your `devsecops` cluster.
 
-While we are waiting, run the following command to setup Anchore in terminal 2 of your Harbor VM.
+In Terminal 2 of Harbor VM, run the following command to setup Anchore 
 
 ```
 cd ~/devsecops/anchore
@@ -361,16 +366,22 @@ cd ~/devsecops/anchore
 
 It will also take awhile to deploy anchore on your devsecops cluster. Likewise, let's continue while waiting it to finish.
 
-Run the following command to setup Sonarqube in terminal 3 of your Harbor VM.
+Likewise in Terminal 3 on Harbor VM, run the following command to setup Sonarqube.
 
 ```
 cd ~/devsecops/sonarqube
 ./99-one-step-install-sonarqube.sh
 ```
 
+You can check the activity of deployment of Jenkins, Anchore & Sonarqube in Rancher UI in thier respective namespaces
+
+![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-rancher-ui.png)
+
 Once all the above scripts finished, you can retrieve the login credentials or URL for Jenkins and Sonarqube. 
 
 ![Deploy Jenkins and others finished](./images/deploy-jenkins-and-others-finish.png)
+
+![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-success-rancher-ui.png)
 
 Details are also stored in the home directory of your harbor VM. For example, 
 
