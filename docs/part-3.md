@@ -71,7 +71,18 @@ In GitHub, navigate to your forked repoistory. Find the code in `Jenkinsfile` an
 
 ![Code change after forked repo](./images/github-repo-code-change-yourname.png)
 
-### 3. Fork the spring-petclinic-helmchart project into your own github account
+### 3. Setup git webhook for spring-petclinic repo to your Jenkins server
+
+1. Click `Settings` in your spring-petclinic github repo.
+2. Choose `Webhooks` from the left menu.
+3. Click `Add Webhook` button
+4. Enter Payload URL: http://<YOUR_JENKINS_IPADDRESS>:<YOUR_JENKINS_PORT>/github-webhook/
+5. Choose `Send me everything` for events to trigger this webhook.
+6. Click `Add Webhook` button.
+
+![Setup Github webhook](./images/github-webhook.png)
+
+### 4. Fork the spring-petclinic-helmchart project into your own github account
 
 Open a new Browser & past the below link
 
