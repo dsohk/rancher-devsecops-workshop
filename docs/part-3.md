@@ -1,4 +1,4 @@
-# Part 3 - Configure Jenkins with DevSecOps tools to deploy spring-petclinic App
+# Part 3 - Configure Jenkins Pipeline to deploy spring-petclinic App
 
 After we have configured and have verified Jenkins is working, let's build the spring-petclinic application. 
 
