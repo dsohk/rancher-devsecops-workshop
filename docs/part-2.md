@@ -32,11 +32,13 @@ Run the command below to show your current lab environment. This shows you all i
 8. Click `Save` button
 9. On the left menu, click `Build Now` to trigger the first jenkins pipeline.
 
-![ First Job status in Jenkins UI](./images/.png)
+Click on Status inside the job to view job status.
 
-![ First Job pos in Rancher UI](./images/xxx.png)
+![ First Job pos in Rancher UI](./images/part2-jenkins-ui-job-build-status.png)
 
-![Create Job in Jenkins](./images/xxx.png)
+![ First Job pos in Rancher UI](./images/part2-step-build-my-firest-pipeline-pod-running-status.png)
+
+![Create Job in Jenkins](./images/part2-step-build-my-firest-pipeline-pod-terminating-post-jobrun.png)
 
 
 ## Build my second Jenkins Pipeline
