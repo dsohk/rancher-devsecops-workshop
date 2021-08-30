@@ -153,9 +153,14 @@ Enable `Environment variables` checkbox
 In the Sonarqube installations click on `Add SonarQube`
 section, enter the following.
 
-* Name: `My SonarQube`
+* Name: `My SonarQube` Note name must spelled excatly as mentioned here.
 * Server URL: (Your SonarQube URL)
-* Server authentication token: (Click `Add`) to pull down menu and choose `Add Credentials`. In the popup window, 
+
+* Server authentication token: (Click `Add`) to pull down menu and choose `Add Credentials`. If a popup windows does not come up, hit `save` & revist this section again.  
+
+Now clicking `Add` should bring up a windows to add credentials.
+
+In the popup window, 
   * Kind: `Secret text`
   * Secret: (Enter the Sonarqube generated token)
   * ID: `sonarqube-spring-petclinic`
