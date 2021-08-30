@@ -76,21 +76,24 @@ Once our Cluster Group is created, we then need to define a Git Repo for Fleet.
 To configure Git Reop, click on `Create` in Git Repos page in Continous Delivery
 
 You would need to provide 
+
 Name:
 
-Repository URL: forked PetClinic repo to local github account. In my case it's `https://github.com/dipakcpatel78/spring-petclinic.git`
-
-Branch Name: Note Branche Name is `main` in our case & not `master`
-
-Deploy To - Cluster/Cluster Group. In my case `
-
-Rest all default.
+Repository URL: forked PetClinic Repo which is now avaiable in your GitHub Account. In my case it's `https://github.com/dipakcpatel78/spring-petclinic.git`
 
 Incase if you are not sure, please visit your GitHub Account & under Repo search for Spring-Petclinic & click on `Code` to get the URL. Sample below for reference. 
 
 ![Rancher UI](./images/part4-configure-git-repo-forked-url.png)
 
-![Rancher UI](./images/![Rancher UI](./images/part4-configure-git-repo-config.png)
+Branch Name: Note Branche Name is `main` in our case & not `master`
 
-With this, let's put everything together and proceed to [Part 5](part-5.md).
+Deploy To - Cluster/Cluster Group. In my case `development`
+
+Rest all default.
+
+Sample output of the GitRepo configuration
+
+![Rancher UI](./images/part4-configure-git-repo-config.png)
+
+With this, let's put everything together and proceed to [Part 5](part-5.md)
 
