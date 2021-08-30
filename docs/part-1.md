@@ -294,9 +294,7 @@ When prompted the `Install Longhorn` page, leave all the settings as default and
 
 ### 6. Download KUBECONFIG file of DevSecOps cluster to Harbor VM
 
-
 ![Download Kubeconfig file](./images/rancher-kubeconfig.png)
-
 
 Navigate to `Cluster Manager` in Rancher UI. 
 
@@ -342,7 +340,7 @@ devsecops-w4   Ready    worker              14m   v1.20.9
 
 We are going to setup these 3 tools on devsecops cluster in parallel. 
 
-Open 3 linux terminal windows, ssh into Harbor VM, as illustrated in the diagram below.
+Open 3 linux terminal windows, and paste below command to ssh into Harbor VM, as illustrated in the diagram below.
 
 ```
 ./ssh-mylab-harbor.sh
