@@ -211,6 +211,8 @@ Click `Save` button to save the Jenkins configuration settings.
 
 Click `Build Now` to run this pipeline. 
 
+![Build Job In Action](./images/spring-petclininc-pipeline-buildingstate-underprogress.png)
+
 It may take about 20 minutes to finish this pipeline at  the first time. The next run will be faster as all the builds or dependent artifacts are cached in the persistent volume used by the pods for this job.
 
 
