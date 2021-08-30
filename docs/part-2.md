@@ -36,6 +36,8 @@ Click on Status inside the job to view job status.
 
 ![ First Job pos in Rancher UI](./images/part2-jenkins-ui-job-build-status.png)
 
+In Rancher UI, toggle to `devsecops` cluster. Click on Cluster Explorer & in pods section you can see the progress of Jenkins jobs. Below images illustrates the Jenkins pipeline has successfully create the pods & later you can see it getting terminated once the job is completed successfully
+
 ![ First Job pos in Rancher UI](./images/part2-step-build-my-firest-pipeline-pod-running-status.png)
 
 ![Create Job in Jenkins](./images/part2-step-build-my-firest-pipeline-pod-terminating-post-jobrun.png)
