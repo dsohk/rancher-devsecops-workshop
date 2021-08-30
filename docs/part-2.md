@@ -8,7 +8,6 @@ Run the command below to show your current lab environment. This shows you all i
 ./show-mylab-env.sh
 ```
 
-
 ## Build my first Jenkins Pipeline
 
 1. Login to Jenkins with the URL and credentials generated from Part 1.
@@ -27,6 +26,9 @@ Run the command below to show your current lab environment. This shows you all i
 
 6. Choose `try sample Pipeline` pulldown menu.
 7. Choose `Declarative (Kubernetes)`
+
+![Create Job in Jenkins](./images/part2-step-build-my-firest-pipeline-jenkins-configure-first-pipeline-declarative-kubernetes.png)
+
 8. Click `Save` button
 9. On the left menu, click `Build Now` to trigger the first jenkins pipeline.
 
