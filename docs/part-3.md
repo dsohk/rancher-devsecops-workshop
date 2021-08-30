@@ -165,10 +165,9 @@ In the popup window,
   * Secret: (Enter the Sonarqube generated token)
   * ID: `sonarqube-spring-petclinic`
 
-  Click `Add` & Under `Server Authenticiation Token` dropdown menu we should see `sonarqube-spring-petclinic`. Selet it. 
-  
+  Click `Add` & Under `Server Authenticiation Token` dropdown menu we should see `sonarqube-spring-petclinic`. Select it. 
 
-Sample Output would look like
+Sample Output should show up as below.
 
 ![Configure Sonarqube integration in Jenkins](./images/jenkins-configure-sonarqube.png)
 
@@ -186,7 +185,7 @@ Specify the github username and email account in this section. It can be any arb
 2. Engine Username: (Your Anchore username)
 3. Engine Password: (Your Anchore password)
 
-Click `Ok` button to save the Jenkins configuration settings.
+Click `Save` button to save the Jenkins configuration settings.
 
 ### Configure the credentials in Jenkins
 
