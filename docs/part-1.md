@@ -382,5 +382,5 @@ suse0908-harbor ec2-user@ip-172-26-2-249:~>ls -l ~/my*.*
 -rw-r--r-- 1 ec2-user users  109 Aug 26 00:36 /home/ec2-user/mysonarqube.txt
 ```
 
-Congratulations!  With this, we are ready to move to the [Step 2 - Build Your First Jenkins](part-2.md)
+With this, we are ready to move to the [Step 2 - Build Your First Jenkins](part-2.md)
 

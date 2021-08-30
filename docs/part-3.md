@@ -1,6 +1,48 @@
 # Part 3 - Configure Jenkins with DevSecOps tools to deploy spring-petclinic App
 
-After we have configured and have verified Jenkins is working, let's build the spring-petclinic application.
+After we have configured and have verified Jenkins is working, let's build the spring-petclinic application. 
+
+Prior to configuring Jenins, open your linux workstation terminal where the git repository is located.
+
+Run the command below to show your current lab environment. This shows you all information you need to configure your Jenkins in this section.
+
+```
+./show-mylab-env.sh
+```
+
+The output should look like below.
+
+```
+Your Rancher Server URL: https://18.141.146.73
+
+My Harbor Instance ...
+URL: https://18.141.208.163:30443
+User: admin
+Password: ZD9YfBagvtZ3RjXoAWzpC8gq7NtBQz
+
+Your Jenkins instance is ready ...
+http://13.250.30.98:30030/login
+Username: admin
+Password: 6mXnCWsbJbMsq66HatLYYH
+
+Your Anchore is now successfully provisioned.
+URL: http://anchore-anchore-engine-api.anchore.svc.cluster.local:8228/v1/
+User: admin
+Password: ciANbB7N2F988lyT5fIcFJKJNffVo1JU
+
+Your Sonarqube instance is ready ...
+http://13.250.30.98:30667/login
+username: admin
+initial password: admin
+
+
+My Github personal access token:
+
+My SonarQube token:
+
+```
+
+A file `mylab_env.txt` should also have created for you. Use text editor to open this file and get ready to record down your further tokens to be collected in this part.
 
 ## Setup my Github
 
@@ -183,7 +225,7 @@ Click `Ok` button to save the Jenkins configuration settings.
 6. Choose your github organization.
 7. Choose your forked project `spring-petclinic` and click `Create Pipeline` to continue.
 
-![BlueOcean - Create Pipeline in Jenkins](jenkins-blueocean-create-pipeline.png)
+![BlueOcean - Create Pipeline in Jenkins](./images/jenkins-blueocean-create-pipeline.png)
 
 Click `Build Now` to run this pipeline. 
 
