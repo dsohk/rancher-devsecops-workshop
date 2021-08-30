@@ -56,6 +56,8 @@ With our 2nd job, we are building a simple `Maven` container.
 
 You should now have 2 pipelines created in Jenkins which will create Kubernetes pods on Rancher-managed cluster to run each job. 
 
+![Job Status in Jenkins and Rancher UI's ](./images/part2-step-build-my-second-pipeline-maven-kubernetes-success.png)
+
 ![Pipeline list in Jenkins](./images/jenkins-pipeline-list.png)
 
 ## Examine Cluster Explorer in Rancher
