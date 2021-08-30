@@ -48,6 +48,8 @@ In Rancher UI, toggle to `devsecops` cluster. Click on `Cluster Explorer` & in `
 
 Like the first pipeline, create the `second` pipeline but this time choose `Maven (Kubernetes)` from `try sample Pipeline` pulldown menu.
 
+![Create Job in Jenkins](./images/part2-step-build-my-second-pipeline-maven-kubernetes.png)
+
 Click `Build Now` to trigger the second Jenkins pipeline.
 
 You should now have 2 pipelines created in Jenkins which will create Kubernetes pods on Rancher-managed cluster to run each job. 
