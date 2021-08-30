@@ -1,5 +1,7 @@
 # Build Your Own DevSecOps using SUSE Rancher
 
+![SUSE Rancher - DevSecOps Scenario](./docs/images/overview.png)
+
 This repository contains all the scripts and Kubernetes manifests for complimenting its hands-on workshop.
 
 * [Part 1 - Initial Lab Setup on AWS Lightsail](./docs/part-1.md)
