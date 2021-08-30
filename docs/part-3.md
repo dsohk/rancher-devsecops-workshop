@@ -148,7 +148,10 @@ Go to `Global Properties` section.
 
 #### Sonarqube
 
-In the Sonarqube section, enter the following.
+Enable `Environment variables` checkbox
+
+In the Sonarqube installations click on `Add SonarQube`
+section, enter the following.
 
 * Name: `My SonarQube`
 * Server URL: (Your SonarQube URL)
