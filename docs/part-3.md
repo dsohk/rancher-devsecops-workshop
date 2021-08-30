@@ -2,7 +2,7 @@
 
 After we have configured and have verified Jenkins is working, let's build the spring-petclinic application. 
 
-Prior to configuring Jenins, open your linux workstation terminal where the git repository is located.
+Prior to configuring Jenkins, open your Linux workstation terminal where the git repository is located.
 
 Run the command below to show your current lab environment. This shows you all information you need to configure your Jenkins in this section.
 
