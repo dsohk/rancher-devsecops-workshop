@@ -2,7 +2,7 @@
 
 ## 1. Provision all-in-one RKE clusters on VM (cluster1 and cluster2)
 
-Open browser to navigate to the Rancher URL captured in earlier steps. By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. Setup your own administrative password, accept the Terms and Conditions, leave the rest of settings as default to continue.
+Open browser to navigate to the Rancher URL captured in earlier steps. Authenticate by providing your Rancher credentials.
 
 You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create new kubernetes cluster with RKE and existing bare-metal servers or virtual machine `Existing Node` option. 
 
@@ -40,33 +40,32 @@ Make sure you name the cluster as `Cluster2`
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster2-pg1-latest.png)
 
-### 3. Connfigure Rancher Fleet - Continous Delivery
+### 3. Configure Rancher Fleet - Continous Delivery
 
-Define Cluster Group
+To setup Fleet, from Rancher UI, Cluster Manager Page select `Tools` and click on `Continous Delivery`
 
-Rancher UI > Tools > Continious Delivery
 
-![Rancher UI](./images/rancher-uI-fleet-step1-pg1.png)
+![Rancher-Continous Delivery (CD)](./images/rancher-uI-fleet-step1-pg1.png)
 
 Before we go any further, let verify if we can see all our cluster in Rancher FLeet
 
-![Rancher UI](./images/rancher-uI-all-clusterlist-step2.png)
+![Rancher-(CD)](./images/rancher-uI-all-clusterlist-step2.png)
 
-Define Cluster Group 
-Continuious Delivery - Cluster Groups > Create > Provide necessary details 
+In Fleet you can manage indivisual or group of clusters. Managing cluster via Group reduces adminstrative efforts. 
+
+To create Cluster Group in Continous Delivery, click on Cluster Groups option in left plane & hit `Create`
 
 ![Rancher UI](./images/rancher-ui-create-first-fleet-group-step3-pg3.png)
 
-Provide unique name  & in cluster selector we need to provide the labels used during cluster creation which will allow Rancher Fleet to associate the cluster to the group. 
-We have Labels a key value pair `env` and `dev. We must provide the same Label key value pair in our Cluster group to match cluster labels.
+Provide unique `Name` for cluster group `Development` and in `Cluster Selector` section, provide same Label key value pair which was used to create `Cluster1` and `Cluster2`
 
-Once we provide label key value pair, Fleet will check existing cluster to match & will show you how many cluster match your request. 
+Key:Value `(env=dev)` 
 
-For us Cluster1 & Cluster2 has matching key value paid & Fleet how 2 cluster matching.
+Once you key in the key:value pair, Rancher will use the selector labels to indentify the clusters to be used as part of cluster group in Fleet. You will see it show 2/4 cluster been selected. 
 
 ![Rancher UI](./images/rancher-ui-create-first-fleet-group-details-step4-pg4.png)
 
-Finally we should have our first Rancher Fleet Group created successfully
+Hit `Create` which will create our first Cluster Group.
 
 ![Rancher UI](./images/rancher-ui-first-fleet-group-success-step5-pg5.png)
 
