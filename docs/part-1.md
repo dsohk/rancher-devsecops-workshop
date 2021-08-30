@@ -373,6 +373,9 @@ cd ~/devsecops/sonarqube
 ./99-one-step-install-sonarqube.sh
 ```
 
+You can check the activity in Rancher UI
+![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-rancher-ui.png)
+
 Once all the above scripts finished, you can retrieve the login credentials or URL for Jenkins and Sonarqube. 
 
 ![Deploy Jenkins and others finished](./images/deploy-jenkins-and-others-finish.png)
