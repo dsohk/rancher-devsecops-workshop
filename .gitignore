@@ -1,4 +1,5 @@
 .DS_Store
+*.swp
 mylab*.*
 ssh-mylab-*.*
 mylab-ssh-config
