@@ -31,6 +31,7 @@ Run the command below to show your current lab environment. This shows you all i
 
 8. Click `Save` button
 9. On the left menu, click `Build Now` to trigger the first jenkins pipeline.
+10. With the first Jenkins job we are building an simple contianer with Ubuntu Image & deploying on Kubernetes Cluster `devsecops`. Once the job is completed the Container get terminated 
 
 Click on Status inside the job to view job status.
 
