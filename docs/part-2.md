@@ -32,6 +32,13 @@ Run the command below to show your current lab environment. This shows you all i
 8. Click `Save` button
 9. On the left menu, click `Build Now` to trigger the first jenkins pipeline.
 
+![ First Job status in Jenkins UI](./images/.png)
+
+![ First Job pos in Rancher UI](./images/xxx.png)
+
+![Create Job in Jenkins](./images/xxx.png)
+
+
 ## Build my second Jenkins Pipeline
 
 Like the first pipeline, create the `second` pipeline but this time choose `Maven (Kubernetes)` from `try sample Pipeline` pulldown menu.
