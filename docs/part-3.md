@@ -56,6 +56,11 @@ In order to integrate Jenkins with your github account, we have to generate your
 4. Click `Generate new token` button.
 5. Enter `workshop` (or whatever you like) in the name field.
 6. Choose `repo` and `user:email` in the privieged for this token.
+
+![GitHub Personal Access Token](./images/part3-setup-my-github-personal-access-token-repo.png)
+
+![GitHub Personal Access Token](./images/part3-setup-my-github-personal-access-token-user-email.png)
+
 7. Save and record down the generated token in the `mylab_env.txt` file for configuring CI Pipeline in Jenkins later.
 
 ### 2. Fork the spring-petclinic project into your own github account
