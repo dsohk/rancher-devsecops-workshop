@@ -13,25 +13,28 @@ Run the command below to show your current lab environment. This shows you all i
 The output should look like below.
 
 ```
-Your Rancher Server URL: https://18.141.146.73
+Your Rancher Server URL: https://52.221.224.193
 
 My Harbor Instance ...
-URL: https://18.141.208.163:30443
+URL: https://18.138.241.59:30443
 User: admin
-Password: ZD9YfBagvtZ3RjXoAWzpC8gq7NtBQz
+Password: V4P6Z8NA3yXpEjrpIjPl9O05ITnXhM
 
 Your Jenkins instance is ready ...
-http://13.250.30.98:30030/login
+http://13.251.59.142:31409/login
 Username: admin
-Password: 6mXnCWsbJbMsq66HatLYYH
+Password: DIY1aHNzqfn3Hk79L7UeQ8
+
+Your Jenkins Github webhook Payload URL:
+http://13.251.59.142:31409/github-webhook/
 
 Your Anchore is now successfully provisioned.
 URL: http://anchore-anchore-engine-api.anchore.svc.cluster.local:8228/v1/
 User: admin
-Password: ciANbB7N2F988lyT5fIcFJKJNffVo1JU
+Password: ZuhWUXq0BvKfnCgHP4eqIIIVVR6oKzko
 
 Your Sonarqube instance is ready ...
-http://13.250.30.98:30667/login
+http://13.251.59.142:30612/login
 username: admin
 initial password: admin
 
