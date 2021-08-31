@@ -184,6 +184,11 @@ URL: https://54.153.196.73:30443
 User: admin
 Password: J4diXo8ZKddi5mFGEgx1Z3XveoOuPw
 ```
+The script has 
+1) Deployed K3s cluster.
+2) Deploying Harbor (using Helm Chart v1.7.2 & App v2.3.2) on K3s.
+3) Downloading and configured Harbor CA cert on Server and all VMs so that they can acccess Harbor.
+4) Downloaded docker images for Maven, maven:3-jdk-8-slim, sles15sp3-openjdk into Harbor 
 
 ### 4. Provision DevSecOps RKE cluster from Rancher UI
 
