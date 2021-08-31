@@ -232,7 +232,7 @@ Toggle to Rancher UI to verify if the Harbor Cluster is successfully imported!
 
 In the following step, we will add `devsecops` cluster in Rancher.
 
-You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create a new cluster with `Existing Node` method. 
+Navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create a new cluster with `Existing Node` method. 
 
 ![Rancher UI](./images/rancher-add-cluster-existing-node.png)
 
