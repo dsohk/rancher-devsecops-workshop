@@ -44,7 +44,7 @@ In the above illustration, under `build history` you will find `#1` which indica
 
 During the Pipeline build stage, you can also toggle to Rancher UI to see the container spining up & terminating once the job is done, 
 
-In Rancher UI, Toggle to `devsecops` cluster. Click on `Cluster Explorer` & in `Pods` section you can see the progress of Jenkins jobs. 
+In Rancher UI, Toggle to `devsecops` cluster. Click on `Cluster Explorer` & in `Pods` section you can see the progress of Jenkins jobs under Jenkins Namespace.
 
 Below images illustrates the Jenkins pipeline has successfully create the pods & later you can see it getting terminated once the job is completed successfully
 
