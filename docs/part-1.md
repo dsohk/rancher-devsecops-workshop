@@ -373,7 +373,7 @@ Here a high level view of what been accomplished
 
 2) Pulling Jenkins Image, building custom Jenkins image with own choise of plugins for this lab and adding it to Harbor registry.
 
-3) Provisioning Jenkins using Helm Chart (Chart v3.5.15 & App V2.303.1
+3) Provisioning Jenkins using Helm Chart (Chart v3.5.15 & App V2.303.1)
 
 4) Configuring Jenkins GitHub webhook
 
