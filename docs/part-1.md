@@ -365,7 +365,17 @@ cd ~/devsecops/jenkins
 ./99-one-step-install-jenkins.sh
 ```
 
-It should take awhile to build custom Jenkins images with our own choice of plugins for this lab, upload to your harbor private registry, and deploy Jenkins with helm chart onto your `devsecops` cluster.
+This should take awhile to build Jenkins Image along with required plugin of our choice to be build in `devsecops` cluster.
+
+Here a high level view of what been accomplished
+
+1) Deployment & configuration of self signed certificate with Harbor. Self Signed Certificated are distributing to all Labs VMs. With help of Docker Client, we are able to login in the VM using self signed certifiate. 
+
+2) Pulling Jenkins Image, building custom Jenkins image with own choise of plugins for this lab and adding it to Harbor registry.
+
+3) Provisioning Jenkins using Helm Chart (Chart v3.5.15 & App V2.303.1
+
+4) Configuring Jenkins GitHub webhook
 
 In Terminal 2 of Harbor VM, run the following command to setup Anchore 
 
@@ -373,7 +383,6 @@ In Terminal 2 of Harbor VM, run the following command to setup Anchore
 cd ~/devsecops/anchore
 ./99-one-step-install-anchore.sh
 ```
-
 It will also take awhile to deploy anchore on your devsecops cluster. Likewise, let's continue while waiting it to finish.
 
 Likewise in Terminal 3 on Harbor VM, run the following command to setup Sonarqube.
@@ -402,6 +411,9 @@ suse0908-harbor ec2-user@ip-172-26-2-249:~>ls -l ~/my*.*
 -rw-r--r-- 1 ec2-user users 1203 Aug 25 23:21 /home/ec2-user/mylab_vm_list.txt
 -rw-r--r-- 1 ec2-user users  109 Aug 26 00:36 /home/ec2-user/mysonarqube.txt
 ```
+
+In the above steps, we deployed Jenkins, Anchor & Sonarqube
+
 
 With this, we are ready to move to the [Step 2 - Build Your First Jenkins](part-2.md)
 
