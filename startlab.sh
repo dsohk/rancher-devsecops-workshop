@@ -56,7 +56,7 @@ select opt in "${options[@]}" "Quit"; do
 done
 
 echo "export AWS_REGION=${AWS_REGION}" > mylab_aws_region.sh
-export AWS_AZ=${AWS_REGION}a
+
 # Instance Sizes
 # medium = 4GB RAM; large = 8GB RAM
 # aws lightsail get-bundles
