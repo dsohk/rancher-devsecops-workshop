@@ -153,7 +153,7 @@ Go to `Global Properties` section.
 
 Enable `Environment variables` checkbox
 
-In the Sonarqube installations click on `Add SonarQube`
+In the `Sonarqube installations` click on `Add SonarQube`
 section, enter the following.
 
 * Name: `My SonarQube` Note name must spelled excatly as mentioned here.
@@ -168,7 +168,7 @@ In the popup window,
   * Secret: (Enter the Sonarqube generated token)
   * ID: `sonarqube-spring-petclinic`
 
-  Click `Add` & Under `Server Authenticiation Token` dropdown menu we should see `sonarqube-spring-petclinic`. Select it. 
+Under `Server authentication token` use the drop down option and you should see `sonarqube-spring-petclinic`. Select it. 
 
 Sample Output should show up as below.
 
@@ -186,7 +186,7 @@ Specify the github username and email account in this section. It can be any arb
 
 1. Engine URL: (Your Anchore URL)
 2. Engine Username: (Your Anchore username)
-3. Engine Password: (Your Anchore password)
+3. Engine Password: Click on `change Password` and replace with your Anchore password)
 
 Click `Save` button to save the Jenkins configuration settings.
 
