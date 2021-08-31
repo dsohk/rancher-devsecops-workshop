@@ -230,9 +230,7 @@ Toggle to Rancher UI to verify if the Harbor Cluster is successfully imported!
 
 ![Rancher UI](./images/rancher-ui-harbor-success-pg6.png)
 
-You see, our Harbor cluster is now successfully onboarded into Rancher. 
-
-In the following step, we will add another cluster in Rancher.
+In the following step, we will add `devsecops` cluster in Rancher.
 
 You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create a new cluster with `Existing Node` method. 
 
