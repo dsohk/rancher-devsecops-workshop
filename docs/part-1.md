@@ -210,7 +210,10 @@ Enter the custer name as `Harbor` and leave the rest of the setting as default &
 
 ![Rancher UI](./images/rancher-ui-add-cluster-register-exstingcluster-harbor-pg3.png)
 
+Choose the self signed last options as below.
+
 ![Rancher UI](./images/rancher-ui-addcluster-register-existingcluster-harbor-pg4.png)
+
 
 Open your Linux workstation terminal and switch to the working directory where this repo has been checked out. 
 
