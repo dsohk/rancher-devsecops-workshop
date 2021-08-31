@@ -80,6 +80,8 @@ Choose the region closiest to you to continue your lab setup. The script will th
 2) configure firewall rules of these VMs, 
 3) download AWS SSH keypair to your local folder to access to these VMs, and
 4) create shortcut files for you to access to the VMs in your lab environment.
+5) Install Kubernetes tools (`Kubectl` & `helm`)
+6) finally Installing Rancher using Docker
 
 When the script has finished, you will see a table of VMs with IP addresses, the Rancher instance URL, and other useful files created in your local folder. For example, this is the extract of my output after running the startlab script. Obviously, the IP addresses listed will be different from yours.
 

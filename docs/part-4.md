@@ -106,7 +106,7 @@ Deploy To -
 
 Target Namespace: `spring-petclinic`
 
-Rest all default.
+Rest all default and hit `Create`
 
 Sample output of the GitRepo configuration
 
