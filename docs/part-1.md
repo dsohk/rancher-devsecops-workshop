@@ -285,7 +285,7 @@ The devsecops cluster is now being provisioned by Rancher. It may take a few min
 Once it's ready, please install Longhorn on it and download KUBECONFIG file into your Harbor VM. Thank you!
 ```
 
-Return to your browser with Rancher UI, you should see the `devsecops` cluster is being initialized. It may take 5-10 minutes to complete the whole RKE cluster.
+Return to your browser with Rancher UI, you should see the `devsecops` cluster is being initialized. It may take 5-10 minutes to complete the whole RKE cluster setup.
 
 ![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
 
