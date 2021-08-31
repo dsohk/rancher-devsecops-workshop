@@ -214,7 +214,7 @@ Click `Save` button to save the Jenkins configuration settings.
 
 Click `Build Now` to run this pipeline. 
 
-We see the build status in Jenkins Blue Ocean plugin and see the Jenkins worker running the container build job
+We see the Jenkins build job status in Jenkins and we also see the corresponding Jenkins worker running the container build job in `Jenkins-workers` Namespace with job id `spring-petclinic-b6f6771f-ss3vx-fccj4`
 
 ![Build Job In Action](./images/spring-petclininc-pipeline-buildingstate-underprogress.png)
 
