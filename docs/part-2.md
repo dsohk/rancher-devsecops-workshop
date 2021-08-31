@@ -2,7 +2,10 @@
 
 With Jenkins, Sonarqube, Anchore running on the Rancher-managed devsecops cluster, let's build our very first Jenkins pipeline.
 
-Run the command below to show your current lab environment. This shows you all information you need to configure your Jenkins in this section.
+ 
+In your linux terminal, run the below command from your directory where you have GitRepo cloned. 
+
+This shows you all information you need to configure your Jenkins in this section.
 
 ```
 ./show-mylab-env.sh
