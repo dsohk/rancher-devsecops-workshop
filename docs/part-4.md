@@ -73,21 +73,36 @@ Once our Cluster Group is created, we then need to define a Git Repo for Fleet.
 
 #### 4. Configure Git Repo
 
-To configure Git Reop, click on `Create` in Git Repos page in Continous Delivery
+Before we ahead for configuring the Git Repo, we need to Git URL.
 
-You would need to provide 
+Follow the instruction below to get to Git URL.
 
-Name:
+Open you GitHub. You will find your repository on left hand side of the page. If you still not able to find, use the search option and specify the repository name `spring-petclinic-helmchart` 
 
-Repository URL: forked PetClinic Repo which is now avaiable in your GitHub Account. In my case it's `https://github.com/dipakcpatel78/spring-petclinic.git`
+Click on the Repository URL and you will be taken into the `code` tab. 
 
-Incase if you are not sure, please visit your GitHub Account & under Repo search for Spring-Petclinic & click on `Code` to get the URL. Sample below for reference. 
+In the code page, you will be in the `main` branch & you will see `code` tab. Click on the drop down menu of Code tab and you will be presented with the repositroy url. Click on the clipboard icon to copy the URL from `HTTPS` tab. 
+
+Sample below for reference. 
 
 ![Rancher UI](./images/part4-configure-git-repo-forked-url.png)
 
+We are not ready to Configure our Git Repo
+
+To configure Git Reop, click on `Create` in Git Repos page in Continous Delivery. Provide details to complete the form page.  
+
+Name: 
+
+Repository URL: `https://github.com/<github-id>/spring-petclinic-helmchart.git`
+
+Branch Name: NOTE Branche Name is `main` and not `master`
+
+Deploy To: Cluster/Cluster Group. In my case `development`
+
+
 Branch Name: Note Branche Name is `main` in our case & not `master`
 
-Deploy To - Cluster/Cluster Group. In my case `development`
+Deploy To - 
 
 Rest all default.
 
@@ -96,4 +111,13 @@ Sample output of the GitRepo configuration
 ![Rancher UI](./images/part4-configure-git-repo-config.png)
 
 With this, let's put everything together and proceed to [Part 5](part-5.md)
+
+
+Note:
+PetClinic Helm Chart URL as opposed to PetClinic repo.
+Pod  - Container Creation, 
+Add the cluster 1 & 2 with Public & Internal IP assigned
+Configure Services for App using Node port 30800 as it coded in the app logic 
+
+
 
