@@ -104,6 +104,8 @@ Branch Name: Note Branche Name is `main` in our case & not `master`
 
 Deploy To - 
 
+Target Namespace: spring-petclinic
+
 Rest all default.
 
 Sample output of the GitRepo configuration
