@@ -230,12 +230,15 @@ Toggle to Rancher UI to verify if the Harbor Cluster is successfully imported!
 
 ![Rancher UI](./images/rancher-ui-harbor-success-pg6.png)
 
+You see, our Harbor cluster is now successfully onboarded into Rancher. 
+
+In the following step, we will add another cluster in Rancher.
 
 You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create a new cluster with `Existing Node` method. 
 
 ![Rancher UI](./images/rancher-add-cluster-existing-node.png)
 
-Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
+Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click on clipboard like icon to copy the command into your clipboard.
 
 ![Rancher UI](./images/rancher-customize-node-run-cmd.png)
 
@@ -251,8 +254,7 @@ Run the script `./setup-rke-devsecops.sh` and paste the command you copied into 
 ❯ ./setup-rke-devsecops.sh
 Enter Rancher registration command for devsecops cluster:
 ```
-
-The output will be like below. This script will help you to configure the given command to execute the command remotely via ssh in all member VMs of your devsecops cluster. This can take a few minutes but it saves us from potential copy-and-paste human error throughout the setup process.
+Sample output below
 
 ```
 ❯ ./setup-rke-devsecops.sh
