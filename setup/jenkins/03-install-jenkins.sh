@@ -52,8 +52,8 @@ echo http://$NODE_IP:$NODE_PORT/login >> $HOME/myjenkins.txt
 echo Username: admin >> $HOME/myjenkins.txt
 echo Password: $JENKINS_PWD >> $HOME/myjenkins.txt
 echo >> $HOME/myjenkins.txt
-echo "Your Jenkins Github webhook Payload URL:" >> myjenkins.txt
-echo "http://$NODE_IP:$NODE_PORT/github-webhook/" >> myjenkins.txt
+echo "Your Jenkins Github webhook Payload URL:" >> $HOME/myjenkins.txt
+echo "http://$NODE_IP:$NODE_PORT/github-webhook/" >> $HOME/myjenkins.txt
 
 echo
 cat $HOME/myjenkins.txt

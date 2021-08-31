@@ -60,7 +60,7 @@ helm search repo jenkinsci
 echo Customize jenkins-values.yaml
 sed "s/HARBOR_URL/$HARBOR_URL/g" jenkins-values-template.yaml > my-jenkins-values.yaml
 
-helm install jenkins jenkinsci/jenkins -n jenkins -f my-jenkins-values.yaml
+helm install jenkins jenkinsci/jenkins --version 3.5.14 -n jenkins -f my-jenkins-values.yaml
 
 echo "Your Jenkins instance is provisioning...."
 while [ `kubectl get sts -n jenkins | grep 1/1 | wc -l` -ne 1 ]
@@ -81,6 +81,10 @@ echo "Your Jenkins instance is ready ..." > $HOME/myjenkins.txt
 echo http://$NODE_IP:$NODE_PORT/login >> $HOME/myjenkins.txt
 echo Username: admin >> $HOME/myjenkins.txt
 echo Password: $JENKINS_PWD >> $HOME/myjenkins.txt
+echo >> $HOME/myjenkins.txt
+echo "Your Jenkins Github webhook Payload URL:" >> $HOME/myjenkins.txt
+echo "http://$NODE_IP:$NODE_PORT/github-webhook/" >> $HOME/myjenkins.txt
+
 echo
 cat $HOME/myjenkins.txt
 
