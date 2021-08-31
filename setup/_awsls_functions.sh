@@ -5,7 +5,7 @@
 function create-vm() {
 
   # Choose availability zone in the selected AWS region ...
-  AWS_AVAIL_AZ=("a" "b" "c")
+  AWS_AVAIL_AZ=("a") 
   POS=`perl -e 'print int(rand(3))'`
   AWS_SELECTED_AZ=${AWS_AVAIL_AZ[$POS % ${#AWS_AVAIL_AZ[@]} ]}
   AWS_AZ=${AWS_REGION}${AWS_SELECTED_AZ}
