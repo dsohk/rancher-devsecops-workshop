@@ -44,6 +44,8 @@ In Rancher UI, toggle to `devsecops` cluster. Click on `Cluster Explorer` & in `
 
 ![ First Job pos in Rancher UI](./images/part2-step-build-my-firest-pipeline-pod-running-status.png)
 
+In the above illustration, under `build history` you will find `#1` which indicated our first build job is completed and green check mark indicates job is build successfully.
+
 ![Create Job in Jenkins](./images/part2-step-build-my-firest-pipeline-pod-terminating-post-jobrun.png)
 
 
