@@ -47,7 +47,7 @@ My SonarQube token:
 
 A file `mylab_env.txt` should also have created for you. Use text editor to open this file and get ready to record down your further tokens to be collected in this part.
 
-## Setup my Github
+## Setup my Github to create personal access token & webhook for forked repo.
 
 ### 1. Generate my Personal Access Token
 
@@ -66,7 +66,18 @@ In order to integrate Jenkins with your github account, we have to generate your
 
 7. Save and record down the generated token in the `mylab_env.txt` file for configuring CI Pipeline in Jenkins later.
 
-### 2. Fork the spring-petclinic project into your own github account
+### 2. Setup git webhook for spring-petclinic repo to your Jenkins server
+
+1. Click `Settings` in your spring-petclinic github repo.
+2. Choose `Webhooks` from the left menu.
+3. Click `Add Webhook` button
+4. Enter Payload URL: http://<YOUR_JENKINS_IPADDRESS>:<YOUR_JENKINS_PORT>/github-webhook/
+5. Choose `Send me everything` for events to trigger this webhook.
+6. Click `Add Webhook` button.
+
+![Setup Github webhook](./images/github-webhook.png)
+
+### 3. Fork the spring-petclinic project into your own github account
 
 Open a new Browser & past the below link
 
@@ -93,16 +104,6 @@ Once the changes are made, scroll down to the bottom of the page & hit `Commit c
 
 ![Saving changes to forked repo](./images/step3-part2-forking-spring-petclinic-making-changing-userid-save.png)
 
-### 3. Setup git webhook for spring-petclinic repo to your Jenkins server
-
-1. Click `Settings` in your spring-petclinic github repo.
-2. Choose `Webhooks` from the left menu.
-3. Click `Add Webhook` button
-4. Enter Payload URL: http://<YOUR_JENKINS_IPADDRESS>:<YOUR_JENKINS_PORT>/github-webhook/
-5. Choose `Send me everything` for events to trigger this webhook.
-6. Click `Add Webhook` button.
-
-![Setup Github webhook](./images/github-webhook.png)
 
 ### 4. Fork the spring-petclinic-helmchart project into your own github account
 
@@ -132,12 +133,44 @@ Once the above 2 Repo are forked, those repos are available in your GitHub accou
 
 ## Setup my Jenkins
 
+### Configure Jenkins with GitHub credentials 
+
+1. Login to Jenkins
+2. Navigate to the Jenkins Dashboard.
+2. Choose `Manage Jenkins` on the left menu
+3. Choose `Manage Credentials` on the security section.
+4. Under Stores scoped to `Jenkins`, click the `(global)` dropdown menu. Choose `Add credentials`.
+5. In the `Add Credentials` form, choose `Secret text` in `Kind` field.
+6. Enter your Github's personal access token in the `Secret` field.
+7. Enter `my-github` in the `ID` field. Please MAKE SURE this is correct as to match the value in our Jenkins Pipeline.
+8. Click `OK` button to continue
+9. Navigate back to the Jenkins Dashboard.
+
+
+### Configure Jenkins with Sonarqube credentials
+
+* Server authentication token: (Click `Add`) to pull down menu and choose `Add Credentials`. If a popup windows does not come up, hit `save` & revist this section again.  
+
+Now clicking `Add` should bring up a windows `Jenkins Credentials Provider: Jenkins` to add credentials.
+
+In the popup window, 
+  * Kind: click on dropdown menu to select `Secret text`
+  * Secret: (Enter the Sonarqube generated token)
+  * ID: `sonarqube-spring-petclinic`
+
+Under `Server authentication token` use the drop down option and you should see `sonarqube-spring-petclinic`. Select it. 
+
+
+
 ### Configure Jenkins System
 
 1. Login to Jenkins
 2. Navigate to `Managing Jenkins`, then choose `Configure System`.
 
 #### Setup Global Environment variables
+
+1. Login to Jenkins
+2. Navigate to `Managing Jenkins`, then choose `Configure System`.
 
 Go to `Global Properties` section.
 
@@ -159,6 +192,12 @@ section, enter the following.
 * Name: `My SonarQube` Note name must spelled excatly as mentioned here.
 * Server URL: (Your SonarQube URL)
 
+Under `Server authentication token` use the drop down option and you should see `sonarqube-spring-petclinic`. Select it. 
+
+![Configure Sonarqube integration in Jenkins](./images/jenkins-configure-sonarqube.png)
+
+----------------------
+Would remove this section post testing.. 
 * Server authentication token: (Click `Add`) to pull down menu and choose `Add Credentials`. If a popup windows does not come up, hit `save` & revist this section again.  
 
 Now clicking `Add` should bring up a windows `Jenkins Credentials Provider: Jenkins` to add credentials.
@@ -172,8 +211,7 @@ Under `Server authentication token` use the drop down option and you should see 
 
 Sample Output should show up as below.
 
-![Configure Sonarqube integration in Jenkins](./images/jenkins-configure-sonarqube.png)
-
+----------------------------------------------------------
 
 #### Git plugin
 
