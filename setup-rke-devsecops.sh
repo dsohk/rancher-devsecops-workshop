@@ -1,5 +1,10 @@
 #! /bin/bash -e
 
+if [ ! -f ssh-mylab-devsecops-m1.sh ]; then
+  echo "Please start your lab before executing this script."
+  exit
+fi
+
 echo "Enter Rancher registration command for devsecops cluster: "
 read RANCHER_REGCMD
 
@@ -8,12 +13,21 @@ RANCHER_REGCMD=${RANCHER_REGCMD/--etcd/}
 RANCHER_REGCMD=${RANCHER_REGCMD/--controlplane/}
 RANCHER_REGCMD=${RANCHER_REGCMD/--worker/}
 RANCHER_REGCMD=${RANCHER_REGCMD/--node-name */}
+RANCHER_REGCMD=${RANCHER_REGCMD/--address */}
+RANCHER_REGCMD=${RANCHER_REGCMD/--internal-address */}
 
+# Obtain the IP addresses of cluster1
+source ./mylab_vm_prefix.sh
 if [ -f ssh-mylab-devsecops-m1.sh ]; then
+  VM=$VM_PREFIX-devsecops-m1
+  PUB_IP=`cat mylab_vm_list.txt | grep $VM | cut -d '|' -f 4 | xargs`
+  PRIV_IP=`cat mylab_vm_list.txt | grep $VM | cut -d '|' -f 3 | xargs`
   echo
   echo "Register devsecops-m1 cluster ..."
   SSH_VM=$(<ssh-mylab-devsecops-m1.sh)
-  eval "$SSH_VM $RANCHER_REGCMD --node-name devsecops-m1 --etcd --controlplane"
+  CMD="$RANCHER_REGCMD --node-name devsecops-m1 --address $PUB_IP --internal-address $PRIV_IP --etcd --controlplane"
+  echo $CMD
+  eval "$SSH_VM $CMD"
   sleep 10
 fi
 
@@ -22,11 +36,16 @@ fi
 for n in 1 2 3 4 
 do
   if [ -f ssh-mylab-devsecops-w$n.sh ]; then
+    VM=$VM_PREFIX-devsecops-w$n
+    PUB_IP=`cat mylab_vm_list.txt | grep $VM | cut -d '|' -f 4 | xargs`
+    PRIV_IP=`cat mylab_vm_list.txt | grep $VM | cut -d '|' -f 3 | xargs`
     echo
     echo "Register devsecops-w$n cluster ..."
     sleep 5
     SSH_VM=$(<ssh-mylab-devsecops-w$n.sh)
-    eval "$SSH_VM $RANCHER_REGCMD --node-name devsecops-w$n --worker"
+    CMD="$RANCHER_REGCMD --node-name devsecops-w$n --address $PUB_IP --internal-address $PRIV_IP --worker"
+    echo $CMD
+    eval "$SSH_VM $CMD"
   fi
 done 
 

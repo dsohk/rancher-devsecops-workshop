@@ -4,10 +4,15 @@
 # Third argument - extra cmd for user-data
 function create-vm() {
 
-  # Choose availability zone in the selected AWS region ...
-  AWS_AVAIL_AZ=("a") 
-  POS=`perl -e 'print int(rand(3))'`
-  AWS_SELECTED_AZ=${AWS_AVAIL_AZ[$POS % ${#AWS_AVAIL_AZ[@]} ]}
+  # Randomly choose availability zone in the selected AWS region ...
+  if [ "ap-south-1" == $AWS_REGION ]; then
+    export AWS_AVAIL_AZ=("a" "b")
+  elif [ "ap-northeast-1" == $AWS_REGION ]; then
+    export AWS_AVAIL_AZ=("a" "c" "d") 
+  else
+    export AWS_AVAIL_AZ=("a" "b" "c") 
+  fi
+  AWS_SELECTED_AZ=${AWS_AVAIL_AZ[$RANDOM % ${#AWS_AVAIL_AZ[@]} ]}
   AWS_AZ=${AWS_REGION}${AWS_SELECTED_AZ}
 
   aws lightsail create-instances \
