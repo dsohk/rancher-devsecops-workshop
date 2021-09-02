@@ -18,7 +18,7 @@ Estimated Completion Time: 45 mins
 
 ## To build the lab on AWS Lightsail
 
-### 1. Cone Git Repository `rancher-devsecops-workshop-2021`
+### 1. Clone Git Repository `rancher-devsecops-workshop-2021`
 
 In your linux terminal, checkout this repository into a local folder. For example,
 
@@ -164,7 +164,9 @@ ls -lh *mylab*
 You can access to any of your VMs with the `ssh-mylab-<VM>.sh` script. The IP addresses of your VMs are also captured in the file `mylab_vm_list.txt`.
 
 
-### 3. Setup your harbor instance and Import into Rancher 
+### 3. Setup Harbor instance and Import into Rancher 
+
+We will be using Harbor as our Private Registry
 
 While we are waiting Rancher Server instance to be ready, let's setup your harbor private registry.
 
@@ -212,7 +214,7 @@ The script has
 3) Downloading and configured Harbor CA cert on Server and all VMs so that they can acccess Harbor.
 4) Downloaded docker images for Maven, maven:3-jdk-8-slim, sles15sp3-openjdk into Harbor 
 
-Let's import Harbor cluster in Rancher.
+####Let's import Harbor cluster in Rancher.
 
 Open browser to navigate to the Rancher URL captured in earlier step. By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. Setup your own administrative password, accept the Terms and Conditions, leave the rest of settings as default to continue.
 
@@ -313,7 +315,9 @@ Return to your browser with Rancher UI, you should see the `devsecops` cluster i
 ![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
 
 
-### 5. Provision additional RKE Cluster, All-In-One RKE clusters `Cluster1` 
+### 5. Provision additional RKE Cluster, 
+
+####All-In-One RKE clusters `Cluster1` 
 
 In the following step, we will add RKE all-in-1 cluster `Cluster1` 
 
@@ -345,14 +349,14 @@ On Rancher UI, you will see cluster 1 coming in few mins.
 
 Cluster 1 is successfully provision in Rancher
 
-### 6.  Provision additional RKE Cluster, All-In-One RKE clusters `Cluster2`
+####Provision additional RKE Cluster, All-In-One RKE clusters `Cluster2`
 
 Repeat all step from step5 for adding cluster 2. Make sure you name the cluster as `Cluster2`
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster2-pg1-latest.png)
 
 
-### 7. Install Longhorn on DevSecOps RKE cluster from Rancher UI
+### 6. Install Longhorn on DevSecOps RKE cluster from Rancher UI
 
 Navigate to `Cluster Explorer` of `devsecops` cluster from Rancher UI. 
 
@@ -366,7 +370,7 @@ Click `Longhorn` apps from the catalog.
 
 When prompted the `Install Longhorn` page, leave all the settings as default and click `Install` button to continue. It should take 1-2 minutes to complete the longhorn deployment.  The Longhorn item should appear under the top left pulldown menu.
 
-### 6. Download KUBECONFIG file of DevSecOps cluster into Harbor VM
+### 7. Download KUBECONFIG file of DevSecOps cluster into Harbor VM
 
 ![Download Kubeconfig file](./images/rancher-kubeconfig.png)
 
@@ -410,7 +414,7 @@ devsecops-w3   Ready    worker              14m   v1.20.9
 devsecops-w4   Ready    worker              14m   v1.20.9
 ```
 
-### 7. Deploy Jenkins, Anchore and Sonarqube on devsecops RKE cluster from Harbor VM
+### 8. Deploy Jenkins, Anchore and Sonarqube on devsecops RKE cluster from Harbor VM
 
 We are going to setup these 3 tools on devsecops cluster in parallel. 
 
