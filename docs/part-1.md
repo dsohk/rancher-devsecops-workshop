@@ -1,6 +1,3 @@
-```
-Hi Roger
-```
 
 # Part 1 - Build Your Lab Environment on AWS Lightsail
 
@@ -21,13 +18,34 @@ Estimated Completion Time: 45 mins
 
 ## To build the lab on AWS Lightsail
 
-### 1. Check out this repository
+### 1. GitClone `rancher-devsecops-workshop-2021` Git repository
 
 In your linux terminal, checkout this repository into a local folder. For example,
 
 ```
 git clone https://github.com/dsohk/rancher-devsecops-workshop-2021 workshop
 cd workshop
+```
+
+To view the content for the Cloned Repo, on your terminal execute below command
+``
+ll
+``
+you should see below sample outout. 
+
+```
+dpatel@dns:~/devsecops-workshop/workshop> ll
+total 36
+-rwxr-xr-x 1 dpatel users  903 Sep  1 09:25 cleanlab.sh
+drwxr-xr-x 1 dpatel users  120 Sep  2 17:25 docs
+-rw-r--r-- 1 dpatel users 1065 Aug 28 22:01 LICENSE
+-rw-r--r-- 1 dpatel users  810 Aug 30 11:13 README.md
+drwxr-xr-x 1 dpatel users  132 Sep  2 17:25 setup
+-rwxr-xr-x 1 dpatel users  995 Sep  1 09:25 setup-rke-cluster1.sh
+-rwxr-xr-x 1 dpatel users  995 Sep  1 09:25 setup-rke-cluster2.sh
+-rwxr-xr-x 1 dpatel users 1842 Sep  1 09:25 setup-rke-devsecops.sh
+-rwxr-xr-x 1 dpatel users 1014 Aug 30 07:52 show-mylab-env.sh
+-rwxr-xr-x 1 dpatel users 7826 Aug 31 09:30 startlab.sh
 ```
 
 ### 2. Deploy VMs on AWS Lightsail and Setup Rancher Management Server
@@ -291,8 +309,50 @@ Return to your browser with Rancher UI, you should see the `devsecops` cluster i
 
 ![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
 
+Meanwhile, let add few other cluster
 
-### 5. Install Longhorn on DevSecOps RKE cluster from Rancher UI
+## 5. Provision all-in-one RKE clusters `Cluster1` 
+
+Open browser to navigate to the Rancher URL captured in earlier steps. Authenticate by providing your Rancher credentials.
+
+You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create new kubernetes cluster with RKE and existing bare-metal servers or virtual machine `Existing Node` option. 
+
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg1-latest.png)
+
+
+Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Label with key value pair `env` and `dev`. Leave the rest of the setting as default and click `Next` button. 
+
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2-latest.png)
+
+You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
+
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg3-latest.png)
+
+On your linux terminal, execute the below script to access your cluster1 terminal 
+
+Copy the script below to ssh into the cluster1 
+```
+./ssh-mylab-cluster1.sh
+```
+Copy & paste the command from Rancher UI on the terminal of VM - Cluster1.
+
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg4-latest.png)
+
+On Rancher UI, you will see cluster 1 coming in few mins. 
+
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg5-latest.png)
+
+Cluster 1 is successfully provision in Rancher
+
+### 6.  Provision all-in-one RKE clusters `Cluster2`
+
+Repeat all step from step1 for adding cluster 2
+Make sure you name the cluster as `Cluster2`
+
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster2-pg1-latest.png)
+
+
+### 7. Install Longhorn on DevSecOps RKE cluster from Rancher UI
 
 Navigate to `Cluster Explorer` of `devsecops` cluster from Rancher UI. 
 
