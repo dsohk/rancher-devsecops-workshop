@@ -214,7 +214,7 @@ The script has
 3) Downloading and configured Harbor CA cert on Server and all VMs so that they can acccess Harbor.
 4) Downloaded docker images for Maven, maven:3-jdk-8-slim, sles15sp3-openjdk into Harbor 
 
-####Let's import Harbor cluster in Rancher.
+#### Let's import Harbor cluster in Rancher.
 
 Open browser to navigate to the Rancher URL captured in earlier step. By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. Setup your own administrative password, accept the Terms and Conditions, leave the rest of settings as default to continue.
 
