@@ -317,7 +317,7 @@ Return to your browser with Rancher UI, you should see the `devsecops` cluster i
 
 ### 5. Provision additional RKE Cluster, 
 
-####All-In-One RKE clusters `Cluster1` 
+#### All-In-One RKE clusters `Cluster1` 
 
 In the following step, we will add RKE all-in-1 cluster `Cluster1` 
 
@@ -349,7 +349,7 @@ On Rancher UI, you will see cluster 1 coming in few mins.
 
 Cluster 1 is successfully provision in Rancher
 
-####Provision additional RKE Cluster, All-In-One RKE clusters `Cluster2`
+#### Provision additional RKE Cluster, All-In-One RKE clusters `Cluster2`
 
 Repeat all step from step5 for adding cluster 2. Make sure you name the cluster as `Cluster2`
 
