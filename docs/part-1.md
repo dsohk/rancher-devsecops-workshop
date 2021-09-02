@@ -335,6 +335,8 @@ Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Lab
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2-latest.png)
 
+
+As this is an all-in-one cluster we need to check  the `etcd`  `controlplane`  and  `worker` under `Node options`
 You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg3-latest.png)
