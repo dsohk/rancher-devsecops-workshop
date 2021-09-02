@@ -9,6 +9,8 @@ function create-vm() {
     export AWS_AVAIL_AZ=("a" "b")
   elif [ "ap-northeast-1" == $AWS_REGION ]; then
     export AWS_AVAIL_AZ=("a" "c" "d") 
+  elif [ "ap-northeast-2" == $AWS_REGION ]; then
+    export AWS_AVAIL_AZ=("a" "c")
   else
     export AWS_AVAIL_AZ=("a" "b" "c") 
   fi
