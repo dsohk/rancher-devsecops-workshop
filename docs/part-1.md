@@ -212,7 +212,7 @@ The script has
 3) Downloading and configured Harbor CA cert on Server and all VMs so that they can acccess Harbor.
 4) Downloaded docker images for Maven, maven:3-jdk-8-slim, sles15sp3-openjdk into Harbor 
 
-### 4. Provision DevSecOps RKE cluster from Rancher UI
+Let's import Harbor cluster in Rancher.
 
 Open browser to navigate to the Rancher URL captured in earlier step. By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. Setup your own administrative password, accept the Terms and Conditions, leave the rest of settings as default to continue.
 
@@ -251,6 +251,9 @@ Paste the command we copied from Rancher UI
 Toggle to Rancher UI to verify if the Harbor Cluster is successfully imported!
 
 ![Rancher UI](./images/rancher-ui-harbor-success-pg6.png)
+
+
+### 4. Provision DevSecOps RKE cluster from Rancher UI
 
 In the following step, we will add `devsecops` cluster in Rancher.
 
@@ -309,16 +312,14 @@ Return to your browser with Rancher UI, you should see the `devsecops` cluster i
 
 ![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
 
-Meanwhile, let add few other cluster
 
-## 5. Provision all-in-one RKE clusters `Cluster1` 
+### 5. Provision all-in-one RKE clusters `Cluster1` 
 
-Open browser to navigate to the Rancher URL captured in earlier steps. Authenticate by providing your Rancher credentials.
+In the following step, we will add RKE all-in-1 cluster `Cluster1` 
 
-You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create new kubernetes cluster with RKE and existing bare-metal servers or virtual machine `Existing Node` option. 
+Navigated to Rancher Cluster Management UI. Click `Add Cluster` button to `Create new kubernetes cluster` with RKE and existing bare-metal servers or virtual machine `Existing Node` option. 
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg1-latest.png)
-
 
 Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Label with key value pair `env` and `dev`. Leave the rest of the setting as default and click `Next` button. 
 
@@ -346,8 +347,7 @@ Cluster 1 is successfully provision in Rancher
 
 ### 6.  Provision all-in-one RKE clusters `Cluster2`
 
-Repeat all step from step1 for adding cluster 2
-Make sure you name the cluster as `Cluster2`
+Repeat all step from step5 for adding cluster 2. Make sure you name the cluster as `Cluster2`
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster2-pg1-latest.png)
 
