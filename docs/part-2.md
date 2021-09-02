@@ -210,7 +210,7 @@ Specify the github username and email account in this section. It can be any arb
 
 Click `Save` button to save the Jenkins configuration settings.
 
-With this, we are ready to move to the [Step 3 - Build Your Jenkins pipelines](part-3.md)
+With this, we are ready to move to the [Step 3 - Build Your Jenkins pipelines to deploy spring-petclinic App](part-3.md)
 
 
 
