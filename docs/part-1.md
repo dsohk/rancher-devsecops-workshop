@@ -164,7 +164,7 @@ ls -lh *mylab*
 You can access to any of your VMs with the `ssh-mylab-<VM>.sh` script. The IP addresses of your VMs are also captured in the file `mylab_vm_list.txt`.
 
 
-### 3. Setup your harbor instance
+### 3. Setup your harbor instance and Import into Rancher 
 
 While we are waiting Rancher Server instance to be ready, let's setup your harbor private registry.
 
@@ -313,7 +313,7 @@ Return to your browser with Rancher UI, you should see the `devsecops` cluster i
 ![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
 
 
-### 5. Provision all-in-one RKE clusters `Cluster1` 
+### 5. Provision additional RKE Cluster, All-In-One RKE clusters `Cluster1` 
 
 In the following step, we will add RKE all-in-1 cluster `Cluster1` 
 
@@ -345,7 +345,7 @@ On Rancher UI, you will see cluster 1 coming in few mins.
 
 Cluster 1 is successfully provision in Rancher
 
-### 6.  Provision all-in-one RKE clusters `Cluster2`
+### 6.  Provision additional RKE Cluster, All-In-One RKE clusters `Cluster2`
 
 Repeat all step from step5 for adding cluster 2. Make sure you name the cluster as `Cluster2`
 
@@ -366,7 +366,7 @@ Click `Longhorn` apps from the catalog.
 
 When prompted the `Install Longhorn` page, leave all the settings as default and click `Install` button to continue. It should take 1-2 minutes to complete the longhorn deployment.  The Longhorn item should appear under the top left pulldown menu.
 
-### 6. Download KUBECONFIG file of DevSecOps cluster to Harbor VM
+### 6. Download KUBECONFIG file of DevSecOps cluster into Harbor VM
 
 ![Download Kubeconfig file](./images/rancher-kubeconfig.png)
 
