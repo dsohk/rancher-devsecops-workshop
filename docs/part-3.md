@@ -2,7 +2,7 @@
 
 ## Build my First Jenkins Pipeline
 
-1. Login to Jenkins with the URL and credentials generated from Part 1.
+1. Login to Jenkins.
 
 2. Click `Create Job`
 
@@ -78,7 +78,6 @@ In the Pod Plane you should see Jenkins and your pipeline pods been created & th
 Image below will illustrate the same.
 
 ![Jenkins Pipeline Pods in RKE](./images/jenkins-pods-in-rke.png)
-
 
 ## Setup CI Pipeline for spring-petclinic project
 
