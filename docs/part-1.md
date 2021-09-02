@@ -216,7 +216,13 @@ The script has
 
 #### Let's import Harbor cluster in Rancher.
 
-Open browser to navigate to the Rancher URL captured in earlier step. By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. Setup your own administrative password, accept the Terms and Conditions, leave the rest of settings as default to continue.
+Open browser to navigate to the Rancher URL captured in earlier step.
+(Look for message in your terminal session.  Will look like:
+```
+Your Rancher Instance should be ready in a few minutes ...
+Your Rancher URL: https://3.25.57.210
+```
+By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. Setup your own administrative password, accept the Terms and Conditions, leave the rest of settings as default to continue.
 
 ![Rancher UI](./images/rancher-1st-screen.png)
 
