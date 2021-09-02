@@ -217,7 +217,7 @@ The script has
 #### Let's import Harbor cluster in Rancher.
 
 Open browser to navigate to the Rancher URL captured in earlier step.
-(Look for message in your terminal session.  Will look like:
+(Look for message in your terminal session)  Will look like:
 ```
 Your Rancher Instance should be ready in a few minutes ...
 Your Rancher URL: https://3.25.57.210
