@@ -315,7 +315,7 @@ Return to your browser with Rancher UI, you should see the `devsecops` cluster i
 ![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
 
 
-### 5. Provision additional RKE Cluster, 
+### 5. Provision additional RKE Clusters 
 
 #### All-In-One RKE clusters `Cluster1` 
 
