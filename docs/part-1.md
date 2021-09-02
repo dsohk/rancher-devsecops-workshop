@@ -1,4 +1,4 @@
-# Hi Roger
+Hi Roger
 
 # Part 1 - Build Your Lab Environment on AWS Lightsail
 
