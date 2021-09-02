@@ -1,3 +1,5 @@
+# Hi Roger
+
 # Part 1 - Build Your Lab Environment on AWS Lightsail
 
 This script will help you setup a lab environment with 8 VMs running on AWS Lightsail.
