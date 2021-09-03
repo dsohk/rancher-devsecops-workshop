@@ -339,14 +339,14 @@ Navigated to Rancher Cluster Management UI. Click `Add Cluster` button to `Creat
 
 Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Label with key value pair `env` and `dev`. Leave the rest of the setting as default and click `Next` button. 
 
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2.png)
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2-latest.png)
 
 
 Under `Node Options`, please ensure all the  3 boxes `etcd`, `Control Plane` and `Worker` are checked
 
 You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
 
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg3-latest.png)
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2.png)
 
 On your linux terminal, execute the below script to access your cluster1 terminal 
 
