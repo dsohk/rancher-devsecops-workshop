@@ -73,8 +73,22 @@ Sample output of the GitRepo configuration
 
 Since the pipeline is in progess while you are configuring Fleet, we expect the below output 
 
-![Rancher UI](./images/part4-configure-git-repo-status-while-pipeline-in-progress.png)
+![Rancher UI](./images/part4-configure-git-repo-status-while-pipeline-in-progress-1.png)
 
+Side by Side view of Jenkins Pipeline & Rancher CD (Fleet)
+![Rancher UI](./images/part4-configure-git-repo-status-while-pipeline-in-progress-2.png)
+
+
+At one point in pipline we will reach the approval stage to commit the code to the GitHub Repo (Forked on in our personal Github) 
+
+![Rancher UI](./images/part4-configure-git-repo-approval-stage.png)
+
+
+![Rancher UI](./images/part4-fleet-in-action.png)
+
+
+
+part4-configure-working-Fleet-1
 With this, let's put everything together and proceed to [Part 5](part-5.md)
 
 
