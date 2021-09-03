@@ -214,7 +214,7 @@ The script has
 3) Configuring Harbor CA cert locally 
 4) Downloading Docker Images for Maven, Java Libaries for Maven and Sles15sp3-openjdk and importing them into Harbor 
 
-#### Let's import Harbor cluster in Rancher.
+#### Import Harbor cluster in Rancher.
 
 Open browser to navigate to the Rancher URL captured in earlier step.
 (Look for message in your terminal session)  Will look like:
@@ -254,6 +254,13 @@ Run the script `ssh-mylab-harbor.sh` and paste the command you copied into the p
 ```
 Paste the command we copied from Rancher UI 
 
+Incase if you see below messages, 
+```
+error: no objects passed to apply
+
+```
+Re-run the command again. 
+Sample output below. 
 ![Rancher UI](./images/rancher-ui-copy-n-paste-harbor-terminal-pg5.png)
 
 Toggle to Rancher UI to verify if the Harbor Cluster is successfully imported!
