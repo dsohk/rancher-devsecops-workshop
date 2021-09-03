@@ -4,7 +4,6 @@
 
 To setup Fleet, from Rancher UI, Cluster Manager Page select `Tools` and click on `Continous Delivery`
 
-
 ![Rancher-Continous Delivery (CD)](./images/rancher-uI-fleet-step1-pg1.png)
 
 Before we go any further, let verify if we can see all our cluster in Rancher FLeet

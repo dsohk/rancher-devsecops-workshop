@@ -391,7 +391,11 @@ Click the `Kubeconfig File` button.
 
 Scroll down to the bottom of the popup screen, click `Copy to Clipboard` link to copy the content of this kubeconfig file into your clipboard.
 
-From your Linux workstation, ssh into your harbor VM (using `ssh-mylab-harbor.sh` script). 
+From your Linux workstation, ssh into your harbor VM by executing the script `ssh-mylab-harbor.sh` script). 
+
+```
+./ssh-mylab-harbor.sh
+```
 
 Create a file `devsecops.cfg` under `~/.kube` folder.
 
