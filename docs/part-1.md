@@ -339,7 +339,7 @@ Navigated to Rancher Cluster Management UI. Click `Add Cluster` button to `Creat
 
 Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Label with key value pair `env` and `dev`. Leave the rest of the setting as default and click `Next` button. 
 
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2-latest.png)
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2.png)
 
 
 Under `Node Options`, please ensure all the  3 boxes `etcd`, `Control Plane` and `Worker` are checked
