@@ -44,21 +44,21 @@ Anchore has also completed the container image scanning and we finally the appro
 
 Once the approval is provided, the newly container image is then pushed to Harbor
 
+![Rancher UI](./images/part5-running-build2-container-image-v2-in-harbor.png)
+
+Fleet update in the background is happening. 
 ![Rancher UI](./images/part5-running-build2-fleet-updating-in-progress.png)
+
+Fleet is update successfully with the lastest (second build)
 
 ![Rancher UI](./images/part5-running-build2-fleet-success.png)
 
+Open Browser & hit the App URL
+
 ![Rancher UI](./images/part5-running-build2-cluster2-Services-Open-App.png)
 
-part5-running-build2-container-image-v2-in-harbor.png
+We have sucessfully build our CI/CD pipeline with SUSE Rancher
 
-
-## 4. Check the new application
-
-1. From Rancher UI, select `cluster1` (or cluster2) in `Cluster Explorer` UI,
-2. Select Services
-3. Click the link under the spring-petclinic node port service to navigate to the application homepage.
-4. You should notice the text you modified is showing up in this home page.
 
 
 
