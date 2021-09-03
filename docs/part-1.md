@@ -52,7 +52,7 @@ drwxr-xr-x 1 dpatel users  132 Sep  2 17:25 setup
 
 Run the `startlab.sh --help` to get list of options. You should see the output like below.
 
-```
+`
 ❯ ./startlab.sh --help
   ___ _   _ ___ ___   ___              _
  / __| | | / __| __| | _ \__ _ _ _  __| |_  ___ _ _
@@ -67,7 +67,7 @@ usage: ./startlab.sh [options]
 -s    | --skip-rancher              Skip deploying Rancher after VM is up.
 -h    | --help                      Brings up this menu
 
-```
+`
 
 We will run `startlab.sh` to deploy VMs on AWS Lightsail and automatically setup Rancher management server. It will prompt you which AWS region you would like to run your lab. 
 
@@ -98,12 +98,12 @@ Select Your Preferred AWS Environment to run your lab:
 ```
 
 Choose the region closiest to you to continue your lab setup. The script will then
-1) provision VMs on your AWS account with region you picked, 
-2) configure firewall rules of these VMs, 
-3) download AWS SSH keypair to your local folder to access to these VMs, and
-4) create shortcut files for you to access to the VMs in your lab environment.
+1) Provision VMs on your AWS account with region you picked, 
+2) Configure firewall rules of these VMs, 
+3) Download AWS SSH keypair to your local folder to access to these VMs, and
+4) Create shortcut files for you to access to the VMs in your lab environment.
 5) Install Kubernetes tools (`Kubectl` & `helm`)
-6) finally Installing Rancher using Docker
+6) Deploy Rancher using Docker
 
 When the script has finished, you will see a table of VMs with IP addresses, the Rancher instance URL, and other useful files created in your local folder. For example, this is the extract of my output after running the startlab script. Obviously, the IP addresses listed will be different from yours.
 
