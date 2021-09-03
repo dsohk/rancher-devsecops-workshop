@@ -83,6 +83,9 @@ At one point in pipline we will reach the approval stage to commit the code to t
 
 ![Rancher UI](./images/part4-configure-git-repo-approval-stage.png)
 
+## Fleet in Action.
+Post approval stage, Jenkins commits the changes to GitRepo and Fleet is watching the Branch for new commits. 
+Fleet has picked up the changes and is not deploying the bundles in Cluster Group
 
 ![Rancher UI](./images/part4-fleet-in-action.png)
 
