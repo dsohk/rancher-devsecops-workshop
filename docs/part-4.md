@@ -91,8 +91,6 @@ Fleet has picked up the changes and is not deploying the bundles in Cluster Grou
 
 ![Rancher UI](./images/part4-fleet-status-ready.png)
 
-part4-fleet-in-action-pg1
-
 In Rancher UI, click on Cluster Explorer for either `Cluster1` or `Cluster2`. Click on the pods section and we should see our Spring PetClinic Conatiner running. Take a closer look at the version, it should say `spring-petclinic:v1.0.x`.
 
 illustration below.
