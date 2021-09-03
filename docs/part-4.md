@@ -78,6 +78,8 @@ Since the pipeline is in progess while you are configuring Fleet, we expect the 
 Side by Side view of Jenkins Pipeline & Rancher CD (Fleet)
 ![Rancher UI](./images/part4-configure-git-repo-status-while-pipeline-in-progress-2.png)
 
+Side by Side view of Jenkins Pipeline & Harbor 
+![Rancher UI](./images/part4-configure-git-repo-status-pipeline-in-progress-container-created-in-harbor-pg4.png)
 
 At one point in pipline we will reach the approval stage to commit the code to the GitHub Repo (Forked on in our personal Github) 
 

@@ -257,7 +257,6 @@ Paste the command we copied from Rancher UI
 Incase if you see below messages, 
 ```
 error: no objects passed to apply
-
 ```
 Re-run the command again. 
 Sample output below. 
