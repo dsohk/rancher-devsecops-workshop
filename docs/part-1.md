@@ -52,7 +52,7 @@ drwxr-xr-x 1 dpatel users  132 Sep  2 17:25 setup
 
 Run the `startlab.sh --help` to get list of options. You should see the output like below.
 
-`
+```
 ❯ ./startlab.sh --help
   ___ _   _ ___ ___   ___              _
  / __| | | / __| __| | _ \__ _ _ _  __| |_  ___ _ _
@@ -67,7 +67,7 @@ usage: ./startlab.sh [options]
 -s    | --skip-rancher              Skip deploying Rancher after VM is up.
 -h    | --help                      Brings up this menu
 
-`
+```
 
 We will run `startlab.sh` to deploy VMs on AWS Lightsail and automatically setup Rancher management server. It will prompt you which AWS region you would like to run your lab. 
 
