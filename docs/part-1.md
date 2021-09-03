@@ -211,8 +211,8 @@ Password: J4diXo8ZKddi5mFGEgx1Z3XveoOuPw
 The script has 
 1) Deployed K3s cluster.
 2) Deploying Harbor (using Helm Chart v1.7.2 & App v2.3.2) on K3s.
-3) Downloading and configured Harbor CA cert on Server and all VMs so that they can acccess Harbor.
-4) Downloaded docker images for Maven, maven:3-jdk-8-slim, sles15sp3-openjdk into Harbor 
+3) Configuring Harbor CA cert locally 
+4) Downloading Docker Images for Maven, Java Libaries for Maven and Sles15sp3-openjdk and importing them into Harbor 
 
 #### Let's import Harbor cluster in Rancher.
 
@@ -477,7 +477,7 @@ cd ~/devsecops/sonarqube
 ./99-one-step-install-sonarqube.sh
 ```
 
-You can check the activity of deployment of Jenkins, Anchore & Sonarqube in `devsecops` cluster > `Cluster Explorere` > `Pods` within the Rancher UI. 
+You can check the activity of deployment of Jenkins, Anchore & Sonarqube in `devsecops` cluster > `Cluster Explorer` > `Pods` within the Rancher UI. 
 
  in thier respective namespaces
 
