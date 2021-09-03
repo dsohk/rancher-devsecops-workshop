@@ -83,6 +83,17 @@ https://github.com/dsohk/spring-petclinic-helmchart
 ```
 Click on Fork Icon on top right hand window pane & select your own account where the repo will be forked.
 
+Edit the `spring-petclinic-helmchart/values.yaml` in your forked repo to verify our repo is pointin to private registry Harbor URL. 
+
+Commit the changes to the repo. 
+
+Sample output below. 
+
+![Saving changes to forked repo](./images/step3-part2-forking-repo-spring-petclinic-helmchart-values-yml-file-harbor-url-port.png)
+
+
+
+
 Once the above 2 Repo are forked, those repos are available in your GitHub account. You can check your Repositories to validate. 
 
 ![Saving changes to forked repo](./images/step3-part2-2-fork-repo-success.png)
