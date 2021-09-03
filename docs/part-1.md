@@ -477,7 +477,9 @@ cd ~/devsecops/sonarqube
 ./99-one-step-install-sonarqube.sh
 ```
 
-You can check the activity of deployment of Jenkins, Anchore & Sonarqube in Rancher UI in thier respective namespaces
+You can check the activity of deployment of Jenkins, Anchore & Sonarqube in `devsecops` cluster > `Cluster Explorere` > `Pods` within the Rancher UI. 
+
+ in thier respective namespaces
 
 ![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-rancher-ui.png)
 
