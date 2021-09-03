@@ -87,26 +87,21 @@ At one point in pipline we will reach the approval stage to commit the code to t
 Post approval stage, Jenkins commits the changes to GitRepo and Fleet is watching the Branch for new commits. 
 Fleet has picked up the changes and is not deploying the bundles in Cluster Group
 
-#### Pod Section
+In Rancher UI, click on Cluster Explorer for either `Cluster1` or `Cluster2`. Click on the pods section and we should see our Spring PetClinic Conatiner running. Take a closer look at the version, it should say `spring-petclinic:v1.0.x`.
+
+illustration below. 
 
 ![Rancher UI](./images/part4-fleet-in-action.png)
 
-#### Services 
+Now let try to open the Application in a new Browser window
+
+Go the `Services` Tab to expose the Container Application.
+
+illustration below, show our applivation version  `spring-petclinic:v1.0.x` as indicated in previous step.
+
 ![Rancher UI](./images/part4-fleet-in-action-Cluster1-Services-Open-App.png)
 
-part4-fleet-in-action-Cluster1-Services-Open-App
-
-part4-fleet-in-action-Spring-PetClinic-App-working
-
-part4-configure-working-Fleet-1
 With this, let's put everything together and proceed to [Part 5](part-5.md)
-
-
-Note:
-PetClinic Helm Chart URL as opposed to PetClinic repo.
-Pod  - Container Creation, 
-Add the cluster 1 & 2 with Public & Internal IP assigned
-Configure Services for App using Node port 30800 as it coded in the app logic 
 
 
 
