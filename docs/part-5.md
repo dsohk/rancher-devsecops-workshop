@@ -31,11 +31,18 @@ Sample Output
 
 Observe the new pipeline job is executing to pick up the changes in github and build a new container image for it. After passing all checking, the new build number of this image will be updated in helm chart, which, in turn, will be picked up by Rancher Continuous Delivery to propagate the changes into the target clusters.
 
+Pipeline - Build Job 2 is been build
 ![Rancher UI](./images/part5-modifying-sourcecode-and-running-new-build-pg1.png)
+
+The new build has completed its static and dynamic code testing & is presently in container creation stage as we see below. 
 
 ![Rancher UI](./images/part5-modifying-sourcecode-and-running-new-build-pg2.png)
 
+Anchore has also completed the container image scanning and we finally the approval junction.
+
 ![Rancher UI](./images/part5-running-build2-seeking-approval.png)
+
+Once the approval is provided, the newly container image is then pushed to Harbor
 
 ![Rancher UI](./images/part5-running-build2-fleet-updating-in-progress.png)
 
@@ -43,7 +50,7 @@ Observe the new pipeline job is executing to pick up the changes in github and b
 
 ![Rancher UI](./images/part5-running-build2-cluster2-Services-Open-App.png)
 
-
+part5-running-build2-container-image-v2-in-harbor.png
 
 
 ## 4. Check the new application
