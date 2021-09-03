@@ -491,6 +491,9 @@ After few mins we should see all the application and it's container running & re
 
 ![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-success-rancher-ui.png)
 
+--------------------------------------------------------------------------
+@Derek - In Part 2 we are pulling all the lab details, so we can get rid of all the below content 
+
 Once all the above scripts finished, you can retrieve the login credentials or URL for Jenkins and Sonarqube. 
 
 ![Deploy Jenkins and others finished](./images/deploy-jenkins-and-others-finish.png)
