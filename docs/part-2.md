@@ -140,7 +140,7 @@ Setup git webhook for spring-petclinic repo to your Jenkins server
 2. Navigate to the Jenkins Dashboard.
 2. Choose `Manage Jenkins` on the left menu
 3. Choose `Manage Credentials` on the security section.
-4. Under Stores scoped to `Jenkins`, click the `(global)` dropdown menu. Choose `Add credentials`.
+4. Under `Stores scoped to Jenkins`, click the `(global)` dropdown menu. Choose `Add credentials`.
 5. In the `Add Credentials` form, choose `Secret text` in `Kind` field.
 6. Enter your Github's personal access token in the `Secret` field.  Token is stored in the `mylab_env.txt`
 7. Enter `my-github` in the `ID` field. Please MAKE SURE this is correct as to match the value in our Jenkins Pipeline.

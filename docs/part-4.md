@@ -71,6 +71,10 @@ Sample output of the GitRepo configuration
 
 ![Rancher UI](./images/part4-configure-git-repo-config.png)
 
+Since the pipeline is in progess while you are configuring Fleet, we expect the below output 
+
+![Rancher UI](./images/part4-configure-git-repo-status-while-pipeline-in-progress.png)
+
 With this, let's put everything together and proceed to [Part 5](part-5.md)
 
 
