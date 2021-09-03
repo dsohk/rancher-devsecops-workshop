@@ -362,6 +362,10 @@ Cluster 1 is successfully provision in Rancher
 
 Repeat all step from step5 for adding cluster 2. Make sure you name the cluster as `Cluster2`
 
+Copy the script below to ssh into the cluster2
+```
+./ssh-mylab-cluster2.sh
+```
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster2-pg1-latest.png)
 
 
