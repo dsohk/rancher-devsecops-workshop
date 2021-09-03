@@ -87,9 +87,16 @@ At one point in pipline we will reach the approval stage to commit the code to t
 Post approval stage, Jenkins commits the changes to GitRepo and Fleet is watching the Branch for new commits. 
 Fleet has picked up the changes and is not deploying the bundles in Cluster Group
 
+#### Pod Section
+
 ![Rancher UI](./images/part4-fleet-in-action.png)
 
+#### Services 
+![Rancher UI](./images/part4-fleet-in-action-Cluster1-Services-Open-App.png)
 
+part4-fleet-in-action-Cluster1-Services-Open-App
+
+part4-fleet-in-action-Spring-PetClinic-App-working
 
 part4-configure-working-Fleet-1
 With this, let's put everything together and proceed to [Part 5](part-5.md)
