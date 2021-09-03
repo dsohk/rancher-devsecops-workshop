@@ -91,10 +91,7 @@ Sample output below.
 
 ![Saving changes to forked repo](./images/step3-part2-forking-repo-spring-petclinic-helmchart-values-yml-file-harbor-url-port.png)
 
-
-
-
-Once the above 2 Repo are forked, those repos are available in your GitHub account. You can check your Repositories to validate. 
+Once these repository are forked, they become available to us locally in our account. Let verify if we can see them. Sample output below.
 
 ![Saving changes to forked repo](./images/step3-part2-2-fork-repo-success.png)
 
