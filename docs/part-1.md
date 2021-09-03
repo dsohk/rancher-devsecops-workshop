@@ -483,17 +483,17 @@ cd ~/devsecops/sonarqube
 ./99-one-step-install-sonarqube.sh
 ```
 
-You can check the activity of deployment of Jenkins, Anchore & Sonarqube in `devsecops` cluster > `Cluster Explorer` > `Pods` within the Rancher UI. 
-
- in thier respective namespaces
+You can check the activity of deployment of Jenkins, Anchore & Sonarqube in `devsecops` cluster > `Cluster Explorer` > `Pods` in thier respective namespaces
 
 ![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-rancher-ui.png)
+
+After few mins we should see all the application and it's container running & ready to serve request.
+
+![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-success-rancher-ui.png)
 
 Once all the above scripts finished, you can retrieve the login credentials or URL for Jenkins and Sonarqube. 
 
 ![Deploy Jenkins and others finished](./images/deploy-jenkins-and-others-finish.png)
-
-![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-success-rancher-ui.png)
 
 Details are also stored in the home directory of your harbor VM. For example, 
 
