@@ -63,10 +63,14 @@ Sample Output below.
 In GitHub, navigate to your forked repoistory. Find the code in `Jenkinsfile` and replace `yourname` with your own github account name.
 
 Click on the Jenkinsfile to open & click on `pencil/pen` like icon next to words `Raw | Blame` on right hand top page to edit the file to make changes to you forked repo in Github
+
+Sample Jenkins file in your forked repo
 ![Forked repo visibility in your GitHub Account](./images/step3-part2-forking-spring-petclinic-sample-jenkins-file-and-how-to-edit-jenkinsfile.png)
 
-Look for section below in Jenkin files & replace `yourname` to `Your Github ID`
 ![Code change after forked repo](./images/github-repo-code-change-yourname.png)
+
+We only need to change line 11 and line 13. 
+In line 11 and 13 respectively, replace `your_name` with `your github account name`
 
 Sample Output for reference.
 ![Code change after forked repo](./images/step3-part2-forking-spring-petclinic-editing-jenkinsfile-changing-userid.png)
@@ -74,6 +78,10 @@ Sample Output for reference.
 Once the changes are made, scroll down to the bottom of the page & hit `Commit changes` which will commit your change to the `Main` branch of your forked repo. 
 
 ![Saving changes to forked repo](./images/step3-part2-forking-spring-petclinic-making-changing-userid-save.png)
+
+Let's review our changes and see if it's applied successfully.
+ 
+![Saving changes to forked repo](./images/![Saving changes to forked repo](./images/step3-part2-forking-spring-petclinic-making-changing-revewing-changes-applied.png)
 
 
 ## 2 - Fork the Spring-Petclinic-Helmchart Project into your own Github Account
