@@ -107,7 +107,9 @@ Go the `Services` Tab to expose the Container Application.
 
 illustration below, show our applivation version  `spring-petclinic:v1.0.x` as indicated in previous step.
 
-![Rancher UI](./images/part4-fleet-in-action-Cluster1-Services-Open-App.png)
+![Rancher UI](./images/part4-fleet-in-action-Cluster1-Services-Open-App-pg1.png)
+
+![Rancher UI](./images/part4-fleet-in-action-Cluster1-Services-Open-App-pg2.png)
 
 With this, let's put everything together and proceed to [Part 5](part-5.md)
 
