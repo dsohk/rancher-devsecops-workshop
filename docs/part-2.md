@@ -67,12 +67,14 @@ Before we make any changes, let see sample Jenkins file in your repo.
 
 ![Forked repo visibility in your GitHub Account](./images/step3-part2-forking-spring-petclinic-sample-jenkins-file-and-how-to-edit-jenkinsfile.png)
 
+We need to adapt Jenkins to your workshop requirement. The ony 1 change is in line 11. 
+
 Click on the Jenkinsfile to open & click on `pencil/pen` like icon next to words `Raw | Blame` on right hand top page to edit the file to make changes to you forked repo in Github
 
-In line 11 and 13 respectively, replace `your_name` with `your github account name`
+In line 11, replace `your_name` with `your github account name`
 
 Sample Output for reference.
-![Code change after forked repo](./images/step3-part2-forking-spring-petclinic-editing-jenkinsfile-changing-userid.png)
+![Code change after forked repo](./images/step3-part2-forking-spring-petclinic-editing-jenkinsfile-changing-userid-pg2.png)
 
 Once the changes are made, scroll down to the bottom of the page & hit `Commit changes` which will commit your change to the `Main` branch of your forked repo. 
 
