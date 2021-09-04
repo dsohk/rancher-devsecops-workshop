@@ -354,6 +354,7 @@ You will be prompted with a command to setup RKE on your VM. Click the `copy` ic
 
 `![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2.png)
 `
+
 On your linux terminal, execute the below script to access your cluster1 terminal 
 
 Copy the script below to ssh into the cluster1 
