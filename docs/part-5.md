@@ -46,16 +46,32 @@ Once the approval is provided, the newly container image is then pushed to Harbo
 
 ![Rancher UI](./images/part5-running-build2-container-image-v2-in-harbor.png)
 
+------------------------------------------------------------
+
+New 
+
 Fleet update in the background is happening. 
-![Rancher UI](./images/part5-running-build2-fleet-updating-in-progress.png)
+![Rancher UI](./images/part5-running-build2-fleet-updating-in-progress-git-repo-status-pg1.png)
 
-Fleet is update successfully with the lastest (second build)
+You will see Build1 (v1.0.1) containaer is up and running (1/1), however build2 container (v1.0.2) is been coming up (0/1)
 
-![Rancher UI](./images/part5-running-build2-fleet-success.png)
+![Rancher UI](./images/part5-build2-container-coming-up-on-cluster1.png)
 
-Open Browser & hit the App URL
+In a few seconds, we will see the build2-v1-0-2 container up and running & build1-v1-0-1 getting terminated. 
 
-![Rancher UI](./images/part5-running-build2-cluster2-Services-Open-App.png)
+![Rancher UI](./images/part5-build2-v1-0-2-container-coming-up-v1-0-1-terminated-cluster1.png)
+
+Now, let look at the GitRepo status, 
+
+![Rancher UI](./images/part5-build2-git-repo-status-active-after-successfully-build-v1-0-2.png)
+
+Let go to Services Page to open the app
+
+![Rancher UI](./images/part5-build2-cluste1-services-page.png)
+
+Open the App in a Browser Windows by clicking on `NodePort`
+
+![Rancher UI](./images/part5-build2-cluster1-v1-0-2-success.png)
 
 We have sucessfully build our CI/CD pipeline with SUSE Rancher
 
