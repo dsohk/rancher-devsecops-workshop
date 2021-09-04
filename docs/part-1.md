@@ -429,12 +429,13 @@ You should see below output with successfully deployment of Longhorn
 ```
 Wait while longhorn CSI is still provisioning...
 NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
-csi-attacher               3/3     3            3           25s
-csi-provisioner            3/3     3            3           25s
-csi-resizer                3/3     3            3           25s
-csi-snapshotter            2/3     3            2           24s
-longhorn-driver-deployer   1/1     1            1           62s
-longhorn-ui                1/1     1            1           62s
+csi-attacher               0/3     3            0           15s
+csi-provisioner            1/3     3            1           15s
+csi-resizer                0/3     3            0           15s
+csi-snapshotter            1/3     3            1           14s
+longhorn-driver-deployer   1/1     1            1           52s
+longhorn-ui                1/1     1            1           52s
+
 Wait while longhorn CSI is still provisioning...
 NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
 csi-attacher               3/3     3            3           35s
