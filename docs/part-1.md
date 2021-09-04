@@ -136,11 +136,14 @@ Your Rancher Instance should be ready in a few minutes ...
 Your Rancher URL: https://3.25.57.210
 
 ```
+Open the Rancher URL in a browser window. This may take few mins
 
-When you run `ls -lh *mylab*` command, you should see a list of shortcut files created for you as well.
+Toggle back to the terminal and execute the below command to see the list of files (text and scripts).
+
 ```
 ls -lh *mylab*
 ```
+Sample output below.
 
 ```
 ❯ ls -lh *mylab*
@@ -236,29 +239,29 @@ You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` 
 
 ![Rancher UI](./images/rancher-ui-addcluster-register-existingcluster-harborpg2.png)
 
-Enter the custer name as `Harbor` and leave the rest of the setting as default & clikc `Next` button. You will be prompted with a command. Click the `copy` icon to copy the command into your clipboard.
+Enter the custer name as `Harbor` and leave the rest of the setting as default & click on `Create`. 
 
 ![Rancher UI](./images/rancher-ui-add-cluster-register-exstingcluster-harbor-pg3.png)
 
-Choose the self signed last options as below.
+You will be prompted with a set of commands. 
+Click on clipboard like icon which is the last command which says `certificate signed by unknown authority'. We are choosing self signed options as below.
 
 ![Rancher UI](./images/rancher-ui-addcluster-register-existingcluster-harbor-pg4.png)
 
 
 Open your Linux workstation terminal and switch to the working directory where this repo has been checked out. 
 
-Run the script `ssh-mylab-harbor.sh` and paste the command you copied into the prompt from this script.
-
+Run the script `ssh-mylab-harbor.sh` which will bring you on Harbor VM console.
 ```
 ./ssh-mylab-harbor.sh
 ```
-Paste the command we copied from Rancher UI 
+Paste the command copied from Rancher UI 
 
 Incase if you see below messages, 
 ```
 error: no objects passed to apply
 ```
-Re-run the command again. 
+Re-run the command again using the Up arrow key from keyboard.
 Sample output below. 
 ![Rancher UI](./images/rancher-ui-copy-n-paste-harbor-terminal-pg5.png)
 
