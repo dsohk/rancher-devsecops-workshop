@@ -343,9 +343,14 @@ Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Lab
 
 
 Under `Node Options`, please ensure all the  3 boxes `etcd`, `Control Plane` and `Worker` are checked
+Provide `Public` and `Private IP` for the instance
+Option you can also add the Node name.
 
 You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
 
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-selectingallin1-providing-ip-latest.png)
+
+!!! - Take the Image off once Derek confirms.
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2.png)
 
 On your linux terminal, execute the below script to access your cluster1 terminal 
