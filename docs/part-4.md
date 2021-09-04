@@ -95,6 +95,8 @@ In Rancher UI, click on Cluster Explorer for either `Cluster1` or `Cluster2`. Cl
 
 illustration below.
 
+![Rancher UI](./images/part4-fleet-in-action-pg0.png)
+
 ![Rancher UI](./images/part4-fleet-in-action-pg1.png)
 
 ![Rancher UI](./images/part4-fleet-in-action-pg2.png)
