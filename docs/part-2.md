@@ -80,7 +80,7 @@ Once the changes are made, scroll down to the bottom of the page & hit `Commit c
 
 Let's review our changes and see if it's applied successfully.
  
-![Saving changes to forked repo](./images/![Saving changes to forked repo](./images/step3-part2-forking-spring-petclinic-making-changing-revewing-changes-applied.png)
+![Saving changes to forked repo](./images/step3-part2-forking-spring-petclinic-making-changing-revewing-changes-applied.png)
 
 
 ## 2 - Fork the Spring-Petclinic-Helmchart Project into your own Github Account
