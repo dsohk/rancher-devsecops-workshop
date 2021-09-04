@@ -98,12 +98,12 @@ Select Your Preferred AWS Environment to run your lab:
 ```
 
 Choose the region closiest to you to continue your lab setup. The script will then
-1) provision VMs on your AWS account with region you picked, 
-2) configure firewall rules of these VMs, 
-3) download AWS SSH keypair to your local folder to access to these VMs, and
-4) create shortcut files for you to access to the VMs in your lab environment.
+1) Provision VMs on your AWS account with region you picked, 
+2) Configure firewall rules of these VMs, 
+3) Download AWS SSH keypair to your local folder to access to these VMs, and
+4) Create shortcut files for you to access to the VMs in your lab environment.
 5) Install Kubernetes tools (`Kubectl` & `helm`)
-6) finally Installing Rancher using Docker
+6) Deploy Rancher using Docker
 
 When the script has finished, you will see a table of VMs with IP addresses, the Rancher instance URL, and other useful files created in your local folder. For example, this is the extract of my output after running the startlab script. Obviously, the IP addresses listed will be different from yours.
 
@@ -214,7 +214,7 @@ The script has
 3) Configuring Harbor CA cert locally 
 4) Downloading Docker Images for Maven, Java Libaries for Maven and Sles15sp3-openjdk and importing them into Harbor 
 
-#### Let's import Harbor cluster in Rancher.
+#### Import Harbor cluster in Rancher.
 
 Open browser to navigate to the Rancher URL captured in earlier step.
 (Look for message in your terminal session)  Will look like:
@@ -254,6 +254,12 @@ Run the script `ssh-mylab-harbor.sh` and paste the command you copied into the p
 ```
 Paste the command we copied from Rancher UI 
 
+Incase if you see below messages, 
+```
+error: no objects passed to apply
+```
+Re-run the command again. 
+Sample output below. 
 ![Rancher UI](./images/rancher-ui-copy-n-paste-harbor-terminal-pg5.png)
 
 Toggle to Rancher UI to verify if the Harbor Cluster is successfully imported!
@@ -336,11 +342,11 @@ Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Lab
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2-latest.png)
 
 
-As this is an all-in-one cluster we need to check  the `etcd`  `Control Plane`  and  `Worker` under `Node Options`.
+Under `Node Options`, please ensure all the  3 boxes `etcd`, `Control Plane` and `Worker` are checked
 
 You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
 
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg3-latest.png)
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2.png)
 
 On your linux terminal, execute the below script to access your cluster1 terminal 
 
@@ -477,17 +483,20 @@ cd ~/devsecops/sonarqube
 ./99-one-step-install-sonarqube.sh
 ```
 
-You can check the activity of deployment of Jenkins, Anchore & Sonarqube in `devsecops` cluster > `Cluster Explorer` > `Pods` within the Rancher UI. 
-
- in thier respective namespaces
+You can check the activity of deployment of Jenkins, Anchore & Sonarqube in `devsecops` cluster > `Cluster Explorer` > `Pods` in thier respective namespaces
 
 ![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-rancher-ui.png)
+
+After few mins we should see all the application and it's container running & ready to serve request.
+
+![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-success-rancher-ui.png)
+
+--------------------------------------------------------------------------
+@Derek - In Part 2 we are pulling all the lab details, so we can get rid of all the below content 
 
 Once all the above scripts finished, you can retrieve the login credentials or URL for Jenkins and Sonarqube. 
 
 ![Deploy Jenkins and others finished](./images/deploy-jenkins-and-others-finish.png)
-
-![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-success-rancher-ui.png)
 
 Details are also stored in the home directory of your harbor VM. For example, 
 

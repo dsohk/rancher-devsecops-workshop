@@ -78,6 +78,8 @@ Since the pipeline is in progess while you are configuring Fleet, we expect the 
 Side by Side view of Jenkins Pipeline & Rancher CD (Fleet)
 ![Rancher UI](./images/part4-configure-git-repo-status-while-pipeline-in-progress-2.png)
 
+Side by Side view of Jenkins Pipeline & Harbor 
+![Rancher UI](./images/part4-configure-git-repo-status-pipeline-in-progress-container-created-in-harbor-pg4.png)
 
 At one point in pipline we will reach the approval stage to commit the code to the GitHub Repo (Forked on in our personal Github) 
 
@@ -87,11 +89,15 @@ At one point in pipline we will reach the approval stage to commit the code to t
 Post approval stage, Jenkins commits the changes to GitRepo and Fleet is watching the Branch for new commits. 
 Fleet has picked up the changes and is not deploying the bundles in Cluster Group
 
+![Rancher UI](./images/part4-fleet-status-ready.png)
+
 In Rancher UI, click on Cluster Explorer for either `Cluster1` or `Cluster2`. Click on the pods section and we should see our Spring PetClinic Conatiner running. Take a closer look at the version, it should say `spring-petclinic:v1.0.x`.
 
-illustration below. 
+illustration below.
 
-![Rancher UI](./images/part4-fleet-in-action.png)
+![Rancher UI](./images/part4-fleet-in-action-pg1.png)
+
+![Rancher UI](./images/part4-fleet-in-action-pg2.png)
 
 Now let try to open the Application in a new Browser window
 
