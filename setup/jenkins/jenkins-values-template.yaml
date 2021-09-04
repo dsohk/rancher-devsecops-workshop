@@ -47,3 +47,7 @@ controller:
     alertingrules: []
     # Set a custom namespace where to deploy PrometheusRule resource
     prometheusRuleNamespace: ""
+persistence:
+  accessMode: "ReadWriteMany"
+  storageClass: "longhorn"
+
