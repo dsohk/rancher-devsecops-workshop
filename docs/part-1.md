@@ -360,26 +360,11 @@ Run the script `setup-rke-cluster2.sh`. Script expect you enter Rancher registra
 ```
 ./setup-rke-cluster2.sh
 ```
-Finally we should see both clusters `cluster1` and cluster2` visible in Rancher.
+Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-n-2-in-Rancher.png)
 
-
-### 6. Install Longhorn on DevSecOps RKE cluster from Rancher UI
-
-Navigate to `Cluster Explorer` of `devsecops` cluster from Rancher UI. 
-
-![Rancher UI](./images/rancher-devsecops-cluster-manager.png)
-
-Choose `Apps & Marketplace` from its top left pulldown menu.
-
-![Rancher UI](./images/rancher-devsecops-longhorn.png)
-
-Click `Longhorn` apps from the catalog.
-
-When prompted the `Install Longhorn` page, leave all the settings as default and click `Install` button to continue. It should take 1-2 minutes to complete the longhorn deployment.  The Longhorn item should appear under the top left pulldown menu.
-
-### 7. Download KUBECONFIG file of DevSecOps cluster into Harbor VM
+### 6. Download KUBECONFIG file of DevSecOps cluster into Harbor VM
 
 ![Download Kubeconfig file](./images/rancher-kubeconfig.png)
 
@@ -402,7 +387,6 @@ Create a file `devsecops.cfg` under `~/.kube` folder.
 ```
 vi ~/.kube/devsecops.cfg
 ```
-
 Paste the kubeconfig content copied from Rancher UI for devsecops cluster into this file, save it and exit.
 
 Configure Kubernetes client to use this kubeconfig file. 
@@ -426,6 +410,36 @@ devsecops-w2   Ready    worker              14m   v1.20.9
 devsecops-w3   Ready    worker              14m   v1.20.9
 devsecops-w4   Ready    worker              14m   v1.20.9
 ```
+
+### 7. Install Longhorn on DevSecOps RKE cluster from Rancher UI
+
+From your Linux workstation, ssh into your harbor VM by executing the script `ssh-mylab-harbor.sh` script). 
+
+```
+./ssh-mylab-harbor.sh
+```
+Type the below command to deploy Longhorn 
+
+```
+cd devsecops/longhorn
+./99-one-step-install-longhorn.sh
+```
+
+-------------------------------------------------------------------------
+Will delete this post successfully run. 
+Navigate to `Cluster Explorer` of `devsecops` cluster from Rancher UI. 
+
+![Rancher UI](./images/rancher-devsecops-cluster-manager.png)
+
+Choose `Apps & Marketplace` from its top left pulldown menu.
+
+![Rancher UI](./images/rancher-devsecops-longhorn.png)
+
+Click `Longhorn` apps from the catalog.
+
+When prompted the `Install Longhorn` page, leave all the settings as default and click `Install` button to continue. It should take 1-2 minutes to complete the longhorn deployment.  The Longhorn item should appear under the top left pulldown menu.
+
+---------------------------------------------------------------------------
 
 ### 8. Deploy Jenkins, Anchore and Sonarqube on devsecops RKE cluster from Harbor VM
 
