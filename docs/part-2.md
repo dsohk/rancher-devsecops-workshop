@@ -99,7 +99,7 @@ Look for line
 image:
   repository: harbor.example.com/library/samples/spring-petclinic
 ```
-You need to change the image URL to point to your Harbor Instance.Note open pick up the IP & port. 
+You need to change the image URL to point to your Harbor Instance.Note only pick up the IP & port (leave http/https:). 
 ```
 image:
   repository: 3.108.252.247:30443/library/samples/spring-petclinic
