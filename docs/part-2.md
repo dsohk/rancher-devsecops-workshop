@@ -140,7 +140,8 @@ Setup git webhook for spring-petclinic repo to your Jenkins server
 1. Click `Settings` in your spring-petclinic github repo.
 2. Choose `Webhooks` from the left menu.
 3. Click `Add Webhook` button
-4. Enter Payload URL: http://<YOUR_JENKINS_IPADDRESS>:<YOUR_JENKINS_PORT>/github-webhook/
+4. Enter Your Jenkins Github webhook Payload URL:
+http://<YOUR_JENKINS_IPADDRESS>:<YOUR_JENKINS_PORT>/github-webhook/
 5. Choose `Send me everything` for events to trigger this webhook.
 6. Click `Add Webhook` button.
 

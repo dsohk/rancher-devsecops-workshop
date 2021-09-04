@@ -329,7 +329,14 @@ Return to your browser with Rancher UI, you should see the `devsecops` cluster i
 
 ### 5. Provision additional RKE Clusters 
 
+Run the script `./setup-rke-devsecops.sh` and paste the command you copied into the prompt from this script.
+
+```
+./setup-rke-devsecops.sh
+```
+
 #### All-In-One RKE clusters `Cluster1` 
+
 
 In the following step, we will add RKE all-in-1 cluster `Cluster1` 
 
