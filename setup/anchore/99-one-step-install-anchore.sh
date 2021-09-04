@@ -19,7 +19,8 @@ helm repo update
 helm install anchore anchore/anchore-engine \
   --version 1.14.2 \
   --create-namespace \
-  -n anchore
+  -n anchore \
+  --set postgresql.persistence.accessMode='ReadWriteMany'
 
 echo "Your Anchore instance is provisioning...."
 while [ `kubectl get deploy -n anchore | grep 1/1 | wc -l` -ne 6 ]

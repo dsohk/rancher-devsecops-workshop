@@ -67,10 +67,10 @@ echo "Provisioning VM in your AWS Lightsail region $AWS_REGION as lab environmen
 create-vm $VM_PREFIX-rancher $AWS_SIZE_MEDIUM "docker pull rancher/rancher:v2.5.9;"
 create-vm $VM_PREFIX-harbor  $AWS_SIZE_MEDIUM "zypper in -y git-core; docker pull susesamples/myjenkins:v1.0;"
 create-vm $VM_PREFIX-devsecops-m1 $AWS_SIZE_MEDIUM "docker pull rancher/rancher-agent:v2.5.9;"
-create-vm $VM_PREFIX-devsecops-w1 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.5.9;"
-create-vm $VM_PREFIX-devsecops-w2 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.5.9;"
-create-vm $VM_PREFIX-devsecops-w3 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.5.9;"
-create-vm $VM_PREFIX-devsecops-w4 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.5.9;"
+create-vm $VM_PREFIX-devsecops-w1 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.5.9; zypper in -y nfs-client;"
+create-vm $VM_PREFIX-devsecops-w2 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.5.9; zypper in -y nfs-client;"
+create-vm $VM_PREFIX-devsecops-w3 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.5.9; zypper in -y nfs-client;"
+create-vm $VM_PREFIX-devsecops-w4 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.5.9; zypper in -y nfs-client;"
 create-vm $VM_PREFIX-cluster1 $AWS_SIZE_MEDIUM "docker pull rancher/rancher-agent:v2.5.9;"
 create-vm $VM_PREFIX-cluster2 $AWS_SIZE_MEDIUM "docker pull rancher/rancher-agent:v2.5.9;"
 
@@ -92,6 +92,7 @@ open-vm-specific-network-port $VM_PREFIX-rancher 443 443
 open-vm-standard-network-port $VM_PREFIX-harbor
 open-vm-specific-network-port $VM_PREFIX-harbor 30443 30443
 open-vm-standard-network-port $VM_PREFIX-devsecops-m1
+open-vm-specific-network-port $VM_PREFIX-devsecops-m1 6443 6443
 open-vm-standard-network-port $VM_PREFIX-devsecops-w1
 open-vm-specific-network-port $VM_PREFIX-devsecops-w1 30000 32767
 open-vm-standard-network-port $VM_PREFIX-devsecops-w2
@@ -151,11 +152,12 @@ done
 # upload files to be deployed onto devsecops cluster
 echo "Upload files to be executed onto devsecops cluster into harbor instance ..."
 HARBOR_IP=`get-vm-public-ip $VM_PREFIX-harbor`
-ssh $SSH_OPTS -i mylab.key ec2-user@$HARBOR_IP mkdir -p devsecops/{jenkins,sonarqube,anchore}
+ssh $SSH_OPTS -i mylab.key ec2-user@$HARBOR_IP mkdir -p devsecops/{jenkins,sonarqube,anchore,longhorn}
 scp $SSH_OPTS -i mylab.key mylab_vm_list.txt ec2-user@$HARBOR_IP:~
 scp $SSH_OPTS -i mylab.key setup/jenkins/*.* ec2-user@$HARBOR_IP:~/devsecops/jenkins
 scp $SSH_OPTS -i mylab.key setup/sonarqube/*.* ec2-user@$HARBOR_IP:~/devsecops/sonarqube
 scp $SSH_OPTS -i mylab.key setup/anchore/*.* ec2-user@$HARBOR_IP:~/devsecops/anchore
+scp $SSH_OPTS -i mylab.key setup/longhorn/*.* ec2-user@$HARBOR_IP:~/devsecops/longhorn
 
 
 # install rancher now?

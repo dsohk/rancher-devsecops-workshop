@@ -31,5 +31,10 @@ resources:
     memory: 2Gi
 persistence:
   enabled: true
-  accessMode: ReadWriteOnce
+  accessMode: ReadWriteMany
   size: 5Gi
+
+postgresql:
+  persistence:
+    enabled: false
+
