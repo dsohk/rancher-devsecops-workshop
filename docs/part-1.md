@@ -330,17 +330,14 @@ Return to your browser with Rancher UI, you should see the `devsecops` cluster i
 ![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
 
 
-### 5. Provision additional RKE Clusters 
-
-Run the script `./setup-rke-devsecops.sh` and paste the command you copied into the prompt from this script.
-
-```
-./setup-rke-devsecops.sh
-```
+### 5. Provision additional RKE Clusters (Custer1 and Cluster2) 
 
 #### All-In-One RKE clusters `Cluster1` 
 
-
+Run the script `setup-rke-cluster1.sh`. Script expect you enter Rancher registration command from cluster1 
+```
+./setup-rke-cluster1.sh
+```
 In the following step, we will add RKE all-in-1 cluster `Cluster1` 
 
 Navigated to Rancher Cluster Management UI. Click `Add Cluster` button to `Create new kubernetes cluster` with RKE and existing bare-metal servers or virtual machine `Existing Node` option. 
@@ -351,45 +348,21 @@ Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Lab
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2-latest.png)
 
+Click on clipboard like icon to copy the command and hit `Done`
 
-Under `Node Options`, please ensure all the  3 boxes `etcd`, `Control Plane` and `Worker` are checked
-Provide `Public` and `Private IP` for the instance
-Option you can also add the Node name.
-
-You will be prompted with a command to setup RKE on your VM. Click the `copy` icon to copy the command into your clipboard.
-
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-selectingallin1-providing-ip-latest.png)
-
-!!! - Take the below Image off once Derek confirms.
-
-`![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2.png)
-`
-
-On your linux terminal, execute the below script to access your cluster1 terminal 
-
-Copy the script below to ssh into the cluster1 
-```
-./ssh-mylab-cluster1.sh
-```
-Copy & paste the command from Rancher UI on the terminal of VM - Cluster1.
-
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg4-latest.png)
-
-On Rancher UI, you will see cluster 1 coming in few mins. 
-
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg5-latest.png)
-
-Cluster 1 is successfully provision in Rancher
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-worker-option-only.png)
 
 #### Provision additional RKE Cluster, All-In-One RKE clusters `Cluster2`
 
-Repeat all step from step5 for adding cluster 2. Make sure you name the cluster as `Cluster2`
+Repeat all step from step5 for adding cluster 2. 
 
-Copy the script below to ssh into the cluster2
+Run the script `setup-rke-cluster2.sh`. Script expect you enter Rancher registration command from cluster2
 ```
-./ssh-mylab-cluster2.sh
+./setup-rke-cluster2.sh
 ```
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster2-pg1-latest.png)
+Finally we should see both clusters `cluster1` and cluster2` visible in Rancher.
+
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-n-2-in-Rancher.png)
 
 
 ### 6. Install Longhorn on DevSecOps RKE cluster from Rancher UI
