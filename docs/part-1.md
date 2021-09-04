@@ -424,22 +424,35 @@ Type the below command to deploy Longhorn
 cd devsecops/longhorn
 ./99-one-step-install-longhorn.sh
 ```
+You should see below output with successfully deployment of Longhorn
 
--------------------------------------------------------------------------
-Will delete this post successfully run. 
-Navigate to `Cluster Explorer` of `devsecops` cluster from Rancher UI. 
+```
+Wait while longhorn CSI is still provisioning...
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+csi-attacher               3/3     3            3           25s
+csi-provisioner            3/3     3            3           25s
+csi-resizer                3/3     3            3           25s
+csi-snapshotter            2/3     3            2           24s
+longhorn-driver-deployer   1/1     1            1           62s
+longhorn-ui                1/1     1            1           62s
+Wait while longhorn CSI is still provisioning...
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+csi-attacher               3/3     3            3           35s
+csi-provisioner            3/3     3            3           35s
+csi-resizer                3/3     3            3           35s
+csi-snapshotter            3/3     3            3           34s
+longhorn-driver-deployer   1/1     1            1           72s
+longhorn-ui                1/1     1            1           72s
 
-![Rancher UI](./images/rancher-devsecops-cluster-manager.png)
+Your longhorn is ready...
 
-Choose `Apps & Marketplace` from its top left pulldown menu.
+suse0908-harbor ec2-user@ip-172-26-1-70:~/devsecops/longhorn>
+```
 
-![Rancher UI](./images/rancher-devsecops-longhorn.png)
+In Rancher UI, open `devsecops` Cluster Explorer > Longhorn > Overview 
 
-Click `Longhorn` apps from the catalog.
+![Longhorn UI](./images/part1-step7-Longhorn-UI.png)
 
-When prompted the `Install Longhorn` page, leave all the settings as default and click `Install` button to continue. It should take 1-2 minutes to complete the longhorn deployment.  The Longhorn item should appear under the top left pulldown menu.
-
----------------------------------------------------------------------------
 
 ### 8. Deploy Jenkins, Anchore and Sonarqube on devsecops RKE cluster from Harbor VM
 
