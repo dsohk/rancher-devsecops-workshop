@@ -65,13 +65,17 @@ Now, let look at the GitRepo status,
 
 ![Rancher UI](./images/part5-build2-git-repo-status-active-after-successfully-build-v1-0-2.png)
 
-Let go to Services Page to open the app
+Let go to Services Page
 
 ![Rancher UI](./images/part5-build2-cluste1-services-page.png)
 
-Open the App in a Browser Windows by clicking on `NodePort`
+To open the applicatin, click on `NodePort` to and the application will open in a new browser window.
+
+We expect to see application version `1.0.2` and updated welcome message `Hi SUSE Rancher Parnter & Community friends!` and sure we do see...
 
 ![Rancher UI](./images/part5-build2-cluster1-v1-0-2-success.png)
+
+We have successfully makes changes to our code, Jenkins has picked up the changes and build the application in a new pipeline on Rancher RKE cluster. 
 
 We have sucessfully build our CI/CD pipeline with SUSE Rancher
 
