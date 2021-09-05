@@ -25,7 +25,7 @@ sudo docker run -d --restart=unless-stopped \
   -p 80:80 -p 443:443 \
   --privileged \
   -v /opt/rancher:/var/lib/rancher \
-  rancher/rancher:v2.5.9 \
+  rancher/rancher:v2.6.0 \
 
 export RANCHER_IP=`curl -qs http://checkip.amazonaws.com`
 
