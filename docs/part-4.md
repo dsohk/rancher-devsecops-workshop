@@ -1,5 +1,10 @@
 # Part 4 - Rancher Fleet - Continous Delivery 
 
+Watch a video to explain what we are going to do in part 4:
+
+[![Workshop Part 4](https://img.youtube.com/vi/cjPNjb9e8NI/0.jpg)](https://www.youtube.com/watch?v=cjPNjb9e8NI)
+
+
 ## 1. Configure Rancher Fleet - Continous Delivery
 
 To setup Fleet, from Rancher UI, Cluster Manager Page select `Tools` and click on `Continous Delivery`

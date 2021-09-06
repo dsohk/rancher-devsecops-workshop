@@ -1,5 +1,10 @@
 # Part 3 - Configure Jenkins Pipeline to deploy spring-petclinic App
 
+Watch a video to explain what we are going to do in part 3:
+
+[![Workshop Part 3](https://img.youtube.com/vi/rRUS1aGFXUo/0.jpg)](https://www.youtube.com/watch?v=rRUS1aGFXUo)
+
+
 ## Build my First Jenkins Pipeline
 
 1. Login to Jenkins.
