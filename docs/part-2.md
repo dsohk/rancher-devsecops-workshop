@@ -192,6 +192,8 @@ Open Jenkins URL on your browser.
 8. Click `OK` button to continue
 9. Navigate back to the Jenkins Dashboard.
 
+![Configure Jenkins](./images/part2-step5-configuring-Jenkins-git-credentials.png)
+
 ### 2. Sonarqube Credentials 
 
 1. Login to Jenkins
