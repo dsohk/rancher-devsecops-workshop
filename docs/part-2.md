@@ -244,18 +244,32 @@ Sample Screenshot below
 
 #### Git plugin
 
+Scroll down to Git Plugin Section.
+
 Specify the github username and email account in this section. It can be any arbitrary account. It will be showing up the commits to your forked helm chart repository later.
 
 1. Global Config user.name : jenkins
 2. Global Config user.email: jenkins@example.com
 
+Leave the rest as default
+
+Sample Screenshot below.
+
+![Configure Git Plugins](./images/part2-configure-Jenkins-GitPlugin.png)
+
 #### Anchore Container Image Scanner
+Scroll further down to Achore Container Image Scanner Section.
+Provide Anchore URL & Credentials. 
 
 1. Engine URL: (Your Anchore URL)
 2. Engine Username: (Your Anchore username)
-3. Engine Password: Click on `change Password` and replace with your Anchore password)
-4. Engline Password: 
-Click `Save` button to save the Jenkins configuration settings.
+3. Engine Password: (Your Anchore password)
+
+![Configure Anchore](./images/part2-configure-Jenkins-Anchore.png)
+
+Finally click `Save` button to save all the Jenkins configuration settings.
+
+
 
 With this, we are ready to move to the [Step 3 - Build Your Jenkins Pipelines to deploy Spring-Petclinic App](part-3.md)
 
