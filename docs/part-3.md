@@ -32,7 +32,7 @@ Watch a video to explain what we are going to do in part 3:
 
 To view the job and it's status, click on Status inside the job.
 
-In the illustration below, under `build history` you will find `#1` which indicated our first build job and green check mark indicated job is completed successfully.
+In Jenkins UI, at left hand bottom of UI, under `Build History` you will find `#1` which indicated our first build job and `green` check mark indicated job is completed successfully.
 
 ![ First Job pos in Rancher UI](./images/part2-jenkins-ui-job-build-status.png)
 
