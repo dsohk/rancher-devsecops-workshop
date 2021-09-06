@@ -226,15 +226,18 @@ Sample screenshot below
 
 #### Sonarqube
 
-Enable `Environment variables` checkbox
+Scroll down to Section `SonarQube Servers`
 
-In the `Sonarqube installations` click on `Add SonarQube`
+1. Select `Environment variables` checkbox 
+
+2. Under `Sonarqube installations` click on `Add SonarQube`
 section, enter the following.
 
 * Name: `My SonarQube` Note name must spelled excatly as mentioned here.
-* Server URL: (Your SonarQube URL)
+* `Server URL`: (Your SonarQube URL)
+* Under `Server authentication token` use the drop down option and you should see `sonarqube-spring-petclinic`. Select it. 
 
-Under `Server authentication token` use the drop down option and you should see `sonarqube-spring-petclinic`. Select it. 
+Sample Screenshot below
 
 ![Configure Sonarqube integration in Jenkins](./images/jenkins-configure-sonarqube.png)
 
