@@ -564,7 +564,7 @@ cd ~/devsecops/sonarqube
 ./99-one-step-install-sonarqube.sh
 ```
 
-For all inquisite people, you can also check the deployment and the pod creation for these application in your devsecop kubernetes cluster.
+For all inquisite people, you can also check the deployment and the pod creation for these application in your `devsecop` cluster.
 
 Toggle to your browser on Rancher UI.
 
