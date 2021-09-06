@@ -7,7 +7,13 @@ Watch a video to explain what we are going to do in part 2:
 
 Before we begin to configure Github & Jenkins, let's look at our lab environment. 
 
-Open your Linux workstation terminal where the git repository is located. Run the command below to show your current lab environment. This shows you all information you need to configure your Jenkins in this section.
+Ensure you are on your local workstation/machine Terminal where we have our git repo cloned.
+
+Sample output below.
+```
+dpatel@dns:~/devsecops-workshop/workshop>
+```
+Run the command below to show your current lab environment. This shows you all information you need to configure your Jenkins in this section.
 
 ```
 ./show-mylab-env.sh
@@ -48,7 +54,9 @@ My SonarQube token:
 
 ```
 
-A file `mylab_env.txt` should also have created for you. Use text editor to open this file and get ready to record down your further tokens to be collected in this part.
+A file `mylab_env.txt` should also have created for you. 
+
+Use text editor to open this file and get ready to record down your further tokens to be collected in this part.
 
 ## 1 - Fork the Spring-Petclinic Project into your own Github Account
 
@@ -66,26 +74,21 @@ Sample Output below.
 
 ### Adapt Jenkinsfile for workshop
 
-In GitHub, navigate to your forked repoistory. Find the code in `Jenkinsfile` and replace `your_name` with your own github account name.
+In GitHub, navigate to your forked repoistory `Spring-Petclinic`. 
 
-Before we make any changes, let see sample Jenkins file in your repo. 
-
-![Forked repo visibility in your GitHub Account](./images/step3-part2-forking-spring-petclinic-sample-jenkins-file-and-how-to-edit-jenkinsfile.png)
-
-We need to adapt Jenkins to your workshop requirement. The ony 1 change is in line 11. 
-
-Click on the Jenkinsfile to open & click on `pencil/pen` like icon next to words `Raw | Blame` on right hand top page to edit the file to make changes to you forked repo in Github
+The only change to our Jenkins file to adapt to our worksop requirement is the change in line 11.
 
 In line 11, replace `your_name` with `your github account name`
 
 Sample Output for reference.
+
 ![Code change after forked repo](./images/step3-part2-forking-spring-petclinic-editing-jenkinsfile-changing-userid-pg2.png)
 
-Once the changes are made, scroll down to the bottom of the page & hit `Commit changes` which will commit your change to the `Main` branch of your forked repo. 
+Once the changes are made, scroll down to the bottom of the page & hit `Commit changes` 
 
 ![Saving changes to forked repo](./images/step3-part2-forking-spring-petclinic-making-changing-userid-save.png)
 
-Let's review our changes and see if it's applied successfully.
+Review our changes and see if it's applied successfully.
  
 ![Saving changes to forked repo](./images/step3-part2-forking-spring-petclinic-making-changing-revewing-changes-applied.png)
 
