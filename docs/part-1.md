@@ -435,6 +435,7 @@ vi ~/.kube/devsecops.cfg
 Paste the kubeconfig content copied from Rancher UI for devsecops cluster into this file, save it and exit.
 
 If you see the below sample message 
+
 `Kubernetes configuration file is group-readable. This is insecure. Location: /home/ec2-user/.kube/devsecops.cfg`
 
 Modify the file permission by removing additional permissions.
