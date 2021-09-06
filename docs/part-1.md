@@ -402,8 +402,13 @@ At the terminal, run the below script
 ```
 ./setup-rke-cluster2.sh
 ```
-Repeat the step 1, 2 & 3 from previous step 5.
-Note the cluster name will be `cluster2` this time. 
+
+Repeat the step 1, 2 & 3 from previous step 5. 
+
+Two important things to note
+
+1. Cluster name will be `cluster2` 
+2. Don't forget to add labels, Under `Labels & Annotation` field, Add Label with key value pair `ENV` and `DEV`.
 
 Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
 
