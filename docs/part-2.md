@@ -220,6 +220,8 @@ Scroll down to `Global Properties` section.
    * Key: `HARBOR_URL`
    * Value: (Your Harbor_URL) (just IP:PORT - no http:// or https://)
 
+Sample screenshot below
+
 ![Configure Global Variables in Jenkins](./images/jenkins-configure-global-vars.png)
 
 #### Sonarqube
