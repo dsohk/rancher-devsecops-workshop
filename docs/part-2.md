@@ -175,10 +175,10 @@ At this point, we are done with Sonarqube setting. You can logout from Sonarqube
 ## 5 - Configure Jenkins 
 
 Configuring Jenkins will be in two sections
-1 - Configure Credential
-2 - Configure Jenkins Systems 
+1 - Configure Credential for GitHub and Sonarqube
+2 - Configure Jenkins Systems for global environment varaiables.
 
-### 1. GitHub Credentials. 
+### a. Configure Jenkins - GitHub Credentials. 
 
 Open Jenkins URL on your browser. 
 
@@ -194,7 +194,7 @@ Open Jenkins URL on your browser.
 Sample Screenshot below.
 ![Configure Jenkins](./images/part2-step5-configuring-Jenkins-git-credentials.png)
 
-### 2. Sonarqube Credentials 
+### b. Configure Jenkins - Sonarqube Credentials 
 
 1. Click Add Credentials on Left Hand side of the Page. 
 2. In the `Add Credentials` form, choose `Secret text` in `Kind` field.
@@ -205,23 +205,18 @@ Sample Screenshot below.
 Sample Screenshot below
 ![Configure Jenkins](./images/part2-step5-configuring-Jenkins-sonarqube-credentials.png)
 
-9. Navigate back to the Jenkins Dashboard.
+We are done with the credential for Github and Sonarqube. 
 
-### Configure Jenkins System 
+Now navigate back to the Jenkins Dashboard.
 
-1. Login to Jenkins
-2. Navigate to `Managing Jenkins`, then choose `Configure System`.
+### Configure Jenkins System with Global Environmental Varaiables. 
 
-#### Setup Global Environment variables
+Navigate to `Managing Jenkins` > `Configure System`
+Scroll down to `Global Properties` section.
 
-1. Login to Jenkins
-2. Navigate to `Managing Jenkins`, then choose `Configure System`.
-
-Go to `Global Properties` section.
-
-1. Enable `Environment Variables` checkbox
-2. Click `Add` button to continue.
-3. Add New Environment Variable
+1. Select `Environment Variables` checkbox
+2. Under List of Variables, click `Add` button to continue.
+3. Under NAME, key in 
    * Key: `HARBOR_URL`
    * Value: (Your Harbor_URL) (just IP:PORT - no http:// or https://)
 
