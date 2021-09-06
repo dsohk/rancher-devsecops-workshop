@@ -72,12 +72,18 @@ You now have 2 pipelines created in Jenkins
 5. Enter your Github personal access token and click `Connect`
 6. Choose your github organization.
 7. Choose your forked project `spring-petclinic` and click `Create Pipeline` to continue.
+8. Click `Build Now` to run this pipeline. 
 
-Click `Build Now` to run this pipeline. 
+Pipeline will take about 20+ minutes to finish.
 
-We see the Jenkins build job status in Jenkins and we also see the corresponding Jenkins worker running the container build job in `Jenkins-workers` Namespace with job id `spring-petclinic-b6f6771f-ss3vx-fccj4`
+You can view the progress in the BlueOcean Plug-in/Jenkins UI and Rancher.
+
+Below are two screenshot for the pipeline progression.
+
+Below the code of the `spring-petclinic` app is been build using `Maven` and you can see the container in Rancher UI.
 
 ![Build Job In Action](./images/spring-petclininc-pipeline-buildingstate-underprogress.png)
+
 
 On successful completion of the job. Sample below
 
