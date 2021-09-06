@@ -111,6 +111,7 @@ Choose the region closiest to you to continue your lab setup. The script will th
 6) Deploy Rancher using Docker
 
 ------------------------------------------------------------
+@Derek, should we adding this here ?
 ## Incase if you experience Error creating AWS Lighsail instance
 
 Possible error `An error occurred (InvalidInputException) when calling the CreateInstances operation: We're sorry, your AWS account is pending verification. Please try again later`
@@ -230,30 +231,21 @@ URL: https://54.153.196.73:30443
 User: admin
 Password: J4diXo8ZKddi5mFGEgx1Z3XveoOuPw
 ```
-The script has 
-1) Deployed K3s cluster.
+Open Harbor URL in a browser and log into Harbor using credentials provided as in sample output 
+
+In this step, we have been able to  
+1) Provision K3s cluster.
 2) Deploying Harbor (using Helm Chart v1.7.2 & App v2.3.2) on K3s.
-3) Configuring Harbor CA cert locally 
-4) Downloading Docker Images for Maven, Java Libaries for Maven and Sles15sp3-openjdk and importing them into Harbor 
+3) Configure Harbor CA cert locally 
+4) Downloading Docker Images for Maven, Java Libaries for Maven and Sles15sp3-openjdk and importing them into Harbor. 
 
 #### Import Harbor cluster in Rancher.
 
-Incase if your terminal timeout or for any reason you are not on Harbor VMs, please execute the script below which will automtically take you to the Harbor VMs Terminal.
+In this step, we would be importing Harbor K3s cluster into Rancher. 
+
+You should be on `Harbor VM terminal` for this, incase if your terminal timeout or for any reason you are not on Harbor VMs, please execute the script below which will automtically take you to the Harbor VMs Terminal.
 ```
 ./ssh-mylab-harbor.sh
-```
-Sample output below indicates you are on Harbor VMs Terminal.
-
-```
-❯ ./ssh-mylab-harbor.sh
-openSUSE Leap 15.2 x86_64 (64-bit)
-
-As "root" use the:
-- zypper command for package management
-- yast command for configuration management
-
-Have a lot of fun...
-suse0908-harbor ec2-user@ip-172-26-2-249:~>
 ```
 Open browser to navigate to the Rancher URL captured in earlier step.
 
@@ -270,7 +262,7 @@ Accept the given IP as your Rancher Server URL to continue.
 
 ![Rancher UI](./images/rancher-2nd-screen.png)
 
-You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to import a existing cluster with `Register an existing Kubernetes cluster - Other Cluster` method.
+You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to import a existing cluster with `Register an existing Kubernetes cluster` - `Other Cluster` method.
 
 ![Rancher UI](./images/rancher-ui-add-cluster-harbor-pg1.png)
 
@@ -281,27 +273,27 @@ Enter the custer name as `Harbor` and leave the rest of the setting as default &
 ![Rancher UI](./images/rancher-ui-add-cluster-register-exstingcluster-harbor-pg3.png)
 
 You will be prompted with a set of commands. 
-Click on clipboard like icon which is the last command which says `certificate signed by unknown authority'. We are choosing self signed options as below.
+Last command which says `certificate signed by unknown authority`/`self signed`, copy the command and paste the command on the Harbor VMs Terminal to import the cluster. 
 
 ![Rancher UI](./images/rancher-ui-addcluster-register-existingcluster-harbor-pg4.png)
-
-
-Paste the command copied from Rancher UI on the Harbor VMs Terminal to start the Import process of Harbor into Rancher
 
 Incase if you see below messages, 
 ```
 error: no objects passed to apply
 ```
 Re-run the command again using the Up arrow key from keyboard.
+
 Sample output below. 
 ![Rancher UI](./images/rancher-ui-copy-n-paste-harbor-terminal-pg5.png)
 
-Toggle to Rancher UI and you should find Harbor Cluster is successfully imported!
+You can now toggle to Rancher UI and should find Harbor Cluster successfully imported
 
 ![Rancher UI](./images/rancher-ui-harbor-success-pg6.png)
 
 
 ### 4. Provision DevSecOps RKE cluster from Rancher UI
+
+In this step, we will be provisioning RKE cluster with One Master & four worker Nodes. To elliminate human error including typos in the steps following, we are only selecting worker role, however in backend, we are changing the role for each nodes to match the lab requirement. 
 
 In the following step, we will add `devsecops` cluster in Rancher.
 
@@ -361,39 +353,57 @@ Return to your browser with Rancher UI, you should see the `devsecops` cluster i
 ![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
 
 
-### 5. Provision additional RKE Clusters (Cluster1 and Cluster2) 
+### 5. Provision additional RKE Clusters 
+In this steps, we will be provisioning two single node RKE cluster with Etcd, Control Plane & worker all 3 components, co-existing on single node hence called (All-in-One) RKE Cluster. 
 
-#### All-In-One RKE clusters `Cluster1` 
+#### All-In-One RKE clusters 
 
-In the following step, we will add RKE all-in-1 cluster `Cluster1` 
+For this we local workstation Terminal where we have our git repo cloned.
 
-Navigated to Rancher Cluster Management UI. Click `Add Cluster` button to `Create new kubernetes cluster` with RKE and existing bare-metal servers or virtual machine `Existing Node` option. 
-
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg1-latest.png)
-
-Enter the cluster name as `cluster1`, Under `Labels & Annotation` field, add Label with key value pair `env` and `dev`. Leave the rest of the setting as default and click `Next` button. 
-
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2-latest.png)
-
-Click on clipboard like icon to copy the command and hit `Done`
-
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-worker-option-only.png)
-
-Run the script `setup-rke-cluster1.sh`. And then paste the command you just copied from Rancher UI to respond to the prompt from this command line.
-
+Sample output below.
+```
+dpatel@dns:~/devsecops-workshop/workshop>
+```
+At the terminal, run the below script 
 ```
 ./setup-rke-cluster1.sh
 ```
+The Terminal will be seeking input command, which we will generate in the following step
+
+Navigate to Rancher Cluster Management UI. 
+Click `Add Cluster` > `Create new kubernetes cluster` > `Existing Node` This will create RKE on existing bare-metal servers or virtual machine. 
+
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg1-latest.png)
+
+1) Cluster name as `cluster1`
+2) Under `Labels & Annotation` field, Add Label with key value pair `ENV` and `DEV`.
+
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2-latest.png)
+
+3) Leave the rest of the setting as default and click `Next` to proced to next page.
+
+![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-worker-option-only.png)
+
+Click on clipboard like icon to copy the command and hit done.
+
+Past the command on the Terminal and it will start the provisioning of the all-in-1 RKE cluster `cluster1`
+
+Exit the terminal.
 
 #### Provision additional RKE Cluster, All-In-One RKE clusters `Cluster2`
 
-Similar to the cluster1, repeat all step from step5 for adding cluster 2. 
+We are currently on the local workstation Terminal where we have our git repo cloned.
 
-Run the script `setup-rke-cluster2.sh`. And then paste the command you just copied from Rancher UI to respond to the prompt from this command line.
-
+Sample output below.
+```
+dpatel@dns:~/devsecops-workshop/workshop>
+```
+At the terminal, run the below script 
 ```
 ./setup-rke-cluster2.sh
 ```
+Repeat the step1, 2 & 3. 
+Note the cluster name will be `cluster2` this time. 
 
 Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
 
