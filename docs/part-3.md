@@ -7,7 +7,7 @@ Watch a video to explain what we are going to do in part 3:
 
 ## Build my First Jenkins Pipeline
 
-1. Login to Jenkins.
+1. Login to Jenkins. If you are already on Jenkins then click on Dashboard.
 
 2. Click `Create Job`
 
@@ -20,32 +20,26 @@ Watch a video to explain what we are going to do in part 3:
 
 5. Jenkins will navigate to the Configure Pipeline page, navigate to Pipeline section
 
-![Create Job in Jenkins](./images/jenkins-configure-first-pipeline.png)
-
-6. Choose `try sample Pipeline` pulldown menu.
-
-7. Choose `Declarative (Kubernetes)`
+6. Choose `try sample Pipeline` pulldown menu and choose `Declarative (Kubernetes)`
 
 ![Create Job in Jenkins](./images/part2-step-build-my-firest-pipeline-jenkins-configure-first-pipeline-declarative-kubernetes.png)
 
-8. Click `Save` button
+7. Click `Save` button
 
-9. On the left menu, click `Build Now` to trigger the first jenkins pipeline.
+8. On the left menu, click `Build Now` to trigger the first jenkins pipeline.
 
-10. With the first Jenkins job we are building an simple contianer with Ubuntu Image & deploying on Kubernetes Cluster `devsecops`. Once the job is completed the Container get terminated 
+9. With the first Jenkins job we are building an simple contianer with Ubuntu Image & deploying on Kubernetes Cluster `devsecops`. Once the job is completed the Container get terminated 
 
-Click on Status inside the job to view job status.
+To view the job and it's status, click on Status inside the job.
+
+In the illustration below, under `build history` you will find `#1` which indicated our first build job and green check mark indicated job is completed successfully.
 
 ![ First Job pos in Rancher UI](./images/part2-jenkins-ui-job-build-status.png)
 
-In the above illustration, under `build history` you will find `#1` which indicated our first build job is completed and green check mark indicates job is build successfully.
+You can also toggle to Rancher UI `devsecops` cluster > `Cluster Explorer` > `Pods` > `Jenkins` Namespaece. 
+You can see the progress of Jenkins jobs, container pods getting created & terminated once the build job is completed. 
 
-During the Pipeline build stage, you can also toggle to Rancher UI to see the container spining up & terminating once the job is done, 
-
-In Rancher UI, Toggle to `devsecops` cluster. Click on `Cluster Explorer` & in `Pods` section you can see the progress of Jenkins jobs under Jenkins Namespace.
-
-Below images illustrates the Jenkins pipeline has successfully create the pods & later you can see it getting terminated once the job is completed successfully
-
+Sample Screenshot
 ![ First Job pos in Rancher UI](./images/part2-step-build-my-firest-pipeline-pod-running-status.png)
 
 
