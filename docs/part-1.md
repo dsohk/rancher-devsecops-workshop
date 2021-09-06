@@ -402,7 +402,7 @@ At the terminal, run the below script
 ```
 ./setup-rke-cluster2.sh
 ```
-Repeat the step1, 2 & 3. 
+Repeat the step 1, 2 & 3 from previous step 5.
 Note the cluster name will be `cluster2` this time. 
 
 Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
