@@ -1,5 +1,10 @@
 # Part 2 - Configure GitHub & Jenkins 
 
+Watch a video to explain what we are going to do in part 2:
+
+[![Workshop Part 2](https://img.youtube.com/vi/sAxLXaw2UAU/0.jpg)](https://www.youtube.com/watch?v=sAxLXaw2UAU)
+
+
 Before we begin to configure Github & Jenkins, let's look at our lab environment. 
 
 Open your Linux workstation terminal where the git repository is located. Run the command below to show your current lab environment. This shows you all information you need to configure your Jenkins in this section.

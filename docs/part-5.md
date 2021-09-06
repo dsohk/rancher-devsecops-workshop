@@ -1,5 +1,9 @@
 # Part 5 - Put Everything Together
 
+Watch a video to explain what we are going to do in part 5:
+
+[![Workshop Part 5](https://img.youtube.com/vi/1vqZvtFKYbI/0.jpg)](https://www.youtube.com/watch?v=1vqZvtFKYbI)
+
 Now, let's modify the source code of the `spring-petclinic` application in Github and commit the changes into `main` branch. We'd expect a new pipeline job will be triggered via Github. 
 
 ## 1. Setup your screen layout 

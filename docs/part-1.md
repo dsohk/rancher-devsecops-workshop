@@ -16,6 +16,12 @@ Estimated Completion Time: 45 mins
 * AWS account with AWS Lightsail full admin access
 * Linux workstation with `git` and `aws` command line v2 installed and AWS credential key configured.
 
+## See Part 1 in Action
+
+Watch the video below to see what we are going to do in this part.
+
+[![Workshop Part 1](https://img.youtube.com/vi/NuNhrw6JDTU/0.jpg)](https://www.youtube.com/watch?v=NuNhrw6JDTU)
+
 ## To build the lab on AWS Lightsail
 
 ### 1. Clone Git Repository
