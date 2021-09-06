@@ -78,12 +78,18 @@ Pipeline will take about 20+ minutes to finish.
 
 You can view the progress in the BlueOcean Plug-in/Jenkins UI and Rancher.
 
-Below are two screenshot for the pipeline progression.
-
-Below the code of the `spring-petclinic` app is been build using `Maven` and you can see the container in Rancher UI.
+Below are two screenshot for the pipeline progression where `spring-petclinic` app is been build using `Maven` and you can see the container in Rancher UI.
 
 ![Build Job In Action](./images/spring-petclininc-pipeline-buildingstate-underprogress.png)
 
+As indicated this will take 20+ mins, let's move on to the [Part 4 - Rancher Continuous Delivery](part-4.md). We will come back to revisit the pipeline later. 
+
+----------------------------------------------------------
+@ Derek, will take off the below content or cover this in next part `part4`
+
+At one stage in the pipline we will be asked to approve the code, sample below. 
+
+![Rancher UI](./images/part4-configure-git-repo-approval-stage.png)
 
 On successful completion of the job. Sample below
 
@@ -92,4 +98,3 @@ On successful completion of the job. Sample below
 It may take about 20 minutes to finish this pipeline at  the first time. The next run will be faster as all the builds or dependent artifacts are cached in the persistent volume used by the pods for this job.
 
 
-While we are waiting the first run of this pipeline executing, let's move on to the [Part 4 - Rancher Continuous Delivery](part-4.md). We will come back to revisit the pipeline later. 
