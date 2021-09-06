@@ -61,7 +61,7 @@ Sample Output below.
 
 ### Adapt Jenkinsfile for workshop
 
-In GitHub, navigate to your forked repoistory. Find the code in `Jenkinsfile` and replace `yourname` with your own github account name.
+In GitHub, navigate to your forked repoistory. Find the code in `Jenkinsfile` and replace `your_name` with your own github account name.
 
 Before we make any changes, let see sample Jenkins file in your repo. 
 
