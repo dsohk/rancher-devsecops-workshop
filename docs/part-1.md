@@ -358,7 +358,7 @@ In this steps, we will be provisioning two single node RKE cluster with Etcd, Co
 
 #### All-In-One RKE clusters 
 
-For this we local workstation Terminal where we have our git repo cloned.
+Ensure you are on your local workstation/machine Terminal where we have our git repo cloned.
 
 Sample output below.
 ```
