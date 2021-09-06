@@ -183,7 +183,7 @@ Configuring Jenkins will be in two sections
 Open Jenkins URL on your browser. 
 
 1. Login to Jenkins
-2. Choose `Manage Jenkins` on the left menu
+2. Choose `Manage Jenkins` on the left menu. You may see a message `It appears that your reverse proxy setup is broken` ignore the message. 
 3. Under `Security` Section, Choose `Manage Credentials`
 4. Under `Stores scoped to Jenkins`, click the `(global)` dropdown menu. Choose `Add credentials`.
 5. In the `Add Credentials` form, choose `Secret text` in `Kind` field.
