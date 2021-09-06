@@ -18,7 +18,7 @@ Estimated Completion Time: 45 mins
 
 ## To build the lab on AWS Lightsail
 
-### 1. Clone Git Repository `rancher-devsecops-workshop-2021`
+### 1. Clone Git Repository
 
 In your linux terminal, checkout this repository into a local folder. For example,
 
