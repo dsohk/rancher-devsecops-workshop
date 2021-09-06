@@ -46,26 +46,12 @@ Sample below for reference.
 
 ![Rancher UI](./images/part4-configure-git-repo-forked-url.png)
 
-We are not ready to Configure our Git Repo
+We are now ready to Configure our Git Repo
 
 To configure Git Reop, click on `Create` in Git Repos page in Continous Delivery. Provide details to complete the form page.  
 
-Name: 
-
-Repository URL: `https://github.com/<github-id>/spring-petclinic-helmchart.git`
 
 Branch Name: NOTE Branche Name is `main` and not `master`
-
-Deploy To: Cluster/Cluster Group. In my case `development`
-
-
-Branch Name: Note Branche Name is `main` in our case & not `master`
-
-Deploy To - 
-
-Target Namespace: `spring-petclinic`
-
-Rest all default and hit `Create`
 
 Sample output of the GitRepo configuration
 
