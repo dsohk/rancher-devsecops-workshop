@@ -105,7 +105,9 @@ Choose the region closiest to you to continue your lab setup. The script will th
 5) Install Kubernetes tools (`Kubectl` & `helm`)
 6) Deploy Rancher using Docker
 
-When the script has finished, you will see a table of VMs with IP addresses, the Rancher instance URL, and other useful files created in your local folder. For example, this is the extract of my output after running the startlab script. Obviously, the IP addresses listed will be different from yours.
+When the script has finished, you will see a table of VMs with IP addresses, the Rancher instance URL, and other useful files created in your local folder. For example, this is the extract of my output after running the startlab script.
+
+*Obviously, the IP addresses listed will be different from yours.*
 
 ```
 Your lab environment on AWS Lightsail ap-southeast-2 is ready.
