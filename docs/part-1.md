@@ -330,14 +330,10 @@ Return to your browser with Rancher UI, you should see the `devsecops` cluster i
 ![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
 
 
-### 5. Provision additional RKE Clusters (Custer1 and Cluster2) 
+### 5. Provision additional RKE Clusters (Cluster1 and Cluster2) 
 
 #### All-In-One RKE clusters `Cluster1` 
 
-Run the script `setup-rke-cluster1.sh`. Script expect you enter Rancher registration command from cluster1 
-```
-./setup-rke-cluster1.sh
-```
 In the following step, we will add RKE all-in-1 cluster `Cluster1` 
 
 Navigated to Rancher Cluster Management UI. Click `Add Cluster` button to `Create new kubernetes cluster` with RKE and existing bare-metal servers or virtual machine `Existing Node` option. 
@@ -352,14 +348,22 @@ Click on clipboard like icon to copy the command and hit `Done`
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-worker-option-only.png)
 
+Run the script `setup-rke-cluster1.sh`. And then paste the command you just copied from Rancher UI to respond to the prompt from this command line.
+
+```
+./setup-rke-cluster1.sh
+```
+
 #### Provision additional RKE Cluster, All-In-One RKE clusters `Cluster2`
 
-Repeat all step from step5 for adding cluster 2. 
+Similar to the cluster1, repeat all step from step5 for adding cluster 2. 
 
-Run the script `setup-rke-cluster2.sh`. Script expect you enter Rancher registration command from cluster2
+Run the script `setup-rke-cluster2.sh`. And then paste the command you just copied from Rancher UI to respond to the prompt from this command line.
+
 ```
 ./setup-rke-cluster2.sh
 ```
+
 Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-n-2-in-Rancher.png)
@@ -509,22 +513,11 @@ After few mins we should see all the application and it's container running & re
 
 ![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-success-rancher-ui.png)
 
---------------------------------------------------------------------------
-@Derek - In Part 2 we are pulling all the lab details, so we can get rid of all the below content 
 
 Once all the above scripts finished, you can retrieve the login credentials or URL for Jenkins and Sonarqube. 
 
 ![Deploy Jenkins and others finished](./images/deploy-jenkins-and-others-finish.png)
 
-Details are also stored in the home directory of your harbor VM. For example, 
-
-```
-suse0908-harbor ec2-user@ip-172-26-2-249:~>ls -l ~/my*.*
--rw-r--r-- 1 ec2-user users  111 Aug 25 23:41 /home/ec2-user/myharbor.sh
--rw-r--r-- 1 ec2-user users  116 Aug 26 00:34 /home/ec2-user/myjenkins.txt
--rw-r--r-- 1 ec2-user users 1203 Aug 25 23:21 /home/ec2-user/mylab_vm_list.txt
--rw-r--r-- 1 ec2-user users  109 Aug 26 00:36 /home/ec2-user/mysonarqube.txt
-```
 
 With this, we are ready to move to the [Step 2 - Configure GitHub and Jenkins](part-2.md)
 
