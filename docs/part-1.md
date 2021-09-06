@@ -192,7 +192,6 @@ As "root" use the:
 - yast command for configuration management
 
 Have a lot of fun...
-/usr/bin/manpath: can't set the locale; make sure $LC_* and $LANG are correct
 suse0908-harbor ec2-user@ip-172-26-2-249:~>
 ```
 
