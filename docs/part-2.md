@@ -8,7 +8,7 @@ Open your Linux workstation terminal where the git repository is located. Run th
 ./show-mylab-env.sh
 ```
 
-The output should look like below.
+Sample output below.
 
 ```
 Your Rancher Server URL: https://52.221.224.193
@@ -94,6 +94,24 @@ https://github.com/dsohk/spring-petclinic-helmchart
 ```
 Click on Fork Icon on top right hand window pane & select your own account where the repo will be forked.
 
+Edit the `spring-petclinic-helmchart/values.yaml` file. 
+
+Look for line 
+```
+image:
+  repository: harbor.example.com/library/samples/spring-petclinic
+```
+You need to change the image URL to point to your Harbor Instance.Note only pick up the IP & port (leave http/https:). 
+```
+image:
+  repository: 3.108.252.247:30443/library/samples/spring-petclinic
+```
+Commit the changes to the repo. 
+
+Sample output below. 
+
+![Saving changes to forked repo](./images/step3-part2-forking-repo-spring-petclinic-helmchart-values-yml-file-harbor-url-port.png)
+
 Once these repository are forked, they become available to us locally in our account. Let verify if we can see them. Sample output below.
 
 ![Saving changes to forked repo](./images/step3-part2-2-fork-repo-success.png)
@@ -142,7 +160,7 @@ http://<YOUR_JENKINS_IPADDRESS>:<YOUR_JENKINS_PORT>/github-webhook/
 3. Select `Manually` to continue
 3. Enter `spring-petclinic` in Project Key and Display Name input field and hit `Set up`
 4. In the Provide a token input field, enter `spring-petclinic` and click `Generate Token` button.
-5. Record the generate token in your `mylab_env.txt` file for configuring Jenkins in the next step.
+5. Record the generate token in your `mylab_env.txt` file for configuring Jenkins later.
 
 ## 5 - Configure Jenkins 
 
@@ -153,6 +171,7 @@ http://<YOUR_JENKINS_IPADDRESS>:<YOUR_JENKINS_PORT>/github-webhook/
 2. Choose `Manage Jenkins` on the left menu
 3. Choose `Manage Credentials` on the security section.
 4. Under `Stores scoped to Jenkins`, click the `(global)` dropdown menu. Choose `Add credentials`.
+5. `Add Credentials` 
 5. In the `Add Credentials` form, choose `Secret text` in `Kind` field.
 6. Enter your Github's personal access token in the `Secret` field.  Token is stored in the `mylab_env.txt`
 7. Enter `my-github` in the `ID` field. Please MAKE SURE this is correct as to match the value in our Jenkins Pipeline.
@@ -219,7 +238,7 @@ Specify the github username and email account in this section. It can be any arb
 1. Engine URL: (Your Anchore URL)
 2. Engine Username: (Your Anchore username)
 3. Engine Password: Click on `change Password` and replace with your Anchore password)
-
+4. Engline Password: 
 Click `Save` button to save the Jenkins configuration settings.
 
 With this, we are ready to move to the [Step 3 - Build Your Jenkins Pipelines to deploy Spring-Petclinic App](part-3.md)
