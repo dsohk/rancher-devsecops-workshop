@@ -515,13 +515,18 @@ In Rancher UI, open `devsecops` Cluster Explorer > Longhorn > Overview
 
 ### 8. Deploy Jenkins, Anchore and Sonarqube on devsecops RKE cluster from Harbor VM
 
-We are going to setup these 3 tools on devsecops cluster in parallel. 
+In our final step for part 1, we are going to deploy 
+1) Jenkins
+2) Anchore
+3) Sonarqube
 
-Open 3 linux terminal windows, and paste below command to ssh into Harbor VM, as illustrated in the diagram below.
+For this we need to be on Harbor VMs Terminal. 
+You can execute the script below which will take you to Harbor VMs Terminal.
 
 ```
 ./ssh-mylab-harbor.sh
 ```
+Once you are on the Harbor Terminal, Open two additional terminals, as we will run the deployment of Jenkins, Anchore & Sonarqube one after.
 
 ![Deploy Jenkins and others](./images/deploy-jenkins-and-others-start.png)
 
@@ -532,7 +537,7 @@ cd ~/devsecops/jenkins
 ./99-one-step-install-jenkins.sh
 ```
 
-This should take awhile to build Jenkins Image along with required plugin of our choice to be build in `devsecops` cluster.
+This should take a while to build Jenkins along with required plugin of our choice to be build in `devsecops` cluster.
 
 Here a high level view of what been accomplished
 
@@ -550,20 +555,26 @@ In Terminal 2 of Harbor VM, run the following command to setup Anchore
 cd ~/devsecops/anchore
 ./99-one-step-install-anchore.sh
 ```
-It will also take awhile to deploy anchore on your devsecops cluster. Likewise, let's continue while waiting it to finish.
+It will also take awhile to deploy anchore on your devsecops cluster. Likewise, let's continue our lab to deploy Sonarqube.
 
-Likewise in Terminal 3 on Harbor VM, run the following command to setup Sonarqube.
+On Terminal 3 on Harbor VM, run the following command to setup Sonarqube.
 
 ```
 cd ~/devsecops/sonarqube
 ./99-one-step-install-sonarqube.sh
 ```
 
-You can check the activity of deployment of Jenkins, Anchore & Sonarqube in `devsecops` cluster > `Cluster Explorer` > `Pods` in thier respective namespaces
+For all inquisite people, you can also check the deployment and the pod creation for these application in your devsecop kubernetes cluster.
+
+Toggle to your browser on Rancher UI.
+
+Click on `Cluster Explorer` for `devsecops` cluster. In the `Pods` section, you will be able to see the application container in thier respective namespaces
+
+Since the application are been deployed, you will see in sample output below you would find container are `container creation` or `initilization` stages. 
 
 ![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-rancher-ui.png)
 
-After few mins we should see all the application and it's container running & ready to serve request.
+Once all container are up and running & in ready state our output will be as below.
 
 ![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-success-rancher-ui.png)
 
