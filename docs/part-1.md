@@ -514,11 +514,5 @@ After few mins we should see all the application and it's container running & re
 
 ![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-success-rancher-ui.png)
 
-
-Once all the above scripts finished, you can retrieve the login credentials or URL for Jenkins and Sonarqube. 
-
-![Deploy Jenkins and others finished](./images/deploy-jenkins-and-others-finish.png)
-
-
 With this, we are ready to move to the [Step 2 - Configure GitHub and Jenkins](part-2.md)
 
