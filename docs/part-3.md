@@ -56,27 +56,12 @@ Click `Build Now` to trigger the second Jenkins pipeline.
 
 With our 2nd job, we are building a simple `Maven` container.
 
+Sample Screenshot of Jenkins Console Output & Rancher UI as reference.
 ![Job Status in Jenkins and Rancher UI's ](./images/part2-step-build-my-second-pipeline-maven-kubernetes-success.png)
 
-You should now have 2 pipelines created in Jenkins which will create Kubernetes pods on Rancher-managed cluster to run each job. 
+You now have 2 pipelines created in Jenkins
 
 ![Pipeline list in Jenkins](./images/jenkins-pipeline-list.png)
-
-## Examine Cluster Explorer in Rancher
-
-Now, let's examine in the pods in Rancher. You will notice the pods will be created on demand everytime when the Pipeline runs and got terminated once it's finished.
-
-Rancher UI select DevSecOps Cluster & click explorer 
-
-In the left hand navigation plane select Pods
-
-Select Jenkins Namespace from dropdown. 
-
-In the Pod Plane you should see Jenkins and your pipeline pods been created & then once the job is over getting teminated 
-
-Image below will illustrate the same.
-
-![Jenkins Pipeline Pods in RKE](./images/jenkins-pods-in-rke.png)
 
 ## Setup CI Pipeline for spring-petclinic project
 
