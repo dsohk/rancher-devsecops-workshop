@@ -293,7 +293,7 @@ You can now toggle to Rancher UI and should find Harbor Cluster successfully imp
 
 ### 4. Provision DevSecOps RKE cluster from Rancher UI
 
-In this step, we will be provisioning RKE cluster with One Master & four worker Nodes. To elliminate human error including typos in the steps following, we are only selecting worker role, however in backend, we are changing the role for each nodes to match the lab requirement. 
+In this step, we will be provisioning RKE cluster with One Master & four worker Nodes. To elliminate human error including typos in the steps to follow, we are only selecting worker role, however in backend, we are changing the role for each nodes to match the lab requirement. 
 
 In the following step, we will add `devsecops` cluster in Rancher.
 
