@@ -142,7 +142,7 @@ http://<YOUR_JENKINS_IPADDRESS>:<YOUR_JENKINS_PORT>/github-webhook/
 3. Select `Manually` to continue
 3. Enter `spring-petclinic` in Project Key and Display Name input field and hit `Set up`
 4. In the Provide a token input field, enter `spring-petclinic` and click `Generate Token` button.
-5. Record the generate token in your `mylab_env.txt` file for configuring Jenkins later.
+5. Record the generate token in your `mylab_env.txt` file for configuring Jenkins in the next step.
 
 ## 5 - Configure Jenkins 
 
