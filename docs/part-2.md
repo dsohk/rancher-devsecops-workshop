@@ -190,21 +190,21 @@ Open Jenkins URL on your browser.
 6. Enter your Github's personal access token in the `Secret` field.  Token is stored in the `mylab_env.txt`
 7. Enter `my-github` in the `ID` field. Please MAKE SURE this is correct as to match the value in our Jenkins Pipeline.
 8. Click `OK` button to continue
-9. Navigate back to the Jenkins Dashboard.
 
+Sample Screenshot below.
 ![Configure Jenkins](./images/part2-step5-configuring-Jenkins-git-credentials.png)
 
 ### 2. Sonarqube Credentials 
 
-1. Login to Jenkins
-2. Navigate to the Jenkins Dashboard.
-2. Choose `Manage Jenkins` on the left menu
-3. Choose `Manage Credentials` on the security section.
-4. Under Stores scoped to `Jenkins`, click the `(global)` dropdown menu. Choose `Add credentials`.
-5. In the `Add Credentials` form, choose `Secret text` in `Kind` field.
-6. Enter your Sonarqube token in the `Secret` field. Token is stored in the `mylab_env.txt`
-7. Enter `sonarqube-spring-petclinic` in the `ID` field. 
-8. Click `OK` button to continue
+1. Click Add Credentials on Left Hand side of the Page. 
+2. In the `Add Credentials` form, choose `Secret text` in `Kind` field.
+3. Enter your Sonarqube token in the `Secret` field. Token is stored in the `mylab_env.txt`
+4. Enter `sonarqube-spring-petclinic` in the `ID` field. 
+5. Click `OK` button to continue
+
+Sample Screenshot below
+![Configure Jenkins](./images/part2-step5-configuring-Jenkins-sonarqube-credentials.png)
+
 9. Navigate back to the Jenkins Dashboard.
 
 ### Configure Jenkins System 
