@@ -160,7 +160,7 @@ http://<YOUR_JENKINS_IPADDRESS>:<YOUR_JENKINS_PORT>/github-webhook/
 
 ## 4 - Generate Sonarqube Token
 
-1. Login to your Sonarqube instance. Upon successful login, you will be prompt to change your initial password. 
+1. Login to your Sonarqube instance using the Sonarqube URL & Credentials. Upon successful login, you will be prompt to change your initial password. 
 2. Choose `Add a Project`. 
 
 ![Add Project in Sonarqube](./images/sonarqube-add-project.png)
@@ -170,16 +170,22 @@ http://<YOUR_JENKINS_IPADDRESS>:<YOUR_JENKINS_PORT>/github-webhook/
 4. In the Provide a token input field, enter `spring-petclinic` and click `Generate Token` button.
 5. Record the generate token in your `mylab_env.txt` file for configuring Jenkins later.
 
+At this point, we are done with Sonarqube setting. You can logout from Sonarqube or close the browser window to exit.
+
 ## 5 - Configure Jenkins 
+
+Configuring Jenkins will be in two sections
+1 - Configure Credential
+2 - Configure Jenkins Systems 
 
 ### 1. GitHub Credentials. 
 
+Open Jenkins URL on your browser. 
+
 1. Login to Jenkins
-2. Navigate to the Jenkins Dashboard.
 2. Choose `Manage Jenkins` on the left menu
-3. Choose `Manage Credentials` on the security section.
+3. Under `Security` Section, Choose `Manage Credentials`
 4. Under `Stores scoped to Jenkins`, click the `(global)` dropdown menu. Choose `Add credentials`.
-5. `Add Credentials` 
 5. In the `Add Credentials` form, choose `Secret text` in `Kind` field.
 6. Enter your Github's personal access token in the `Secret` field.  Token is stored in the `mylab_env.txt`
 7. Enter `my-github` in the `ID` field. Please MAKE SURE this is correct as to match the value in our Jenkins Pipeline.
