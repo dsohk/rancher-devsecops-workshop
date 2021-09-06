@@ -269,8 +269,6 @@ Provide Anchore URL & Credentials.
 
 Finally click `Save` button to save all the Jenkins configuration settings.
 
-
-
 With this, we are ready to move to the [Step 3 - Build Your Jenkins Pipelines to deploy Spring-Petclinic App](part-3.md)
 
 
