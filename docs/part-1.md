@@ -32,7 +32,6 @@ To view the content for the Cloned Repo, on your terminal execute below command
 ll
 ``
 you should see below sample outout. 
-
 ```
 dpatel@dns:~/devsecops-workshop/workshop> ll
 total 36
@@ -105,6 +104,19 @@ Choose the region closiest to you to continue your lab setup. The script will th
 5) Install Kubernetes tools (`Kubectl` & `helm`)
 6) Deploy Rancher using Docker
 
+------------------------------------------------------------
+## Incase if you experience Error creating AWS Lighsail instance
+
+Possible error `An error occurred (InvalidInputException) when calling the CreateInstances operation: We're sorry, your AWS account is pending verification. Please try again later`
+
+Resolution - 
+Perform cleanup by executing the below script. 
+```
+./cleanlab.sh
+```
+
+----------------------------------------------------------
+
 When the script has finished, you will see a table of VMs with IP addresses, the Rancher instance URL, and other useful files created in your local folder. For example, this is the extract of my output after running the startlab script.
 
 *The IP addresses for you will be different from those in the screenshots in this lab guide.*
@@ -166,8 +178,7 @@ Sample output below.
 -rwxr-xr-x  1 derekso  staff    69B Aug 26 07:21 ssh-mylab-rancher.sh
 ```
 
-You can access to any of your VMs with the `ssh-mylab-<VM>.sh` script. The IP addresses of your VMs are also captured in the file `mylab_vm_list.txt`.
-
+You can access to any of your VMs with the `ssh-mylab-<VM>.sh` script. The IP addresses of your VMs are also captured in the file `mylab_vm_list.txt`
 
 ### 3. Setup Harbor instance and Import into Rancher 
 
@@ -180,8 +191,7 @@ Login to your harbor instance VM with SSH from your linux workstation.
 ```
 ./ssh-mylab-harbor.sh
 ```
-
-You should see the prompt like below. The prompt should be indicated the VM name you are currently working on.
+Sample output below indicates you are on Harbor VMs Terminal.
 
 ```
 ❯ ./ssh-mylab-harbor.sh
@@ -194,15 +204,17 @@ As "root" use the:
 Have a lot of fun...
 suse0908-harbor ec2-user@ip-172-26-2-249:~>
 ```
-
-In the prompt above, run the script below to automatically setup harbor private registry on K3S in this VM instance.
+On the Harbor VMs Terminal, run the script below to automatically setup harbor private registry on K3S in this VM instance.
 
 ```
 ./99-one-step-install-harbor.sh
 ```
+Sample output below show Harbor URL and Admin User credentials. 
 
+-----------------------------------------------------------
+@ Derek, Since we are capturing Harbor URL & credentials in part2, we can remove the below txt
 You should see the output of like below. Capture the harbor URL and login credential in your lab worksheet for future use. You can also find this info in a file `myharbor.txt` in your home directory of this harbor VM.
-
+-----------------------------------------------------------
 *NOTE* Please do NOT change the harbor login credential as the lab assumes to use the randomly generated strong password throughout the rest of the setup.
 
 ```
@@ -220,8 +232,26 @@ The script has
 
 #### Import Harbor cluster in Rancher.
 
+Incase if your terminal timeout or for any reason you are not on Harbor VMs, please execute the script below which will automtically take you to the Harbor VMs Terminal.
+```
+./ssh-mylab-harbor.sh
+```
+Sample output below indicates you are on Harbor VMs Terminal.
+
+```
+❯ ./ssh-mylab-harbor.sh
+openSUSE Leap 15.2 x86_64 (64-bit)
+
+As "root" use the:
+- zypper command for package management
+- yast command for configuration management
+
+Have a lot of fun...
+suse0908-harbor ec2-user@ip-172-26-2-249:~>
+```
 Open browser to navigate to the Rancher URL captured in earlier step.
-(Look for message in your terminal session)  Will look like:
+
+Sample output
 ```
 Your Rancher Instance should be ready in a few minutes ...
 Your Rancher URL: https://3.25.57.210
@@ -250,13 +280,7 @@ Click on clipboard like icon which is the last command which says `certificate s
 ![Rancher UI](./images/rancher-ui-addcluster-register-existingcluster-harbor-pg4.png)
 
 
-Open your Linux workstation terminal and switch to the working directory where this repo has been checked out. 
-
-Run the script `ssh-mylab-harbor.sh` which will bring you on Harbor VM console.
-```
-./ssh-mylab-harbor.sh
-```
-Paste the command copied from Rancher UI 
+Paste the command copied from Rancher UI on the Harbor VMs Terminal to start the Import process of Harbor into Rancher
 
 Incase if you see below messages, 
 ```
@@ -266,7 +290,7 @@ Re-run the command again using the Up arrow key from keyboard.
 Sample output below. 
 ![Rancher UI](./images/rancher-ui-copy-n-paste-harbor-terminal-pg5.png)
 
-Toggle to Rancher UI to verify if the Harbor Cluster is successfully imported!
+Toggle to Rancher UI and you should find Harbor Cluster is successfully imported!
 
 ![Rancher UI](./images/rancher-ui-harbor-success-pg6.png)
 
