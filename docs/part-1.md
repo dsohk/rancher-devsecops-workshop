@@ -23,7 +23,7 @@ Estimated Completion Time: 45 mins
 In your linux terminal, checkout this repository into a local folder. For example,
 
 ```
-git clone https://github.com/dsohk/rancher-devsecops-workshop-2021 workshop
+git clone https://github.com/dsohk/rancher-devsecops-workshop workshop
 cd workshop
 ```
 
