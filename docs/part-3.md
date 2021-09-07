@@ -4,8 +4,12 @@ Watch a video to explain what we are going to do in part 3:
 
 [![Workshop Part 3](https://img.youtube.com/vi/rRUS1aGFXUo/0.jpg)](https://www.youtube.com/watch?v=rRUS1aGFXUo)
 
-
 ## Build my First Jenkins Pipeline
+
+Befre we start the Pipeline, you may want open Rancher UI in a browser.
+Under `devsecops` cluster > `Cluster Explorer` > `Pods` > `Jenkins` Namespace. Here you will see the container creation, status and termination as things progress.
+
+Open Jenkins in new browser window.
 
 1. Login to Jenkins. If you are already on Jenkins then click on Dashboard.
 
@@ -30,18 +34,16 @@ Watch a video to explain what we are going to do in part 3:
 
 9. With the first Jenkins job we are building an simple contianer with Ubuntu Image & deploying on Kubernetes Cluster `devsecops`. Once the job is completed the Container get terminated 
 
-To view the job and it's status, click on Status inside the job.
+To view the job and it's status, click on Status inside the job within Jenkins UI.
 
-In Jenkins UI, at left hand bottom of UI, under `Build History` you will find `#1` which indicated our first build job and `green` check mark indicated job is completed successfully.
+Left hand bottom of UI, under `Build History` you will find `#1` which indicated our first build job and `green` check mark indicated job is completed successfully.
 
 ![ First Job pos in Rancher UI](./images/part2-jenkins-ui-job-build-status.png)
 
-You can also toggle to Rancher UI `devsecops` cluster > `Cluster Explorer` > `Pods` > `Jenkins` Namespaece. 
-You can see the progress of Jenkins jobs, container pods getting created & terminated once the build job is completed. 
+Toggle to Rancher UI Window to see the progress of Jenkins jobs. 
 
 Sample Screenshot
 ![ First Job pos in Rancher UI](./images/part2-step-build-my-firest-pipeline-pod-running-status.png)
-
 
 ![Create Job in Jenkins](./images/part2-step-build-my-firest-pipeline-pod-terminating-post-jobrun.png)
 
