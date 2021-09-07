@@ -7,10 +7,10 @@ Watch the video to understand what you are going to do in part 4:
 ## Rancher Continous Delivery (CD)
 
 Before you configure Rancher Continous Delivery, please open and login to the following 
-1) Jenkin UI
-2) Harbor UI
-3) Rancher UI
-4) Cluster Explorer view for `Cluster1` and `Cluster2`.
+a) Jenkin UI
+b) Harbor UI
+c) Rancher UI
+d) Cluster Explorer view for `Cluster1` and `Cluster2`.
 
 ### Configure Rancher Continous Delivery (CD)
 
