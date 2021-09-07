@@ -6,18 +6,16 @@ Watch a video to explain what we are going to do in part 3:
 
 ## Build my First Jenkins Pipeline
 
-Befre we start the Pipeline, you may want open Rancher UI in a browser window.
+Before we start the Pipeline, you may want open Rancher UI in a browser window.
 
 `Cluster Explorer` view for cluster `devsecops`.
 `Pods` > `Jenkins` Namespace. 
 
 Here you will see the container creation, status and termination as things progress.
 
-Open Jenkins in new browser window.
+1) Open Jenkins in new browser window and login.
 
-1. Login to Jenkins. If you are already on Jenkins then click on Dashboard.
-
-2. Click `Create Job`
+2) . Click `Create Job`
 
 ![Create Job in Jenkins](./images/jenkins-create-job.png)
 
@@ -26,9 +24,9 @@ Open Jenkins in new browser window.
 
 ![Create Pipeline in Jenkins](./images/jenkins-create-pipeline.png)
 
-5. Jenkins will navigate to the Configure Pipeline page, navigate to Pipeline section
+5.Navigate to the `Pipeline` section on the `Configure Pipeline` page.
 
-6. Choose `try sample Pipeline` pulldown menu and choose `Declarative (Kubernetes)`
+6. Click on `try sample Pipeline` dropdown menu and choose `Declarative (Kubernetes)`
 
 ![Create Job in Jenkins](./images/part2-step-build-my-firest-pipeline-jenkins-configure-first-pipeline-declarative-kubernetes.png)
 
@@ -36,11 +34,11 @@ Open Jenkins in new browser window.
 
 8. On the left menu, click `Build Now` to trigger the first jenkins pipeline.
 
-9. With the first Jenkins job we are building an simple contianer with Ubuntu Image & deploying on Kubernetes Cluster `devsecops`. Once the job is completed the Container get terminated 
+With the first Jenkins job we are building an simple container with Ubuntu Image & deploying on Kubernetes Cluster `devsecops`. Once the job is completed the container will terminate. 
 
-To view the job and it's status, click on Status inside the job within Jenkins UI.
+9. To view the job and it's status, click on `Status` inside the job within Jenkins UI.
 
-Left hand bottom of UI, under `Build History` you will find `#1` which indicated our first build job and `green` check mark indicated job is completed successfully.
+Left hand bottom of UI, under `Build History` you will find `#1` which indicates our first build job and `green` check mark indicates that the job has completed successfully.
 
 ![ First Job pos in Rancher UI](./images/part2-jenkins-ui-job-build-status.png)
 
@@ -54,11 +52,11 @@ Sample Screenshot
 
 ## Build my second Jenkins Pipeline
 
-Like the first pipeline, create the `second` pipeline but this time choose `Maven (Kubernetes)` from `try sample Pipeline` pulldown menu.
+1) Similar to your first pipeline, create the `second` pipeline. This time choose `Maven (Kubernetes)` from `try sample Pipeline` pulldown menu.
 
 ![Create Job in Jenkins](./images/part2-step-build-my-second-pipeline-maven-kubernetes.png)
 
-Click `Build Now` to trigger the second Jenkins pipeline.
+2) Click `Build Now` to trigger the second Jenkins pipeline.
 
 With our 2nd job, we are building a simple `Maven` container.
 
@@ -71,14 +69,12 @@ You now have 2 pipelines created in Jenkins
 
 ## Setup CI Pipeline for spring-petclinic project
 
-1. Navigate to the Jenkins Dashhoard page
-2. Choose `Open BlueOcean` item in the left menu
-3. Click `New Pipeline` button
-4. Choose `Github` tor respond to Where do you store your code question.
-5. Enter your Github personal access token and click `Connect`
-6. Choose your github organization.
-7. Choose your forked project `spring-petclinic` and click `Create Pipeline` to continue.
-8. Click `Build Now` to run this pipeline. 
+1. Click on `Open BlueOcean` in the left menu
+2. Click `New Pipeline` button
+3. Choose `Github`, enter your Github personal access token and click `Connect`
+4. Choose your github organization.
+5. Choose your forked project `spring-petclinic` and click `Create Pipeline` to continue.
+6. Click `Build Now` to run this pipeline. 
 
 Pipeline will take about 20+ minutes to finish.
 
@@ -88,19 +84,4 @@ Below are two screenshot for the pipeline progression where `spring-petclinic` a
 
 ![Build Job In Action](./images/spring-petclininc-pipeline-buildingstate-underprogress.png)
 
-As indicated this will take 20+ mins, let's move on to the [Part 4 - Rancher Continuous Delivery](part-4.md). We will come back to revisit the pipeline later. 
-
-----------------------------------------------------------
-@ Derek, will take off the below content or cover this in next part `part4`
-
-At one stage in the pipline we will be asked to approve the code, sample below. 
-
-![Rancher UI](./images/part4-configure-git-repo-approval-stage.png)
-
-On successful completion of the job. Sample below
-
-![Build Job Completed - Success](./images/spring-petclininc-pipeline-buildingstate-successful.png)
-
-It may take about 20 minutes to finish this pipeline at  the first time. The next run will be faster as all the builds or dependent artifacts are cached in the persistent volume used by the pods for this job.
-
-
+While the pipeline is in progress, let's move to the [Part 4 - Rancher Continuous Delivery](part-4.md). We will come back to revisit the pipeline later. 
