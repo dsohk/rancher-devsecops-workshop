@@ -4,53 +4,47 @@ Watch a video to explain what we are going to do in part 5:
 
 [![Workshop Part 5](https://img.youtube.com/vi/1vqZvtFKYbI/0.jpg)](https://www.youtube.com/watch?v=1vqZvtFKYbI)
 
-Now, let's modify the source code of the `spring-petclinic` application in Github and commit the changes into `main` branch. We'd expect a new pipeline job will be triggered via Github. 
-
 ## 1. Modify source code
 
-1. Navigate to your `spring-petclinic` repo on github account.
+In part 4, you successfully build our containerized application and it's running. 
 
-2. In the code section, locate this file:
+In this step, you will modify the source code for `spring-petclinic` application. 
+
+1. Login into your GitHub account. Navigate to your `spring-petclinic` repository. 
+
+2. In the code section, locate below file:
 
 ```
 src > main > resources > templates > welcome.html
 ```
-Sample Output
-
 ![Rancher UI](./images/part5-modifying-sourcecode-original-welcome-message.png)
 
-3. Modify the file content `welcome.html`. Change the greeting text in line 10 from `Hi SUSE Rancher friends!` to anything you like.
-
-Sample Output 
+3. Modify `welcome.html` file content. Line 10 contain greeting text `Hi SUSE Rancher friends!`. You can change the greeting message to your desired one.
 
 ![Rancher UI](./images/part5-modifying-sourcecode-welcome-message-modified.png)
 
-4. Click `Commit Changes` button to continue.
+4. Click `Commit Changes` button to save your changes. 
 
-## 3. Observe the new pipeline is running
+## 3. Observe the new pipeline being built
 
-Observe the new pipeline job is executing to pick up the changes in github and build a new container image for it. After passing all checking, the new build number of this image will be updated in helm chart, which, in turn, will be picked up by Rancher Continuous Delivery to propagate the changes into the target clusters.
+In the above step, you have modified your source code. This will trigger a new pipeline job in Jenkins.
 
-Pipeline - Build Job 2 is been build
 ![Rancher UI](./images/part5-modifying-sourcecode-and-running-new-build-pg1.png)
 
-The new build has completed its static and dynamic code testing & is presently in container creation stage as we see below. 
+The new pipeline will go through it's cycle. Below screenshot indicates it's in container creation stage.
 
 ![Rancher UI](./images/part5-modifying-sourcecode-and-running-new-build-pg2.png)
 
-Anchore has also completed the container image scanning and we finally the approval junction.
+Anchore has completed container image scanning phase and post that we get to the Approval junction.
 
 ![Rancher UI](./images/part5-running-build2-seeking-approval.png)
 
-Once the approval is provided, the newly container image is then pushed to Harbor
+Once the changes are accepted by selecting `Yes` GitHub would be updated with new container image version and then the new image will be pushed to Harbor. You can login into Harbor to verify the same.
 
 ![Rancher UI](./images/part5-running-build2-container-image-v2-in-harbor.png)
 
-------------------------------------------------------------
+Rancher Continuous Delivery process will be trigged with version update in GitHub.
 
-New 
-
-Rancher Continuous Delivery update in the background is happening. 
 ![Rancher UI](./images/part5-running-build2-Rancher Continuous Delivery-updating-in-progress-git-repo-status-pg1.png)
 
 You will see Build1 (v1.0.1) containaer is up and running (1/1), however build2 container (v1.0.2) is been coming up (0/1)
