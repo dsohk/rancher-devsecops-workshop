@@ -7,22 +7,28 @@ Watch a video to explain what we are going to do in part 4:
 
 ## 1. Configure Rancher Fleet - Continous Delivery
 
-To setup Fleet, from Rancher UI, Cluster Manager Page select `Tools` and click on `Continous Delivery`
+To setup Fleet, from Rancher UI, Cluster Manager View  select `Tools` and click on `Continous Delivery`
 
 ![Rancher-Continous Delivery (CD)](./images/rancher-uI-fleet-step1-pg1.png)
 
-Before we go any further, let verify if we can see all our cluster in Rancher FLeet
+Under Continous Delivery, you have following options
+1) Git Repo
+2) Clusters
+3) Cluster Groups 
+4) Advance
+
+Before we go any further, let verify if we can see all our cluster in Continous Delivery(Rancher Fleet)
 
 ![Rancher-(CD)](./images/rancher-uI-all-clusterlist-step2.png)
 
-In Fleet you can manage indivisual or group of clusters. Managing cluster via Group reduces adminstrative efforts. 
+With Rancher Fleet you can manage indivisual or group of clusters. Managing cluster via Group reduces adminstrative efforts. 
 
-To create Cluster Group in Continous Delivery, click on Cluster Groups option in left plane & hit `Create`
+### Create a Cluster Group
+Continous Delivery > Cluster Group > click on `Create`
 
 ![Rancher UI](./images/rancher-ui-create-first-fleet-group-step3-pg3.png)
 
-Provide unique `Name` for cluster group and in `Cluster Selector` section, provide same Label key value pair which was used to create `Cluster1` and `Cluster2`
-
+Provide same Label key value pair which was used to create `Cluster1` and `Cluster2`
 Key:Value `(env=dev)` 
 
 Once you key in the key:value pair, Rancher will use the selector labels to indentify the clusters to be associated with our newly created cluster group in Fleet. You will see it show 2/4 cluster been selected. 
@@ -33,9 +39,7 @@ Hit `Create` which will create our first Cluster Group.
 
 ![Rancher UI](./images/rancher-ui-first-fleet-group-success-step5-pg5.png)
 
-Once our Cluster Group is created, we then need to define a Git Repo for Fleet.
-
-#### 4. Configure Git Repo
+### Configure Git Repo
 
 Before we ahead for configuring the Git Repo, we need to Git Repository URL.
 
@@ -53,12 +57,9 @@ Sample below for reference.
 
 We are now ready to Configure our Git Repo
 
-To configure Git Reop, click on `Create` in Git Repos page in Continous Delivery. Provide details to complete the form page.  
+Note: Branche Name is `main` and not `master`
 
-
-Branch Name: NOTE Branche Name is `main` and not `master`
-
-Sample output of the GitRepo configuration
+Sample output of the GitRepo configuration below
 
 ![Rancher UI](./images/part4-configure-git-repo-config.png)
 
@@ -68,6 +69,8 @@ Since the pipeline is in progess while you are configuring Fleet, we expect the 
 
 Side by Side view of Jenkins Pipeline & Rancher CD (Fleet)
 ![Rancher UI](./images/part4-configure-git-repo-status-while-pipeline-in-progress-2.png)
+
+
 
 Side by Side view of Jenkins Pipeline & Harbor 
 ![Rancher UI](./images/part4-configure-git-repo-status-pipeline-in-progress-container-created-in-harbor-pg4.png)
