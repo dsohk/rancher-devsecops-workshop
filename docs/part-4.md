@@ -4,8 +4,11 @@ Watch a video to explain what we are going to do in part 4:
 
 [![Workshop Part 4](https://img.youtube.com/vi/cjPNjb9e8NI/0.jpg)](https://www.youtube.com/watch?v=cjPNjb9e8NI)
 
+## Rancher Fleet - Continous Delivery
 
-## 1. Configure Rancher Fleet - Continous Delivery
+Before we beign the move to configuring Rancher Fleet, please login to Jenkin UI, Harbor UI, Rancher UI, Cluster Explorer view for `Cluster1` and `Cluster2` all open in thier respective browser window.
+
+### Configure Rancher Fleet
 
 To setup Fleet, from Rancher UI, Cluster Manager View  select `Tools` and click on `Continous Delivery`
 
@@ -56,8 +59,7 @@ Sample below for reference.
 
 ![Rancher UI](./images/part4-configure-git-repo-forked-url.png)
 
-We are now ready to Configure our Git Repo
-
+In Git Repos, click on `Create` 
 Note: Branche Name is `main` and not `master`
 
 Sample output of the GitRepo configuration below
@@ -68,21 +70,27 @@ Since the pipeline is in progess while you are configuring Fleet, we expect the 
 
 ![Rancher UI](./images/part4-configure-git-repo-status-while-pipeline-in-progress-1.png)
 
-Side by Side view of Jenkins Pipeline & Rancher CD (Fleet)
+Our Rancher Fleet configuration is completed. 
+
+## 2. View Jenkins Pipeline Progess and Rancher Fleet - Continous Delivery in action.
+
+Just to set the context here, you may see slightly different progress/view, based on which stage of the pipeline you are.
+
+Below are sample display for your reference only. 
+
+For easy viewing, you can split the screen (Horizontal/Veritcal) as per your preference to observe the progress. 
+
+### Jenkins Container creation stage
 ![Rancher UI](./images/part4-configure-git-repo-status-while-pipeline-in-progress-2.png)
 
-
-
-Side by Side view of Jenkins Pipeline & Harbor 
+Approval stage, where the pipeline expect us to approve to progress further to CD stage. Upon approval toggle to Harbor UI > Library > Repoistory and we should see our application container image available.
+  
 ![Rancher UI](./images/part4-configure-git-repo-status-pipeline-in-progress-container-created-in-harbor-pg4.png)
 
-At one point in pipline we will reach the approval stage to commit the code to the GitHub Repo (Forked on in our personal Github) 
 
-![Rancher UI](./images/part4-configure-git-repo-approval-stage.png)
+### Jenkins approval stage.
 
-## Fleet in Action.
-Post approval stage, Jenkins commits the changes to GitRepo and Fleet is watching the Branch for new commits. 
-Fleet has picked up the changes and is not deploying the bundles in Cluster Group
+At one time in the pipeline, you will get to the approval stage, where you can approve or deline the changes. Upon approval, jenkins commits the changes to Git Repo. Rancher Fleet is configured for Git Repo `main` branch to watch for changes/commits. Fleet will picked up the changes and deploy the bundles in cluster group
 
 ![Rancher UI](./images/part4-fleet-status-ready.png)
 
