@@ -50,8 +50,8 @@ Once the approval is provided, the newly container image is then pushed to Harbo
 
 New 
 
-Fleet update in the background is happening. 
-![Rancher UI](./images/part5-running-build2-fleet-updating-in-progress-git-repo-status-pg1.png)
+Rancher Continuous Delivery update in the background is happening. 
+![Rancher UI](./images/part5-running-build2-Rancher Continuous Delivery-updating-in-progress-git-repo-status-pg1.png)
 
 You will see Build1 (v1.0.1) containaer is up and running (1/1), however build2 container (v1.0.2) is been coming up (0/1)
 
