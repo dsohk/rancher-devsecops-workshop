@@ -161,13 +161,21 @@ Configuring Jenkins will be in two parts
 ### 1) Configure Jenkins - GitHub Credentials. 
 
 a) Open Jenkins URL in your browser and login.
+
 b) Choose `Manage Jenkins` on the left menu. You may see a message `It appears that your reverse proxy setup is broken` ignore the message. 
+
 c) Under `Security` Section, Choose `Manage Credentials`
+
 d) Under `Stores scoped to Jenkins`, click the `(global)` dropdown menu. Choose `Add credentials`.
+
 e) In the `Add Credentials` form, choose `Secret text` in `Kind` field.
+
 f) Enter your Github's personal access token in the `Secret` field.  Token is available in the `mylab_env.txt`
+
 g) Enter `my-github` in the `ID` field. 
+
 **IMPORTANT - If you change the name your jenkins pipeline will break. Also please ensure there is no whitespace before and after the ID.**.
+
 h) Click `OK` button to continue
 
 Sample Screenshot below.
