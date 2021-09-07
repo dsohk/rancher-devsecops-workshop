@@ -6,8 +6,11 @@ Watch a video to explain what we are going to do in part 3:
 
 ## Build my First Jenkins Pipeline
 
-Befre we start the Pipeline, you may want open Rancher UI in a browser.
-Under `devsecops` cluster > `Cluster Explorer` > `Pods` > `Jenkins` Namespace. Here you will see the container creation, status and termination as things progress.
+Befre we start the Pipeline, you may want open Rancher UI in a browser window.
+
+Be in `Cluster Explorer` view for cluster `devsecops` In the `Pods` > `Jenkins` Namespace. 
+
+Here you will see the container creation, status and termination as things progress.
 
 Open Jenkins in new browser window.
 
