@@ -110,8 +110,6 @@ Choose the region closiest to you to continue your lab setup. The script will th
 5) Install Kubernetes tools (`Kubectl` & `helm`)
 6) Deploy Rancher using Docker
 
-------------------------------------------------------------
-@Derek, should we adding this here ?
 ## Incase if you experience Error creating AWS Lighsail instance
 
 Possible error `An error occurred (InvalidInputException) when calling the CreateInstances operation: We're sorry, your AWS account is pending verification. Please try again later`
@@ -121,8 +119,7 @@ Perform cleanup by executing the below script.
 ```
 ./cleanlab.sh
 ```
-
-----------------------------------------------------------
+Post the cleanup re-run the startlab script.
 
 When the script has finished, you will see a table of VMs with IP addresses, the Rancher instance URL, and other useful files created in your local folder. For example, this is the extract of my output after running the startlab script.
 
