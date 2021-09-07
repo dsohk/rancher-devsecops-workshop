@@ -370,8 +370,6 @@ Click `Add Cluster` > `Create new kubernetes cluster` > `Existing Node` This wil
 
 ![Rancher UI](./images/rancher-add-cluster-existing-node.png)
 
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg1-latest.png)
-
 1) Cluster name as `cluster1`
 2) Under `Labels & Annotation` field, Add Label with key value pair `ENV` and `DEV`.
 
@@ -381,11 +379,11 @@ Click `Add Cluster` > `Create new kubernetes cluster` > `Existing Node` This wil
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-worker-option-only.png)
 
-Click on clipboard like icon to copy the command and hit done.
+4) Click on clipboard like icon to copy the command and hit done.
 
-Past the command on the Terminal and it will start the provisioning of the all-in-1 RKE cluster `cluster1`
+5) Pass the command on the Terminal and it will start the provisioning of the all-in-1 RKE cluster `cluster1`
 
-Exit the terminal.
+6) Exit the terminal.
 
 #### Provision additional RKE Cluster, All-In-One RKE clusters `Cluster2`
 
@@ -400,12 +398,12 @@ At the terminal, run the below script
 ./setup-rke-cluster2.sh
 ```
 
-Repeat the step 1, 2 & 3 from previous step 5. 
+Repeat the step 1, to 5 from previous step 5. 
 
 Two important things to note
 
 1. Cluster name will be `cluster2` 
-2. Don't forget to add labels, Under `Labels & Annotation` field, Add Label with key value pair `ENV` and `DEV`.
+2. Don't forget to add labels, Under `Labels & Annotation` field, Add Label with key value pair `env` and `dev`.
 
 Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
 
