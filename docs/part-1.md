@@ -110,7 +110,7 @@ Choose the region closiest to you to continue your lab setup. The script will th
 5) Install Kubernetes tools (`Kubectl` & `helm`)
 6) Deploy Rancher using Docker
 
-## Incase if you experience Error creating AWS Lighsail instance
+#### Incase if you experience Error creating AWS Lighsail instance
 
 Possible error `An error occurred (InvalidInputException) when calling the CreateInstances operation: We're sorry, your AWS account is pending verification. Please try again later`
 
