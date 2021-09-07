@@ -7,7 +7,7 @@ Watch a video to explain what we are going to do in part 2:
 
 Before we begin to configure Github & Jenkins, let's look at our lab environment.
 
-Make sure Jenkins, Anchore, and Sonarqube installs have completed as per final step of Part 1.
+NOTE: Make sure Jenkins, Anchore, and Sonarqube installs have completed as per final step of Part 1.
 
 Ensure you are on your local workstation/machine Terminal where we have our git repo cloned.
 
