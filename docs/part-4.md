@@ -101,7 +101,7 @@ You can toggle Harbor UI > Library > Repoistory where you will see our applicati
 
 ### Rancher Continous Delivery in Action
 
-Rancher Continous Delivery is configured for a `Git Repo` and a branch in our case `main` branch to watch for changes/commits. Racher CD will picked up the changes and ensure the deploy the bundles in the target cluster group
+Rancher Continous Delivery is configured for a `Git Repo` and a branch in our case `main` branch to watch for changes/commits. Rancher Continuous CD will pick up the changes and deploy the changes  to the target cluster group
 
 Rancher Continuous Delivery Update is successfully completed.
 ![Rancher UI](./images/part4-Rancher-Continuous-Delivery-in-action-pg0.png)
