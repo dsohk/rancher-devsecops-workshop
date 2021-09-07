@@ -12,7 +12,7 @@ NOTE: Make sure Jenkins, Anchore, and Sonarqube installation has been completed 
 
 1) Ensure you are on your local workstation/machine Terminal where we have our git repo cloned.
 
-Run the command below to show your current lab environment. This shows you all information you need to configure your Jenkins in this section.
+2) Run the command below to show your current lab environment. This shows you all information you need to configure your Jenkins in this section.
 
 ```
 ./show-mylab-env.sh
@@ -55,7 +55,7 @@ My SonarQube token:
 
 A file `mylab_env.txt` should also have created for you. 
 
-2) Use text editor to open this file to record GitHub and SonarQube tokens.
+3) Use text editor to open this file to record GitHub and SonarQube tokens.
 
 ## 2- Fork the Spring-Petclinic Project into your own Github Account
 
@@ -105,49 +105,49 @@ https://github.com/dsohk/spring-petclinic-helmchart
 
 ## 3 - Configure Github with Personal Access Token & Webook
 
-### a) Generate Personal Access Token
+### 1) Generate Personal Access Token
 
 In order to integrate Jenkins with your github account, you have to generate your personal access token for this.
 
-1) Login to your github account
-2) Under your avatar icon, pull down the menu and choose `Settings` menu item.
-3. Choose `Developer Settings` menu on the left, choose `Personal Access Tokens`
-4. Click `Generate new token` button.
-5. Enter `workshop` (or whatever you like) in the name field.
-6. Choose `repo` and `user:email` in the privieged for this token.
+a) Login to your github account
+b) Under your avatar icon, pull down the menu and choose `Settings` menu item.
+c) Choose `Developer Settings` menu on the left, choose `Personal Access Tokens`
+d) Click `Generate new token` button.
+e) Enter `workshop` (or whatever you like) in the name field.
+f) Choose `repo` and `user:email` in the privieged for this token.
 
 ![GitHub Personal Access Token](./images/part3-setup-my-github-personal-access-token-repo.png)
 
 ![GitHub Personal Access Token](./images/part3-setup-my-github-personal-access-token-user-email.png)
 
-7. Save and record down the generated token in the `mylab_env.txt` file for configuring CI Pipeline in Jenkins later.
+g) Save and record down the generated token in the `mylab_env.txt` file for configuring CI Pipeline in Jenkins later.
 
-### b). Create WebHook for forked repository `
+### 2). Create WebHook for forked repository `
 
 Setup git webhook for spring-petclinic repo to your Jenkins server
 
-1. Click `Settings` in your spring-petclinic github repo.
-2. Choose `Webhooks` from the left menu.
-3. Click `Add Webhook` button
-4. Enter Your Jenkins Github webhook Payload URL:
+a) Click `Settings` in your spring-petclinic github repo.
+b) Choose `Webhooks` from the left menu.
+c) Click `Add Webhook` button
+d) Enter Your Jenkins Github webhook Payload URL:
 http://<YOUR_JENKINS_IPADDRESS>:<YOUR_JENKINS_PORT>/github-webhook/
-5. Choose `Send me everything` for events to trigger this webhook.
-6. Click `Add Webhook` button.
+e) Choose `Send me everything` for events to trigger this webhook.
+f) Click `Add Webhook` button.
 
 ![Setup Github webhook](./images/github-webhook.png)
 
 
 ## 4 - Generate Sonarqube Token
 
-1. Login to your Sonarqube instance using the Sonarqube URL & Credentials. Upon successful login, you will be prompted to change your initial password. 
-2. Choose `Add a Project`. 
+1) Login to your Sonarqube instance using the Sonarqube URL & Credentials. Upon successful login, you will be prompted to change your initial password. 
+2) Choose `Add a Project`. 
 
 ![Add Project in Sonarqube](./images/sonarqube-add-project.png)
 
-3. Select `Manually` to continue
-3. Enter `spring-petclinic` in Project Key and Display Name input field and hit `Set up`
-4. In the Provide a token input field, enter `spring-petclinic` and click `Generate Token` button.
-5. Record the generated token in your `mylab_env.txt` file for configuring Jenkins later.
+3) Select `Manually` to continue
+4) Enter `spring-petclinic` in Project Key and Display Name input field and hit `Set up`
+5) In the Provide a token input field, enter `spring-petclinic` and click `Generate Token` button.
+6) Record the generated token in your `mylab_env.txt` file for configuring Jenkins later.
 
 At this point, we are done with Sonarqube setting. You can logout from Sonarqube or close the browser window to exit.
 
@@ -155,30 +155,30 @@ At this point, we are done with Sonarqube setting. You can logout from Sonarqube
 
 Configuring Jenkins will be in two parts
 
-1 - Configure Credential for GitHub and Sonarqube
-2 - Configure Jenkins Systems for global environment varaiables.
+1) Configure Credential for GitHub and Sonarqube
+2) Configure Jenkins Systems for global environment varaiables.
 
-### a. Configure Jenkins - GitHub Credentials. 
+### 1) Configure Jenkins - GitHub Credentials. 
 
-1. Open Jenkins URL in your browser and login.
-2. Choose `Manage Jenkins` on the left menu. You may see a message `It appears that your reverse proxy setup is broken` ignore the message. 
-3. Under `Security` Section, Choose `Manage Credentials`
-4. Under `Stores scoped to Jenkins`, click the `(global)` dropdown menu. Choose `Add credentials`.
-5. In the `Add Credentials` form, choose `Secret text` in `Kind` field.
-6. Enter your Github's personal access token in the `Secret` field.  Token is available in the `mylab_env.txt`
-7. Enter `my-github` in the `ID` field. 
+a) Open Jenkins URL in your browser and login.
+b) Choose `Manage Jenkins` on the left menu. You may see a message `It appears that your reverse proxy setup is broken` ignore the message. 
+c) Under `Security` Section, Choose `Manage Credentials`
+d) Under `Stores scoped to Jenkins`, click the `(global)` dropdown menu. Choose `Add credentials`.
+e) In the `Add Credentials` form, choose `Secret text` in `Kind` field.
+f) Enter your Github's personal access token in the `Secret` field.  Token is available in the `mylab_env.txt`
+g) Enter `my-github` in the `ID` field. 
 **IMPORTANT - If you change the name your jenkins pipeline will break. Also please ensure there is no whitespace before and after the ID.**.
-8. Click `OK` button to continue
+h) Click `OK` button to continue
 
 Sample Screenshot below.
 ![Configure Jenkins](./images/part2-step5-configuring-Jenkins-git-credentials.png)
 
-### b. Configure Jenkins - Sonarqube Credentials 
+### 2) Configure Jenkins - Sonarqube Credentials 
 
-1. Again click `Add Credentials` on Left Hand side of the Page. 
-2. In the `Add Credentials` form, choose `Secret text` in `Kind` field.Token is available in the `mylab_env.txt`
-4. Enter `sonarqube-spring-petclinic` in the `ID` field. 
-5. Click `OK` button to continue
+a) Again click `Add Credentials` on Left Hand side of the Page. 
+b) In the `Add Credentials` form, choose `Secret text` in `Kind` field.Token is available in the `mylab_env.txt`
+c) Enter `sonarqube-spring-petclinic` in the `ID` field. 
+d) Click `OK` button to continue
 
 Sample Screenshot below
 ![Configure Jenkins](./images/part2-step5-configuring-Jenkins-sonarqube-credentials.png)
@@ -191,9 +191,9 @@ Now navigate back to the Jenkins Dashboard.
 
 1) Navigate to `Managing Jenkins` > `Configure System`
 2) Scroll down to `Global Properties` section.
-a. Select `Environment Variables` checkbox
-b. Under List of Variables, click `Add` button to continue.
-c. Under NAME, key in 
+a) Select `Environment Variables` checkbox
+b) Under List of Variables, click `Add` button to continue.
+c) Under NAME, key in 
    * Key: `HARBOR_URL`
    * Value: `IP:Port` **(This should be your Harbor IP and Port Number. No whitespaces before and after. Also No http:// or https://)**
 
@@ -224,10 +224,10 @@ Sample Screenshot below
 
 2) Specify the github username and email account in this section. It can be any arbitrary account. It will be showing up the commits to your forked helm chart repository later.
 
-a. Global Config user.name : jenkins
-b. Global Config user.email: jenkins@example.com
+a) Global Config user.name : jenkins
+b) Global Config user.email: jenkins@example.com
 
-3) Leave the rest as default
+c) Leave the rest as default
 
 Sample Screenshot below.
 
@@ -238,9 +238,9 @@ Sample Screenshot below.
 1) Scroll further down to Achore Container Image Scanner Section.
 2) Provide Anchore URL & Credentials. 
 
-a. Engine URL: (Your Anchore URL)
-b. Engine Username: (Your Anchore username)
-c. Engine Password: (Your Anchore password)
+a) Engine URL: (Your Anchore URL)
+b) Engine Username: (Your Anchore username)
+c) Engine Password: (Your Anchore password)
 
 ![Configure Anchore](./images/part2-configure-Jenkins-Anchore.png)
 
