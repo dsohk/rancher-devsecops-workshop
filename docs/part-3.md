@@ -8,7 +8,8 @@ Watch a video to explain what we are going to do in part 3:
 
 Befre we start the Pipeline, you may want open Rancher UI in a browser window.
 
-Be in `Cluster Explorer` view for cluster `devsecops` In the `Pods` > `Jenkins` Namespace. 
+`Cluster Explorer` view for cluster `devsecops`.
+`Pods` > `Jenkins` Namespace. 
 
 Here you will see the container creation, status and termination as things progress.
 
