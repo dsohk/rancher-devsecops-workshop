@@ -154,7 +154,7 @@ Your Rancher Instance should be ready in a few minutes ...
 Your Rancher URL: https://3.25.57.210
 
 ```
-Open the Rancher URL in a browser window. This may take few mins
+Open the Rancher URL in a browser window. This may take few mins to get Rancher Instance up and running. 
 
 Toggle back to the terminal and execute the below command to see the list of files (text and scripts).
 
@@ -190,6 +190,12 @@ We will be using Harbor as our Private Registry
 
 While we are waiting Rancher Server instance to be ready, let's setup your harbor private registry.
 
+The script will,   
+1) Provision K3s cluster.
+2) Deploying Harbor (using Helm Chart v1.7.2 & App v2.3.2) on K3s.
+3) Configure Harbor CA cert locally 
+4) Downloading Docker Images for Maven, Java Libaries for Maven and Sles15sp3-openjdk and importing them into Harbor. 
+
 Login to your harbor instance VM with SSH from your linux workstation.
 
 ```
@@ -215,10 +221,6 @@ On the Harbor VMs Terminal, run the script below to automatically setup harbor p
 ```
 Sample output below show Harbor URL and Admin User credentials. 
 
------------------------------------------------------------
-@ Derek, Since we are capturing Harbor URL & credentials in part2, we can remove the below txt
-You should see the output of like below. Capture the harbor URL and login credential in your lab worksheet for future use. You can also find this info in a file `myharbor.txt` in your home directory of this harbor VM.
------------------------------------------------------------
 *NOTE* Please do NOT change the harbor login credential as the lab assumes to use the randomly generated strong password throughout the rest of the setup.
 
 ```
@@ -229,12 +231,6 @@ User: admin
 Password: J4diXo8ZKddi5mFGEgx1Z3XveoOuPw
 ```
 Open Harbor URL in a browser and log into Harbor using credentials provided as in sample output 
-
-In this step, we have been able to  
-1) Provision K3s cluster.
-2) Deploying Harbor (using Helm Chart v1.7.2 & App v2.3.2) on K3s.
-3) Configure Harbor CA cert locally 
-4) Downloading Docker Images for Maven, Java Libaries for Maven and Sles15sp3-openjdk and importing them into Harbor. 
 
 #### Import Harbor cluster in Rancher.
 
