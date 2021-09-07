@@ -398,7 +398,7 @@ At the terminal, run the below script
 ./setup-rke-cluster2.sh
 ```
 
-Repeat the step 1, to 5 from previous step 5. 
+Repeat the step 1, to 5 from previous section. 
 
 Two important things to note
 
@@ -413,47 +413,44 @@ Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher
 
 ![Download Kubeconfig file](./images/rancher-kubeconfig.png)
 
-Navigate to `Cluster Manager` in Rancher UI. 
+1) Navigate to `Cluster Manager` in Rancher UI. 
 
-Click `devsecops` cluster name and choose `Cluster` from top menu. 
+2) Click `devsecops` cluster
 
-Click the `Kubeconfig File` button.
+3) Click the `Kubeconfig File` button (Top right corner).
 
-Scroll down to the bottom of the popup screen, click `Copy to Clipboard` link to copy the content of this kubeconfig file into your clipboard.
+4) Scroll down to the bottom of the popup screen, click `Copy to Clipboard` link to copy the content of this kubeconfig file into your clipboard.
 
-From your Linux workstation, ssh into your harbor VM by executing the script `ssh-mylab-harbor.sh` script). 
+5) From your Linux workstation, ssh into your harbor VM by executing the script `ssh-mylab-harbor.sh` script). 
 
 ```
 ./ssh-mylab-harbor.sh
 ```
 
-Create a file `devsecops.cfg` under `~/.kube` folder.
+6) Create a file `devsecops.cfg` under `~/.kube` folder.
 
 ```
 vi ~/.kube/devsecops.cfg
 ```
 Paste the kubeconfig content copied from Rancher UI for devsecops cluster into this file, save it and exit.
 
-If you see the below sample message 
+6) If you see the below sample message 
 
 `Kubernetes configuration file is group-readable. This is insecure. Location: /home/ec2-user/.kube/devsecops.cfg`
 
 Modify the file permission by removing additional permissions.
-```
-chmod o -r ~/.kube/devsecops.cfg
-```
 
 ```
-chmod g -r ~/.kube/devsecops.cfg
+chmod 600 ~/.kube/devsecops.cfg
 ```
 
-Configure Kubernetes client to use this kubeconfig file. 
+8) Configure Kubernetes client to use this kubeconfig file. 
 
 ```
 export KUBECONFIG=~/.kube/devsecops.cfg
 ```
 
-Verify if it can connect to your devsecops cluster. If you see an output like below, you are good.
+9) Verify if it can connect to your devsecops cluster. If you see an output like below, you are good.
 
 ```
 kubectl get nodes
@@ -469,14 +466,15 @@ devsecops-w3   Ready    worker              14m   v1.20.9
 devsecops-w4   Ready    worker              14m   v1.20.9
 ```
 
-### 7. Install Longhorn on DevSecOps RKE cluster from Rancher UI
+### 7. Install Longhorn on DevSecOps Cluster
 
-From your Linux workstation, ssh into your harbor VM by executing the script `ssh-mylab-harbor.sh` script). 
+1) If you are not already logged into Harbor VM then run the script `ssh-mylab-harbor.sh` script), else skip to step 2 
 
 ```
 ./ssh-mylab-harbor.sh
 ```
-Type the below command to deploy Longhorn 
+
+2) Type the below command to deploy Longhorn 
 
 ```
 cd devsecops/longhorn
@@ -508,48 +506,48 @@ Your longhorn is ready...
 suse0908-harbor ec2-user@ip-172-26-1-70:~/devsecops/longhorn>
 ```
 
-In Rancher UI, open `devsecops` Cluster Explorer > Longhorn > Overview 
+3) In Rancher UI, open `devsecops` Cluster Explorer > Longhorn > Overview 
 
 ![Longhorn UI](./images/part1-step7-Longhorn-UI.png)
 
 
 ### 8. Deploy Jenkins, Anchore and Sonarqube on devsecops RKE cluster from Harbor VM
 
-In our final step for part 1, we are going to deploy 
-1) Jenkins
-2) Anchore
-3) Sonarqube
+In our final step for part 1, we are going to deploy the following in parallel.
 
-For this we need to be on Harbor VMs Terminal. 
-You can execute the script below which will take you to Harbor VMs Terminal.
+a) Jenkins < approx 5 mins>
+b) Anchore < approx 3/4 mins>
+c) Sonarqube < approx < 6 mins>
+
+1) If you are not already logged into Harbor VM then run the script `ssh-mylab-harbor.sh` script), else skip to step 2 
 
 ```
 ./ssh-mylab-harbor.sh
 ```
-Once you are on the Harbor Terminal, Open two additional terminals, as we will run the deployment of Jenkins, Anchore & Sonarqube one after.
+2) Open two additional terminals, as we will run the deployment of Jenkins, Anchore & Sonarqube one after.
 
 ![Deploy Jenkins and others](./images/deploy-jenkins-and-others-start.png)
 
-In terminal 1 of your Harbor VM, run the following command to setup Jenkins.
+3) In terminal 1 of your Harbor VM, run the following command to setup Jenkins.
 
 ```
 cd ~/devsecops/jenkins
 ./99-one-step-install-jenkins.sh
 ```
 
-This should take a while to build Jenkins along with required plugin of our choice to be build in `devsecops` cluster.
+This should take a while to build Jenkins along with required plugin of our choice to be built in `devsecops` cluster.
 
-Here a high level view of what been accomplished
+Here's a high level view of what has been accomplished
 
-1) Deployment & configuration of self signed certificate with Harbor. Self Signed Certificated are distributing to all Labs VMs. With help of Docker Client, we are able to login in the VM using self signed certifiate. 
+a) Deployment & configuration of self signed certificate with Harbor. Self Signed Certificated are distributing to all Labs VMs. With help of Docker Client, we are able to login in the VM using self signed certifiate. 
 
-2) Pulling Jenkins Image, building custom Jenkins image with own choise of plugins for this lab and adding it to Harbor registry.
+b) Pulling Jenkins Image, building custom Jenkins image with own choise of plugins for this lab and adding it to Harbor registry.
 
-3) Provisioning Jenkins using Helm Chart (Chart v3.5.15 & App V2.303.1)
+c) Provisioning Jenkins using Helm Chart
 
-4) Configuring Jenkins GitHub webhook
+d) Configuring Jenkins GitHub webhook
 
-In Terminal 2 of Harbor VM, run the following command to setup Anchore 
+4) In Terminal 2 of Harbor VM, run the following command to setup Anchore 
 
 ```
 cd ~/devsecops/anchore
@@ -557,7 +555,7 @@ cd ~/devsecops/anchore
 ```
 It will also take awhile to deploy anchore on your devsecops cluster. Likewise, let's continue our lab to deploy Sonarqube.
 
-On Terminal 3 on Harbor VM, run the following command to setup Sonarqube.
+5) On Terminal 3 on Harbor VM, run the following command to setup Sonarqube.
 
 ```
 cd ~/devsecops/sonarqube
@@ -566,9 +564,9 @@ cd ~/devsecops/sonarqube
 
 For all inquisite people, you can also check the deployment and the pod creation for these application in your `devsecop` cluster.
 
-Toggle to your browser on Rancher UI.
+6) Toggle to your browser on Rancher UI.
 
-Click on `Cluster Explorer` for `devsecops` cluster. In the `Pods` section, you will be able to see the application container in thier respective namespaces
+Click on `Cluster Explorer` for `devsecops` cluster. In the `Pods` section, you will be able to see the application container in their respective namespaces
 
 Since the application are been deployed, you will see in sample output below you would find container are `container creation` or `initilization` stages. 
 
