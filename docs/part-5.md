@@ -27,51 +27,53 @@ src > main > resources > templates > welcome.html
 
 ## 3. Observe the new pipeline being built
 
-In the above step, you have modified your source code. This will trigger a new pipeline job in Jenkins.
+1. In the above step, you have modified your source code. This will trigger a new pipeline job in Jenkins.
 
 ![Rancher UI](./images/part5-modifying-sourcecode-and-running-new-build-pg1.png)
 
-The new pipeline will go through it's cycle. Below screenshot indicates it's in container creation stage.
+2. Below screenshot indicates it's in container creation stage.
 
 ![Rancher UI](./images/part5-modifying-sourcecode-and-running-new-build-pg2.png)
 
-Anchore has completed container image scanning phase and post that we get to the Approval junction.
+3. Anchore has completed container image scanning phase and post that we get to the Approval junction.
 
 ![Rancher UI](./images/part5-running-build2-seeking-approval.png)
 
-Once the changes are accepted by selecting `Yes` GitHub would be updated with new container image version and then the new image will be pushed to Harbor. You can login into Harbor to verify the same.
+4. Once the changes are accepted by clicking on `Yes` GitHub would be updated with new container image version and then the new image will be pushed to Harbor. You can login into Harbor to verify the same. You should see v1.0.2 as the lastest container image for the application.
 
 ![Rancher UI](./images/part5-running-build2-container-image-v2-in-harbor.png)
 
-Rancher Continuous Delivery process will be trigged with version update in GitHub.
+5. Rancher Continuous Delivery process will be trigged with version update in GitHub.
 
-![Rancher UI](./images/part5-running-build2-Rancher Continuous Delivery-updating-in-progress-git-repo-status-pg1.png)
+![Rancher UI](./images/part5-running-build2-rancher-cd-update-in-progress-git-repo-status-pg1.png)
 
-You will see Build1 (v1.0.1) containaer is up and running (1/1), however build2 container (v1.0.2) is been coming up (0/1)
+6. You will see Build1 (v1.0.1) containaer is up and running (1/1), however build2 container (v1.0.2) is been coming up (0/1)
 
 ![Rancher UI](./images/part5-build2-container-coming-up-on-cluster1.png)
 
-In a few seconds, we will see the build2-v1-0-2 container up and running & build1-v1-0-1 getting terminated. 
+7. In a few seconds, we will see the build2-v1-0-2 container up and running & build1-v1-0-1 getting terminated. 
 
 ![Rancher UI](./images/part5-build2-v1-0-2-container-coming-up-v1-0-1-terminated-cluster1.png)
 
-Now, let look at the GitRepo status, 
+8. Check Git Repo status in Rancher UI and the status would be in `active` state, 
 
 ![Rancher UI](./images/part5-build2-git-repo-status-active-after-successfully-build-v1-0-2.png)
 
-Let go to Services Page
+9. In Rancher UI > Services Page
 
 ![Rancher UI](./images/part5-build2-cluste1-services-page.png)
 
-To open the applicatin, click on `NodePort` to and the application will open in a new browser window.
+10. To open the applicatin, click on `NodePort` to and the application will open in a new browser window.
 
 We expect to see application version `1.0.2` and updated welcome message `Hi SUSE Rancher Parnter & Community friends!` and sure we do see...
 
 ![Rancher UI](./images/part5-build2-cluster1-v1-0-2-success.png)
 
-We have successfully makes changes to our code, Jenkins has picked up the changes and build the application in a new pipeline on Rancher RKE cluster. 
+You have successfully made changes to our code in GitHub, Git remain single source of truth. 
 
-We have sucessfully build our CI/CD pipeline with SUSE Rancher
+Jenkins picks up the changes automatically and build new job for your changes. Upon your approve the updated changes are then picked up by Rancher Continuous delivery and the application get deployed on your cluster. Once the new application is up and running, the older version gets terminated. 
+
+Congratulation! you have sucessfully build our CI/CD pipeline with SUSE Rancher for continuous development and delviery.
 
 
 
