@@ -118,5 +118,3 @@ Image below illustrate JenkinUI, Rancher UI & Application in a new browser windo
 
 With this, let's put everything together and proceed to [Part 5](part-5.md)
 
-
-
