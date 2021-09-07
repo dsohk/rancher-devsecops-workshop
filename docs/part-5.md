@@ -6,13 +6,9 @@ Watch a video to explain what we are going to do in part 5:
 
 Now, let's modify the source code of the `spring-petclinic` application in Github and commit the changes into `main` branch. We'd expect a new pipeline job will be triggered via Github. 
 
-## 1. Setup your screen layout 
+## 1. Modify source code
 
-Let's setup your screen layout like below so as to monitor the auto-triggering of Pipeline and Rancher Continuous Delivery.
-
-## 2. Modify source code
-
-1. Navigate to your `spring-petclinic` repo on github with a browser.
+1. Navigate to your `spring-petclinic` repo on github account.
 
 2. In the code section, locate this file:
 
@@ -23,7 +19,7 @@ Sample Output
 
 ![Rancher UI](./images/part5-modifying-sourcecode-original-welcome-message.png)
 
-3. Modify the file `welcome.html`. Change the greeting text in line 10 from `Hi SUSE Rancher friends!` to anything you like.
+3. Modify the file content `welcome.html`. Change the greeting text in line 10 from `Hi SUSE Rancher friends!` to anything you like.
 
 Sample Output 
 
