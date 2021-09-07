@@ -69,10 +69,15 @@ You now have 2 pipelines created in Jenkins
 ## Setup CI Pipeline for spring-petclinic project
 
 a) Click on `Open BlueOcean` in the left menu
+
 b) Click `New Pipeline` button
+
 c) Choose `Github`, enter your Github personal access token and click `Connect`
+
 d) Choose your github organization.
+
 e) Choose your forked project `spring-petclinic` and click `Create Pipeline` to continue.
+
 f) Click `Build Now` to run this pipeline. 
 
 Pipeline will take about 20+ minutes to finish.
