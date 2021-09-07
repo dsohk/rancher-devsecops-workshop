@@ -515,9 +515,9 @@ suse0908-harbor ec2-user@ip-172-26-1-70:~/devsecops/longhorn>
 
 In our final step for part 1, we are going to deploy the following in parallel.
 
-a) Jenkins (approx 5 mins)
-b) Anchore (approx 3/4 mins)
-c) Sonarqube (approx < 6 mins)
+* Jenkins (approx 5 mins)
+* Anchore (approx 3/4 mins)
+* Sonarqube (approx < 6 mins)
 
 1) If you are not already logged into Harbor VM then run the script `ssh-mylab-harbor.sh` script), else skip to step 2 
 
