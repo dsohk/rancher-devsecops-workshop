@@ -515,7 +515,7 @@ suse0908-harbor ec2-user@ip-172-26-1-70:~/devsecops/longhorn>
 
 In our final step for part 1, we are going to deploy the following in parallel.
 
-a) Jenkins < approx 5 mins>
+a) Jenkins (< approx 5 mins>)
 b) Anchore < approx 3/4 mins>
 c) Sonarqube < approx < 6 mins>
 
