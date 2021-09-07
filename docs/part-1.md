@@ -26,7 +26,7 @@ Watch the video below to see what we are going to do in this part.
 
 ### 1. Clone Git Repository
 
-In your linux terminal, checkout this repository into a local folder. For example,
+In your linux terminal, checkout this repository into a local folder.
 
 ```
 git clone https://github.com/dsohk/rancher-devsecops-workshop workshop
@@ -236,7 +236,7 @@ Open Harbor URL in a browser and log into Harbor using credentials provided as i
 
 In this step, we would be importing Harbor K3s cluster into Rancher. 
 
-You should be on `Harbor VM terminal` for this, incase if your terminal timeout or for any reason you are not on Harbor VMs, please execute the script below which will automtically take you to the Harbor VMs Terminal.
+You should be logged into `Harbor VM` for this, incase if your terminal timeout or for any reason you are not on Harbor VMs, please execute the script below which will automtically take you to the Harbor VMs Terminal.
 ```
 ./ssh-mylab-harbor.sh
 ```
@@ -286,7 +286,7 @@ You can now toggle to Rancher UI and should find Harbor Cluster successfully imp
 
 ### 4. Provision DevSecOps RKE cluster from Rancher UI
 
-In this step, we will be provisioning RKE cluster with One Master & four worker Nodes. To elliminate human error including typos in the steps to follow, we are only selecting worker role, however in backend, we are changing the role for each nodes to match the lab requirement. 
+In this step, we will be provisioning RKE cluster with One Master & four worker Nodes along with thier Private, Public and Node names along with thier role. We have scripted this process to match the lab requirement. 
 
 In the following step, we will add `devsecops` cluster in Rancher.
 
@@ -343,6 +343,8 @@ Once it's ready, please install Longhorn on it and download KUBECONFIG file into
 
 Return to your browser with Rancher UI, you should see the `devsecops` cluster is being initialized. It may take 5-10 minutes to complete the whole RKE cluster setup.
 
+While the devsecops cluster is being provisioned, you can continue with step 5 for provisioning additional RKE clusters.
+
 ![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
 
 
@@ -351,7 +353,7 @@ In this steps, we will be provisioning two single node RKE cluster with Etcd, Co
 
 #### All-In-One RKE clusters 
 
-Ensure you are on your local workstation/machine Terminal where we have our git repo cloned.
+Ensure you are on your local workstation/machine Terminal and inside your git repo cloned. <home-dir>/<devsec>
 
 Sample output below.
 ```
@@ -365,6 +367,8 @@ The Terminal will be seeking input command, which we will generate in the follow
 
 Navigate to Rancher Cluster Management UI. 
 Click `Add Cluster` > `Create new kubernetes cluster` > `Existing Node` This will create RKE on existing bare-metal servers or virtual machine. 
+
+![Rancher UI](./images/rancher-add-cluster-existing-node.png)
 
 ![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg1-latest.png)
 
