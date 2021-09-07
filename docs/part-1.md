@@ -119,7 +119,7 @@ Perform cleanup by executing the below script.
 ```
 ./cleanlab.sh
 ```
-Post the cleanup re-run the startlab script.
+Post the cleanup re-run the startlab.sh script.
 
 When the script has finished, you will see a table of VMs with IP addresses, the Rancher instance URL, and other useful files created in your local folder. For example, this is the extract of my output after running the startlab script.
 
