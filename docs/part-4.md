@@ -74,7 +74,7 @@ Our Rancher Fleet configuration is completed.
 
 ## 2. View Jenkins Pipeline Progess and Rancher Fleet - Continous Delivery in action.
 
-Just to set the context here, you may see slightly different progress/view, based on which stage of the pipeline you are.
+Just to set the context here, you may see slightly different progress/view, based on which stage of the pipeline.
 
 Below are sample display for your reference only. 
 
@@ -83,34 +83,36 @@ For easy viewing, you can split the screen (Horizontal/Veritcal) as per your pre
 ### Jenkins Container creation stage
 ![Rancher UI](./images/part4-configure-git-repo-status-while-pipeline-in-progress-2.png)
 
-Approval stage, where the pipeline expect us to approve to progress further to CD stage. Upon approval toggle to Harbor UI > Library > Repoistory and we should see our application container image available.
-  
-![Rancher UI](./images/part4-configure-git-repo-status-pipeline-in-progress-container-created-in-harbor-pg4.png)
-
-
 ### Jenkins approval stage.
 
-At one time in the pipeline, you will get to the approval stage, where you can approve or deline the changes. Upon approval, jenkins commits the changes to Git Repo. Rancher Fleet is configured for Git Repo `main` branch to watch for changes/commits. Fleet will picked up the changes and deploy the bundles in cluster group
+At one time in the pipeline, you will get to the `Approval stage`, where you will be prompted to `Approve` or `Decline` the changes. 
 
-![Rancher UI](./images/part4-fleet-status-ready.png)
+Upon approval, jenkins commits the changes to Git Repo. The container image will send to Harbor Registry.
 
-In Rancher UI, click on Cluster Explorer for either `Cluster1` or `Cluster2`. Click on the pods section and we should see our Spring PetClinic Conatiner running. Take a closer look at the version, it should say `spring-petclinic:v1.0.x`.
+You can toggle to Jenkins UI > BlueOcean and  Harbor UI > Library > Repoistory where you will see our application container image available.
+![Rancher UI](./images/part4-configure-git-repo-status-pipeline-in-progress-container-created-in-harbor-pg4.png)
 
-illustration below.
+### Fleet in Action
 
+Rancher Fleet is configured for a `Git Repo` and a branch in our case `main` branch to watch for changes/commits. Fleet will picked up the changes and ensure the deploy the bundles in cluster group
+
+Fleet Update is successfully completed.
 ![Rancher UI](./images/part4-fleet-in-action-pg0.png)
+
+In Rancher UI, on either `Cluster1` or `Cluster2` you should see our Spring PetClinic Conatiner running. Take a closer look at the version, it should say `spring-petclinic:v1.0.x`.
 
 ![Rancher UI](./images/part4-fleet-in-action-pg1.png)
 
 ![Rancher UI](./images/part4-fleet-in-action-pg2.png)
 
 Now let try to open the Application in a new Browser window
-
-Go the `Services` Tab to expose the Container Application.
-
-illustration below, show our applivation version  `spring-petclinic:v1.0.x` as indicated in previous step.
+Rancher UI > Cluster Exlporer > Cluster1 > `Services` Tab to expose the Container Application.
 
 ![Rancher UI](./images/part4-fleet-in-action-Cluster1-Services-Open-App-pg1.png)
+
+Check our applivation version  `spring-petclinic:v1.0.x` as indicated in previous step.
+
+Image below illustrate JenkinUI, Rancher UI & Application in a new browser window.
 
 ![Rancher UI](./images/part4-fleet-in-action-Cluster1-Services-Open-App-pg2.png)
 
