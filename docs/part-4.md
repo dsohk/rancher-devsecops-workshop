@@ -49,7 +49,8 @@ Open you GitHub. You will find your repository on left hand side of the page. If
 
 Click on the Repository URL and you will be taken into the `code` tab. 
 
-In the code page, you will be in the `main` branch & you will see `code` tab. Click on the drop down menu of Code tab and you will be presented with the repositroy url. Click on the clipboard icon to copy the URL from `HTTPS` tab. 
+In the code page, you will be in the `main` branch. Click on `code` tab, use the drop down menu and you will be presented with the repositroy url. 
+Click on the clipboard icon to copy the URL from `HTTPS` tab. 
 
 Sample below for reference. 
 
