@@ -68,7 +68,7 @@ You now have 2 pipelines created in Jenkins
 
 ## Setup CI Pipeline for spring-petclinic project
 
-a) Click on `Open BlueOcean` in the left menu
+a) Click on `Open Blue Ocean` in the left menu
 
 b) Click `New Pipeline` button
 
