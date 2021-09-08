@@ -3,6 +3,10 @@
 Once you have finished your lab, you can run the script below from the folder of your linux workstation where this repository has been checked out. 
 
 ```
+./cleanlab.sh
+```
+
+```
 ❯ ./cleanlab.sh
   ___ _   _ ___ ___   ___              _
  / __| | | / __| __| | _ \__ _ _ _  __| |_  ___ _ _
