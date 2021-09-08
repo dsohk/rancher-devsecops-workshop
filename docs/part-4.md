@@ -38,11 +38,11 @@ Value:`dev`
  
 Once you key in the key:value pair, Rancher will use the selector labels to indentify the clusters to be associated with our newly created cluster group in Rancher Continuous Delivery. You will see it show 2/4 cluster been selected. 
 
-![Rancher UI](./images/rancher-ui-create-first-Rancher Continuous Delivery-group-details-step4-pg4.png)
+![Rancher UI](./images/rancher-ui-create-first-fleet-group-details-step4-pg4.png)
 
 3) Click on `Create` which will create our first Cluster Group.
 
-![Rancher UI](./images/rancher-ui-first-Rancher Continuous Delivery-group-success-step5-pg5.png)
+![Rancher UI](./images/rancher-ui-first-fleet-group-success-step5-pg5.png)
 
 ### Configure Git Repo
 
