@@ -5,6 +5,7 @@ Once you have finished your lab, you can run the script below from the folder of
 ```
 ./cleanlab.sh
 ```
+sample output
 
 ```
 ❯ ./cleanlab.sh
