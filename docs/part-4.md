@@ -16,7 +16,7 @@ d) Cluster Explorer view for `Cluster1` and `Cluster2`.
 
 1) Rancher UI > Cluster Manager View select `Tools` and click on `Continous Delivery`
 
-![Rancher-Continous Delivery (CD)](./images/rancher-uI-Rancher Continuous Delivery-step1-pg1.png)
+![Rancher-Continous Delivery (CD)](./images/part4-rancher-url-rancher-continuous-delivery-step1-pg1.png)
 
 Before we proced, let's verify if we can see all our cluster in Continous Delivery
 
