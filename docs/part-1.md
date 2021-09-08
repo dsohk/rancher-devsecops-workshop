@@ -8,7 +8,7 @@ Estimated Completion Time: 45 mins
 * Rancher Management Server v2.5.9 instance (1 VM)
 * Harbor private registry running on K3S (1 VM)
 * DevSecOps RKE cluster running `Jenkins`, `Anchore`, and `SonarQube` (5 VM - 1 master + 4 worker nodes)
-* 2 clusters (1 VM each) for deploying applications.
+* 2 single-node clusters (1 VM each) for deploying applications.
 
 ## Pre-requisites
 
@@ -33,7 +33,7 @@ git clone https://github.com/dsohk/rancher-devsecops-workshop workshop
 cd workshop
 ```
 
-2) To view the content for the Cloned Repo, on your terminal execute below command
+2) To view the content for the Cloned Repo, in your terminal execute below command
 ``
 ll
 ``
@@ -102,9 +102,9 @@ Select Your Preferred AWS Environment to run your lab:
 2) Seoul      4) Sydney	    6) Quit
 ```
 
-Choose the region closiest to you to continue your lab setup. The script will then
+Choose the region closest to you to continue your lab setup. The script will then
 a) Provision VMs on your AWS account with region you picked, 
-b) Configure firewall rules of these VMs, 
+b) Configure firewall rules for these VMs, 
 c) Download AWS SSH keypair to your local folder to access to these VMs, and
 d) Create shortcut files for you to access to the VMs in your lab environment.
 e) Install Kubernetes tools (`Kubectl` & `helm`)
