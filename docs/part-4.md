@@ -27,8 +27,6 @@ With Rancher Rancher Continous Delivery (CD), one can manage individual or group
 ### Create a Cluster Group
 1) Navigate to `Cluster Group` and click on `Create`. Give it a name `development`
 
-![Rancher UI](./images/rancher-ui-create-first-Rancher Continuous Delivery-group-step3-pg3.png)
-
 Here we are going to use the same Label which was used to create `Cluster1` and `Cluster2`.
 
 2) Under Cluster Selector provide the following values
