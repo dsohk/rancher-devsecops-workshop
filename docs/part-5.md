@@ -73,9 +73,9 @@ You have successfully made changes to our code in GitHub, Git remain single sour
 
 Jenkins picks up the changes automatically and build new job for your changes. Upon your approve the updated changes are then picked up by Rancher Continuous delivery and the application get deployed on your cluster. Once the new application is up and running, the older version gets terminated. 
 
-Congratulation! you have sucessfully build our CI/CD pipeline with SUSE Rancher for continuous development and delviery.
+Congratulation! you have sucessfully build our CI/CD pipeline with SUSE Rancher for continuous development and delviery. We hope you have enjoyed exploring a little of what Rancher can do to your kubenetes development, deplyment, and management.
 
-
+**When you have finished playing with your lab environment go to Part 6 - Cleaning up the lab environment**
 
 
 
