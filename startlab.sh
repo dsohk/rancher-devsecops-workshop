@@ -37,22 +37,45 @@ done
 export VM_PREFIX=suse0908
 echo "export VM_PREFIX=$VM_PREFIX" > mylab_vm_prefix.sh
 
-# Supported AWS Lighsail Regions: 
-# https://lightsail.aws.amazon.com/ls/docs/en_us/articles/understanding-regions-and-availability-zones-in-amazon-lightsail
 title="Select Your Preferred AWS Environment to run your lab:"
-options=("Tokyo" "Seoul" "Singapore" "Sydney" "Mumbai")
+options=(US/Canada Europe Asia)
 echo "$title"
 PS3="$prompt "
-select opt in "${options[@]}" "Quit"; do 
+select opt in "${options[@]}" "Quit"; do
   case "$REPLY" in
-  1) echo "You picked $opt "; export AWS_REGION=ap-northeast-1; export AWSLS_VM_SIZE_SUFFIX=_2_0; break;;
-  2) echo "You picked $opt "; export AWS_REGION=ap-northeast-2; export AWSLS_VM_SIZE_SUFFIX=_2_0; break;;
-  3) echo "You picked $opt "; export AWS_REGION=ap-southeast-1; export AWSLS_VM_SIZE_SUFFIX=_2_0; break;;
-  4) echo "You picked $opt "; export AWS_REGION=ap-southeast-2; export AWSLS_VM_SIZE_SUFFIX=_2_2; break;;
-  5) echo "You picked $opt "; export AWS_REGION=ap-south-1;     export AWSLS_VM_SIZE_SUFFIX=_2_1; break;;
+  1) echo "$opt "; export AWS_CONTINENT=US; break;;
+  2) echo "$opt "; export AWS_CONTINENT=EU; break;;
+  3) echo "$opt "; export AWS_CONTINENT=AP; break;;
   $((${#options[@]}+1))) echo "Aborted. Bye!!"; exit;;
   *) echo "Invalid choice. Please try another one.";continue;;
   esac
+done
+
+# Retrieve AWS regions metadata based on chosen continent
+unset options
+IFS='
+'
+options=($(cat setup/_awsls_locations.txt | grep $AWS_CONTINENT | cut -d '|' -f 2 | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'))
+unset IFS
+
+echo "Select regions"
+PS3="$prompt "
+select opt in "${options[@]}" "Quit"; do 
+  if (( 1 <= $REPLY && $REPLY <= ${#options[@]} ))
+  then
+    export AWSLS_CHOSEN_REGION="${options[$REPLY - 1]}"
+    echo "You picked:" $AWSLS_CHOSEN_REGION
+    export AWS_REGION=`cat setup/_awsls_locations.txt | grep "$AWSLS_CHOSEN_REGION" | cut -d '|' -f 3 | xargs`
+    export AWS_AVAIL_AZ=`cat setup/_awsls_locations.txt | grep "$AWSLS_CHOSEN_REGION" | cut -d '|' -f 4 | xargs`
+    export AWSLS_VM_SIZE_SUFFIX=`cat setup/_awsls_locations.txt | grep "$AWSLS_CHOSEN_REGION" | cut -d '|' -f 5 | xargs`
+    break
+  elif (( $REPLY == $((${#options[@]} + 1)) ))
+  then
+    echo "Aborted. Bye!!"
+    exit
+  else
+    echo "Invalid choice. Please try again."; continue;
+  fi
 done
 
 echo "export AWS_REGION=${AWS_REGION}" > mylab_aws_region.sh
@@ -60,8 +83,8 @@ echo "export AWS_REGION=${AWS_REGION}" > mylab_aws_region.sh
 # Instance Sizes
 # medium = 4GB RAM; large = 8GB RAM
 # aws lightsail get-bundles
-export AWS_SIZE_MEDIUM="medium${AWSLS_VM_SIZE_SUFFIX}"
-export AWS_SIZE_LARGE="large${AWSLS_VM_SIZE_SUFFIX}"
+export AWS_SIZE_MEDIUM="medium_${AWSLS_VM_SIZE_SUFFIX}"
+export AWS_SIZE_LARGE="large_${AWSLS_VM_SIZE_SUFFIX}"
 
 echo "Provisioning VM in your AWS Lightsail region $AWS_REGION as lab environment ..."
 create-vm $VM_PREFIX-rancher $AWS_SIZE_MEDIUM "docker pull rancher/rancher:v2.5.9;"

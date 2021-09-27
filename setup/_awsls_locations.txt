@@ -1,0 +1,19 @@
+# https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail
+Continent | Region                | Region Code    | AZ          | Bunddle_Suffix
+----------+-----------------------+----------------+-------------+---------------
+US        | US East - N. Virginia | us-east-1      | a,b,c,d,e,f | 2_0
+US        | US East - Ohio        | us-east-2      | a,b,c       | 2_0
+US        | US West - Oregon      | us-west-2      | a,b,c       | 2_0
+US        | Canada (Central)      | ca-central-1   | a,b         | 2_0
+EU        | Frankfurt             | eu-central-1   | a,b,c       | 2_0
+EU        | Ireland               | eu-west-1      | a,b,c       | 2_0
+EU        | London                | eu-west-2      | a,b,c       | 2_0
+EU        | Paris                 | eu-west-3      | a,b,c       | 2_0
+EU        | Stockholm             | eu-north-1     | a,b,c       | 2_0
+AP        | Mumbai                | ap-south-1     | a,b         | 2_1
+AP        | Seoul                 | ap-northeast-2 | a,c         | 2_0
+AP        | Singapore             | ap-southeast-1 | a,b,c       | 2_0
+AP        | Sydney                | ap-southeast-2 | a,b,c       | 2_2
+AP        | Tokyo                 | ap-northeast-1 | a,c,d       | 2_0
+
+
