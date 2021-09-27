@@ -57,6 +57,9 @@ done
 export VM_PREFIX=suse0908
 echo "export VM_PREFIX=$VM_PREFIX" > mylab_vm_prefix.sh
 
+export RANCHER_VERSION=v2.6.1-rc3
+echo "export RANCHER_VERSION=$RANCHER_VERSION" > mylab_rancher_version.sh
+
 title="Select Your Preferred AWS Environment to run your lab:"
 options=(US/Canada Europe Asia)
 echo "$title"
@@ -107,16 +110,15 @@ export AWS_SIZE_MEDIUM="medium_${AWSLS_VM_SIZE_SUFFIX}"
 export AWS_SIZE_LARGE="large_${AWSLS_VM_SIZE_SUFFIX}"
 
 echo "Provisioning VM in your AWS Lightsail region $AWS_REGION as lab environment ..."
-create-vm $VM_PREFIX-rancher $AWS_SIZE_MEDIUM "docker pull rancher/rancher:v2.6.0;"
+create-vm $VM_PREFIX-rancher $AWS_SIZE_MEDIUM "docker pull rancher/rancher:${RANCHER_VERSION};"
 create-vm $VM_PREFIX-harbor  $AWS_SIZE_MEDIUM "zypper in -y git-core; docker pull susesamples/myjenkins:v1.0;"
-create-vm $VM_PREFIX-devsecops-m1 $AWS_SIZE_MEDIUM "docker pull rancher/rancher-agent:v2.6.0;"
-create-vm $VM_PREFIX-devsecops-w1 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.6.0; zypper in -y nfs-client;"
-create-vm $VM_PREFIX-devsecops-w2 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.6.0; zypper in -y nfs-client;"
-create-vm $VM_PREFIX-devsecops-w3 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.6.0; zypper in -y nfs-client;"
-create-vm $VM_PREFIX-devsecops-w4 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:v2.6.0; zypper in -y nfs-client;"
-create-vm $VM_PREFIX-cluster1 $AWS_SIZE_MEDIUM "docker pull rancher/rancher-agent:v2.6.0;"
-create-vm $VM_PREFIX-cluster2 $AWS_SIZE_MEDIUM "docker pull rancher/rancher-agent:v2.6.0;"
-
+create-vm $VM_PREFIX-devsecops-m1 $AWS_SIZE_MEDIUM "docker pull rancher/rancher-agent:${RANCHER_VERSION};"
+create-vm $VM_PREFIX-devsecops-w1 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:${RANCHER_VERSION}; zypper in -y nfs-client;"
+create-vm $VM_PREFIX-devsecops-w2 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:${RANCHER_VERSION}; zypper in -y nfs-client;"
+create-vm $VM_PREFIX-devsecops-w3 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:${RANCHER_VERSION}; zypper in -y nfs-client;"
+create-vm $VM_PREFIX-devsecops-w4 $AWS_SIZE_LARGE "docker pull rancher/rancher-agent:${RANCHER_VERSION}; zypper in -y nfs-client;"
+create-vm $VM_PREFIX-cluster1 $AWS_SIZE_MEDIUM "docker pull rancher/rancher-agent:${RANCHER_VERSION};"
+create-vm $VM_PREFIX-cluster2 $AWS_SIZE_MEDIUM "docker pull rancher/rancher-agent:${RANCHER_VERSION};"
 
 # wait until all VMs are running
 while list-vm | grep -q 'pending'
@@ -206,6 +208,7 @@ scp $SSH_OPTS -i mylab.key setup/longhorn/*.* ec2-user@$HARBOR_IP:~/devsecops/lo
 # install rancher now?
 function install_rancher() {
   RANCHER_IP=`cat mylab_vm_list.txt | grep $VM_PREFIX-rancher | cut -d '|' -f 4 | xargs`
+  scp -o StrictHostKeyChecking=no -i mylab.key mylab_rancher_version.sh ec2-user@$RANCHER_IP:~
   ssh -o StrictHostKeyChecking=no -i mylab.key ec2-user@$RANCHER_IP sh 99-one-step-install-rancher.sh
 }
 if [[ 'true' == $cmdopt_auto_deploy_rancher ]]
