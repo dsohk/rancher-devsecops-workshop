@@ -5,16 +5,8 @@
 function create-vm() {
 
   # Randomly choose availability zone in the selected AWS region ...
-  if [ "ap-south-1" == $AWS_REGION ]; then
-    export AWS_AVAIL_AZ=("a" "b")
-  elif [ "ap-northeast-1" == $AWS_REGION ]; then
-    export AWS_AVAIL_AZ=("a" "c" "d") 
-  elif [ "ap-northeast-2" == $AWS_REGION ]; then
-    export AWS_AVAIL_AZ=("a" "c")
-  else
-    export AWS_AVAIL_AZ=("a" "b" "c") 
-  fi
-  AWS_SELECTED_AZ=${AWS_AVAIL_AZ[$RANDOM % ${#AWS_AVAIL_AZ[@]} ]}
+  IFS=', ' read -r -a AVAIL_AZ <<< "$AWS_AVAIL_AZ"
+  AWS_SELECTED_AZ=${AVAIL_AZ[$RANDOM % ${#AVAIL_AZ[@]} ]}
   AWS_AZ=${AWS_REGION}${AWS_SELECTED_AZ}
 
   aws lightsail create-instances \
