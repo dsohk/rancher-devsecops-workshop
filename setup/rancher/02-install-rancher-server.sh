@@ -49,18 +49,26 @@ echo "Install Rancher ${RANCHER_VERSION} ..."
 RANCHER_IP=`curl -qs http://checkip.amazonaws.com`
 RANCHER_FQDN=rancher.$RANCHER_IP.sslip.io
 helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
+
+# helm install rancher rancher-latest/rancher \
+#   --namespace cattle-system \
+#   --set hostname=$RANCHER_FQDN \
+#   --set replicas=3 \
+#   --set auditLog.level=1 \
+#   --set auditLog.destination=hostPath \
+#   --set auditLog.hostPath=/var/log/rancher/audit \
+#   --version ${RANCHER_VERSION} --devel \
+#   --create-namespace
+
 helm install rancher rancher-latest/rancher \
   --namespace cattle-system \
   --set hostname=$RANCHER_FQDN \
-  --set replicas=3 \
-  --set auditLog.level=1 \
-  --set auditLog.destination=hostPath \
-  --set auditLog.hostPath=/var/log/rancher/audit \
+  --set replicas=1 \
   --version ${RANCHER_VERSION} --devel \
   --create-namespace
 
 echo "Wait until cattle-system deployment finish ..."
-while [ `kubectl get deploy -n cattle-system | grep 2/2 | wc -l` -ne 3 ]
+while [ `kubectl get deploy -n cattle-system | grep 1/1 | wc -l` -ne 1 ]
 do
   sleep 5
   kubectl get po -n cattle-system
