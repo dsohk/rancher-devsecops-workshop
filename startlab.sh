@@ -220,26 +220,11 @@ then
 fi
 
 
-echo 
-echo
 echo "Your lab environment on AWS Lightsail $AWS_REGION is ready. "
 echo
 echo "Here's the list of VMs running in your lab environment (See file: mylab_vm_list.txt):"
 list-vm
-echo
 echo "To SSH into the VM on the lab, you can run this command:"
 echo
 echo "./ssh-mylab-<vm>.sh"
 echo
-
-# Display the Rancher URL
-if [[ 'true' == $cmdopt_auto_deploy_rancher ]]
-then
-  RANCHER_IP=`cat mylab_vm_list.txt | grep $VM_PREFIX-rancher | cut -d '|' -f 4 | xargs`
-  echo "Your Rancher Instance should be ready in a few minutes ..."
-  echo
-  echo "Your Rancher URL: https://$RANCHER_IP"
-  echo
-fi
-
-
