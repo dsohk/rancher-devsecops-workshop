@@ -113,7 +113,7 @@ export AWS_SIZE_MEDIUM="medium_${AWSLS_VM_SIZE_SUFFIX}"
 export AWS_SIZE_LARGE="large_${AWSLS_VM_SIZE_SUFFIX}"
 
 echo "Provisioning VM in your AWS Lightsail region $AWS_REGION as lab environment ..."
-create-vm $VM_PREFIX-rancher $AWS_SIZE_MEDIUM 
+create-vm $VM_PREFIX-rancher $AWS_SIZE_LARGE
 create-vm $VM_PREFIX-harbor  $AWS_SIZE_MEDIUM "systemctl enable docker; systemctl start docker; zypper in -y git-core; docker pull susesamples/myjenkins:v1.0;"
 create-vm $VM_PREFIX-devsecops-m1 $AWS_SIZE_MEDIUM 
 create-vm $VM_PREFIX-devsecops-w1 $AWS_SIZE_LARGE "zypper in -y nfs-client;"

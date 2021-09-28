@@ -52,12 +52,15 @@ helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
 helm install rancher rancher-latest/rancher \
   --namespace cattle-system \
   --set hostname=$RANCHER_FQDN \
-  --set replicas=1 \
+  --set replicas=3 \
+  --set auditLog.level=1 \
+  --set auditLog.destination=hostPath \
+  --set auditLog.hostPath=/var/log/rancher/audit \
   --version ${RANCHER_VERSION} --devel \
   --create-namespace
 
 echo "Wait until cattle-system deployment finish ..."
-while [ `kubectl get deploy -n cattle-system | grep 1/1 | wc -l` -ne 1 ]
+while [ `kubectl get deploy -n cattle-system | grep 2/2 | wc -l` -ne 3 ]
 do
   sleep 5
   kubectl get po -n cattle-system
