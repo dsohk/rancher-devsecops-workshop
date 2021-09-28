@@ -1,6 +1,6 @@
 #! /bin/bash
 
-source $HOME/myharbor.sh
+source /home/ec2-user/myharbor.sh
 
 echo "Configure containerd to access harbor instance with self-signed cert ..."
 sudo mkdir -p /etc/rancher/rke2
@@ -20,11 +20,13 @@ sudo echo "    tls:" >> $REGISTRY_YAML
 sudo echo "      ca_file: /etc/rancher/rke2/demo-harbor/ca.crt" >> $REGISTRY_YAML
 sudo echo "      insecure_skip_verify: true" >> $REGISTRY_YAML
 
-if sudo systemctl list-units --type=service | grep rke2-server; then
+if sudo systemctl list-units --type=service | grep -q "rke2-server"; then
+  echo "Restart rke2-server service ..."
   sudo systemctl restart rke2-server
 fi
 
-if sudo systemctl list-units --type=service | grep rke2-agent; then
+if sudo systemctl list-units --type=service | grep -q "rke2-agent"; then
+  echo "Restart rke2-agent service ..."
   sudo systemctl restart rke2-agent
 fi
 

@@ -107,19 +107,20 @@ done
 echo "export AWS_REGION=${AWS_REGION}" > mylab_aws_region.sh
 
 # Instance Sizes
-# medium = 4GB RAM; large = 8GB RAM
+# medium = 2 vCPU + 4GB RAM
+# large = 2 vCPU + 8GB RAM
+# xlarge = 4 vCPU + 16GB RAM
 # aws lightsail get-bundles
 export AWS_SIZE_MEDIUM="medium_${AWSLS_VM_SIZE_SUFFIX}"
 export AWS_SIZE_LARGE="large_${AWSLS_VM_SIZE_SUFFIX}"
+export AWS_SIZE_XLARGE="xlarge_${AWSLS_VM_SIZE_SUFFIX}"
 
 echo "Provisioning VM in your AWS Lightsail region $AWS_REGION as lab environment ..."
-create-vm $VM_PREFIX-rancher $AWS_SIZE_LARGE
+create-vm $VM_PREFIX-rancher $AWS_SIZE_XLARGE
 create-vm $VM_PREFIX-harbor  $AWS_SIZE_MEDIUM "systemctl enable docker; systemctl start docker; zypper in -y git-core; docker pull susesamples/myjenkins:v1.0;"
 create-vm $VM_PREFIX-devsecops-m1 $AWS_SIZE_MEDIUM 
-create-vm $VM_PREFIX-devsecops-w1 $AWS_SIZE_LARGE "zypper in -y nfs-client;"
-create-vm $VM_PREFIX-devsecops-w2 $AWS_SIZE_LARGE "zypper in -y nfs-client;"
-create-vm $VM_PREFIX-devsecops-w3 $AWS_SIZE_LARGE "zypper in -y nfs-client;"
-create-vm $VM_PREFIX-devsecops-w4 $AWS_SIZE_LARGE "zypper in -y nfs-client;"
+create-vm $VM_PREFIX-devsecops-w1 $AWS_SIZE_XLARGE "zypper in -y nfs-client;"
+create-vm $VM_PREFIX-devsecops-w2 $AWS_SIZE_XLARGE "zypper in -y nfs-client;"
 create-vm $VM_PREFIX-cluster1 $AWS_SIZE_MEDIUM 
 create-vm $VM_PREFIX-cluster2 $AWS_SIZE_MEDIUM 
 
@@ -145,10 +146,6 @@ open-vm-standard-network-port $VM_PREFIX-devsecops-w1
 open-vm-specific-network-port $VM_PREFIX-devsecops-w1 30000 32767
 open-vm-standard-network-port $VM_PREFIX-devsecops-w2
 open-vm-specific-network-port $VM_PREFIX-devsecops-w2 30000 32767
-open-vm-standard-network-port $VM_PREFIX-devsecops-w3
-open-vm-specific-network-port $VM_PREFIX-devsecops-w3 30000 32767
-open-vm-standard-network-port $VM_PREFIX-devsecops-w4
-open-vm-specific-network-port $VM_PREFIX-devsecops-w4 30000 32767
 open-vm-standard-network-port $VM_PREFIX-cluster1
 open-vm-specific-network-port $VM_PREFIX-cluster1 30000 32767
 open-vm-standard-network-port $VM_PREFIX-cluster2
@@ -175,7 +172,7 @@ touch mylab-ssh-config
 echo "Host *" > mylab-ssh-config
 echo "  StrictHostKeyChecking no" >> mylab-ssh-config
 echo >> mylab-ssh-config
-for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 devsecops-w4 cluster1 cluster2; do
+for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 cluster1 cluster2; do
   VM_IP=`cat mylab_vm_list.txt | grep $VM_PREFIX-$vm | cut -d '|' -f 4 | xargs`
   echo "Host $vm" >> mylab-ssh-config
   echo "  HostName $VM_IP" >> mylab-ssh-config
@@ -218,7 +215,6 @@ if [[ 'true' == $cmdopt_auto_deploy_rancher ]]
 then
   install_rancher
 fi
-
 
 echo "Your lab environment on AWS Lightsail $AWS_REGION is ready. "
 echo

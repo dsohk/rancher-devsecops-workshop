@@ -10,6 +10,7 @@ sudo bash -c 'curl -sfL https://get.rke2.io | INSTALL_RKE2_CHANNEL="v1.21" sh -'
 sudo mkdir -p /etc/rancher/rke2
 sudo bash -c 'echo "write-kubeconfig-mode: \"0644\"" > /etc/rancher/rke2/config.yaml'
 sudo systemctl enable rke2-server.service
+echo "Starting rke2-server service ..."
 sudo systemctl start rke2-server.service
 
 mkdir -p $HOME/.kube

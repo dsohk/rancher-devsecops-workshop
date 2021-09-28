@@ -33,7 +33,7 @@ fi
 
 
 # Count all worker nodes
-for n in 1 2 3 4 
+for n in 1 2
 do
   if [ -f ssh-mylab-devsecops-w$n.sh ]; then
     VM=$VM_PREFIX-devsecops-w$n
