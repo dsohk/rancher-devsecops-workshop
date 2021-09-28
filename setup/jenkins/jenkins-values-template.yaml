@@ -31,7 +31,7 @@ controller:
   #         cpu: 10m
   #         memory: 32Mi
   prometheus:
-    enabled: true
+    enabled: false
     # Additional labels to add to the ServiceMonitor object
     serviceMonitorAdditionalLabels: {}
     # Set a custom namespace where to deploy ServiceMonitor resource

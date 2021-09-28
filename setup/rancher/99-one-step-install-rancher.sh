@@ -84,10 +84,9 @@ RANCHER_BOOTSTRAP_PWD=`kubectl get secret --namespace cattle-system bootstrap-se
 
 echo
 echo "---------------------------------------------------------"
-echo "Please wait for 5-10 mins to initializing Rancher server."
+echo "Your Rancher Server is ready."
 echo
 echo "Your Rancher Server URL: https://${RANCHER_FQDN}" > rancher-url.txt
 echo "Bootstrap Password: ${RANCHER_BOOTSTRAP_PWD}" >> rancher-url.txt
 cat rancher-url.txt
-echo
-
+echo "---------------------------------------------------------"

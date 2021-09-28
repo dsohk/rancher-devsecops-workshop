@@ -53,7 +53,7 @@ helm install rancher rancher-latest/rancher \
   --namespace cattle-system \
   --set hostname=$RANCHER_FQDN \
   --set replicas=1 \
-  --version 2.6.0 \
+  --version ${RANCHER_VERSION} --devel \
   --create-namespace
 
 echo "Wait until cattle-system deployment finish ..."
