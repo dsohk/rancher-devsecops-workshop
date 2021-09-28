@@ -7,25 +7,25 @@ echo "Welcome to SUSE Rancher DevSecOps Hands-on Lab on AWS Lightsail ..."
 echo "This script will help you to provision VMs on AWS Lightsail to get started to run your lab exercise. By default, this script will install Rancher for you after VM is up."
 echo
 
-echo Checking pre-requisites...
-if ! [ -x "$(command -v git)" ]; then
-  echo 'Error: git is not installed. Please install git before running this script.' >&2
-  exit 1
-else
-  echo 'git installed'
-fi
-if ! [ -x "$(command -v aws)" ]; then
-  echo 'Error: aws is not installed. Please install awscli before running this script.' >&2
-  exit 1
-elif echo "$(aws --version)" | grep -q "aws-cli/2"; then
-  echo "awscli v2 installed"
-else
-  echo 'Error: aws cli has to be at least version 2. Please reinstall with the latest awscli before running this script.' >&2
-  exit 1
-fi
-echo
-
-# -----------------------
+function check_sysreq() {
+  echo Checking pre-requisites...
+  if ! [ -x "$(command -v git)" ]; then
+    echo 'Error: git is not installed. Please install git before running this script.' >&2
+    exit 1
+  else
+    echo 'git installed'
+  fi
+  if ! [ -x "$(command -v aws)" ]; then
+    echo 'Error: aws is not installed. Please install awscli before running this script.' >&2
+    exit 1
+  elif echo "$(aws --version)" | grep -q "aws-cli/2"; then
+    echo "awscli v2 installed"
+  else
+    echo 'Error: aws cli has to be at least version 2. Please reinstall with the latest awscli before running this script.' >&2
+    exit 1
+  fi
+  echo
+}
 
 function usage() {
   echo "usage: ./startlab.sh [options]"
@@ -53,6 +53,9 @@ while [ "$1" != "" ]; do
     esac
     shift
 done
+
+# check pre-requisites
+check_sysreq;
 
 export VM_PREFIX=suse0908
 echo "export VM_PREFIX=$VM_PREFIX" > mylab_vm_prefix.sh
