@@ -383,18 +383,29 @@ In this steps, we will be provisioning two single node RKE cluster with Etcd, Co
 
 1) Ensure you are on your local workstation/machine Terminal and inside your git repo cloned.
 
-Sample output below.
 ```
-dpatel@dns:~/devsecops-workshop/workshop>
+cd ~/workshop/rancher-devsecops-workshop
 ```
-2) At the terminal, run the below script 
+2) At the terminal, run the below script. 
+
 ```
 ./setup-rke-cluster1.sh
 ```
 The Terminal will be seeking input command, which we will generate in the following step
 
-3) Navigate to Rancher Cluster Management UI. 
-Click `Add Cluster` > `Create new kubernetes cluster` > `Existing Node` This will create RKE on existing bare-metal servers or virtual machine. 
+3) Navigate to Rancher Cluster Management UI, click `Create`
+
+![Rancher UI](./Images-10-13-2021/part1-step5-1-create-custom-all-in-1-rke2-cluster-pg1.png)
+
+You will be presented with cluster create page
+
+
+
+
+ `Create new kubernetes cluster` > `Existing Node` This will create RKE on existing bare-metal servers or virtual machine. 
+
+
+part1-step5-1-create-custom-all-in-1-rke2-cluster-pg1
 
 ![Rancher UI](./images/rancher-add-cluster-existing-node.png)
 
