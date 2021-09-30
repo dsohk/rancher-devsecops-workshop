@@ -299,21 +299,21 @@ Finally you will be presented with the Rancher Homepage
 
 ![Rancher UI](./Images-10-13-2021/part1-step3-3-rancher-ui-rancher-homepage-pg3.png)
 
+3) Import Harbor cluster
+a) On Rancher Homeage, click on `Import Cluster` to import a existing cluster with `Import any Kubernetes Cluster Register - Generic` 
 
-3) You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to import a existing cluster with `Register an existing Kubernetes cluster` - `Other Cluster` method.
+![Rancher UI](./Images-10-13-2021/part1-step3-4-1-rancher-import-cluster-harbor-pg1.png)
 
-![Rancher UI](./images/rancher-ui-add-cluster-harbor-pg1.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-4-2-rancher-import-cluster-harbor-pg2.png)
 
-![Rancher UI](./images/rancher-ui-addcluster-register-existingcluster-harborpg2.png)
+b) Enter the custer name as `Harbor` and leave the rest of the setting as default & click on `Create`. 
 
-4) Enter the custer name as `Harbor` and leave the rest of the setting as default & click on `Create`. 
+![Rancher UI](./Images-10-13-2021/part1-step3-4-3-rancher-import-cluster-Harbor-pg3.png)
 
-![Rancher UI](./images/rancher-ui-add-cluster-register-exstingcluster-harbor-pg3.png)
-
-5) You will be prompted with a set of commands. 
+c) You will be prompted with a set of commands. 
 Last command which says `certificate signed by unknown authority`/`self signed`, copy the command and paste the command on the Harbor VMs Terminal to import the cluster. 
 
-![Rancher UI](./images/rancher-ui-addcluster-register-existingcluster-harbor-pg4.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-4-4-rancher-import-cluster-harbor-using-self-signed-certificate-pg4.png)
 
 Incase if you see below messages, 
 ```
@@ -321,12 +321,11 @@ error: no objects passed to apply
 ```
 Re-run the command again using the Up arrow key from keyboard.
 
-Sample output below. 
-![Rancher UI](./images/rancher-ui-copy-n-paste-harbor-terminal-pg5.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-4-5-rancher-import-cluster-harbro-running-rancher-command-on-harbor-vm-pg5.png)
 
-6) You can now toggle to Rancher UI and should find Harbor Cluster successfully imported
+d) You can now toggle to Rancher UI and should find Harbor Cluster successfully imported
 
-![Rancher UI](./images/rancher-ui-harbor-success-pg6.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-4-6-rancher-import-harbor-success-rancher-ui.png)
 
 
 ### 4. Provision DevSecOps RKE cluster from Rancher UI
