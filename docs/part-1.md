@@ -5,9 +5,9 @@ This script will help you setup a lab environment with 8 VMs running on AWS Ligh
 
 Estimated Completion Time: 45 mins
 
-* Rancher Management Server v2.5.9 instance (1 VM)
+* Rancher Management Server v2.6.0 instance (1 VM)
 * Harbor private registry running on K3S (1 VM)
-* DevSecOps RKE cluster running `Jenkins`, `Anchore`, and `SonarQube` (5 VM - 1 master + 4 worker nodes)
+* DevSecOps RKE cluster running `Jenkins`, `Anchore`, and `SonarQube` (3 VM - 1 master + 2 worker nodes)
 * 2 single-node clusters (1 VM each) for deploying applications.
 
 ## Pre-requisites
@@ -26,7 +26,11 @@ Watch the video below to see what we are going to do in this part.
 
 ### 1. Clone Git Repository
 
-1) In your linux terminal, checkout this repository into a local folder.
+1) In your linux terminal, create a folder for the workshop and  checkout this repository into a local folder.
+
+```
+mkdir workshop && cd ~/workshop
+```
 
 ```
 git clone https://github.com/dsohk/rancher-devsecops-workshop workshop
