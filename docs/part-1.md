@@ -394,7 +394,7 @@ b) At the terminal, run the below script.
 ```
 ./setup-rke-cluster1.sh
 ```
-The Terminal will be seeking input command, which we will generate in the following step
+The Terminal will be seeking input command to create the cluster. The command for creating the cluster will be generate in the following step below.
 
 c) Navigate to Rancher Cluster Management UI, click `Create`
 
@@ -409,16 +409,17 @@ Under `Cluster Configuration` `Basics` form leave everthing as default.
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-3-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg3.png)
 
-Under `Labels & Annotation` in the `Key` = `evn` and  `Value` = `dev`
+In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key` type `evn` and  `Value` type `dev` and hit `Create`
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-4-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg4.png)
 
-Click `Create` button. 
-You will be presented with cluster registration command, which you need to run on the target cluster. 
+You will be presented with `Registration` tab. where you will be presented with the cluster registration command. 
 
+Click on the command to copy. 
 ![Rancher UI](./Images-10-13-2021/part1-step5-5-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-copy-command-pg5.png)
 
-Execute the command on terminal 
+Paste the registration command on your terminal to start the cluster build process. 
+ 
 ![Rancher UI](./Images-10-13-2021/part1-step5-6-cluster1-terminal-copy-n-paste-create-cluster1-command-pg6.png)
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-7-cluster1-terminal-copy-n-paste-create-cluster1-command-pg7.png)
