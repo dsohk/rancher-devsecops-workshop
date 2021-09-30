@@ -180,27 +180,41 @@ Bootstrap Password: 4rfkljvwb6ldbplfgfjg6tppwggbsq56mgl9npntltn4qpc6dhv9nf
 4) Toggle back to the terminal and execute the below command to see the list of files (text and scripts).
 
 ```
-ls -lh *mylab*
+ls -lh 
+
 ```
 Sample output below.
 
 ```
-❯ ls -lh *mylab*
--rw-------  1 derekso  staff   835B Aug 26 07:21 mylab-ssh-config
--rw-------  1 derekso  staff   1.6K Aug 26 07:21 mylab.key
--rw-r--r--  1 derekso  staff   381B Aug 26 07:21 mylab.pub
--rw-r--r--  1 derekso  staff    33B Aug 26 07:18 mylab_aws_region.sh
--rw-r--r--  1 derekso  staff   1.2K Aug 26 07:21 mylab_vm_list.txt
--rw-r--r--  1 derekso  staff    26B Aug 26 07:16 mylab_vm_prefix.sh
--rwxr-xr-x  1 derekso  staff    66B Aug 26 07:21 ssh-mylab-cluster1.sh
--rwxr-xr-x  1 derekso  staff    67B Aug 26 07:21 ssh-mylab-cluster2.sh
--rwxr-xr-x  1 derekso  staff    67B Aug 26 07:21 ssh-mylab-devsecops-m1.sh
--rwxr-xr-x  1 derekso  staff    67B Aug 26 07:21 ssh-mylab-devsecops-w1.sh
--rwxr-xr-x  1 derekso  staff    64B Aug 26 07:21 ssh-mylab-devsecops-w2.sh
--rwxr-xr-x  1 derekso  staff    68B Aug 26 07:21 ssh-mylab-devsecops-w3.sh
--rwxr-xr-x  1 derekso  staff    67B Aug 26 07:21 ssh-mylab-devsecops-w4.sh
--rwxr-xr-x  1 derekso  staff    68B Aug 26 07:21 ssh-mylab-harbor.sh
--rwxr-xr-x  1 derekso  staff    69B Aug 26 07:21 ssh-mylab-rancher.sh
+dpatel@dns:~/workshop/rancher-devsecops-workshop> ll
+total 104
+-rwxr-xr-x 1 dpatel users  831 Sep 30 15:25 cleanlab.sh
+drwxr-xr-x 1 dpatel users  120 Sep 30 15:25 docs
+-rw-r--r-- 1 dpatel users 1065 Sep 30 15:25 LICENSE
+-rw-r--r-- 1 dpatel users   29 Sep 30 15:53 mylab_aws_region.sh
+-rw------- 1 dpatel users 1676 Sep 30 15:54 mylab.key
+-rw-r--r-- 1 dpatel users  381 Sep 30 15:54 mylab.pub
+-rw-r--r-- 1 dpatel users   34 Sep 30 15:53 mylab_rancher_version.sh
+-rw------- 1 dpatel users  654 Sep 30 15:54 mylab-ssh-config
+-rw-r--r-- 1 dpatel users 1043 Sep 30 15:54 mylab_vm_list.txt
+-rw-r--r-- 1 dpatel users   26 Sep 30 15:53 mylab_vm_prefix.sh
+-rw-r--r-- 1 dpatel users 1226 Sep 30 15:25 README.md
+drwxr-xr-x 1 dpatel users  188 Sep 30 15:25 setup
+-rwxr-xr-x 1 dpatel users  999 Sep 30 15:25 setup-rke-cluster1.sh
+-rwxr-xr-x 1 dpatel users  999 Sep 30 15:25 setup-rke-cluster2.sh
+-rwxr-xr-x 1 dpatel users 1846 Sep 30 15:25 setup-rke-devsecops.sh
+-rwxr-xr-x 1 dpatel users 1014 Sep 30 15:25 show-mylab-env.sh
+-rwxr-xr-x 1 dpatel users   67 Sep 30 15:54 ssh-mylab-cluster1.sh
+-rwxr-xr-x 1 dpatel users   69 Sep 30 15:54 ssh-mylab-cluster2.sh
+-rwxr-xr-x 1 dpatel users   69 Sep 30 15:54 ssh-mylab-devsecops-m1.sh
+-rwxr-xr-x 1 dpatel users   67 Sep 30 15:54 ssh-mylab-devsecops-w1.sh
+-rwxr-xr-x 1 dpatel users   66 Sep 30 15:54 ssh-mylab-devsecops-w2.sh
+-rwxr-xr-x 1 dpatel users   55 Sep 30 15:54 ssh-mylab-devsecops-w3.sh
+-rwxr-xr-x 1 dpatel users   55 Sep 30 15:54 ssh-mylab-devsecops-w4.sh
+-rwxr-xr-x 1 dpatel users   66 Sep 30 15:54 ssh-mylab-harbor.sh
+-rwxr-xr-x 1 dpatel users   66 Sep 30 15:54 ssh-mylab-rancher.sh
+-rwxr-xr-x 1 dpatel users 8470 Sep 30 15:25 startlab.sh
+
 ```
 
 You can access to any of your VMs with the `ssh-mylab-<VM>.sh` script. The IP addresses of your VMs are also captured in the file `mylab_vm_list.txt`
@@ -225,7 +239,7 @@ d) Downloading Docker Images for Maven, Java Libaries for Maven and Sles15sp3-op
 Sample output below indicates you are on Harbor VMs Terminal.
 
 ```
-❯ ./ssh-mylab-harbor.sh
+dpatel@dns:~/workshop/rancher-devsecops-workshop> ./ssh-mylab-harbor.sh
 openSUSE Leap 15.2 x86_64 (64-bit)
 
 As "root" use the:
@@ -233,7 +247,8 @@ As "root" use the:
 - yast command for configuration management
 
 Have a lot of fun...
-suse0908-harbor ec2-user@ip-172-26-2-249:~>
+suse0908-harbor ec2-user@ip-172-26-22-139:~>
+
 ```
 2) On the Harbor VMs Terminal, run the script below to automatically setup harbor private registry on K3S in this VM instance.
 
