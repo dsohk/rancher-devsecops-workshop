@@ -413,13 +413,12 @@ In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-4-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg4.png)
 
-You will be presented with `Registration` tab. where you will be presented with the cluster registration command. 
+You will be presented with `Registration` tab. Click on the command to copy. 
 
-Click on the command to copy. 
 ![Rancher UI](./Images-10-13-2021/part1-step5-5-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-copy-command-pg5.png)
 
 Paste the registration command on your terminal to start the cluster build process. 
- 
+
 ![Rancher UI](./Images-10-13-2021/part1-step5-6-cluster1-terminal-copy-n-paste-create-cluster1-command-pg6.png)
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-7-cluster1-terminal-copy-n-paste-create-cluster1-command-pg7.png)
