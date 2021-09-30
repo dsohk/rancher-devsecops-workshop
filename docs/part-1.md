@@ -440,16 +440,20 @@ dpatel@dns:~/devsecops-workshop/workshop>
 ./setup-rke-cluster2.sh
 ```
 
-2) Repeat the step a, to e from previous section. 
+2) Repeat the step a, to d from previous section. 
 
 Two important things to note
 
 a) Cluster name will be `cluster2` 
-b) Don't forget to add labels, Under `Labels & Annotation` field, Add Label with key value pair `env` and `dev`.
+b) In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key` type `evn` and  `Value` type `dev`
+
+![Rancher UI](./Images-10-13-2021/part1-step5-9-cluster2-terminal-copy-n-paste-create-cluster2-command-pg9.png)
+
 
 3) Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
 
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-n-2-in-Rancher.png)
+![Rancher UI](./Images-10-13-2021/part1-step5-10-rancher-ui-cluster2-success-pg10.png)
+
 
 ### 6. Download KUBECONFIG file of DevSecOps cluster into Harbor VM
 
