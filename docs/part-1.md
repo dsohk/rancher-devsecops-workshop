@@ -283,13 +283,15 @@ Sample output
 Your Rancher Server URL: https://rancher.13.232.154.67.sslip.io
 Bootstrap Password: 4rfkljvwb6ldbplfgfjg6tppwggbsq56mgl9npntltn4qpc6dhv9nf
 ```
-By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. Provide the bootstrap password generated during setup.Hit `Log in with Local User`.
+By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. 
+Provide the bootstrap password generated during setup. Hit `Log in with Local User`
 
 ![Rancher UI](./Images-10-13-2021/part1-step3-3-1-rancher-ui-welcome-rancher-using-bootstrapp-password-pg1.png)
 
-Once logged in, you can setup your own administrative password, accept the Terms and Conditions, leave the rest of settings as default to continue.
-
-Accept the given IP as your Rancher Server URL to continue.
+Following page will be presented with 
+a) You can setup your own administrative password  by selecting `Set a specific password to use`
+b) You will be presented with Rancher URL
+Accept the Terms and Conditions
 
 ![Rancher UI](./Images-10-13-2021/part1-step3-3-rancher-ui-change-rancher-password-post-initial-login-and-rnacher-url-pg2.png)
 
