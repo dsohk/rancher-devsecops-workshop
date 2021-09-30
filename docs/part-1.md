@@ -405,6 +405,9 @@ Under `Cluster Configuration` `Basics` form leave everthing as default.
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-2-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg2.png)
 
+
+
+
 ![Rancher UI](./Images-10-13-2021/part1-step5-3-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg3.png)
 
 Under `Labels & Annotation` in the `Key` = `evn` and  `Value` = `dev`
