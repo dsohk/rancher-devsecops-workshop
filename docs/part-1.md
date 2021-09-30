@@ -283,13 +283,20 @@ Sample output
 Your Rancher Server URL: https://rancher.13.232.154.67.sslip.io
 Bootstrap Password: 4rfkljvwb6ldbplfgfjg6tppwggbsq56mgl9npntltn4qpc6dhv9nf
 ```
-By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. Setup your own administrative password, accept the Terms and Conditions, leave the rest of settings as default to continue.
+By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. Provide the bootstrap password generated during setup.Hit `Log in with Local User`.
 
-![Rancher UI](./images/rancher-1st-screen.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-3-1-rancher-ui-welcome-rancher-using-bootstrapp-password-pg1.png)
+
+Once logged in, you can setup your own administrative password, accept the Terms and Conditions, leave the rest of settings as default to continue.
 
 Accept the given IP as your Rancher Server URL to continue.
 
-![Rancher UI](./images/rancher-2nd-screen.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-3-rancher-ui-change-rancher-password-post-initial-login-and-rnacher-url-pg2.png)
+
+Finally you will be presented with the Rancher Homepage
+
+![Rancher UI](./Images-10-13-2021/part1-step3-3-rancher-ui-rancher-homepage-pg3.png)
+
 
 3) You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to import a existing cluster with `Register an existing Kubernetes cluster` - `Other Cluster` method.
 
