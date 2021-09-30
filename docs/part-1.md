@@ -369,7 +369,11 @@ d) Return to your browser with Rancher UI, you should see the `devsecops` cluste
 
 While the devsecops cluster is being provisioned, you can continue with step 5 for provisioning additional RKE clusters.
 
-![Rancher UI](./Images-10-13-2021/part1-step4-3-rancher-ui-create-cluster-custom-devsecops-pg3.png)
+![Rancher UI](./Images-10-13-2021/part1-step4-5-rancher-ui-devsecops-pg5.png)
+
+Cluster Explorer View for details
+
+![Rancher UI](./Images-10-13-2021/part1-step4-6-rancher-ui-devsecops-cluster-explorer-dashboard-view-pg6.png)
 
 
 ### 5. Provision additional RKE Clusters 
