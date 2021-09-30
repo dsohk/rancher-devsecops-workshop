@@ -381,73 +381,48 @@ In this steps, we will be provisioning two single node RKE cluster with Etcd, Co
 
 #### All-In-One RKE clusters 
 
-1) Ensure you are on your local workstation/machine Terminal and inside your git repo cloned.
+a) Ensure you are on your local workstation/machine Terminal and inside your git repo cloned.
 
 ```
 cd ~/workshop/rancher-devsecops-workshop
 ```
-2) At the terminal, run the below script. 
+b) At the terminal, run the below script. 
 
 ```
 ./setup-rke-cluster1.sh
 ```
 The Terminal will be seeking input command, which we will generate in the following step
 
-3) Navigate to Rancher Cluster Management UI, click `Create`
+c) Navigate to Rancher Cluster Management UI, click `Create`
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-1-create-custom-all-in-1-rke2-cluster-pg1.png)
 
 You will be presented with `Cluster:Create` form. To create a new cluster, choose `Custom`to provision cluster using RKE2/K3s on existing node.
 
-In `ClusterName` type `cluster1`
-
-Under `Cluster Configuration` `Basics` form leave everthing as default. 
-
 ![Rancher UI](./Images-10-13-2021/part1-step5-2-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg2.png)
 
-
-
+In `ClusterName` type `cluster1`
+Under `Cluster Configuration` `Basics` form leave everthing as default. 
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-3-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg3.png)
 
 Under `Labels & Annotation` in the `Key` = `evn` and  `Value` = `dev`
 
-Custom `  Configuration` `Basic` tab, Enter the cluster name as `cluster1` and leave the rest of the settings as default. 
+![Rancher UI](./Images-10-13-2021/part1-step5-4-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg4.png)
 
-You will also see `Labels and Annotation` tab. Select 
+Click `Create` button. 
+You will be presented with cluster registration command, which you need to run on the target cluster. 
 
- and click `Next` button. 
+![Rancher UI](./Images-10-13-2021/part1-step5-5-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-copy-command-pg5.png)
 
+Execute the command on terminal 
+![Rancher UI](./Images-10-13-2021/part1-step5-6-cluster1-terminal-copy-n-paste-create-cluster1-command-pg6.png)
 
+![Rancher UI](./Images-10-13-2021/part1-step5-7-cluster1-terminal-copy-n-paste-create-cluster1-command-pg7.png)
 
-![Rancher UI](./Images-10-13-2021/part1-step5-2-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg2.png)
+d) Toggle to Rancher UI to veiw the newly registered `cluster1`
 
-
-You will be prompted with a command to setup RKE on your VM. Click on clipboard like icon to copy the command into your clipboard.
-
-
-
- `Create new kubernetes cluster` > `Existing Node` This will create RKE on existing bare-metal servers or virtual machine. 
-
-
-part1-step5-1-create-custom-all-in-1-rke2-cluster-pg1
-
-![Rancher UI](./images/rancher-add-cluster-existing-node.png)
-
-a) Cluster name as `cluster1`
-b) Under `Labels & Annotation` field, Add Label with key value pair `ENV` and `DEV`.
-
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2-latest.png)
-
-c) Leave the rest of the setting as default and click `Next` to proced to next page.
-
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-worker-option-only.png)
-
-d) Click on clipboard like icon to copy the command and hit done.
-
-e) Pass the command on the Terminal and it will start the provisioning of the all-in-1 RKE cluster `cluster1`
-
-f) Exit the terminal.
+![Rancher UI](./Images-10-13-2021/part1-step5-8-rancher-ui-cluster1-success-pg8.png)
 
 #### Provision additional RKE Cluster, All-In-One RKE clusters `Cluster2`
 
