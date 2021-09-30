@@ -231,7 +231,7 @@ b) Deploying Harbor (using Helm Chart v1.7.2 & App v2.3.2) on K3s.
 c) Configure Harbor CA cert locally 
 d) Downloading Docker Images for Maven, Java Libaries for Maven and Sles15sp3-openjdk and importing them into Harbor. 
 
-1) Login to your harbor instance VM with SSH from your linux workstation.
+a) Login to your harbor instance VM with SSH from your linux workstation.
 
 ```
 ./ssh-mylab-harbor.sh
@@ -250,7 +250,7 @@ Have a lot of fun...
 suse0908-harbor ec2-user@ip-172-26-22-139:~>
 
 ```
-2) On the Harbor VMs Terminal, run the script below to automatically setup harbor private registry on K3S in this VM instance.
+b) On the Harbor VMs Terminal, run the script below to automatically setup harbor private registry on K3S in this VM instance.
 
 ```
 ./99-one-step-install-harbor.sh
@@ -266,17 +266,17 @@ URL: https://54.153.196.73:30443
 User: admin
 Password: J4diXo8ZKddi5mFGEgx1Z3XveoOuPw
 ```
-3) Open Harbor URL in a browser and log into Harbor using credentials provided as in sample output 
+c) Open Harbor URL in a browser and log into Harbor using credentials provided as in sample output 
 
 #### Import Harbor cluster in Rancher.
 
 In this step, we would be importing Harbor K3s cluster into Rancher. 
 
-1) You should be logged into `Harbor VM` for this, incase if your terminal timeout or for any reason you are not on Harbor VMs, please execute the script below which will automtically take you to the Harbor VMs Terminal.
+a) You should be logged into `Harbor VM` for this, incase if your terminal timeout or for any reason you are not on Harbor VMs, please execute the script below which will automtically take you to the Harbor VMs Terminal.
 ```
 ./ssh-mylab-harbor.sh
 ```
-2) Open browser to navigate to the Rancher URL captured in earlier step.
+b) Open browser to navigate to the Rancher URL captured in earlier step.
 
 Sample output
 ```
@@ -330,66 +330,46 @@ d) You can now toggle to Rancher UI and should find Harbor Cluster successfully 
 
 ### 4. Provision DevSecOps RKE cluster from Rancher UI
 
-In this step, we will be provisioning RKE cluster with One Master & four worker Nodes along with thier Private, Public and Node names along with thier role. We have scripted this process to match the lab requirement. 
+In this step, we will be provisioning RKE cluster with One Master & two worker Nodes along with thier Private, Public and Node names along with thier role. We have scripted this process to match the lab requirement. 
 
 In the following step, we will add `devsecops` cluster in Rancher.
 
-1) Navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create a new cluster with `Existing Node` method. 
+a) Navigated to Rancher Cluster Management UI. Click `Create` button. 
 
-![Rancher UI](./images/rancher-add-cluster-existing-node.png)
+![Rancher UI](./Images-10-13-2021/part1-step4-0-rancher-ui-create-custom-cluster-devsecops-pg0.png)
 
-2) Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click on clipboard like icon to copy the command into your clipboard.
+You will be presented `Cluster:Create` page. 
+Under section  Provision a new node and create a cluster using RKE2/K3s (Tech Preview), toggle the switch `RKE2/k3s` to create a new cluster and Choose `Use Existing nodes and create a RKE2/K3s` method. 
+ 
+![Rancher UI](./Images-10-13-2021/part1-step4-1-rancher-ui-create-cluster-custom-devsecops-pg1.png)
 
-![Rancher UI](./images/rancher-customize-node-run-cmd.png)
+b) Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click on clipboard like icon to copy the command into your clipboard.
 
-3) Open your Linux workstation terminal and switch to the working directory where this repo has been checked out. 
+![Rancher UI](./Images-10-13-2021/part1-step4-2-rancher-ui-create-cluster-custom-devsecops-pg2.png)
+
+![Rancher UI](./Images-10-13-2021/part1-step4-3-rancher-ui-create-cluster-custom-devsecops-pg3.png)
+
+c) Open your Linux workstation terminal and switch to the working directory where this repo has been checked out. 
 
 Run the script `./setup-rke-devsecops.sh` and paste the command you copied into the prompt from this script.
 
 ```
 ./setup-rke-devsecops.sh
 ```
-
 ```
 ❯ ./setup-rke-devsecops.sh
 Enter Rancher registration command for devsecops cluster:
 ```
 Sample output below
 
-```
-❯ ./setup-rke-devsecops.sh
-Enter Rancher registration command for devsecops cluster: 
-sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run  rancher/rancher-agent:v2.5.9 --server https://13.234.238.165 --token 6k7x7px575lwvljxvcvq7rlfn5cqjs4vwmw5lfgkwshrklm56hcph7 --ca-checksum df4eea1dba1880a4f944cb9488db4328c7e374780bfd7578d496de78a3333e9d --worker
 
-Register devsecops-m1 cluster ...
-Warning: Permanently added '13.234.186.113' (ECDSA) to the list of known hosts.
-aca02b8b2ddcdfce94531c2f0ca6c6dada0935ff1525c6617135429697d075d7
+![Rancher UI](./Images-10-13-2021/part1-step4-4-copy-n-paste-devsecops-build-command-pg4.png)
 
-Register devsecops-w1 cluster ...
-Warning: Permanently added '3.108.196.228' (ECDSA) to the list of known hosts.
-68f7d20dbc09460747d2ff84a315d6fd3aa4d3cc43563e3242b71273ebe7b42f
-
-Register devsecops-w2 cluster ...
-Warning: Permanently added '52.66.134.146' (ECDSA) to the list of known hosts.
-f292aca663dc23752a17dbc1da37225eca09cd5075b594fa3a7c0fc2037870b3
-
-Register devsecops-w3 cluster ...
-Warning: Permanently added '13.126.69.157' (ECDSA) to the list of known hosts.
-0d42f90e58ad6fad4ecd75651d241c31ee0b6de8107d3cd7c9e80c837d5de67f
-
-Register devsecops-w4 cluster ...
-Warning: Permanently added '65.2.34.12' (ECDSA) to the list of known hosts.
-d3915b754e46c5c93ed17f4236c2dd21d04e851157371a71ea72cffc2c3d078a
-
-The devsecops cluster is now being provisioned by Rancher. It may take a few minutes to complete.
-Once it's ready, please install Longhorn on it and download KUBECONFIG file into your Harbor VM. Thank you!
-```
-
-4) Return to your browser with Rancher UI, you should see the `devsecops` cluster is being initialized. It may take 5-10 minutes to complete the whole RKE cluster setup.
+d) Return to your browser with Rancher UI, you should see the `devsecops` cluster is being initialized. It may take 5-10 minutes to complete the whole RKE cluster setup.
 
 While the devsecops cluster is being provisioned, you can continue with step 5 for provisioning additional RKE clusters.
 
-![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
+![Rancher UI](./Images-10-13-2021/part1-step4-3-rancher-ui-create-cluster-custom-devsecops-pg3.png)
 
 
 ### 5. Provision additional RKE Clusters 
