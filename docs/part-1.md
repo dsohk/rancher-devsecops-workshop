@@ -343,7 +343,7 @@ Under section  Provision a new node and create a cluster using RKE2/K3s (Tech Pr
  
 ![Rancher UI](./Images-10-13-2021/part1-step4-1-rancher-ui-create-cluster-custom-devsecops-pg1.png)
 
-b) Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click on clipboard like icon to copy the command into your clipboard.
+b) You will be presented with `Cluster:Create Custom`form. Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Create` button. You will be prompted with a command to setup RKE on your VM. Click on clipboard like icon to copy the command into your clipboard.
 
 ![Rancher UI](./Images-10-13-2021/part1-step4-2-rancher-ui-create-cluster-custom-devsecops-pg2.png)
 
@@ -397,10 +397,30 @@ The Terminal will be seeking input command, which we will generate in the follow
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-1-create-custom-all-in-1-rke2-cluster-pg1.png)
 
-You will be presented with cluster create page
-To create a new cluster and Choose `Use Existing nodes and create a RKE2/K3s` method. 
+You will be presented with `Cluster:Create` form. To create a new cluster, choose `Custom`to provision cluster using RKE2/K3s on existing node.
+
+In `ClusterName` type `cluster1`
+
+Under `Cluster Configuration` `Basics` form leave everthing as default. 
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-2-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg2.png)
+
+![Rancher UI](./Images-10-13-2021/part1-step5-3-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg3.png)
+
+Under `Labels & Annotation` in the `Key` = `evn` and  `Value` = `dev`
+
+Custom `  Configuration` `Basic` tab, Enter the cluster name as `cluster1` and leave the rest of the settings as default. 
+
+You will also see `Labels and Annotation` tab. Select 
+
+ and click `Next` button. 
+
+
+
+![Rancher UI](./Images-10-13-2021/part1-step5-2-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg2.png)
+
+
+You will be prompted with a command to setup RKE on your VM. Click on clipboard like icon to copy the command into your clipboard.
 
 
 
