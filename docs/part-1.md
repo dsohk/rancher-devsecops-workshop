@@ -280,8 +280,8 @@ In this step, we would be importing Harbor K3s cluster into Rancher.
 
 Sample output
 ```
-Your Rancher Instance should be ready in a few minutes ...
-Your Rancher URL: https://3.25.57.210
+Your Rancher Server URL: https://rancher.13.232.154.67.sslip.io
+Bootstrap Password: 4rfkljvwb6ldbplfgfjg6tppwggbsq56mgl9npntltn4qpc6dhv9nf
 ```
 By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. Setup your own administrative password, accept the Terms and Conditions, leave the rest of settings as default to continue.
 
