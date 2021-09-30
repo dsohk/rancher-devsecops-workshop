@@ -452,56 +452,49 @@ c) Finally we should see both clusters `cluster1` and `cluster2` visible in Ranc
 
 
 ### 6. Download KUBECONFIG file of DevSecOps cluster into Harbor VM
+a) In Rancher UI > Global Apps > Cluster Management > `devsecops` hit the `Explorer` button.
 
-![Download Kubeconfig file](./images/rancher-kubeconfig.png)
+![Rancher UI](./Images-10-13-2021/part1-step6-devsecops-kubeconfig-pg1.png)
 
-a) Navigate to `Cluster Manager` in Rancher UI. 
-b) Click `devsecops` cluster
-c) Click the `Kubeconfig File` button (Top right corner).
-d) Scroll down to the bottom of the popup screen, click `Copy to Clipboard` link to copy the content of this kubeconfig file into your clipboard.
-e) From your Linux workstation, ssh into your harbor VM by executing the script `ssh-mylab-harbor.sh` script). 
+b) In the devsecops cluster, toward the righthand corner look for `file` like icon. Click on it and it would download the KubeConfig file.
+
+![Rancher UI](./Images-10-13-2021/part1-step6-devsecops-kubeconfig-pg2.png)
+
+c) On your linux workstation, ssh into your harbor VM by executing the script `ssh-mylab-harbor.sh` script). 
 
 ```
 ./ssh-mylab-harbor.sh
 ```
-f) Create a file `devsecops.cfg` under `~/.kube` folder.
+d) Create a file `devsecops.cfg` under `~/.kube` folder.
 
 ```
 vi ~/.kube/devsecops.cfg
 ```
-Paste the kubeconfig content copied from Rancher UI for devsecops cluster into this file, save it and exit.
+e) Open the downloaded `KubeConfig` file which should be in download folder & paste the KubeConfig content. Save and exit.
 
-g) If you see the below sample message 
+f) If you see the below sample message 
 
 `Kubernetes configuration file is group-readable. This is insecure. Location: /home/ec2-user/.kube/devsecops.cfg`
 
-h)Modify the file permission by removing additional permissions.
+Modify the file permission by removing additional permissions.
 
 ```
 chmod 600 ~/.kube/devsecops.cfg
 ```
-
-i) Configure Kubernetes client to use this kubeconfig file. 
+g) Configure Kubernetes client to use this kubeconfig file. 
 
 ```
 export KUBECONFIG=~/.kube/devsecops.cfg
 ```
 
-j) Verify if it can connect to your devsecops cluster. If you see an output like below, you are good.
+h) Verify if it can connect to your devsecops cluster. If you see an output like below, you are good.
 
 ```
 kubectl get nodes
 ```
+Sample output below
 
-```
-suse0908-harbor ec2-user@ip-172-26-2-249:~>kubectl get node
-NAME           STATUS   ROLES               AGE   VERSION
-devsecops-m1   Ready    controlplane,etcd   16m   v1.20.9
-devsecops-w1   Ready    worker              15m   v1.20.9
-devsecops-w2   Ready    worker              14m   v1.20.9
-devsecops-w3   Ready    worker              14m   v1.20.9
-devsecops-w4   Ready    worker              14m   v1.20.9
-```
+![Rancher UI](./Images-10-13-2021/part1-step6-devsecops-kubeconfig-working-pg3.png)
 
 ### 7. Install Longhorn on DevSecOps Cluster
 
