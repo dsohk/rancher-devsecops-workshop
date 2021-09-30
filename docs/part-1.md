@@ -300,7 +300,7 @@ Finally you will be presented with the Rancher Homepage
 ![Rancher UI](./Images-10-13-2021/part1-step3-3-rancher-ui-rancher-homepage-pg3.png)
 
 3) Import Harbor cluster
-a) On Rancher Homeage, click on `Import Cluster` to import a existing cluster with `Import any Kubernetes Cluster Register - Generic` 
+a) On Rancher Homeage, click on `Import Cluster` to import a existing cluster with `Generic` option.
 
 ![Rancher UI](./Images-10-13-2021/part1-step3-4-1-rancher-import-cluster-harbor-pg1.png)
 
@@ -311,7 +311,7 @@ b) Enter the custer name as `Harbor` and leave the rest of the setting as defaul
 ![Rancher UI](./Images-10-13-2021/part1-step3-4-3-rancher-import-cluster-Harbor-pg3.png)
 
 c) You will be prompted with a set of commands. 
-Last command which says `certificate signed by unknown authority`/`self signed`, copy the command and paste the command on the Harbor VMs Terminal to import the cluster. 
+Last command which says `Rancher installation has self signed trusted SSL certificate`, copy the command and paste the command on the Harbor VMs Terminal to import the cluster. 
 
 ![Rancher UI](./Images-10-13-2021/part1-step3-4-4-rancher-import-cluster-harbor-using-self-signed-certificate-pg4.png)
 
@@ -330,7 +330,7 @@ d) You can now toggle to Rancher UI and should find Harbor Cluster successfully 
 
 ### 4. Provision DevSecOps RKE cluster from Rancher UI
 
-In this step, we will be provisioning RKE cluster with One Master & two worker Nodes along with thier Private, Public and Node names along with thier role. We have scripted this process to match the lab requirement. 
+In this step, we will be provisioning RKE cluster with One Master & Two worker Nodes along with thier Private, Public and Node names along with thier role. We have scripted this process to match the lab requirement. 
 
 In the following step, we will add `devsecops` cluster in Rancher.
 
@@ -339,11 +339,14 @@ a) Navigated to Rancher Cluster Management UI. Click `Create` button.
 ![Rancher UI](./Images-10-13-2021/part1-step4-0-rancher-ui-create-custom-cluster-devsecops-pg0.png)
 
 You will be presented `Cluster:Create` page. 
-Under section  Provision a new node and create a cluster using RKE2/K3s (Tech Preview), toggle the switch `RKE2/k3s` to create a new cluster and Choose `Use Existing nodes and create a RKE2/K3s` method. 
+
+Under section `Provision a new node and create a cluster using RKE2/K3s (Tech Preview)`, toggle the switch `RKE2/k3s`. With Rancher 2.6 you can now provisoin RKE2 & K3s cluster via Rancher UI.
+
+To create a new cluster choose the `custom` option to provision clusters on existing nodes 
  
 ![Rancher UI](./Images-10-13-2021/part1-step4-1-rancher-ui-create-cluster-custom-devsecops-pg1.png)
 
-b) You will be presented with `Cluster:Create Custom`form. Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Create` button. You will be prompted with a command to setup RKE on your VM. Click on clipboard like icon to copy the command into your clipboard.
+b) You will be presented with `Cluster:Create Custom`form. Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Create` button. You will be presented with cluster registration command to create the RKE cluster on your VM. Click on `registration command` to copy the command into your clipboard.
 
 ![Rancher UI](./Images-10-13-2021/part1-step4-2-rancher-ui-create-cluster-custom-devsecops-pg2.png)
 
