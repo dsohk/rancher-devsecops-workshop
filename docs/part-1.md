@@ -446,11 +446,7 @@ Two important things to note
 
 a) Cluster name will be `cluster2` 
 b) In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key` type `evn` and  `Value` type `dev`
-
-![Rancher UI](./Images-10-13-2021/part1-step5-9-cluster2-terminal-copy-n-paste-create-cluster2-command-pg9.png)
-
-
-3) Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
+c) Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-10-rancher-ui-cluster2-success-pg10.png)
 
