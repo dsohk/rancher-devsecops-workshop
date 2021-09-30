@@ -38,9 +38,9 @@ cd workshop
 ```
 
 2) To view the content for the Cloned Repo, in your terminal execute below command
-``
+```
 cd ~/workshop/rancher-devsecops-workshop && ll 
-``
+```
 you should see below sample outout. 
 ```
 dpatel@dns:~> cd ~/workshop/rancher-devsecops-workshop && ll
