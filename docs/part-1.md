@@ -84,15 +84,15 @@ usage: ./startlab.sh [options]
 ./startlab.sh
 ```
 
-2) You will be prompted to choose which AWS region you are going to run your lab environment.
+2) You will be prompted to choose which AWS Environment and region you are going to run your lab environment.
 
 ```
-❯ ./startlab.sh
-  ___ _   _ ___ ___   ___              _
- / __| | | / __| __| | _ \__ _ _ _  __| |_  ___ _ _
+dpatel@dns:~/workshop/rancher-devsecops-workshop> ./startlab.sh 
+  ___ _   _ ___ ___   ___              _            
+ / __| | | / __| __| | _ \__ _ _ _  __| |_  ___ _ _ 
  \__ \ |_| \__ \ _|  |   / _` | ' \/ _| ' \/ -_) '_|
- |___/\___/|___/___| |_|_\__,_|_||_\__|_||_\___|_|
-
+ |___/\___/|___/___| |_|_\__,_|_||_\__|_||_\___|_|  
+                                                    
 
 Welcome to SUSE Rancher DevSecOps Hands-on Lab on AWS Lightsail ...
 This script will help you to provision VMs on AWS Lightsail to get started to run your lab exercise. By default, this script will install Rancher for you after VM is up.
@@ -101,9 +101,28 @@ usage: ./startlab.sh [options]
 -s    | --skip-rancher              Skip deploying Rancher after VM is up.
 -h    | --help                      Brings up this menu
 
+Checking pre-requisites...
+git installed
+awscli v2 installed
+
 Select Your Preferred AWS Environment to run your lab:
-1) Tokyo      3) Singapore  5) Mumbai
-2) Seoul      4) Sydney	    6) Quit
+1) US/Canada
+2) Europe
+3) Asia
+4) Quit
+ 3
+Asia 
+Select regions
+1) Mumbai
+2) Seoul
+3) Singapore
+4) Sydney
+5) Tokyo
+6) Quit
+
+ 1
+You picked: Mumbai
+Provisioning VM in your AWS Lightsail region ap-south-1 as lab environment ...
 ```
 
 Choose the region closest to you to continue your lab setup. The script will then
@@ -130,7 +149,7 @@ When the script has finished, you will see a table of VMs with IP addresses, the
 *The IP addresses for you will be different from those in the screenshots in this lab guide.*
 
 ```
-Your lab environment on AWS Lightsail ap-southeast-2 is ready.
+Your lab environment on AWS Lightsail ap-south-1 is ready. 
 
 Here's the list of VMs running in your lab environment (See file: mylab_vm_list.txt):
 -----------------------------------------------------------------------------
@@ -138,25 +157,23 @@ Here's the list of VMs running in your lab environment (See file: mylab_vm_list.
 +-----------------------+--------------------+-------------------+----------+
 |        VMname         | privateIpAddress   |  publicIpAddress  |  state   |
 +-----------------------+--------------------+-------------------+----------+
-|  suse0908-devsecops-w1|  172.26.0.133      |  3.25.58.209      |  running |
-|  suse0908-cluster1    |  172.26.0.59       |  54.206.211.81    |  running |
-|  suse0908-devsecops-m1|  172.26.13.211     |  13.239.1.61      |  running |
-|  suse0908-devsecops-w2|  172.26.12.139     |  52.65.89.125     |  running |
-|  suse0908-cluster2    |  172.26.5.80       |  3.25.219.16      |  running |
-|  suse0908-rancher     |  172.26.12.196     |  3.25.57.210      |  running |
-|  suse0908-harbor      |  172.26.6.184      |  3.25.226.182     |  running |
-|  suse0908-devsecops-w4|  172.26.1.75       |  13.236.178.85    |  running |
-|  suse0908-devsecops-w3|  172.26.14.214     |  54.252.44.198    |  running |
+|  suse0908-cluster2    |  172.26.31.243     |  65.2.78.40       |  running |
+|  suse0908-devsecops-m1|  172.26.28.50      |  13.126.78.17     |  running |
+|  suse0908-cluster1    |  172.26.19.112     |  15.207.115.122   |  running |
+|  suse0908-devsecops-w2|  172.26.0.206      |  13.235.134.68    |  running |
+|  suse0908-harbor      |  172.26.31.128     |  65.0.177.135     |  running |
+|  demo-rancher         |  172.26.1.253      |  35.154.55.126    |  stopped |
+|  suse0908-devsecops-w1|  172.26.20.135     |  3.109.200.216    |  running |
+|  suse0908-rancher     |  172.26.26.107     |  13.232.154.67    |  running |
 +-----------------------+--------------------+-------------------+----------+
-
 To SSH into the VM on the lab, you can run this command:
 
 ./ssh-mylab-<vm>.sh
 
-Your Rancher Instance should be ready in a few minutes ...
+Your Rancher Server is ready.
 
-Your Rancher URL: https://3.25.57.210
-
+Your Rancher Server URL: https://rancher.13.232.154.67.sslip.io
+Bootstrap Password: 4rfkljvwb6ldbplfgfjg6tppwggbsq56mgl9npntltn4qpc6dhv9nf
 ```
 3) Open the Rancher URL in a browser window. This may take few mins to get Rancher Instance up and running. 
 
