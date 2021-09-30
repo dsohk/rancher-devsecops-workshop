@@ -398,7 +398,9 @@ The Terminal will be seeking input command, which we will generate in the follow
 ![Rancher UI](./Images-10-13-2021/part1-step5-1-create-custom-all-in-1-rke2-cluster-pg1.png)
 
 You will be presented with cluster create page
+To create a new cluster and Choose `Use Existing nodes and create a RKE2/K3s` method. 
 
+![Rancher UI](./Images-10-13-2021/part1-step5-2-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg2.png)
 
 
 
