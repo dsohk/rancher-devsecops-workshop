@@ -39,22 +39,22 @@ cd workshop
 
 2) To view the content for the Cloned Repo, in your terminal execute below command
 ``
-ll
+cd ~/workshop/rancher-devsecops-workshop && ll 
 ``
 you should see below sample outout. 
 ```
-dpatel@dns:~/devsecops-workshop/workshop> ll
-total 36
--rwxr-xr-x 1 dpatel users  903 Sep  1 09:25 cleanlab.sh
-drwxr-xr-x 1 dpatel users  120 Sep  2 17:25 docs
--rw-r--r-- 1 dpatel users 1065 Aug 28 22:01 LICENSE
--rw-r--r-- 1 dpatel users  810 Aug 30 11:13 README.md
-drwxr-xr-x 1 dpatel users  132 Sep  2 17:25 setup
--rwxr-xr-x 1 dpatel users  995 Sep  1 09:25 setup-rke-cluster1.sh
--rwxr-xr-x 1 dpatel users  995 Sep  1 09:25 setup-rke-cluster2.sh
--rwxr-xr-x 1 dpatel users 1842 Sep  1 09:25 setup-rke-devsecops.sh
--rwxr-xr-x 1 dpatel users 1014 Aug 30 07:52 show-mylab-env.sh
--rwxr-xr-x 1 dpatel users 7826 Aug 31 09:30 startlab.sh
+dpatel@dns:~> cd ~/workshop/rancher-devsecops-workshop && ll
+total 40
+-rwxr-xr-x 1 dpatel users  831 Sep 30 15:25 cleanlab.sh
+drwxr-xr-x 1 dpatel users  120 Sep 30 15:25 docs
+-rw-r--r-- 1 dpatel users 1065 Sep 30 15:25 LICENSE
+-rw-r--r-- 1 dpatel users 1226 Sep 30 15:25 README.md
+drwxr-xr-x 1 dpatel users  188 Sep 30 15:25 setup
+-rwxr-xr-x 1 dpatel users  999 Sep 30 15:25 setup-rke-cluster1.sh
+-rwxr-xr-x 1 dpatel users  999 Sep 30 15:25 setup-rke-cluster2.sh
+-rwxr-xr-x 1 dpatel users 1846 Sep 30 15:25 setup-rke-devsecops.sh
+-rwxr-xr-x 1 dpatel users 1014 Sep 30 15:25 show-mylab-env.sh
+-rwxr-xr-x 1 dpatel users 8470 Sep 30 15:25 startlab.sh
 ```
 
 ### 2. Deploy VMs on AWS Lightsail and Setup Rancher Management Server
