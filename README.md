@@ -1,9 +1,7 @@
 # Build Your Own DevSecOps using SUSE Rancher
 
-![SUSE Rancher - DevSecOps Scenario](./docs/images/overview.png)
+![SUSE Rancher - DevSecOps Scenario](./overview.png)
 
-
-![Rancher UI](./Images-10-13-2021/overview.png)
 
 This repository contains all the scripts and Kubernetes manifests for complimenting its hands-on workshop.
 
