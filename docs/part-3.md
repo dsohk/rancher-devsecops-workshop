@@ -16,18 +16,19 @@ Here you will see the container creation, status and termination as things progr
 
 2) Click `Create Job`
 
-![Create Job in Jenkins](./images/jenkins-create-job.png)
+![Create Job in Jenkins](./Images-10-13-2021/jenkins-create-job.png)
 
 a) Enter a name `first`
 b) Choose `Pipeline` and click OK.
 
-![Create Pipeline in Jenkins](./images/jenkins-create-pipeline.png)
+![Create Pipeline in Jenkins](./Images-10-13-2021/jenkins-create-pipeline.png)
 
 c) Navigate to the `Pipeline` section on the `Configure Pipeline` page.
 
 d) Click on `try sample Pipeline` dropdown menu and choose `Declarative (Kubernetes)`
 
-![Create Job in Jenkins](./images/part2-step-build-my-firest-pipeline-jenkins-configure-first-pipeline-declarative-kubernetes.png)
+![Create Job in Jenkins](./Images-10-13-2021/part2-step-build-my-firest-pipeline-jenkins-configure-first-pipeline-declarative-kubernetes.png)
+
 
 e) Click `Save` button
 
@@ -39,14 +40,14 @@ With the first Jenkins job we are building an simple container with Ubuntu Image
 
 Left hand bottom of UI, under `Build History` you will find `#1` which indicates our first build job and `green` check mark indicates that the job has completed successfully.
 
-![ First Job pos in Rancher UI](./images/part2-jenkins-ui-job-build-status.png)
+![ First Job pos in Rancher UI](./Images-10-13-2021/part2-jenkins-ui-job-build-status.png)
 
 5) Toggle to Rancher UI Window to see the progress of Jenkins jobs. 
 
 Sample Screenshot
-![ First Job pos in Rancher UI](./images/part2-step-build-my-firest-pipeline-pod-running-status.png)
+![ First Job pos in Rancher UI](./Images-10-13-2021/part2-step-build-my-firest-pipeline-pod-running-status.png)
 
-![Create Job in Jenkins](./images/part2-step-build-my-firest-pipeline-pod-terminating-post-jobrun.png)
+![Create Job in Jenkins](./Images-10-13-2021/part2-step-build-my-firest-pipeline-pod-terminating-post-jobrun.png)
 
 
 ## Build my second Jenkins Pipeline
