@@ -585,7 +585,7 @@ In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explorer > `Wor
 
 It will also take awhile to deploy anchore on your devsecops cluster. Likewise, let's continue our lab to deploy Sonarqube.
 
-`Important note` : Anchore community edition does not have GUI & hence it's not exposed as service.
+**Important: Anchore community edition does not have GUI & hence no URL to login**.
 
 5) On Terminal 3 on Harbor VM, run the following command to setup Sonarqube.
 
