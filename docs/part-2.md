@@ -21,36 +21,35 @@ NOTE: Make sure Jenkins, Anchore, and Sonarqube installation has been completed 
 Sample output below.
 
 ```
-Your Rancher Server URL: https://52.221.224.193
+Your Rancher Server URL: https://rancher.13.232.154.67.sslip.io
+Bootstrap Password: 4rfkljvwb6ldbplfgfjg6tppwggbsq56mgl9npntltn4qpc6dhv9nf
 
 My Harbor Instance ...
-URL: https://18.138.241.59:30443
+URL: https://65.0.177.135:30443
 User: admin
-Password: V4P6Z8NA3yXpEjrpIjPl9O05ITnXhM
+Password: pRRIDUb0R8peM81cEQ3UAkMwm16BaB
 
 Your Jenkins instance is ready ...
-http://13.251.59.142:31409/login
+http://3.109.200.216:31897/login
 Username: admin
-Password: DIY1aHNzqfn3Hk79L7UeQ8
+Password: JiKNwNpB840adU19HeAzZW
 
 Your Jenkins Github webhook Payload URL:
-http://13.251.59.142:31409/github-webhook/
+http://3.109.200.216:31897/github-webhook/
 
 Your Anchore is now successfully provisioned.
 URL: http://anchore-anchore-engine-api.anchore.svc.cluster.local:8228/v1/
 User: admin
-Password: ZuhWUXq0BvKfnCgHP4eqIIIVVR6oKzko
+Password: zgWwwAtvyWSUaZ3OhrEqzvkh8mh0NdY7
 
 Your Sonarqube instance is ready ...
-http://13.251.59.142:30612/login
+http://3.109.200.216:32143/login
 username: admin
 initial password: admin
 
+My Github personal access token: 
 
-My Github personal access token:
-
-My SonarQube token:
-
+My SonarQube token: 
 ```
 
 A file `mylab_env.txt` should also have created for you. 
@@ -69,7 +68,8 @@ https://github.com/dsohk/spring-petclinic
 
 Sample Output below.
 
-![Forked repo visibility in your GitHub Account](./images/step3-part2-forking-spring-petclinic.png)
+![Forked repo visibility in your GitHub Account](./Images-10-13-2021/step3-part2-forking-spring-petclinic.png)
+
 
 ### Adapt Jenkinsfile for workshop
 
@@ -83,15 +83,18 @@ In line 11, replace `your_name` with `your github account name`
 
 Sample Output for reference.
 
-![Code change after forked repo](./images/step3-part2-forking-spring-petclinic-editing-jenkinsfile-changing-userid-pg2.png)
+![Code change after forked repo](./Images-10-13-2021/step3-part2-forking-spring-petclinic-editing-jenkinsfile-changing-userid-pg2.png)
+
+
 
 Once the changes are made, scroll down to the bottom of the page & hit `Commit changes` 
 
-![Saving changes to forked repo](./images/step3-part2-forking-spring-petclinic-making-changing-userid-save.png)
+![Saving changes to forked repo](./Images-10-13-2021/step3-part2-forking-spring-petclinic-making-changing-userid-save.png)
 
 3) Review your changes and see if it's applied successfully.
  
-![Saving changes to forked repo](./images/step3-part2-forking-spring-petclinic-making-changing-revewing-changes-applied.png)
+![Saving changes to forked repo](./Images-10-13-2021/step3-part2-forking-spring-petclinic-making-changing-revewing-changes-applied.png)
+
 
 
 ## 2 - Fork the Spring-Petclinic-Helmchart Project into your own Github Account
@@ -121,9 +124,10 @@ e) Enter `workshop` (or whatever you like) in the name field.
 
 f) Choose `repo` and `user:email` in the privieged for this token.
 
-![GitHub Personal Access Token](./images/part3-setup-my-github-personal-access-token-repo.png)
+![GitHub Personal Access Token](./Images-10-13-2021/part3-setup-my-github-personal-access-token-repo.png)
 
-![GitHub Personal Access Token](./images/part3-setup-my-github-personal-access-token-user-email.png)
+
+![GitHub Personal Access Token](./Images-10-13-2021/part3-setup-my-github-personal-access-token-user-email.png)
 
 g) Save and record down the generated token in the `mylab_env.txt` file for configuring CI Pipeline in Jenkins later.
 
