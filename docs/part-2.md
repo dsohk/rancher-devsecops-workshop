@@ -198,7 +198,7 @@ g) Enter `my-github` in the `ID` field.
 h) Click `OK` button to continue
 
 Sample Screenshot below.
-![Configure Jenkins](./images/part2-step5-configuring-Jenkins-git-credentials.png)
+![Configure Jenkins](./Images-10-13-2021/part2-step5-configuring-Jenkins-git-credentials.png)
 
 ### 2) Configure Jenkins - Sonarqube Credentials 
 
@@ -211,7 +211,8 @@ c) Enter `sonarqube-spring-petclinic` in the `ID` field.
 d) Click `OK` button to continue
 
 Sample Screenshot below
-![Configure Jenkins](./images/part2-step5-configuring-Jenkins-sonarqube-credentials.png)
+
+![Configure Jenkins](./Images-10-13-2021/part2-step5-configuring-Jenkins-sonarqube-credentials.png)
 
 We are done with the credential for Github and Sonarqube. 
 
@@ -233,7 +234,7 @@ c) Under NAME, key in
 
 Sample screenshot below
 
-![Configure Global Variables in Jenkins](./images/jenkins-configure-global-vars.png)
+![Configure Global Variables in Jenkins](./Images-10-13-2021/jenkins-configure-global-vars.png)
 
 #### Sonarqube
 
@@ -252,8 +253,7 @@ c) Under `Server authentication token` use the drop down option and you should s
 
 Sample Screenshot below
 
-![Configure Sonarqube integration in Jenkins](./images/jenkins-configure-sonarqube.png)
-
+![Configure Sonarqube integration in Jenkins](./Images-10-13-2021/jenkins-configure-sonarqube.png)
 
 #### Git plugin
 
@@ -269,7 +269,8 @@ c) Leave the rest as default
 
 Sample Screenshot below.
 
-![Configure Git Plugins](./images/part2-configure-Jenkins-GitPlugin.png)
+![Configure Git Plugins](./Images-10-13-2021/part2-configure-Jenkins-GitPlugin.png)
+
 
 #### Anchore Container Image Scanner
 
@@ -283,7 +284,7 @@ b) Engine Username: (Your Anchore username)
 
 c) Engine Password: (Your Anchore password)
 
-![Configure Anchore](./images/part2-configure-Jenkins-Anchore.png)
+![Configure Anchore](./Images-10-13-2021/part2-configure-Jenkins-Anchore.png)
 
 Finally click `Save` button to save all the Jenkins configuration settings.
 
