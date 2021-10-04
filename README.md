@@ -2,6 +2,9 @@
 
 ![SUSE Rancher - DevSecOps Scenario](./docs/images/overview.png)
 
+
+![Rancher UI](./Images-10-13-2021/overview.png)
+
 This repository contains all the scripts and Kubernetes manifests for complimenting its hands-on workshop.
 
 * [Part 1 - Initial Lab Setup on AWS Lightsail](./docs/part-1.md)
