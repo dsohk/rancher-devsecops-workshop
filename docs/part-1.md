@@ -514,7 +514,7 @@ You should see below output with successfully deployment of Longhorn
 
 ![Rancher UI](./Images-10-13-2021/part1-step7-longhorn-success-pg1.png)
 
-3) In Rancher UI, open `devsecops` Cluster Explorer > Longhorn > Overview 
+3) In Rancher UI > Global Apps > Cluster Management > `devsecops` hit the `Explorer` button
 
 ![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-pg2.png)
 
