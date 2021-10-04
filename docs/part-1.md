@@ -514,7 +514,7 @@ You should see below output with successfully deployment of Longhorn
 
 ![Rancher UI](./Images-10-13-2021/part1-step7-longhorn-success-pg1.png)
 
-3) In Rancher UI > Global Apps > Cluster Management > `devsecops` hit the `Explorer` button
+3) In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explorer > `Longhorn` 
 
 ![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-pg2.png)
 
@@ -538,7 +538,7 @@ In our final step for part 1, we are going to deploy the following in parallel.
 ```
 2) Open two additional terminals, as we will run the deployment of Jenkins, Anchore & Sonarqube one after.
 
-![Deploy Jenkins and others](./images/deploy-jenkins-and-others-start.png)
+![Deploy Jenkins and others](./Images-10-13-2021/deploy-jenkins-and-others-start.png)
 
 3) In terminal 1 of your Harbor VM, run the following command to setup Jenkins.
 
@@ -546,8 +546,13 @@ In our final step for part 1, we are going to deploy the following in parallel.
 cd ~/devsecops/jenkins
 ./99-one-step-install-jenkins.sh
 ```
-
 This should take a while to build Jenkins along with required plugin of our choice to be built in `devsecops` cluster.
+
+![Deploy Jenkins and others](./Images-10-13-2021/Part1-Step8-1-Jenkins-url-&-credentials-pg1.png)
+
+![Deploy Jenkins and others](./Images-10-13-2021/part-step8-2-rancher-ui-jenkins-success-pg2.png)
+
+![Deploy Jenkins and others](./Images-10-13-2021/part-step8-3-rancher-ui-jenkins-success-pg3.png)
 
 Here's a high level view of what has been accomplished
 
@@ -565,6 +570,10 @@ d) Configuring Jenkins GitHub webhook
 cd ~/devsecops/anchore
 ./99-one-step-install-anchore.sh
 ```
+![Deploy Jenkins and others](./Images-10-13-2021/part-step8-6-anchore-url-n-credentials-pg6.png)
+
+![Deploy Jenkins and others](./Images-10-13-2021/part-step8-5-rancher-ui-anchore-success-pg6.png)
+
 It will also take awhile to deploy anchore on your devsecops cluster. Likewise, let's continue our lab to deploy Sonarqube.
 
 5) On Terminal 3 on Harbor VM, run the following command to setup Sonarqube.
@@ -573,6 +582,10 @@ It will also take awhile to deploy anchore on your devsecops cluster. Likewise, 
 cd ~/devsecops/sonarqube
 ./99-one-step-install-sonarqube.sh
 ```
+![Deploy Jenkins and others](./Images-10-13-2021/part-step8-7-sonarqube-url-n-credentials-pg7.png)
+
+![Deploy Jenkins and others](./Images-10-13-2021/part-step8-8-rancher-ui-sonarqube-success-pg8.png)
+
 
 For all inquisite people, you can also check the deployment and the pod creation for these application in your `devsecop` cluster.
 
