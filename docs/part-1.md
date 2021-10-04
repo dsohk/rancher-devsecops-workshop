@@ -512,33 +512,16 @@ cd devsecops/longhorn
 ```
 You should see below output with successfully deployment of Longhorn
 
-```
-Wait while longhorn CSI is still provisioning...
-NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
-csi-attacher               0/3     3            0           15s
-csi-provisioner            1/3     3            1           15s
-csi-resizer                0/3     3            0           15s
-csi-snapshotter            1/3     3            1           14s
-longhorn-driver-deployer   1/1     1            1           52s
-longhorn-ui                1/1     1            1           52s
-
-Wait while longhorn CSI is still provisioning...
-NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
-csi-attacher               3/3     3            3           35s
-csi-provisioner            3/3     3            3           35s
-csi-resizer                3/3     3            3           35s
-csi-snapshotter            3/3     3            3           34s
-longhorn-driver-deployer   1/1     1            1           72s
-longhorn-ui                1/1     1            1           72s
-
-Your longhorn is ready...
-
-suse0908-harbor ec2-user@ip-172-26-1-70:~/devsecops/longhorn>
-```
+![Rancher UI](./Images-10-13-2021/part1-step7-longhorn-success-pg1.png)
 
 3) In Rancher UI, open `devsecops` Cluster Explorer > Longhorn > Overview 
 
-![Longhorn UI](./images/part1-step7-Longhorn-UI.png)
+![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-url-pg3.png)
+
+
+![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-pg2.png)
+
+![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-ui-pg4.png)
 
 
 ### 8. Deploy Jenkins, Anchore and Sonarqube on devsecops RKE cluster from Harbor VM
