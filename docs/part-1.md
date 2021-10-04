@@ -550,9 +550,16 @@ This should take a while to build Jenkins along with required plugin of our choi
 
 ![Deploy Jenkins and others](./Images-10-13-2021/Part1-Step8-1-Jenkins-url-&-credentials-pg1.png)
 
+In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explorer > `Workload` > `Pods` 
+
 ![Deploy Jenkins and others](./Images-10-13-2021/part-step8-2-rancher-ui-jenkins-success-pg2.png)
 
 ![Deploy Jenkins and others](./Images-10-13-2021/part-step8-3-rancher-ui-jenkins-success-pg3.png)
+
+Since Jenkins is up and running, you can now open your browser and login to Jenkins system using the credentials available
+
+![Deploy Jenkins and others](./Images-10-13-2021/jenkins-homepage.png)
+
 
 Here's a high level view of what has been accomplished
 
@@ -572,9 +579,13 @@ cd ~/devsecops/anchore
 ```
 ![Deploy Jenkins and others](./Images-10-13-2021/part-step8-6-anchore-url-n-credentials-pg6.png)
 
+In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explorer > `Workload` > `Pods` 
+
 ![Deploy Jenkins and others](./Images-10-13-2021/part-step8-5-rancher-ui-anchore-success-pg6.png)
 
 It will also take awhile to deploy anchore on your devsecops cluster. Likewise, let's continue our lab to deploy Sonarqube.
+
+`Important note` : Anchore community edition does not have GUI & hence it's not exposed as service.
 
 5) On Terminal 3 on Harbor VM, run the following command to setup Sonarqube.
 
@@ -584,22 +595,13 @@ cd ~/devsecops/sonarqube
 ```
 ![Deploy Jenkins and others](./Images-10-13-2021/part-step8-7-sonarqube-url-n-credentials-pg7.png)
 
+In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explorer > `Workload` > `Pods` 
+
 ![Deploy Jenkins and others](./Images-10-13-2021/part-step8-8-rancher-ui-sonarqube-success-pg8.png)
 
+Since Sonarqube is up and running, you can now open your browser and login to Sonarqube using the credentials available
 
-For all inquisite people, you can also check the deployment and the pod creation for these application in your `devsecop` cluster.
+![Deploy Jenkins and others](./Images-10-13-2021/sonarqube-homepage.png)
 
-6) Toggle to your browser on Rancher UI.
-
-Click on `Cluster Explorer` for `devsecops` cluster. In the `Pods` section, you will be able to see the application container in their respective namespaces
-
-Since the application are been deployed, you will see in sample output below you would find container are `container creation` or `initilization` stages. 
-
-![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-rancher-ui.png)
-
-Once all container are up and running & in ready state our output will be as below.
-
-![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-success-rancher-ui.png)
-
-With this, we are ready to move to the [Step 2 - Configure GitHub and Jenkins](part-2.md)
+With this we have successfully completed all required steps in Part 1, we are ready to move to the Part 2 [Step 2 - Configure GitHub and Jenkins](part-2.md)
 
