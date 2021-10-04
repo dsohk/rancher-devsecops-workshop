@@ -148,7 +148,7 @@ e) Choose `Send me everything` for events to trigger this webhook.
 
 f) Click `Add Webhook` button.
 
-![Setup Github webhook](./images/github-webhook.png)
+![Setup Github webhook](./Images-10-13-2021/github-webhook.png)
 
 
 ## 4 - Generate Sonarqube Token
@@ -157,7 +157,7 @@ f) Click `Add Webhook` button.
 
 2) Choose `Add a Project`. 
 
-![Add Project in Sonarqube](./images/sonarqube-add-project.png)
+![Add Project in Sonarqube](./Images-10-13-2021/sonarqube-add-project.png)
 
 3) Select `Manually` to continue
 
