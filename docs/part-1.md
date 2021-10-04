@@ -516,10 +516,9 @@ You should see below output with successfully deployment of Longhorn
 
 3) In Rancher UI, open `devsecops` Cluster Explorer > Longhorn > Overview 
 
-![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-url-pg3.png)
-
-
 ![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-pg2.png)
+
+![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-url-pg3.png)
 
 ![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-ui-pg4.png)
 
