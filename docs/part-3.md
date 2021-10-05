@@ -45,27 +45,35 @@ Left hand bottom of UI, under `Build History` you will find `#1` which indicates
 5) Toggle to Rancher UI Window to see the progress of Jenkins jobs. 
 
 Sample Screenshot
-![ First Job pos in Rancher UI](./Images-10-13-2021/part2-step-build-my-firest-pipeline-pod-running-status.png)
+![ First Job pos in Rancher UI](./Images-10-13-2021/part3-building-first-pipeline-ubuntu-container-creation-pg1.png)
 
-![Create Job in Jenkins](./Images-10-13-2021/part2-step-build-my-firest-pipeline-pod-terminating-post-jobrun.png)
+![First Job pos in Rancher UI](./Images-10-13-2021/part3-building-first-pipeline-ubuntu-container-success-n-running-pg2.png)
 
+![ First Job pos in Rancher UI](./Images-10-13-2021/part3-building-first-pipeline-ubuntu-terminating-post-success-pg3.png)
 
 ## Build my second Jenkins Pipeline
 
 1) Similar to your first pipeline, create the `second` pipeline. This time choose `Maven (Kubernetes)` from `try sample Pipeline` pulldown menu.
 
-![Create Job in Jenkins](./images/part2-step-build-my-second-pipeline-maven-kubernetes.png)
+![Create Job in Jenkins](./Images-10-13-2021/part2-step-build-my-second-pipeline-maven-kubernetes.png)
 
 2) Click `Build Now` to trigger the second Jenkins pipeline.
 
 With our 2nd job, we are building a simple `Maven` container.
 
 Sample Screenshot of Jenkins Console Output & Rancher UI as reference.
-![Job Status in Jenkins and Rancher UI's ](./images/part2-step-build-my-second-pipeline-maven-kubernetes-success.png)
+![Job Status in Jenkins and Rancher UI's ](./Images-10-13-2021/part3-building-second-pipeline-maven-container-creation-pg1.png)
+
+![Job Status in Jenkins and Rancher UI's ](./Images-10-13-2021/part3-building-second-pipeline-maven-build-in-progress-pg2.png)
+
+![Job Status in Jenkins and Rancher UI's ](./Images-10-13-2021/part3-building-second-pipeline-maven-success-pg3.png)
+
+![Job Status in Jenkins and Rancher UI's ](./Images-10-13-2021/part3-building-second-pipeline-maven-terminating-post-success-pg4.png)
+
 
 You now have 2 pipelines created in Jenkins
 
-![Pipeline list in Jenkins](./images/jenkins-pipeline-list.png)
+![Pipeline list in Jenkins](./Images-10-13-2021/part3-build-job-1-n-2-history.png)
 
 ## Setup CI Pipeline for spring-petclinic project
 
