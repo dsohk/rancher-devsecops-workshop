@@ -105,8 +105,9 @@ Rancher Continous Delivery is configured for a `Git Repo` and a branch in our ca
 
 ![Job Status in Jenkins and Rancher UI's ](./Images-10-13-2021/part4-pet-clinic-git-repo-update-in-progress-pg1.png)
 
+![Rancher UI](./Images-10-13-2021/part4-Fleet-Git-repo-status-Not-Ready-gp1.png)
 
-
+![Rancher UI](./Images-10-13-2021/part4-Fleet-Git-repo-status-Ready-gp1.png)
 
 In Rancher UI, on either `Cluster1` or `Cluster2` you should see our Spring PetClinic Container running. Take a closer look at the version, it should say `spring-petclinic:v1.0.x`.
 
