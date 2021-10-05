@@ -35,13 +35,9 @@ src > main > resources > templates > welcome.html
 
 
 
-part5-pet-clinic-pipeline-build-ver2-job-approval-pg2
-
-![Rancher UI](./images/part5-modifying-sourcecode-and-running-new-build-pg2.png)
-
 3) Anchore has completed container image scanning phase and post that we get to the Approval junction.
 
-![Rancher UI](./images/part5-running-build2-seeking-approval.png)
+![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg2.png)
 
 4) Once the changes are accepted by clicking on `Yes` GitHub would be updated with new container image version and then the new image will be pushed to Harbor. You can login into Harbor to verify the same. You should see v1.0.2 as the lastest container image for the application.
 
