@@ -52,9 +52,11 @@ You will see Build1 (v1.0.1) containaer is up and running (1/1), however build2 
 
 e) Check Git Repo status in Rancher UI and the status would be in `active` state, 
 
+Rancher UI > `Global Apps` > `Continous Delivery` > `Git Repo`
+
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-success-pg5.png)
 
-f) In Rancher UI > Services Page
+f) In Rancher UI > `Global Apps` > `Cluster Explorer` `Cluster2` > `Service Discovery` > `Services` 
 
 ![Rancher UI](./Images-10-13-2021/part6-pet-clinic-pipeline-build-ver2-App-running-cluster2-pg7.png)
 
