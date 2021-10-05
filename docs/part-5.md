@@ -17,11 +17,9 @@ In this step, you will modify the source code for `spring-petclinic` application
 ```
 src > main > resources > templates > welcome.html
 ```
-![Rancher UI](./images/part5-modifying-sourcecode-original-welcome-message.png)
+![Rancher UI](./Images-10-13-2021/part5-modifying-sourcecode-original-welcome-message.png)
 
 3) Modify `welcome.html` file content. Line 10 contain greeting text `Hi SUSE Rancher friends!`. You can change the greeting message to your desired one.
-
-![Rancher UI](./images/part5-modifying-sourcecode-welcome-message-modified.png)
 
 4) Click `Commit Changes` button to save your changes. 
 
@@ -29,9 +27,15 @@ src > main > resources > templates > welcome.html
 
 1) In the above step, you have modified your source code. This will trigger a new pipeline job in Jenkins.
 
-![Rancher UI](./images/part5-modifying-sourcecode-and-running-new-build-pg1.png)
+![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-start-pg0.png)
 
 2) Below screenshot indicates it's in container creation stage.
+
+![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-start-pg1.png)
+
+
+
+part5-pet-clinic-pipeline-build-ver2-job-approval-pg2
 
 ![Rancher UI](./images/part5-modifying-sourcecode-and-running-new-build-pg2.png)
 
