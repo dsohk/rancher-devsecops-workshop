@@ -34,7 +34,6 @@ src > main > resources > templates > welcome.html
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-start-pg1.png)
 
 
-
 3) Anchore has completed container image scanning phase and post that we get to the Approval junction.
 
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg2.png)
@@ -43,20 +42,13 @@ src > main > resources > templates > welcome.html
 
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg3-previous-build-terminating-pg3.png)
 
+You will see Build1 (v1.0.1) containaer is up and running (1/1), however build2 container (v1.0.2) is been coming up (0/1)
+
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg4.png)
-
-![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-success-pg5.png)
-
 
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-container-shipping-Habor-pg6.png)
 
 5) Rancher Continuous Delivery process will be trigged with version update in GitHub.
-
-![Rancher UI](./images/part5-running-build2-rancher-cd-update-in-progress-git-repo-status-pg1.png)
-
-6) You will see Build1 (v1.0.1) containaer is up and running (1/1), however build2 container (v1.0.2) is been coming up (0/1)
-
-![Rancher UI](./images/part5-build2-container-coming-up-on-cluster1.png)
 
 7) In a few seconds, we will see the build2-v1-0-2 container up and running & build1-v1-0-1 getting terminated. 
 
@@ -75,6 +67,16 @@ src > main > resources > templates > welcome.html
 We expect to see application version `1.0.2` and updated welcome message `Hi SUSE Rancher Parnter & Community friends!` and sure we do see...
 
 ![Rancher UI](./images/part5-build2-cluster1-v1-0-2-success.png)
+
+![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-success-pg5.png)
+
+
+
+
+![Rancher UI](./Images-10-13-2021/part6-pet-clinic-pipeline-build-ver2-App-running-cluster2-pg7.png)
+
+
+
 
 You have successfully made changes to our code in GitHub, Git remain single source of truth. 
 
