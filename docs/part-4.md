@@ -14,13 +14,13 @@ d) Cluster Explorer view for `Cluster1` and `Cluster2`.
 
 ### Configure Rancher Continous Delivery (CD)
 
-1) Rancher UI > Cluster Manager View select `Tools` and click on `Continous Delivery`
+1) Rancher UI > `Global Apps` > `Continuous Delivery`
 
-![Rancher-Continous Delivery (CD)](./Images-10-13-2021/Fleet-homepage-pg1.png)
+![Rancher-Continous Delivery (CD)](./Images-10-13-2021/part4-Fleet-homepage-pg1.png)
 
 Before we proced, let's verify if we can see all our cluster in Continous Delivery
 
-![Rancher-(CD)](./Images-10-13-2021/Fleet-Cluster-List.png)
+![Rancher-(CD)](./Images-10-13-2021/part4-Fleet-Cluster-List.png)
 
 With Rancher Rancher Continous Delivery (CD), one can manage individual or group of clusters. Managing cluster via Group reduces adminstrative efforts. 
 
@@ -36,11 +36,11 @@ Value:`dev`
  
 Once you key in the key:value pair, Rancher will use the selector labels to indentify the clusters to be associated with our newly created cluster group in Rancher Continuous Delivery. You will see it show 2/4 cluster been selected. 
 
-![Rancher-Continous Delivery (CD)](./Images-10-13-2021/Fleet-Cluster-Group-creation-pg1.png)
+![Rancher-Continous Delivery (CD)](./Images-10-13-2021/part4-Fleet-Cluster-Group-creation-pg1.png)
 
 3) Click on `Create` which will create our first Cluster Group.
 
-![Rancher-Continous Delivery (CD)](./Images-10-13-2021/Fleet-Cluster-Group-creation-success-pg2.png)
+![Rancher-Continous Delivery (CD)](./Images-10-13-2021/part4-Fleet-Cluster-Group-creation-success-pg2.png)
 
 
 ### Configure Git Repo
@@ -57,9 +57,9 @@ Follow the instruction below to get to Git Repository URL.
 
 Sample below for reference. 
 
-![Rancher UI](./images/part4-configure-git-repo-forked-url.png)
+![Rancher UI](./Images-10-13-2021/part4-configure-git-repo-forked-url.png)
 
-6) In Rancher UI > Continous Delivery > Git Repos, click on `Create`
+6) In Rancher UI > `Global Apps` > `Continous Delivery` > `Git Repos` click on `Create`
 a) Give a name to your Git Rep `Name`
 b) Paste the Git Repo URL in `Repository URL`  
 c) In the Branche Name type `main` 
@@ -68,13 +68,15 @@ e) Provide a Namespace `spring-petclinic`
 
 Sample output of the GitRepo configuration below
 
-![Rancher UI](./images/part4-configure-git-repo-config.png)
+![Rancher UI](./Images-10-13-2021/part4-Fleet-Git-Repo-Create-pg.png)
 
 You have successfully completed Rancher Contious Delivery configuration. 
 
 Since the pipeline is still in progress, you can expect below output 
 
-![Rancher UI](./images/part4-configure-git-repo-status-while-pipeline-in-progress-1.png)
+![Rancher UI](./Images-10-13-2021/part4-Fleet-Git-repo-status-Not-Ready-gp1.png)
+
+![Rancher UI](./Images-10-13-2021/part4-Fleet-Git-repo-status-Not-Ready-gp2.png)
 
 
 ## 2. View Jenkins Pipeline Progess and Rancher Continous Delivery in action.
