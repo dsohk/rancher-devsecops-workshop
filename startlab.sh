@@ -64,7 +64,7 @@ export RANCHER_VERSION=v2.6.1-rc3
 echo "export RANCHER_VERSION=$RANCHER_VERSION" > mylab_rancher_version.sh
 
 title="Select Your Preferred AWS Environment to run your lab:"
-options=(US/Canada Europe Asia)
+options=(US/Canada Europe Asia/Pacific)
 echo "$title"
 PS3="$prompt "
 select opt in "${options[@]}" "Quit"; do
