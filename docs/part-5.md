@@ -39,9 +39,16 @@ src > main > resources > templates > welcome.html
 
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg2.png)
 
-4) Once the changes are accepted by clicking on `Yes` GitHub would be updated with new container image version and then the new image will be pushed to Harbor. You can login into Harbor to verify the same. You should see v1.0.2 as the lastest container image for the application.
+4) Once the changes are accepted by clicking on `Yes` GitHub would be updated with new container image version and then the new image will be pushed to Harbor. You can login into Harbor to verify the same. You should see v1.0.2 as the lastest container image for the application. Same time the previous build container will terminate.
 
-![Rancher UI](./images/part5-running-build2-container-image-v2-in-harbor.png)
+![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg3-previous-build-terminating-pg3.png)
+
+![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg4.png)
+
+![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-success-pg5.png)
+
+
+![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-container-shipping-Habor-pg6.png)
 
 5) Rancher Continuous Delivery process will be trigged with version update in GitHub.
 
