@@ -31,7 +31,7 @@ Here we are going to use the same Label which was used to create `Cluster1` and 
 
 2) Under Cluster Selector provide the following values
 Key:`env`
-Operator: `=`
+Operator: `in list`
 Value:`dev` 
  
 Once you key in the key:value pair, Rancher will use the selector labels to indentify the clusters to be associated with our newly created cluster group in Rancher Continuous Delivery. You will see it show 2/4 cluster been selected. 
