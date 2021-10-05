@@ -87,9 +87,6 @@ Below are sample screenshot for your reference only.
 
 For easy viewing, split the screen (Horizontal or Vertical) as per your preference to observe the jenkins pipeline progress. 
 
-### Jenkins Container creation stage
-![Rancher UI](./images/part4-configure-git-repo-status-while-pipeline-in-progress-2.png)
-
 ### Jenkins approval stage.
 
 At one stage in the pipeline, you will be prompted to `Appove` the code changes. Options available will be `Yes` or `No`. 
@@ -98,7 +95,7 @@ Upon approval, jenkins shall commits the changes to Git Repo. The container imag
 
 You can toggle Harbor UI > Library > Repoistory where you will see our application container image available.
 
-![Rancher UI](./images/part4-configure-git-repo-status-pipeline-in-progress-container-created-in-harbor-pg4.png)
+![Job Status in Jenkins and Rancher UI's ](./Images-10-13-2021/part3-pet-clinic-pipeline-approval-pg6.png)
 
 ### Rancher Continous Delivery in Action
 
