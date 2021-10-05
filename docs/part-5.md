@@ -25,20 +25,20 @@ src > main > resources > templates > welcome.html
 
 ## 3. Observe the new pipeline being built
 
-1) In the above step, you have modified your source code. This will trigger a new pipeline job in Jenkins.
+a) In the above step, you have modified your source code. This will trigger a new pipeline job in Jenkins.
 
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-start-pg0.png)
 
-2) Below screenshot indicates it's in container creation stage.
+b) Below screenshot indicates it's in container creation stage.
 
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-start-pg1.png)
 
 
-3) Anchore has completed container image scanning phase and post that we get to the Approval junction.
+c) Anchore has completed container image scanning phase and post that we get to the Approval junction.
 
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg2.png)
 
-4) Once the changes are accepted by clicking on `Yes` GitHub would be updated with new container image version and then the new image will be pushed to Harbor. You can login into Harbor to verify the same. You should see v1.0.2 as the lastest container image for the application. Same time the previous build container will terminate.
+d) Once the changes are accepted by clicking on `Yes` GitHub would be updated with new container image version and then the new image will be pushed to Harbor. You can login into Harbor to verify the same. You should see v1.0.2 as the lastest container image for the application. Same time the previous build container will terminate.
 
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-container-shipping-Habor-pg6.png)
 
@@ -50,11 +50,11 @@ You will see Build1 (v1.0.1) containaer is up and running (1/1), however build2 
 
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg4-latest.png)
 
-8) Check Git Repo status in Rancher UI and the status would be in `active` state, 
+e) Check Git Repo status in Rancher UI and the status would be in `active` state, 
 
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-success-pg5.png)
 
-9) In Rancher UI > Services Page
+f) In Rancher UI > Services Page
 
 ![Rancher UI](./Images-10-13-2021/part6-pet-clinic-pipeline-build-ver2-App-running-cluster2-pg7.png)
 
