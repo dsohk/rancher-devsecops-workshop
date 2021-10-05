@@ -91,18 +91,22 @@ For easy viewing, split the screen (Horizontal or Vertical) as per your preferen
 
 At one stage in the pipeline, you will be prompted to `Appove` the code changes. Options available will be `Yes` or `No`. 
 
+![Job Status in Jenkins and Rancher UI's ](./Images-10-13-2021/part3-pet-clinic-pipeline-approval-pg6.png)
+
 Upon approval, jenkins shall commits the changes to Git Repo. The container image will be stored in your Harbor Registry.
 
 You can toggle Harbor UI > Library > Repoistory where you will see our application container image available.
 
-![Job Status in Jenkins and Rancher UI's ](./Images-10-13-2021/part3-pet-clinic-pipeline-approval-pg6.png)
+![Job Status in Jenkins and Rancher UI's ](./Images-10-13-2021/part4-Harbor-UI-PetClinic-Container-Image-pg1.png)
 
 ### Rancher Continous Delivery in Action
 
 Rancher Continous Delivery is configured for a `Git Repo` and a branch in our case `main` branch to watch for changes/commits. Rancher Continuous CD will pick up the changes and deploy the changes  to the target cluster group
 
-Rancher Continuous Delivery Update is successfully completed.
-![Rancher UI](./images/part4-Rancher-Continuous-Delivery-in-action-pg0.png)
+![Job Status in Jenkins and Rancher UI's ](./Images-10-13-2021/part4-pet-clinic-git-repo-update-in-progress-pg1.png)
+
+
+
 
 In Rancher UI, on either `Cluster1` or `Cluster2` you should see our Spring PetClinic Container running. Take a closer look at the version, it should say `spring-petclinic:v1.0.x`.
 
