@@ -16,11 +16,11 @@ d) Cluster Explorer view for `Cluster1` and `Cluster2`.
 
 1) Rancher UI > Cluster Manager View select `Tools` and click on `Continous Delivery`
 
-![Rancher-Continous Delivery (CD)](./images/part4-rancher-url-rancher-continuous-delivery-step1-pg1.png)
+![Rancher-Continous Delivery (CD)](./Images-10-13-2021/Fleet-homepage-pg1.png)
 
 Before we proced, let's verify if we can see all our cluster in Continous Delivery
 
-![Rancher-(CD)](./images/rancher-uI-all-clusterlist-step2.png)
+![Rancher-(CD)](./Images-10-13-2021/Fleet-Cluster-List.png)
 
 With Rancher Rancher Continous Delivery (CD), one can manage individual or group of clusters. Managing cluster via Group reduces adminstrative efforts. 
 
@@ -36,11 +36,12 @@ Value:`dev`
  
 Once you key in the key:value pair, Rancher will use the selector labels to indentify the clusters to be associated with our newly created cluster group in Rancher Continuous Delivery. You will see it show 2/4 cluster been selected. 
 
-![Rancher UI](./images/rancher-ui-create-first-fleet-group-details-step4-pg4.png)
+![Rancher-Continous Delivery (CD)](./Images-10-13-2021/Fleet-Cluster-Group-creation-pg1.png)
 
 3) Click on `Create` which will create our first Cluster Group.
 
-![Rancher UI](./images/rancher-ui-first-fleet-group-success-step5-pg5.png)
+![Rancher-Continous Delivery (CD)](./Images-10-13-2021/Fleet-Cluster-Group-creation-success-pg2.png)
+
 
 ### Configure Git Repo
 
