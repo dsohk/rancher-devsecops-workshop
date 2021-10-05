@@ -25,7 +25,7 @@ src > main > resources > templates > welcome.html
 
 ## 3. Observe the new pipeline being built
 
-Keep following browser window open to view the progress. 
+Please open and login to the following system with your favourtie browser open to view the progress. 
 
 Login to your Jenkins, Jenkin UI > `Job` > `Status` > `Console Output`
 
