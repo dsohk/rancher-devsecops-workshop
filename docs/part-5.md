@@ -40,47 +40,27 @@ src > main > resources > templates > welcome.html
 
 4) Once the changes are accepted by clicking on `Yes` GitHub would be updated with new container image version and then the new image will be pushed to Harbor. You can login into Harbor to verify the same. You should see v1.0.2 as the lastest container image for the application. Same time the previous build container will terminate.
 
+![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-container-shipping-Habor-pg6.png)
+
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg3-previous-build-terminating-pg3.png)
 
 You will see Build1 (v1.0.1) containaer is up and running (1/1), however build2 container (v1.0.2) is been coming up (0/1)
 
-![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg4.png)
+![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-Fleet-updating.png)
 
-![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-container-shipping-Habor-pg6.png)
-
-5) Rancher Continuous Delivery process will be trigged with version update in GitHub.
-
-7) In a few seconds, we will see the build2-v1-0-2 container up and running & build1-v1-0-1 getting terminated. 
-
-![Rancher UI](./images/part5-build2-v1-0-2-container-coming-up-v1-0-1-terminated-cluster1.png)
+![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg4-latest.png)
 
 8) Check Git Repo status in Rancher UI and the status would be in `active` state, 
 
-![Rancher UI](./images/part5-build2-git-repo-status-active-after-successfully-build-v1-0-2.png)
+![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-success-pg5.png)
 
 9) In Rancher UI > Services Page
 
-![Rancher UI](./images/part5-build2-cluste1-services-page.png)
-
-10) To open the applicatin, click on `NodePort` to and the application will open in a new browser window.
-
-We expect to see application version `1.0.2` and updated welcome message `Hi SUSE Rancher Parnter & Community friends!` and sure we do see...
-
-![Rancher UI](./images/part5-build2-cluster1-v1-0-2-success.png)
-
-![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-success-pg5.png)
-
-
-
-
 ![Rancher UI](./Images-10-13-2021/part6-pet-clinic-pipeline-build-ver2-App-running-cluster2-pg7.png)
 
-
-
+We expect to see application version `1.0.2` and updated welcome message `Hi SUSE Rancher Parnter Community! Welcome aboard on this DevSecOps workshop!` and sure we do see...
 
 You have successfully made changes to our code in GitHub, Git remain single source of truth. 
-
-Jenkins picks up the changes automatically and build new job for your changes. Upon your approve the updated changes are then picked up by Rancher Continuous delivery and the application get deployed on your cluster. Once the new application is up and running, the older version gets terminated. 
 
 Congratulation! you have sucessfully build our CI/CD pipeline with SUSE Rancher for continuous development and delviery. We hope you have enjoyed exploring a little of what Rancher can do to your kubenetes development, deplyment, and management.
 
