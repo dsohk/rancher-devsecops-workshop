@@ -111,20 +111,16 @@ Rancher Continous Delivery is configured for a `Git Repo` and a branch in our ca
 
 In Rancher UI, on either `Cluster1` or `Cluster2` you should see our Spring PetClinic Container running. Take a closer look at the version, it should say `spring-petclinic:v1.0.x`.
 
-![Rancher UI](./images/part4-Rancher-Continuous-Delivery-in-action-pg1.png)
-
-![Rancher UI](./images/part4-Rancher-Continuous-Delivery-in-action-pg2.png)
+![Rancher UI](./Images-10-13-2021/part4-Fleet-Cluster-Group-PetClinic-depoloyment-service-link-ready.png)
 
 Now let try to open the Application in a new Browser window
 Rancher UI > Cluster Exlporer > Cluster1 > `Services` Tab to expose the Container Application.
 
-![Rancher UI](./images/part4-Rancher-Continuous-Delivery-in-action-Cluster1-Services-Open-App-pg1.png)
+![Rancher UI](./Images-10-13-2021/part4-Fleet-Cluster-Group-PetClinic-App-working.png)
 
 Check our applivation version  `spring-petclinic:v1.0.x` as indicated in previous step.
 
-Image below illustrate JenkinUI, Rancher UI & Application in a new browser window.
-
-![Rancher UI](./images/part4-Rancher-Continuous-Delivery-in-action-Cluster1-Services-Open-App-pg2.png)
+Your PetClinic App is been successfully depoyed.
 
 With this, let's put everything together and proceed to [Part 5](part-5.md)
 
