@@ -25,6 +25,16 @@ src > main > resources > templates > welcome.html
 
 ## 3. Observe the new pipeline being built
 
+Keep following browser window open to view the progress. 
+
+Login to your Jenkins 
+Jenkin UI > `Job` > `Status` > `Console Output`
+
+Login to Rancher, Rancher UI > `Explorer` > `devsecops` > `Workload` > `Pods` > `Namespace` > `Jenkins`
+
+In a new window 
+Rancher UI > `Global Apps` > `Continous Delivery` > `Git Repo`
+
 a) In the above step, you have modified your source code. This will trigger a new pipeline job in Jenkins.
 
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-start-pg0.png)
@@ -40,7 +50,8 @@ c) Anchore has completed container image scanning phase and post that we get to 
 
 d) Once the changes are accepted by clicking on `Yes` GitHub would be updated with new container image version and then the new image will be pushed to Harbor. You can login into Harbor to verify the same. You should see v1.0.2 as the lastest container image for the application. Same time the previous build container will terminate.
 
-![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-container-shipping-Habor-pg6.png)
+![Harbor UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-container-shipping-Habor-pg6.png)
+
 
 ![Rancher UI](./Images-10-13-2021/part5-pet-clinic-pipeline-build-ver2-job-approval-pg3-previous-build-terminating-pg3.png)
 
