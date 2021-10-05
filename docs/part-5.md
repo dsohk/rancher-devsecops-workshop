@@ -27,13 +27,11 @@ src > main > resources > templates > welcome.html
 
 Keep following browser window open to view the progress. 
 
-Login to your Jenkins 
-Jenkin UI > `Job` > `Status` > `Console Output`
+Login to your Jenkins, Jenkin UI > `Job` > `Status` > `Console Output`
 
 Login to Rancher, Rancher UI > `Explorer` > `devsecops` > `Workload` > `Pods` > `Namespace` > `Jenkins`
 
-In a new window 
-Rancher UI > `Global Apps` > `Continous Delivery` > `Git Repo`
+In a new window, Rancher UI > `Global Apps` > `Continous Delivery` > `Git Repo`
 
 a) In the above step, you have modified your source code. This will trigger a new pipeline job in Jenkins.
 
