@@ -34,7 +34,6 @@ mkdir workshop
 
 ```
 git clone https://github.com/dsohk/rancher-devsecops-workshop workshop
-cd workshop
 ```
 
 2) To view the content for the Cloned Repo, in your terminal execute below command
