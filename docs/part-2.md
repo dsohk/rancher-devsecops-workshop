@@ -133,9 +133,9 @@ g) Save and record down the generated token in the `mylab_env.txt` file for conf
 
 ### 2). Create WebHook for forked repository `
 
-Setup git webhook for spring-petclinic repo to your Jenkins server
+Setup git webhook for **spring-petclinic** repo to your Jenkins server
 
-a) Click `Settings` in your spring-petclinic github repo.
+a) Click `Settings` in your **spring-petclinic** github repo.
 
 b) Choose `Webhooks` from the left menu.
 
