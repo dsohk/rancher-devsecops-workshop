@@ -81,7 +81,7 @@ Since the pipeline is still in progress, you can expect below output
 
 ## 2. View Jenkins Pipeline Progess and Rancher Continous Delivery in action.
 
-As your jenkins pipeline is getting build, you can expect different progress/view. 
+As your jenkins pipeline is getting built, you can expect different progress/view. 
 
 Below are sample screenshot for your reference only. 
 
@@ -93,7 +93,7 @@ At one stage in the pipeline, you will be prompted to `Appove` the code changes.
 
 ![Job Status in Jenkins and Rancher UI's ](./Images-10-13-2021/part3-pet-clinic-pipeline-approval-pg6.png)
 
-Upon approval, jenkins shall commits the changes to Git Repo. The container image will be stored in your Harbor Registry.
+Upon approval, jenkins commits the changes to Git Repo. The container image will be stored in your Harbor Registry.
 
 You can toggle Harbor UI > Library > Repoistory where you will see our application container image available.
 
