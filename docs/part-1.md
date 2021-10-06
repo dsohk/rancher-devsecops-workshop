@@ -386,7 +386,7 @@ In this steps, we will be provisioning two single node RKE cluster with Etcd, Co
 a) Ensure you are on your local workstation/machine Terminal and inside your git repo cloned.
 
 ```
-cd ~/workshop/rancher-devsecops-workshop
+cd ~/workshop
 ```
 b) At the terminal, run the below script. 
 
