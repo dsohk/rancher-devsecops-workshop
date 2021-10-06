@@ -174,6 +174,8 @@ Your Rancher Server is ready.
 Your Rancher Server URL: https://rancher.13.232.154.67.sslip.io
 Bootstrap Password: 4rfkljvwb6ldbplfgfjg6tppwggbsq56mgl9npntltn4qpc6dhv9nf
 ```
+Save the Rancher Server URL and Bootstrap Password for the next steps.
+
 3) Open the Rancher URL in a browser window. This may take few mins to get Rancher Instance up and running. 
 
 4) Toggle back to the terminal and execute the below command to see the list of files (text and scripts).
