@@ -345,7 +345,7 @@ To create a new cluster choose the `custom` option to provision clusters on exis
  
 ![Rancher UI](./Images-10-13-2021/part1-step4-1-rancher-ui-create-cluster-custom-devsecops-pg1.png)
 
-b) You will be presented with `Cluster:Create Custom`form. Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Create` button. You will be presented with cluster registration command to create the RKE cluster on your VM. Click on `registration command` to copy the command into your clipboard.
+b) You will be presented with `Cluster:Create Custom`form. Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Create` button. You will be presented with cluster registration command to create the RKE cluster on your VM. Check the 'Insecure: Select this to skip TLS...'   Click on `registration command` to copy the command into your clipboard.
 
 ![Rancher UI](./Images-10-13-2021/part1-step4-2-rancher-ui-create-cluster-custom-devsecops-pg2.png)
 
@@ -412,7 +412,7 @@ In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-4-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg4.png)
 
-You will be presented with `Registration` tab. Click on the command to copy. 
+You will be presented with `Registration` tab. Check the 'Insecure: Select this to skip TLS...'  Click on the command to copy. 
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-5-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-copy-command-pg5.png)
 
@@ -444,7 +444,7 @@ dpatel@dns:~/workshop>
 Two important things to note
 
 a) Cluster name will be `cluster2` 
-b) In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key` type `evn` and  `Value` type `dev`
+b) In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key` type `evn` and  `Value` type `dev` Check the 'Insecure: Select this to skip TLS...' 
 c) Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-10-rancher-ui-cluster2-success-pg10.png)
