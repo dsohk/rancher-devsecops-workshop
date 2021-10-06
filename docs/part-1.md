@@ -432,7 +432,7 @@ We are currently on the local workstation Terminal where we have our git repo cl
 
 Sample output below.
 ```
-dpatel@dns:~/devsecops-workshop/workshop>
+dpatel@dns:~/workshop>
 ```
 1) At the terminal, run the below script 
 ```
