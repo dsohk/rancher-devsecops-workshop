@@ -222,6 +222,8 @@ You can access to any of your VMs with the `ssh-mylab-<VM>.sh` script. The IP ad
 
 ### 3. Setup Harbor instance and Import into Rancher 
 
+#### 3.1 Setup Harbor Registry
+
 We will be using Harbor as our Private Registry
 
 While we are waiting Rancher Server instance to be ready, let's setup your harbor private registry.
@@ -269,7 +271,7 @@ Password: J4diXo8ZKddi5mFGEgx1Z3XveoOuPw
 ```
 c) Open Harbor URL in a browser and log into Harbor using credentials provided as in sample output 
 
-#### Import Harbor cluster in Rancher.
+#### 3.2 Import Harbor cluster in Rancher.
 
 In this step, we would be importing Harbor K3s cluster into Rancher. 
 
@@ -307,7 +309,7 @@ a) On Rancher Homeage, click on `Import Cluster` to import a existing cluster wi
 
 ![Rancher UI](./Images-10-13-2021/part1-step3-4-2-rancher-import-cluster-harbor-pg2.png)
 
-b) Enter the custer name as `Harbor` and leave the rest of the setting as default & click on `Create`. 
+b) Enter the custer name as `harbor` and leave the rest of the setting as default & click on `Create`. 
 
 ![Rancher UI](./Images-10-13-2021/part1-step3-4-3-rancher-import-cluster-Harbor-pg3.png)
 
@@ -347,7 +349,8 @@ To create a new cluster choose the `custom` option to provision clusters on exis
  
 ![Rancher UI](./Images-10-13-2021/part1-step4-1-rancher-ui-create-cluster-custom-devsecops-pg1.png)
 
-b) You will be presented with `Cluster:Create Custom`form. Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Create` button. You will be presented with cluster registration command to create the RKE cluster on your VM. Check the 'Insecure: Select this to skip TLS...'   Click on `registration command` to copy the command into your clipboard.
+b) You will be presented with `Cluster:Create Custom`form. Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Create` button. You will be presented with cluster registration command to create the RKE cluster on your VM. Check the box 'Insecure: Select this to skip TLS...'. 
+Click on `registration command` to copy the command into your clipboard.
 
 ![Rancher UI](./Images-10-13-2021/part1-step4-2-rancher-ui-create-cluster-custom-devsecops-pg2.png)
 
@@ -410,11 +413,12 @@ Under `Cluster Configuration` `Basics` form leave everthing as default.
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-3-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg3.png)
 
-In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key` type `evn` and  `Value` type `dev` and hit `Create`
+In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key` type `env` and  `Value` type `dev` and hit `Create`
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-4-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg4.png)
 
-You will be presented with `Registration` tab. Check the 'Insecure: Select this to skip TLS...'  Click on the command to copy. 
+You will be presented with `Registration` tab. Check the box 'Insecure: Select this to skip TLS...'. 
+Click on the command to copy. 
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-5-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-copy-command-pg5.png)
 
@@ -445,15 +449,17 @@ dpatel@dns:~/workshop>
 
 Two important things to note
 
-a) Cluster name will be `cluster2` 
-b) In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key` type `evn` and  `Value` type `dev` Check the 'Insecure: Select this to skip TLS...' 
+a) Cluster name will be `cluster2`. 
+b) In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key` type `env` and  `Value` type `dev`. 
+Check the 'Insecure: Select this to skip TLS...'.
+
 c) Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
 
 ![Rancher UI](./Images-10-13-2021/part1-step5-10-rancher-ui-cluster2-success-pg10.png)
 
 
 ### 6. Download KUBECONFIG file of DevSecOps cluster into Harbor VM
-a) In Rancher UI > Global Apps > Cluster Management > `devsecops` hit the `Explorer` button.
+a) In Rancher UI > Global Apps > Cluster Management > `devsecops`, hit the `Explore` button.
 
 ![Rancher UI](./Images-10-13-2021/part1-step6-devsecops-kubeconfig-pg1.png)
 
@@ -515,7 +521,7 @@ You should see below output with successfully deployment of Longhorn
 
 ![Rancher UI](./Images-10-13-2021/part1-step7-longhorn-success-pg1.png)
 
-3) In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explorer > `Longhorn` 
+3) In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explore > `Longhorn` 
 
 ![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-pg2.png)
 
@@ -532,7 +538,7 @@ In our final step for part 1, we are going to deploy the following in parallel.
 * Anchore (approx 3/4 mins)
 * Sonarqube (approx < 6 mins)
 
-1) If you are not already logged into Harbor VM then run the script `ssh-mylab-harbor.sh` script), else skip to step 2 
+1) If you are not already logged into Harbor VM then run the script `ssh-mylab-harbor.sh` script, else skip to step 2 
 
 ```
 ./ssh-mylab-harbor.sh
@@ -551,18 +557,18 @@ This should take a while to build Jenkins along with required plugin of our choi
 
 ![Deploy Jenkins and others](./Images-10-13-2021/Part1-Step8-1-Jenkins-url-&-credentials-pg1.png)
 
-In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explorer > `Workload` > `Pods` 
+In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explore > `Workload` > `Pods` 
 
 ![Deploy Jenkins and others](./Images-10-13-2021/part-step8-2-rancher-ui-jenkins-success-pg2.png)
 
 ![Deploy Jenkins and others](./Images-10-13-2021/part-step8-3-rancher-ui-jenkins-success-pg3.png)
 
-Since Jenkins is up and running, you can now open your browser and login to Jenkins system using the credentials available
+Since Jenkins is up and running, you can now open your browser and login to Jenkins system using the credentials available.
 
 ![Deploy Jenkins and others](./Images-10-13-2021/jenkins-homepage.png)
 
 
-Here's a high level view of what has been accomplished
+#### Here's a high level view of what has been accomplished so far...
 
 a) Deployment & configuration of self signed certificate with Harbor. Self Signed Certificated are distributing to all Labs VMs. With help of Docker Client, we are able to login in the VM using self signed certifiate. 
 
@@ -571,6 +577,8 @@ b) Pulling Jenkins Image, building custom Jenkins image with own choise of plugi
 c) Provisioning Jenkins using Helm Chart
 
 d) Configuring Jenkins GitHub webhook
+
+
 
 4) In Terminal 2 of Harbor VM, run the following command to setup Anchore 
 
@@ -584,9 +592,10 @@ In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explorer > `Wor
 
 ![Deploy Jenkins and others](./Images-10-13-2021/part-step8-5-rancher-ui-anchore-success-pg6.png)
 
-It will also take awhile to deploy anchore on your devsecops cluster. Likewise, let's continue our lab to deploy Sonarqube.
+It will also take a while to deploy anchore on your devsecops cluster. Likewise, let's continue our lab to deploy Sonarqube.
 
 **Important: Anchore community edition does not have GUI & hence no URL to login**.
+
 
 5) On Terminal 3 on Harbor VM, run the following command to setup Sonarqube.
 
@@ -596,13 +605,13 @@ cd ~/devsecops/sonarqube
 ```
 ![Deploy Jenkins and others](./Images-10-13-2021/part-step8-7-sonarqube-url-n-credentials-pg7.png)
 
-In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explorer > `Workload` > `Pods` 
+In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explore > `Workload` > `Pods` 
 
 ![Deploy Jenkins and others](./Images-10-13-2021/part-step8-8-rancher-ui-sonarqube-success-pg8.png)
 
-Since Sonarqube is up and running, you can now open your browser and login to Sonarqube using the credentials available
+Since Sonarqube is up and running, you can now open your browser and login to Sonarqube using the credentials available. You might need to setup a new password.
 
 ![Deploy Jenkins and others](./Images-10-13-2021/sonarqube-homepage.png)
 
-With this we have successfully completed all required steps in Part 1, we are ready to move to the Part 2 [Step 2 - Configure GitHub and Jenkins](part-2.md)
+With this, we have successfully completed all required steps in Part 1. We are ready to move to the Part 2 [Step 2 - Configure GitHub and Jenkins](part-2.md)
 
