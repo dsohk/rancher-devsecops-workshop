@@ -60,7 +60,7 @@ check_sysreq;
 export VM_PREFIX=suse0908
 echo "export VM_PREFIX=$VM_PREFIX" > mylab_vm_prefix.sh
 
-export RANCHER_VERSION=v2.6.1-rc3
+export RANCHER_VERSION=v2.6.1
 echo "export RANCHER_VERSION=$RANCHER_VERSION" > mylab_rancher_version.sh
 
 title="Select Your Preferred AWS Environment to run your lab:"
@@ -161,7 +161,7 @@ download-key-pair
 
 # write ssh file for easy access
 echo "Generating shortcut ssh files for VM access..."
-for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 devsecops-w3 devsecops-w4 cluster1 cluster2; do
+for vm in rancher harbor devsecops-m1 devsecops-w1 devsecops-w2 cluster1 cluster2; do
   VM_IP=`cat mylab_vm_list.txt | grep $VM_PREFIX-$vm | cut -d '|' -f 4 | xargs`
   echo "ssh -o StrictHostKeyChecking=no -i mylab.key ec2-user@$VM_IP" > ssh-mylab-$vm.sh
   chmod +x ssh-mylab-$vm.sh

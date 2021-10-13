@@ -5,10 +5,10 @@ This script will help you setup a lab environment with 8 VMs running on AWS Ligh
 
 Estimated Completion Time: 45 mins
 
-* Rancher Management Server v2.6.0 instance (1 VM)
+* Rancher Management Server v2.6.1 instance (1 VM)
 * Harbor private registry running on K3S (1 VM)
-* DevSecOps RKE cluster running `Jenkins`, `Anchore`, and `SonarQube` (3 VM - 1 master + 2 worker nodes)
-* 2 single-node clusters (1 VM each) for deploying applications.
+* DevSecOps RKE2 cluster running `Jenkins`, `Anchore`, and `SonarQube` (3 VM - 1 master + 2 worker nodes)
+* 2 single-node RKE2-based clusters (1 VM each) for deploying applications.
 
 ## Pre-requisites
 
@@ -161,7 +161,6 @@ Here's the list of VMs running in your lab environment (See file: mylab_vm_list.
 |  suse0908-cluster1    |  172.26.19.112     |  15.207.115.122   |  running |
 |  suse0908-devsecops-w2|  172.26.0.206      |  13.235.134.68    |  running |
 |  suse0908-harbor      |  172.26.31.128     |  65.0.177.135     |  running |
-|  demo-rancher         |  172.26.1.253      |  35.154.55.126    |  stopped |
 |  suse0908-devsecops-w1|  172.26.20.135     |  3.109.200.216    |  running |
 |  suse0908-rancher     |  172.26.26.107     |  13.232.154.67    |  running |
 +-----------------------+--------------------+-------------------+----------+
@@ -346,7 +345,7 @@ You will be presented `Cluster:Create` page.
 Under section `Provision a new node and create a cluster using RKE2/K3s (Tech Preview)`, toggle the switch `RKE2/k3s`. With Rancher 2.6 you can now provisoin RKE2 & K3s cluster via Rancher UI.
 
 To create a new cluster choose the `custom` option to provision clusters on existing nodes 
- 
+
 ![Rancher UI](./Images-10-13-2021/part1-step4-1-rancher-ui-create-cluster-custom-devsecops-pg1.png)
 
 b) You will be presented with `Cluster:Create Custom`form. Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Create` button. You will be presented with cluster registration command to create the RKE cluster on your VM. Check the box 'Insecure: Select this to skip TLS...'. 
