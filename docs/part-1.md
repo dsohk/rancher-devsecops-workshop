@@ -148,6 +148,12 @@ When the script has finished, you will see a table of VMs with IP addresses, the
 *The IP addresses for you will be different from those in the screenshots in this lab guide.*
 
 ```
+---------------------------------------------------------------------------
+Your Rancher Server is ready.
+
+Your Rancher Server URL: https://rancher.13.232.154.67.sslip.io
+Bootstrap Password: 4rfkljvwb6ldbplfgfjg6tppwggbsq56mgl9npntltn4qpc6dhv9nf
+----------------------------------------------------------------------------
 Your lab environment on AWS Lightsail ap-south-1 is ready. 
 
 Here's the list of VMs running in your lab environment (See file: mylab_vm_list.txt):
@@ -168,10 +174,7 @@ To SSH into the VM on the lab, you can run this command:
 
 ./ssh-mylab-<vm>.sh
 
-Your Rancher Server is ready.
 
-Your Rancher Server URL: https://rancher.13.232.154.67.sslip.io
-Bootstrap Password: 4rfkljvwb6ldbplfgfjg6tppwggbsq56mgl9npntltn4qpc6dhv9nf
 ```
 Save the Rancher Server URL and Bootstrap Password for the next steps.
 
