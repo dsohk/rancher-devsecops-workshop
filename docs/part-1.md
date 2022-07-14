@@ -5,10 +5,10 @@ This script will help you setup a lab environment with 8 VMs running on AWS Ligh
 
 Estimated Completion Time: 45 mins
 
-* Rancher Management Server v2.5.9 instance (1 VM)
+* Rancher Management Server v2.6.1 instance (1 VM)
 * Harbor private registry running on K3S (1 VM)
-* DevSecOps RKE cluster running `Jenkins`, `Anchore`, and `SonarQube` (5 VM - 1 master + 4 worker nodes)
-* 2 single-node clusters (1 VM each) for deploying applications.
+* DevSecOps RKE2 cluster running `Jenkins`, `Anchore`, and `SonarQube` (3 VM - 1 master + 2 worker nodes)
+* 2 single-node RKE2-based clusters (1 VM each) for deploying applications.
 
 ## Pre-requisites
 
@@ -26,31 +26,34 @@ Watch the video below to see what we are going to do in this part.
 
 ### 1. Clone Git Repository
 
-1) In your linux terminal, checkout this repository into a local folder.
+1) In your linux terminal, create a folder for the workshop and  checkout this repository into a local folder.
+
+```
+mkdir workshop
+```
 
 ```
 git clone https://github.com/dsohk/rancher-devsecops-workshop workshop
-cd workshop
 ```
 
 2) To view the content for the Cloned Repo, in your terminal execute below command
-``
-ll
-``
+```
+cd ~/workshop && ll 
+```
 you should see below sample outout. 
 ```
-dpatel@dns:~/devsecops-workshop/workshop> ll
-total 36
--rwxr-xr-x 1 dpatel users  903 Sep  1 09:25 cleanlab.sh
-drwxr-xr-x 1 dpatel users  120 Sep  2 17:25 docs
--rw-r--r-- 1 dpatel users 1065 Aug 28 22:01 LICENSE
--rw-r--r-- 1 dpatel users  810 Aug 30 11:13 README.md
-drwxr-xr-x 1 dpatel users  132 Sep  2 17:25 setup
--rwxr-xr-x 1 dpatel users  995 Sep  1 09:25 setup-rke-cluster1.sh
--rwxr-xr-x 1 dpatel users  995 Sep  1 09:25 setup-rke-cluster2.sh
--rwxr-xr-x 1 dpatel users 1842 Sep  1 09:25 setup-rke-devsecops.sh
--rwxr-xr-x 1 dpatel users 1014 Aug 30 07:52 show-mylab-env.sh
--rwxr-xr-x 1 dpatel users 7826 Aug 31 09:30 startlab.sh
+dpatel@dns:~> cd ~/workshop/rancher-devsecops-workshop && ll
+total 40
+-rwxr-xr-x 1 dpatel users  831 Sep 30 15:25 cleanlab.sh
+drwxr-xr-x 1 dpatel users  120 Sep 30 15:25 docs
+-rw-r--r-- 1 dpatel users 1065 Sep 30 15:25 LICENSE
+-rw-r--r-- 1 dpatel users 1226 Sep 30 15:25 README.md
+drwxr-xr-x 1 dpatel users  188 Sep 30 15:25 setup
+-rwxr-xr-x 1 dpatel users  999 Sep 30 15:25 setup-rke-cluster1.sh
+-rwxr-xr-x 1 dpatel users  999 Sep 30 15:25 setup-rke-cluster2.sh
+-rwxr-xr-x 1 dpatel users 1846 Sep 30 15:25 setup-rke-devsecops.sh
+-rwxr-xr-x 1 dpatel users 1014 Sep 30 15:25 show-mylab-env.sh
+-rwxr-xr-x 1 dpatel users 8470 Sep 30 15:25 startlab.sh
 ```
 
 ### 2. Deploy VMs on AWS Lightsail and Setup Rancher Management Server
@@ -80,15 +83,15 @@ usage: ./startlab.sh [options]
 ./startlab.sh
 ```
 
-2) You will be prompted to choose which AWS region you are going to run your lab environment.
+2) You will be prompted to choose which AWS Environment and region you are going to run your lab environment.
 
 ```
-❯ ./startlab.sh
-  ___ _   _ ___ ___   ___              _
- / __| | | / __| __| | _ \__ _ _ _  __| |_  ___ _ _
+dpatel@dns:~/workshop/rancher-devsecops-workshop> ./startlab.sh 
+  ___ _   _ ___ ___   ___              _            
+ / __| | | / __| __| | _ \__ _ _ _  __| |_  ___ _ _ 
  \__ \ |_| \__ \ _|  |   / _` | ' \/ _| ' \/ -_) '_|
- |___/\___/|___/___| |_|_\__,_|_||_\__|_||_\___|_|
-
+ |___/\___/|___/___| |_|_\__,_|_||_\__|_||_\___|_|  
+                                                    
 
 Welcome to SUSE Rancher DevSecOps Hands-on Lab on AWS Lightsail ...
 This script will help you to provision VMs on AWS Lightsail to get started to run your lab exercise. By default, this script will install Rancher for you after VM is up.
@@ -97,9 +100,28 @@ usage: ./startlab.sh [options]
 -s    | --skip-rancher              Skip deploying Rancher after VM is up.
 -h    | --help                      Brings up this menu
 
+Checking pre-requisites...
+git installed
+awscli v2 installed
+
 Select Your Preferred AWS Environment to run your lab:
-1) Tokyo      3) Singapore  5) Mumbai
-2) Seoul      4) Sydney	    6) Quit
+1) US/Canada
+2) Europe
+3) Asia
+4) Quit
+ 3
+Asia 
+Select regions
+1) Mumbai
+2) Seoul
+3) Singapore
+4) Sydney
+5) Tokyo
+6) Quit
+
+ 1
+You picked: Mumbai
+Provisioning VM in your AWS Lightsail region ap-south-1 as lab environment ...
 ```
 
 Choose the region closest to you to continue your lab setup. The script will then
@@ -126,7 +148,13 @@ When the script has finished, you will see a table of VMs with IP addresses, the
 *The IP addresses for you will be different from those in the screenshots in this lab guide.*
 
 ```
-Your lab environment on AWS Lightsail ap-southeast-2 is ready.
+---------------------------------------------------------------------------
+Your Rancher Server is ready.
+
+Your Rancher Server URL: https://rancher.13.232.154.67.sslip.io
+Bootstrap Password: 4rfkljvwb6ldbplfgfjg6tppwggbsq56mgl9npntltn4qpc6dhv9nf
+----------------------------------------------------------------------------
+Your lab environment on AWS Lightsail ap-south-1 is ready. 
 
 Here's the list of VMs running in your lab environment (See file: mylab_vm_list.txt):
 -----------------------------------------------------------------------------
@@ -134,57 +162,69 @@ Here's the list of VMs running in your lab environment (See file: mylab_vm_list.
 +-----------------------+--------------------+-------------------+----------+
 |        VMname         | privateIpAddress   |  publicIpAddress  |  state   |
 +-----------------------+--------------------+-------------------+----------+
-|  suse0908-devsecops-w1|  172.26.0.133      |  3.25.58.209      |  running |
-|  suse0908-cluster1    |  172.26.0.59       |  54.206.211.81    |  running |
-|  suse0908-devsecops-m1|  172.26.13.211     |  13.239.1.61      |  running |
-|  suse0908-devsecops-w2|  172.26.12.139     |  52.65.89.125     |  running |
-|  suse0908-cluster2    |  172.26.5.80       |  3.25.219.16      |  running |
-|  suse0908-rancher     |  172.26.12.196     |  3.25.57.210      |  running |
-|  suse0908-harbor      |  172.26.6.184      |  3.25.226.182     |  running |
-|  suse0908-devsecops-w4|  172.26.1.75       |  13.236.178.85    |  running |
-|  suse0908-devsecops-w3|  172.26.14.214     |  54.252.44.198    |  running |
+|  suse0908-cluster2    |  172.26.31.243     |  65.2.78.40       |  running |
+|  suse0908-devsecops-m1|  172.26.28.50      |  13.126.78.17     |  running |
+|  suse0908-cluster1    |  172.26.19.112     |  15.207.115.122   |  running |
+|  suse0908-devsecops-w2|  172.26.0.206      |  13.235.134.68    |  running |
+|  suse0908-harbor      |  172.26.31.128     |  65.0.177.135     |  running |
+|  suse0908-devsecops-w1|  172.26.20.135     |  3.109.200.216    |  running |
+|  suse0908-rancher     |  172.26.26.107     |  13.232.154.67    |  running |
 +-----------------------+--------------------+-------------------+----------+
-
 To SSH into the VM on the lab, you can run this command:
 
 ./ssh-mylab-<vm>.sh
 
-Your Rancher Instance should be ready in a few minutes ...
-
-Your Rancher URL: https://3.25.57.210
 
 ```
+Save the Rancher Server URL and Bootstrap Password for the next steps.
+
 3) Open the Rancher URL in a browser window. This may take few mins to get Rancher Instance up and running. 
 
 4) Toggle back to the terminal and execute the below command to see the list of files (text and scripts).
 
 ```
-ls -lh *mylab*
+ls -lh 
+
 ```
 Sample output below.
 
 ```
-❯ ls -lh *mylab*
--rw-------  1 derekso  staff   835B Aug 26 07:21 mylab-ssh-config
--rw-------  1 derekso  staff   1.6K Aug 26 07:21 mylab.key
--rw-r--r--  1 derekso  staff   381B Aug 26 07:21 mylab.pub
--rw-r--r--  1 derekso  staff    33B Aug 26 07:18 mylab_aws_region.sh
--rw-r--r--  1 derekso  staff   1.2K Aug 26 07:21 mylab_vm_list.txt
--rw-r--r--  1 derekso  staff    26B Aug 26 07:16 mylab_vm_prefix.sh
--rwxr-xr-x  1 derekso  staff    66B Aug 26 07:21 ssh-mylab-cluster1.sh
--rwxr-xr-x  1 derekso  staff    67B Aug 26 07:21 ssh-mylab-cluster2.sh
--rwxr-xr-x  1 derekso  staff    67B Aug 26 07:21 ssh-mylab-devsecops-m1.sh
--rwxr-xr-x  1 derekso  staff    67B Aug 26 07:21 ssh-mylab-devsecops-w1.sh
--rwxr-xr-x  1 derekso  staff    64B Aug 26 07:21 ssh-mylab-devsecops-w2.sh
--rwxr-xr-x  1 derekso  staff    68B Aug 26 07:21 ssh-mylab-devsecops-w3.sh
--rwxr-xr-x  1 derekso  staff    67B Aug 26 07:21 ssh-mylab-devsecops-w4.sh
--rwxr-xr-x  1 derekso  staff    68B Aug 26 07:21 ssh-mylab-harbor.sh
--rwxr-xr-x  1 derekso  staff    69B Aug 26 07:21 ssh-mylab-rancher.sh
+dpatel@dns:~/workshop/rancher-devsecops-workshop> ll
+total 104
+-rwxr-xr-x 1 dpatel users  831 Sep 30 15:25 cleanlab.sh
+drwxr-xr-x 1 dpatel users  120 Sep 30 15:25 docs
+-rw-r--r-- 1 dpatel users 1065 Sep 30 15:25 LICENSE
+-rw-r--r-- 1 dpatel users   29 Sep 30 15:53 mylab_aws_region.sh
+-rw------- 1 dpatel users 1676 Sep 30 15:54 mylab.key
+-rw-r--r-- 1 dpatel users  381 Sep 30 15:54 mylab.pub
+-rw-r--r-- 1 dpatel users   34 Sep 30 15:53 mylab_rancher_version.sh
+-rw------- 1 dpatel users  654 Sep 30 15:54 mylab-ssh-config
+-rw-r--r-- 1 dpatel users 1043 Sep 30 15:54 mylab_vm_list.txt
+-rw-r--r-- 1 dpatel users   26 Sep 30 15:53 mylab_vm_prefix.sh
+-rw-r--r-- 1 dpatel users 1226 Sep 30 15:25 README.md
+drwxr-xr-x 1 dpatel users  188 Sep 30 15:25 setup
+-rwxr-xr-x 1 dpatel users  999 Sep 30 15:25 setup-rke-cluster1.sh
+-rwxr-xr-x 1 dpatel users  999 Sep 30 15:25 setup-rke-cluster2.sh
+-rwxr-xr-x 1 dpatel users 1846 Sep 30 15:25 setup-rke-devsecops.sh
+-rwxr-xr-x 1 dpatel users 1014 Sep 30 15:25 show-mylab-env.sh
+-rwxr-xr-x 1 dpatel users   67 Sep 30 15:54 ssh-mylab-cluster1.sh
+-rwxr-xr-x 1 dpatel users   69 Sep 30 15:54 ssh-mylab-cluster2.sh
+-rwxr-xr-x 1 dpatel users   69 Sep 30 15:54 ssh-mylab-devsecops-m1.sh
+-rwxr-xr-x 1 dpatel users   67 Sep 30 15:54 ssh-mylab-devsecops-w1.sh
+-rwxr-xr-x 1 dpatel users   66 Sep 30 15:54 ssh-mylab-devsecops-w2.sh
+-rwxr-xr-x 1 dpatel users   55 Sep 30 15:54 ssh-mylab-devsecops-w3.sh
+-rwxr-xr-x 1 dpatel users   55 Sep 30 15:54 ssh-mylab-devsecops-w4.sh
+-rwxr-xr-x 1 dpatel users   66 Sep 30 15:54 ssh-mylab-harbor.sh
+-rwxr-xr-x 1 dpatel users   66 Sep 30 15:54 ssh-mylab-rancher.sh
+-rwxr-xr-x 1 dpatel users 8470 Sep 30 15:25 startlab.sh
+
 ```
 
 You can access to any of your VMs with the `ssh-mylab-<VM>.sh` script. The IP addresses of your VMs are also captured in the file `mylab_vm_list.txt`
 
 ### 3. Setup Harbor instance and Import into Rancher 
+
+#### 3.1 Setup Harbor Registry
 
 We will be using Harbor as our Private Registry
 
@@ -196,7 +236,7 @@ b) Deploying Harbor (using Helm Chart v1.7.2 & App v2.3.2) on K3s.
 c) Configure Harbor CA cert locally 
 d) Downloading Docker Images for Maven, Java Libaries for Maven and Sles15sp3-openjdk and importing them into Harbor. 
 
-1) Login to your harbor instance VM with SSH from your linux workstation.
+a) Login to your harbor instance VM with SSH from your linux workstation.
 
 ```
 ./ssh-mylab-harbor.sh
@@ -204,7 +244,7 @@ d) Downloading Docker Images for Maven, Java Libaries for Maven and Sles15sp3-op
 Sample output below indicates you are on Harbor VMs Terminal.
 
 ```
-❯ ./ssh-mylab-harbor.sh
+dpatel@dns:~/workshop/rancher-devsecops-workshop> ./ssh-mylab-harbor.sh
 openSUSE Leap 15.2 x86_64 (64-bit)
 
 As "root" use the:
@@ -212,9 +252,10 @@ As "root" use the:
 - yast command for configuration management
 
 Have a lot of fun...
-suse0908-harbor ec2-user@ip-172-26-2-249:~>
+suse0908-harbor ec2-user@ip-172-26-22-139:~>
+
 ```
-2) On the Harbor VMs Terminal, run the script below to automatically setup harbor private registry on K3S in this VM instance.
+b) On the Harbor VMs Terminal, run the script below to automatically setup harbor private registry on K3S in this VM instance.
 
 ```
 ./99-one-step-install-harbor.sh
@@ -230,45 +271,54 @@ URL: https://54.153.196.73:30443
 User: admin
 Password: J4diXo8ZKddi5mFGEgx1Z3XveoOuPw
 ```
-3) Open Harbor URL in a browser and log into Harbor using credentials provided as in sample output 
+c) Open Harbor URL in a browser and log into Harbor using credentials provided as in sample output 
 
-#### Import Harbor cluster in Rancher.
+#### 3.2 Import Harbor cluster in Rancher.
 
 In this step, we would be importing Harbor K3s cluster into Rancher. 
 
-1) You should be logged into `Harbor VM` for this, incase if your terminal timeout or for any reason you are not on Harbor VMs, please execute the script below which will automtically take you to the Harbor VMs Terminal.
+a) You should be logged into `Harbor VM` for this, incase if your terminal timeout or for any reason you are not on Harbor VMs, please execute the script below which will automtically take you to the Harbor VMs Terminal.
 ```
 ./ssh-mylab-harbor.sh
 ```
-2) Open browser to navigate to the Rancher URL captured in earlier step.
+b) Open browser to navigate to the Rancher URL captured in earlier step.
 
 Sample output
 ```
-Your Rancher Instance should be ready in a few minutes ...
-Your Rancher URL: https://3.25.57.210
+Your Rancher Server URL: https://rancher.13.232.154.67.sslip.io
+Bootstrap Password: 4rfkljvwb6ldbplfgfjg6tppwggbsq56mgl9npntltn4qpc6dhv9nf
 ```
-By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. Setup your own administrative password, accept the Terms and Conditions, leave the rest of settings as default to continue.
+By pass the invalid SSL certificate warning, you should be prompted a `Welcome to Rancher` page. 
+Provide the bootstrap password generated during setup. Hit `Log in with Local User`
 
-![Rancher UI](./images/rancher-1st-screen.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-3-1-rancher-ui-welcome-rancher-using-bootstrapp-password-pg1.png)
 
-Accept the given IP as your Rancher Server URL to continue.
+Following page will be presented with 
+a) You can setup your own administrative password  by selecting `Set a specific password to use`
+b) You will be presented with Rancher URL
+Accept the Terms and Conditions
 
-![Rancher UI](./images/rancher-2nd-screen.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-3-rancher-ui-change-rancher-password-post-initial-login-and-rnacher-url-pg2.png)
 
-3) You will now be navigated to Rancher Cluster Management UI. Click `Add Cluster` button to import a existing cluster with `Register an existing Kubernetes cluster` - `Other Cluster` method.
+Finally you will be presented with the Rancher Homepage
 
-![Rancher UI](./images/rancher-ui-add-cluster-harbor-pg1.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-3-rancher-ui-rancher-homepage-pg3.png)
 
-![Rancher UI](./images/rancher-ui-addcluster-register-existingcluster-harborpg2.png)
+3) Import Harbor cluster
+a) On Rancher Homeage, click on `Import Cluster` to import a existing cluster with `Generic` option.
 
-4) Enter the custer name as `Harbor` and leave the rest of the setting as default & click on `Create`. 
+![Rancher UI](./Images-10-13-2021/part1-step3-4-1-rancher-import-cluster-harbor-pg1.png)
 
-![Rancher UI](./images/rancher-ui-add-cluster-register-exstingcluster-harbor-pg3.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-4-2-rancher-import-cluster-harbor-pg2.png)
 
-5) You will be prompted with a set of commands. 
-Last command which says `certificate signed by unknown authority`/`self signed`, copy the command and paste the command on the Harbor VMs Terminal to import the cluster. 
+b) Enter the custer name as `harbor` and leave the rest of the setting as default & click on `Create`. 
 
-![Rancher UI](./images/rancher-ui-addcluster-register-existingcluster-harbor-pg4.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-4-3-rancher-import-cluster-Harbor-pg3.png)
+
+c) You will be prompted with a set of commands. 
+Last command which says `Rancher installation has self signed trusted SSL certificate`, copy the command and paste the command on the Harbor VMs Terminal to import the cluster. 
+
+![Rancher UI](./Images-10-13-2021/part1-step3-4-4-rancher-import-cluster-harbor-using-self-signed-certificate-pg4.png)
 
 Incase if you see below messages, 
 ```
@@ -276,76 +326,63 @@ error: no objects passed to apply
 ```
 Re-run the command again using the Up arrow key from keyboard.
 
-Sample output below. 
-![Rancher UI](./images/rancher-ui-copy-n-paste-harbor-terminal-pg5.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-4-5-rancher-import-cluster-harbro-running-rancher-command-on-harbor-vm-pg5.png)
 
-6) You can now toggle to Rancher UI and should find Harbor Cluster successfully imported
+d) You can now toggle to Rancher UI and should find Harbor Cluster successfully imported
 
-![Rancher UI](./images/rancher-ui-harbor-success-pg6.png)
+![Rancher UI](./Images-10-13-2021/part1-step3-4-6-rancher-import-harbor-success-rancher-ui.png)
 
 
 ### 4. Provision DevSecOps RKE cluster from Rancher UI
 
-In this step, we will be provisioning RKE cluster with One Master & four worker Nodes along with thier Private, Public and Node names along with thier role. We have scripted this process to match the lab requirement. 
+In this step, we will be provisioning RKE cluster with One Master & Two worker Nodes along with thier Private, Public and Node names along with thier role. We have scripted this process to match the lab requirement. 
 
 In the following step, we will add `devsecops` cluster in Rancher.
 
-1) Navigated to Rancher Cluster Management UI. Click `Add Cluster` button to create a new cluster with `Existing Node` method. 
+a) Navigated to Rancher Cluster Management UI. Click `Create` button. 
 
-![Rancher UI](./images/rancher-add-cluster-existing-node.png)
+![Rancher UI](./Images-10-13-2021/part1-step4-0-rancher-ui-create-custom-cluster-devsecops-pg0.png)
 
-2) Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Next` button. You will be prompted with a command to setup RKE on your VM. Click on clipboard like icon to copy the command into your clipboard.
+You will be presented `Cluster:Create` page. 
 
-![Rancher UI](./images/rancher-customize-node-run-cmd.png)
+Under section `Provision a new node and create a cluster using RKE2/K3s (Tech Preview)`, toggle the switch `RKE2/k3s`. With Rancher 2.6 you can now provisoin RKE2 & K3s cluster via Rancher UI.
 
-3) Open your Linux workstation terminal and switch to the working directory where this repo has been checked out. 
+To create a new cluster choose the `custom` option to provision clusters on existing nodes 
+
+![Rancher UI](./Images-10-13-2021/part1-step4-1-rancher-ui-create-cluster-custom-devsecops-pg1.png)
+
+b) You will be presented with `Cluster:Create Custom`form. Enter the cluster name as `devsecops` and leave the rest of the settings as default and click `Create` button. You will be presented with cluster registration command to create the RKE cluster on your VM. Check the box 'Insecure: Select this to skip TLS...'. 
+Click on `registration command` to copy the command into your clipboard.
+
+![Rancher UI](./Images-10-13-2021/part1-step4-2-rancher-ui-create-cluster-custom-devsecops-pg2.png)
+
+![Rancher UI](./Images-10-13-2021/part1-step4-3-rancher-ui-create-cluster-custom-devsecops-pg3.png)
+
+c) Open your Linux workstation terminal and switch to the working directory where this repo has been checked out. 
 
 Run the script `./setup-rke-devsecops.sh` and paste the command you copied into the prompt from this script.
 
 ```
 ./setup-rke-devsecops.sh
 ```
-
 ```
 ❯ ./setup-rke-devsecops.sh
 Enter Rancher registration command for devsecops cluster:
 ```
 Sample output below
 
-```
-❯ ./setup-rke-devsecops.sh
-Enter Rancher registration command for devsecops cluster: 
-sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run  rancher/rancher-agent:v2.5.9 --server https://13.234.238.165 --token 6k7x7px575lwvljxvcvq7rlfn5cqjs4vwmw5lfgkwshrklm56hcph7 --ca-checksum df4eea1dba1880a4f944cb9488db4328c7e374780bfd7578d496de78a3333e9d --worker
 
-Register devsecops-m1 cluster ...
-Warning: Permanently added '13.234.186.113' (ECDSA) to the list of known hosts.
-aca02b8b2ddcdfce94531c2f0ca6c6dada0935ff1525c6617135429697d075d7
+![Rancher UI](./Images-10-13-2021/part1-step4-4-copy-n-paste-devsecops-build-command-pg4.png)
 
-Register devsecops-w1 cluster ...
-Warning: Permanently added '3.108.196.228' (ECDSA) to the list of known hosts.
-68f7d20dbc09460747d2ff84a315d6fd3aa4d3cc43563e3242b71273ebe7b42f
-
-Register devsecops-w2 cluster ...
-Warning: Permanently added '52.66.134.146' (ECDSA) to the list of known hosts.
-f292aca663dc23752a17dbc1da37225eca09cd5075b594fa3a7c0fc2037870b3
-
-Register devsecops-w3 cluster ...
-Warning: Permanently added '13.126.69.157' (ECDSA) to the list of known hosts.
-0d42f90e58ad6fad4ecd75651d241c31ee0b6de8107d3cd7c9e80c837d5de67f
-
-Register devsecops-w4 cluster ...
-Warning: Permanently added '65.2.34.12' (ECDSA) to the list of known hosts.
-d3915b754e46c5c93ed17f4236c2dd21d04e851157371a71ea72cffc2c3d078a
-
-The devsecops cluster is now being provisioned by Rancher. It may take a few minutes to complete.
-Once it's ready, please install Longhorn on it and download KUBECONFIG file into your Harbor VM. Thank you!
-```
-
-4) Return to your browser with Rancher UI, you should see the `devsecops` cluster is being initialized. It may take 5-10 minutes to complete the whole RKE cluster setup.
+d) Return to your browser with Rancher UI, you should see the `devsecops` cluster is being initialized. It may take 5-10 minutes to complete the whole RKE cluster setup.
 
 While the devsecops cluster is being provisioned, you can continue with step 5 for provisioning additional RKE clusters.
 
-![Rancher UI](./images/rancher-ui-devsecops-cluster-success.png)
+![Rancher UI](./Images-10-13-2021/part1-step4-5-rancher-ui-devsecops-pg5.png)
+
+Cluster Explorer View for details
+
+![Rancher UI](./Images-10-13-2021/part1-step4-6-rancher-ui-devsecops-cluster-explorer-dashboard-view-pg6.png)
 
 
 ### 5. Provision additional RKE Clusters 
@@ -353,37 +390,49 @@ In this steps, we will be provisioning two single node RKE cluster with Etcd, Co
 
 #### All-In-One RKE clusters 
 
-1) Ensure you are on your local workstation/machine Terminal and inside your git repo cloned.
+a) Ensure you are on your local workstation/machine Terminal and inside your git repo cloned.
 
-Sample output below.
 ```
-dpatel@dns:~/devsecops-workshop/workshop>
+cd ~/workshop
 ```
-2) At the terminal, run the below script 
+b) At the terminal, run the below script. 
+
 ```
 ./setup-rke-cluster1.sh
 ```
-The Terminal will be seeking input command, which we will generate in the following step
+The Terminal will be seeking input command to create the cluster. The command for creating the cluster will be generate in the following step below.
 
-3) Navigate to Rancher Cluster Management UI. 
-Click `Add Cluster` > `Create new kubernetes cluster` > `Existing Node` This will create RKE on existing bare-metal servers or virtual machine. 
+c) Navigate to Rancher Cluster Management UI, click `Create`
 
-![Rancher UI](./images/rancher-add-cluster-existing-node.png)
+![Rancher UI](./Images-10-13-2021/part1-step5-1-create-custom-all-in-1-rke2-cluster-pg1.png)
 
-a) Cluster name as `cluster1`
-b) Under `Labels & Annotation` field, Add Label with key value pair `ENV` and `DEV`.
+You will be presented with `Cluster:Create` form. To create a new cluster, choose `Custom`to provision cluster using RKE2/K3s on existing node.
 
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-pg2-latest.png)
+![Rancher UI](./Images-10-13-2021/part1-step5-2-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg2.png)
 
-c) Leave the rest of the setting as default and click `Next` to proced to next page.
+In `ClusterName` type `cluster1`
+Under `Cluster Configuration` `Basics` form leave everthing as default. 
 
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-worker-option-only.png)
+![Rancher UI](./Images-10-13-2021/part1-step5-3-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg3.png)
 
-d) Click on clipboard like icon to copy the command and hit done.
+In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key` type `env` and  `Value` type `dev` and hit `Create`
 
-e) Pass the command on the Terminal and it will start the provisioning of the all-in-1 RKE cluster `cluster1`
+![Rancher UI](./Images-10-13-2021/part1-step5-4-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-pg4.png)
 
-f) Exit the terminal.
+You will be presented with `Registration` tab. Check the box 'Insecure: Select this to skip TLS...'. 
+Click on the command to copy. 
+
+![Rancher UI](./Images-10-13-2021/part1-step5-5-rancher-ui-create-cluster-custom-all-in-1-rke2-cluster-copy-command-pg5.png)
+
+Paste the registration command on your terminal to start the cluster build process. 
+
+![Rancher UI](./Images-10-13-2021/part1-step5-6-cluster1-terminal-copy-n-paste-create-cluster1-command-pg6.png)
+
+![Rancher UI](./Images-10-13-2021/part1-step5-7-cluster1-terminal-copy-n-paste-create-cluster1-command-pg7.png)
+
+d) Toggle to Rancher UI to veiw the newly registered `cluster1`
+
+![Rancher UI](./Images-10-13-2021/part1-step5-8-rancher-ui-cluster1-success-pg8.png)
 
 #### Provision additional RKE Cluster, All-In-One RKE clusters `Cluster2`
 
@@ -391,75 +440,70 @@ We are currently on the local workstation Terminal where we have our git repo cl
 
 Sample output below.
 ```
-dpatel@dns:~/devsecops-workshop/workshop>
+dpatel@dns:~/workshop>
 ```
 1) At the terminal, run the below script 
 ```
 ./setup-rke-cluster2.sh
 ```
 
-2) Repeat the step a, to e from previous section. 
+2) Repeat the step a, to d from previous section. 
 
 Two important things to note
 
-a) Cluster name will be `cluster2` 
-b) Don't forget to add labels, Under `Labels & Annotation` field, Add Label with key value pair `env` and `dev`.
+a) Cluster name will be `cluster2`. 
+b) In `Labels & Annotation` tab, under `Labels`, provide the key:vaue pair. In `Key` type `env` and  `Value` type `dev`. 
+Check the 'Insecure: Select this to skip TLS...'.
 
-3) Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
+c) Finally we should see both clusters `cluster1` and `cluster2` visible in Rancher.
 
-![Rancher UI](./images/rancher-add-cluster-new-cluster-existing-node-Cluster1-n-2-in-Rancher.png)
+![Rancher UI](./Images-10-13-2021/part1-step5-10-rancher-ui-cluster2-success-pg10.png)
+
 
 ### 6. Download KUBECONFIG file of DevSecOps cluster into Harbor VM
+a) In Rancher UI > Global Apps > Cluster Management > `devsecops`, hit the `Explore` button.
 
-![Download Kubeconfig file](./images/rancher-kubeconfig.png)
+![Rancher UI](./Images-10-13-2021/part1-step6-devsecops-kubeconfig-pg1.png)
 
-a) Navigate to `Cluster Manager` in Rancher UI. 
-b) Click `devsecops` cluster
-c) Click the `Kubeconfig File` button (Top right corner).
-d) Scroll down to the bottom of the popup screen, click `Copy to Clipboard` link to copy the content of this kubeconfig file into your clipboard.
-e) From your Linux workstation, ssh into your harbor VM by executing the script `ssh-mylab-harbor.sh` script). 
+b) In the devsecops cluster, toward the righthand corner look for `file` like icon. Click on it and it would download the KubeConfig file.
+
+![Rancher UI](./Images-10-13-2021/part1-step6-devsecops-kubeconfig-pg2.png)
+
+c) On your linux workstation, ssh into your harbor VM by executing the script `ssh-mylab-harbor.sh` script). 
 
 ```
 ./ssh-mylab-harbor.sh
 ```
-f) Create a file `devsecops.cfg` under `~/.kube` folder.
+d) Create a file `devsecops.cfg` under `~/.kube` folder.
 
 ```
 vi ~/.kube/devsecops.cfg
 ```
-Paste the kubeconfig content copied from Rancher UI for devsecops cluster into this file, save it and exit.
+e) Open the downloaded `KubeConfig` file which should be in download folder & paste the KubeConfig content. Save and exit.
 
-g) If you see the below sample message 
+f) If you see the below sample message 
 
 `Kubernetes configuration file is group-readable. This is insecure. Location: /home/ec2-user/.kube/devsecops.cfg`
 
-h)Modify the file permission by removing additional permissions.
+Modify the file permission by removing additional permissions.
 
 ```
 chmod 600 ~/.kube/devsecops.cfg
 ```
-
-i) Configure Kubernetes client to use this kubeconfig file. 
+g) Configure Kubernetes client to use this kubeconfig file. 
 
 ```
 export KUBECONFIG=~/.kube/devsecops.cfg
 ```
 
-j) Verify if it can connect to your devsecops cluster. If you see an output like below, you are good.
+h) Verify if it can connect to your devsecops cluster. If you see an output like below, you are good.
 
 ```
 kubectl get nodes
 ```
+Sample output below
 
-```
-suse0908-harbor ec2-user@ip-172-26-2-249:~>kubectl get node
-NAME           STATUS   ROLES               AGE   VERSION
-devsecops-m1   Ready    controlplane,etcd   16m   v1.20.9
-devsecops-w1   Ready    worker              15m   v1.20.9
-devsecops-w2   Ready    worker              14m   v1.20.9
-devsecops-w3   Ready    worker              14m   v1.20.9
-devsecops-w4   Ready    worker              14m   v1.20.9
-```
+![Rancher UI](./Images-10-13-2021/part1-step6-devsecops-kubeconfig-working-pg3.png)
 
 ### 7. Install Longhorn on DevSecOps Cluster
 
@@ -477,33 +521,15 @@ cd devsecops/longhorn
 ```
 You should see below output with successfully deployment of Longhorn
 
-```
-Wait while longhorn CSI is still provisioning...
-NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
-csi-attacher               0/3     3            0           15s
-csi-provisioner            1/3     3            1           15s
-csi-resizer                0/3     3            0           15s
-csi-snapshotter            1/3     3            1           14s
-longhorn-driver-deployer   1/1     1            1           52s
-longhorn-ui                1/1     1            1           52s
+![Rancher UI](./Images-10-13-2021/part1-step7-longhorn-success-pg1.png)
 
-Wait while longhorn CSI is still provisioning...
-NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
-csi-attacher               3/3     3            3           35s
-csi-provisioner            3/3     3            3           35s
-csi-resizer                3/3     3            3           35s
-csi-snapshotter            3/3     3            3           34s
-longhorn-driver-deployer   1/1     1            1           72s
-longhorn-ui                1/1     1            1           72s
+3) In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explore > `Longhorn` 
 
-Your longhorn is ready...
+![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-pg2.png)
 
-suse0908-harbor ec2-user@ip-172-26-1-70:~/devsecops/longhorn>
-```
+![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-url-pg3.png)
 
-3) In Rancher UI, open `devsecops` Cluster Explorer > Longhorn > Overview 
-
-![Longhorn UI](./images/part1-step7-Longhorn-UI.png)
+![Rancher UI](./Images-10-13-2021/part1-step7-rancher-ui-longhorn-ui-pg4.png)
 
 
 ### 8. Deploy Jenkins, Anchore and Sonarqube on devsecops RKE cluster from Harbor VM
@@ -514,14 +540,14 @@ In our final step for part 1, we are going to deploy the following in parallel.
 * Anchore (approx 3/4 mins)
 * Sonarqube (approx < 6 mins)
 
-1) If you are not already logged into Harbor VM then run the script `ssh-mylab-harbor.sh` script), else skip to step 2 
+1) If you are not already logged into Harbor VM then run the script `ssh-mylab-harbor.sh` script, else skip to step 2 
 
 ```
 ./ssh-mylab-harbor.sh
 ```
 2) Open two additional terminals, as we will run the deployment of Jenkins, Anchore & Sonarqube one after.
 
-![Deploy Jenkins and others](./images/deploy-jenkins-and-others-start.png)
+![Deploy Jenkins and others](./Images-10-13-2021/deploy-jenkins-and-others-start.png)
 
 3) In terminal 1 of your Harbor VM, run the following command to setup Jenkins.
 
@@ -529,10 +555,22 @@ In our final step for part 1, we are going to deploy the following in parallel.
 cd ~/devsecops/jenkins
 ./99-one-step-install-jenkins.sh
 ```
-
 This should take a while to build Jenkins along with required plugin of our choice to be built in `devsecops` cluster.
 
-Here's a high level view of what has been accomplished
+![Deploy Jenkins and others](./Images-10-13-2021/Part1-Step8-1-Jenkins-url-&-credentials-pg1.png)
+
+In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explore > `Workload` > `Pods` 
+
+![Deploy Jenkins and others](./Images-10-13-2021/part-step8-2-rancher-ui-jenkins-success-pg2.png)
+
+![Deploy Jenkins and others](./Images-10-13-2021/part-step8-3-rancher-ui-jenkins-success-pg3.png)
+
+Since Jenkins is up and running, you can now open your browser and login to Jenkins system using the credentials available.
+
+![Deploy Jenkins and others](./Images-10-13-2021/jenkins-homepage.png)
+
+
+#### Here's a high level view of what has been accomplished so far...
 
 a) Deployment & configuration of self signed certificate with Harbor. Self Signed Certificated are distributing to all Labs VMs. With help of Docker Client, we are able to login in the VM using self signed certifiate. 
 
@@ -542,13 +580,24 @@ c) Provisioning Jenkins using Helm Chart
 
 d) Configuring Jenkins GitHub webhook
 
+
+
 4) In Terminal 2 of Harbor VM, run the following command to setup Anchore 
 
 ```
 cd ~/devsecops/anchore
 ./99-one-step-install-anchore.sh
 ```
-It will also take awhile to deploy anchore on your devsecops cluster. Likewise, let's continue our lab to deploy Sonarqube.
+![Deploy Jenkins and others](./Images-10-13-2021/part-step8-6-anchore-url-n-credentials-pg6.png)
+
+In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explorer > `Workload` > `Pods` 
+
+![Deploy Jenkins and others](./Images-10-13-2021/part-step8-5-rancher-ui-anchore-success-pg6.png)
+
+It will also take a while to deploy anchore on your devsecops cluster. Likewise, let's continue our lab to deploy Sonarqube.
+
+**Important: Anchore community edition does not have GUI & hence no URL to login**.
+
 
 5) On Terminal 3 on Harbor VM, run the following command to setup Sonarqube.
 
@@ -556,20 +605,15 @@ It will also take awhile to deploy anchore on your devsecops cluster. Likewise, 
 cd ~/devsecops/sonarqube
 ./99-one-step-install-sonarqube.sh
 ```
+![Deploy Jenkins and others](./Images-10-13-2021/part-step8-7-sonarqube-url-n-credentials-pg7.png)
 
-For all inquisite people, you can also check the deployment and the pod creation for these application in your `devsecop` cluster.
+In Rancher UI > Global Apps > Cluster Management > `devsecops` > Explore > `Workload` > `Pods` 
 
-6) Toggle to your browser on Rancher UI.
+![Deploy Jenkins and others](./Images-10-13-2021/part-step8-8-rancher-ui-sonarqube-success-pg8.png)
 
-Click on `Cluster Explorer` for `devsecops` cluster. In the `Pods` section, you will be able to see the application container in their respective namespaces
+Since Sonarqube is up and running, you can now open your browser and login to Sonarqube using the credentials available. You might need to setup a new password.
 
-Since the application are been deployed, you will see in sample output below you would find container are `container creation` or `initilization` stages. 
+![Deploy Jenkins and others](./Images-10-13-2021/sonarqube-homepage.png)
 
-![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-rancher-ui.png)
-
-Once all container are up and running & in ready state our output will be as below.
-
-![Deploy Jenkins and others](./images/part1-step7-jenkins-anchore-sonarqube-status-success-rancher-ui.png)
-
-With this, we are ready to move to the [Step 2 - Configure GitHub and Jenkins](part-2.md)
+With this, we have successfully completed all required steps in Part 1. We are ready to move to the Part 2 [Step 2 - Configure GitHub and Jenkins](part-2.md)
 
