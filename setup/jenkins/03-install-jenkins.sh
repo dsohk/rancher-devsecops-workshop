@@ -44,7 +44,7 @@ export NODE_IP=`cat ../../mylab_vm_list.txt | grep suse0908-devsecops-w1 | cut -
 export NODE_PORT=$(kubectl get --namespace jenkins -o jsonpath="{.spec.ports[0].nodePort}" services jenkins)
 
 # admin password
-export JENKINS_PWD=$(kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/chart-admin-password)
+export JENKINS_PWD=$(kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password)
 
 echo
 echo "Your Jenkins instance is ready ..." > $HOME/myjenkins.txt
