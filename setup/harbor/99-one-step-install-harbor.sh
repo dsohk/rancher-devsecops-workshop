@@ -17,8 +17,8 @@ sudo mv /home/ec2-user/.arkade/bin/kubectl /usr/local/bin/
 #! /bin/bash -e
 
 # Step 1 - Install K3S
-echo "Installing k3s ...."
-export INSTALL_K3S_VERSION="v1.22.10+k3s1"
+echo "Installing k3s v1.22 ...."
+export INSTALL_K3S_CHANNEL="v1.22"
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" sh -s -
 mkdir -p $HOME/.kube
 cp /etc/rancher/k3s/k3s.yaml $HOME/.kube/config
@@ -63,7 +63,7 @@ export HARBOR_IP=`curl -sq http://checkip.amazonaws.com`
 export HARBOR_ADMIN_PWD=`tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1`
 export HARBOR_NODEPORT=30443
 
-helm install harbor-registry harbor/harbor --version 1.6.2 \
+helm install harbor-registry harbor/harbor --version 1.9.3 \
   -n harbor \
   --set expose.type=nodePort \
   --set expose.nodePort.ports.https.nodePort=${HARBOR_NODEPORT} \

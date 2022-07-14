@@ -12,7 +12,7 @@ helm repo update
 
 helm install longhorn longhorn/longhorn \
   --set persistence.defaultClassReplicaCount=2 \
-  --version 1.2.4 \
+  --version 1.3.0 \
   --namespace longhorn-system \
   --create-namespace
 
