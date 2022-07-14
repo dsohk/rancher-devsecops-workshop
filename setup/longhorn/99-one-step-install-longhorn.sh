@@ -10,8 +10,11 @@ export KUBECONFIG=$HOME/.kube/devsecops.cfg
 helm repo add longhorn https://charts.longhorn.io
 helm repo update
 
-kubectl create namespace longhorn-system
-helm install --version 1.2.0 longhorn longhorn/longhorn --namespace longhorn-system
+helm install longhorn longhorn/longhorn \
+  --set persistence.defaultClassReplicaCount=2 \
+  --version 1.2.4 \
+  --namespace longhorn-system \
+  --create-namespace
 
 echo "Your Longhorn is provisioning...."
 while [ `kubectl -n longhorn-system get deploy | grep longhorn- | grep 1/1 | wc -l` -ne 2 ]
@@ -29,7 +32,6 @@ do
   kubectl get deploy -n longhorn-system
 done
 
-echo 
+echo
 echo "Your longhorn is ready..."
 echo
-

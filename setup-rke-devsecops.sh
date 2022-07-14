@@ -27,13 +27,13 @@ if [ -f ssh-mylab-devsecops-m1.sh ]; then
   SSH_VM=$(<ssh-mylab-devsecops-m1.sh)
   CMD="$RANCHER_REGCMD --node-name devsecops-m1 --address $PUB_IP --internal-address $PRIV_IP --etcd --controlplane"
   echo $CMD
-  eval "$SSH_VM $CMD"
+  eval "$SSH_VM \"$CMD\""
   sleep 10
 fi
 
 
 # Count all worker nodes
-for n in 1 2 3 4 
+for n in 1 2
 do
   if [ -f ssh-mylab-devsecops-w$n.sh ]; then
     VM=$VM_PREFIX-devsecops-w$n
@@ -45,9 +45,10 @@ do
     SSH_VM=$(<ssh-mylab-devsecops-w$n.sh)
     CMD="$RANCHER_REGCMD --node-name devsecops-w$n --address $PUB_IP --internal-address $PRIV_IP --worker"
     echo $CMD
-    eval "$SSH_VM $CMD"
+    eval "$SSH_VM \"$CMD\""
   fi
 done 
+
 
 echo
 echo "The devsecops cluster is now being provisioned by Rancher. It may take a few minutes to complete."

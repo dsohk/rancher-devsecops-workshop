@@ -14,8 +14,6 @@ function cleanup() {
   delete-vm $VM_PREFIX-devsecops-m1 
   delete-vm $VM_PREFIX-devsecops-w1
   delete-vm $VM_PREFIX-devsecops-w2
-  delete-vm $VM_PREFIX-devsecops-w3
-  delete-vm $VM_PREFIX-devsecops-w4
   delete-vm $VM_PREFIX-cluster1
   delete-vm $VM_PREFIX-cluster2
   rm -f {mylab.*,ssh-mylab*.*,mylab*.txt,mylab-ssh-config,mylab_vm_prefix.sh,mylab*.sh,*.log}

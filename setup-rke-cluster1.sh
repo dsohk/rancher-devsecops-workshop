@@ -27,5 +27,5 @@ echo "Registering cluster1 as All-in-one RKE..."
 SSH_VM=$(<ssh-mylab-cluster1.sh)
 CMD="$RANCHER_REGCMD --node-name cluster1 --address $PUB_IP --internal-address $PRIV_IP --etcd --controlplane --worker"
 echo $CMD
-eval "$SSH_VM $CMD"
+eval "$SSH_VM \"$CMD\""
 
