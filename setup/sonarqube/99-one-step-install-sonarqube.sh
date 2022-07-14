@@ -23,7 +23,7 @@ fi
 
 set -e
 
-git clone https://github.com/SonarSource/helm-chart-sonarqube.git --depth 1 -b sonarqube-lts-1.0.29
+git clone https://github.com/SonarSource/helm-chart-sonarqube.git --depth 1 -b sonarqube-lts-1.0.19
 cd helm-chart-sonarqube/charts/sonarqube
 helm dependency update
 kubectl create namespace sonarqube
