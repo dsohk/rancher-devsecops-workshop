@@ -70,7 +70,9 @@ do
   kubectl get sts -n jenkins
 done
 
-export NODE_IP=`cat ../../mylab_vm_list.txt | grep suse0908-devsecops-w1 | cut -d '|' -f 4 | xargs`
+source $HOME/mylab_vm_prefix.sh
+
+export NODE_IP=`cat ../../mylab_vm_list.txt | grep $VM_PREFIX-devsecops-w1 | cut -d '|' -f 4 | xargs`
 export NODE_PORT=$(kubectl get --namespace jenkins -o jsonpath="{.spec.ports[0].nodePort}" services jenkins)
 
 # admin password
