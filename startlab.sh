@@ -46,7 +46,7 @@ while [ "$1" != "" ]; do
             echo "NOTE: You chose to deploy Rancher on your own after your VM on AWS is up."
             echo
             break
-        ;;          
+        ;;
         -h | --help )    usage
             exit
         ;;
@@ -60,7 +60,7 @@ check_sysreq;
 export VM_PREFIX=suse0908
 echo "export VM_PREFIX=$VM_PREFIX" > mylab_vm_prefix.sh
 
-export RANCHER_VERSION=v2.6.1
+export RANCHER_VERSION=v2.6.6
 echo "export RANCHER_VERSION=$RANCHER_VERSION" > mylab_rancher_version.sh
 
 title="Select Your Preferred AWS Environment to run your lab:"
@@ -86,7 +86,7 @@ unset IFS
 
 echo "Select regions"
 PS3="$prompt "
-select opt in "${options[@]}" "Quit"; do 
+select opt in "${options[@]}" "Quit"; do
   if (( 1 <= $REPLY && $REPLY <= ${#options[@]} ))
   then
     export AWSLS_CHOSEN_REGION="${options[$REPLY - 1]}"
@@ -118,11 +118,11 @@ export AWS_SIZE_XLARGE="xlarge_${AWSLS_VM_SIZE_SUFFIX}"
 echo "Provisioning VM in your AWS Lightsail region $AWS_REGION as lab environment ..."
 create-vm $VM_PREFIX-rancher $AWS_SIZE_XLARGE
 create-vm $VM_PREFIX-harbor  $AWS_SIZE_MEDIUM "systemctl enable docker; systemctl start docker; zypper in -y git-core; docker pull susesamples/myjenkins:v1.0;"
-create-vm $VM_PREFIX-devsecops-m1 $AWS_SIZE_MEDIUM 
+create-vm $VM_PREFIX-devsecops-m1 $AWS_SIZE_MEDIUM
 create-vm $VM_PREFIX-devsecops-w1 $AWS_SIZE_XLARGE "zypper in -y nfs-client;"
 create-vm $VM_PREFIX-devsecops-w2 $AWS_SIZE_XLARGE "zypper in -y nfs-client;"
-create-vm $VM_PREFIX-cluster1 $AWS_SIZE_MEDIUM 
-create-vm $VM_PREFIX-cluster2 $AWS_SIZE_MEDIUM 
+create-vm $VM_PREFIX-cluster1 $AWS_SIZE_MEDIUM
+create-vm $VM_PREFIX-cluster2 $AWS_SIZE_MEDIUM
 
 # wait until all VMs are running
 while list-vm | grep -q 'pending'
@@ -192,13 +192,14 @@ for vm in rancher harbor; do
   scp $SSH_OPTS -i mylab.key mylab.key ec2-user@$VM_IP:~/.ssh/
   scp $SSH_OPTS -i mylab.key mylab-ssh-config ec2-user@$VM_IP:~/.ssh/config
   scp $SSH_OPTS -i mylab.key setup/$vm/*.*  ec2-user@$VM_IP:~/
-done 
+done
 
 # upload files to be deployed onto devsecops cluster
 echo "Upload files to be executed onto devsecops cluster into harbor instance ..."
 HARBOR_IP=`get-vm-public-ip $VM_PREFIX-harbor`
 ssh $SSH_OPTS -i mylab.key ec2-user@$HARBOR_IP mkdir -p devsecops/{jenkins,sonarqube,anchore,longhorn}
 scp $SSH_OPTS -i mylab.key mylab_vm_list.txt ec2-user@$HARBOR_IP:~
+scp $SSH_OPTS -i mylab.key mylab_vm_prefix.sh ec2-user@$HARBOR_IP:~
 scp $SSH_OPTS -i mylab.key setup/jenkins/*.* ec2-user@$HARBOR_IP:~/devsecops/jenkins
 scp $SSH_OPTS -i mylab.key setup/sonarqube/*.* ec2-user@$HARBOR_IP:~/devsecops/sonarqube
 scp $SSH_OPTS -i mylab.key setup/anchore/*.* ec2-user@$HARBOR_IP:~/devsecops/anchore

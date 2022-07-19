@@ -17,7 +17,7 @@ helm repo add anchore https://charts.anchore.io
 helm repo update
 
 helm install anchore anchore/anchore-engine \
-  --version 1.14.2 \
+  --version 1.19.1 \
   --create-namespace \
   -n anchore \
   --set postgresql.persistence.accessMode='ReadWriteMany'
@@ -39,4 +39,3 @@ echo "URL: http://anchore-anchore-engine-api.anchore.svc.cluster.local:8228/v1/"
 echo "User: admin" >> $HOME/myanchore.txt
 echo "Password: $ANCHORE_PWD" >> $HOME/myanchore.txt
 cat $HOME/myanchore.txt
- 

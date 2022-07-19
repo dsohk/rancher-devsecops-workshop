@@ -1,11 +1,11 @@
 #! /bin/bash -e
 
 # Step 1 - Install K3S
-echo "Installing k3s ...."
-export INSTALL_K3S_VERSION="v1.21.1+k3s1"
+echo "Installing k3s v1.22 ...."
+export INSTALL_K3S_CHANNEL="v1.22"
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" sh -s -
-mkdir -p $HOME/.kube 
-cp /etc/rancher/k3s/k3s.yaml $HOME/.kube/config 
+mkdir -p $HOME/.kube
+cp /etc/rancher/k3s/k3s.yaml $HOME/.kube/config
 chmod 644 $HOME/.kube/config
 
 # Step 2 - Check if the k3s is ready
@@ -29,6 +29,3 @@ done
 # Step 3 - ready
 echo "Your k3s cluster is ready!"
 kubectl get node
-
-
-

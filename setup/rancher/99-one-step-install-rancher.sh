@@ -21,8 +21,8 @@ echo "Install Rancher Server using helm chart on RKE2 ..."
 
 source $HOME/mylab_rancher_version.sh
 
-echo "Install RKE2 v1.21 ..."
-sudo bash -c 'curl -sfL https://get.rke2.io | INSTALL_RKE2_CHANNEL="v1.21" sh -'
+echo "Install RKE2 v1.22 ..."
+sudo bash -c 'curl -sfL https://get.rke2.io | INSTALL_RKE2_CHANNEL="v1.22" sh -'
 sudo mkdir -p /etc/rancher/rke2
 sudo bash -c 'echo "write-kubeconfig-mode: \"0644\"" > /etc/rancher/rke2/config.yaml'
 sudo systemctl enable rke2-server.service
@@ -42,13 +42,13 @@ done
 echo "Your RKE2 cluster is ready!"
 kubectl get node
 
-echo "Install Cert Manager v1.5.1 ..."
+echo "Install Cert Manager v1.8.2..."
 kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.5.1/cert-manager.crds.yaml
 helm repo add jetstack https://charts.jetstack.io
 helm install \
   cert-manager jetstack/cert-manager \
   --namespace cert-manager \
-  --version v1.5.1 \
+  --version v1.8.2 \
   --create-namespace
 kubectl -n cert-manager rollout status deploy/cert-manager
 

@@ -13,7 +13,7 @@ export HARBOR_IP=`curl -sq http://checkip.amazonaws.com`
 export HARBOR_ADMIN_PWD=`tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1`
 export HARBOR_NODEPORT=30443
 
-helm install harbor-registry harbor/harbor --version 1.6.2 \
+helm install harbor-registry harbor/harbor --version 1.9.3 \
   -n harbor \
   --set expose.type=nodePort \
   --set expose.nodePort.ports.https.nodePort=${HARBOR_NODEPORT} \
@@ -55,6 +55,3 @@ echo "User: admin" >> harbor-credential.txt
 echo "Password: ${HARBOR_ADMIN_PWD}" >> harbor-credential.txt
 echo "Your login credential is saved in a file: harbor-credential.txt"
 cat harbor-credential.txt
-
-
-

@@ -1,6 +1,6 @@
 image:
   repository: sonarqube
-  tag: 8.9-community
+  tag: 8.9.9-community
   pullPolicy: IfNotPresent
   # If using a private repository, the name of the imagePullSecret to use
   # pullSecret: my-repo-secret
@@ -27,7 +27,7 @@ resources:
     cpu: 800m
     memory: 4096M
   requests:
-    cpu: 250m
+    cpu: 400m
     memory: 2Gi
 persistence:
   enabled: true
@@ -37,4 +37,3 @@ persistence:
 postgresql:
   persistence:
     enabled: false
-
