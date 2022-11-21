@@ -42,13 +42,13 @@ done
 echo "Your RKE2 cluster is ready!"
 kubectl get node
 
-echo "Install Cert Manager v1.8.2..."
-kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.5.1/cert-manager.crds.yaml
+echo "Install Cert Manager v1.10.0 ..."
+kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.10.0/cert-manager.crds.yaml
 helm repo add jetstack https://charts.jetstack.io
 helm install \
   cert-manager jetstack/cert-manager \
   --namespace cert-manager \
-  --version v1.8.2 \
+  --version v1.10.0 \
   --create-namespace
 kubectl -n cert-manager rollout status deploy/cert-manager
 

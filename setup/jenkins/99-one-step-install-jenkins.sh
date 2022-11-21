@@ -60,7 +60,7 @@ helm search repo jenkinsci
 echo Customize jenkins-values.yaml
 sed "s/HARBOR_URL/$HARBOR_URL/g" jenkins-values-template.yaml > my-jenkins-values.yaml
 
-helm install jenkins jenkinsci/jenkins --version 4.1.13 -n jenkins -f my-jenkins-values.yaml
+helm install jenkins jenkinsci/jenkins --version 3.5.14 -n jenkins -f my-jenkins-values.yaml
 
 echo "Your Jenkins instance is provisioning...."
 while [ `kubectl get sts -n jenkins | grep 1/1 | wc -l` -ne 1 ]
@@ -76,7 +76,7 @@ export NODE_IP=`cat ../../mylab_vm_list.txt | grep $VM_PREFIX-devsecops-w1 | cut
 export NODE_PORT=$(kubectl get --namespace jenkins -o jsonpath="{.spec.ports[0].nodePort}" services jenkins)
 
 # admin password
-export JENKINS_PWD=$(kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password)
+export JENKINS_PWD=$(kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/chart-admin-password)
 
 echo
 echo "Your Jenkins instance is ready ..." > $HOME/myjenkins.txt
@@ -107,6 +107,7 @@ metadata:
   name: m2
   namespace: jenkins-workers
 spec:
+  storageClassName: "longhorn"
   accessModes:
     - ReadWriteOnce
   volumeMode: Filesystem

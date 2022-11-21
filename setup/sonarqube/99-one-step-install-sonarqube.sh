@@ -23,8 +23,13 @@ fi
 
 set -e
 
-git clone https://github.com/SonarSource/helm-chart-sonarqube.git --depth 1 -b sonarqube-lts-1.0.29
-cd helm-chart-sonarqube/charts/sonarqube
+#git clone https://github.com/SonarSource/helm-chart-sonarqube.git --depth 1 -b sonarqube-lts-1.0.29
+#cd helm-chart-sonarqube/charts/sonarqube
+helm repo add sonarqube https://SonarSource.github.io/helm-chart-sonarqube
+helm repo update
+kubectl create namespace sonarqube
+helm upgrade --install -f ~/sonarqube-values.yaml -n sonarqube sonarqube-lts sonarqube/sonarqube-lts
+
 helm dependency update
 kubectl create namespace sonarqube
 
@@ -43,7 +48,7 @@ done
 
 source $HOME/mylab_vm_prefix.sh
 
-export NODE_IP=`cat $HOME/mylab_vm_list.txt | grep $VM_PREFIX-devsecops-w1 | cut -d '|' -f 4 | xargs`
+export NODE_IP=`cat ../../mylab_vm_list.txt | grep $VM_PREFIX-devsecops-w1 | cut -d '|' -f 4 | xargs`
 export NODE_PORT=$(kubectl get --namespace sonarqube -o jsonpath="{.spec.ports[0].nodePort}" services sonarqube-sonarqube)
 
 echo
