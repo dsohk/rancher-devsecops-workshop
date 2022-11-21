@@ -16,7 +16,6 @@ if [ ! -f mylab_env.txt ]; then
   if [ -f ssh-mylab-harbor.sh ]; then
     SSH_VM=$(<ssh-mylab-harbor.sh)
     echo >> mylab_env.txt
-    echo "Your Harbor Instance is ready ..." >> mylab_env.txt
     eval "$SSH_VM cat harbor-credential.txt >> mylab_env.txt"
     echo >> mylab_env.txt
     eval "$SSH_VM cat myjenkins.txt >> mylab_env.txt"

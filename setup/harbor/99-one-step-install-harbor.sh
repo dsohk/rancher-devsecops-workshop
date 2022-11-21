@@ -100,8 +100,8 @@ echo "export HARBOR_URL=${HARBOR_IP}:${HARBOR_NODEPORT}" > myharbor.sh
 echo "export HARBOR_USR=admin" >> myharbor.sh
 echo "export HARBOR_PWD=${HARBOR_ADMIN_PWD}" >> myharbor.sh
 
-echo "Your harbor instance on k3s is up and running!"
-echo "URL: https://${HARBOR_IP}:${HARBOR_NODEPORT}" > harbor-credential.txt
+echo "Your Harbor Instance is ready ..." > harbor-credential.txt
+echo "URL: https://${HARBOR_IP}:${HARBOR_NODEPORT}" >> harbor-credential.txt
 echo "User: admin" >> harbor-credential.txt
 echo "Password: ${HARBOR_ADMIN_PWD}" >> harbor-credential.txt
 echo "Your login credential is saved in a file: harbor-credential.txt"
