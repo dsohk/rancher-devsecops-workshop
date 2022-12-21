@@ -11,8 +11,9 @@ helm repo add longhorn https://charts.longhorn.io
 helm repo update
 
 helm install longhorn longhorn/longhorn \
-  --set persistence.defaultClassReplicaCount=2 \
-  --version 1.3.2 \
+  --set persistence.defaultClassReplicaCount=1 \
+  --set persistence.reclaimPolicy=Delete \
+  --version=1.3.2 \
   --namespace longhorn-system \
   --create-namespace
 

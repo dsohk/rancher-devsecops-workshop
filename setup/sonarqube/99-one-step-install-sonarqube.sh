@@ -30,13 +30,13 @@ helm repo update
 kubectl create namespace sonarqube
 helm upgrade --install -f ~/sonarqube-values.yaml -n sonarqube sonarqube-lts sonarqube/sonarqube-lts
 
-helm dependency update
-kubectl create namespace sonarqube
+#helm dependency update
+#kubectl create namespace sonarqube
 
-kubectl taint nodes devsecops-w1 sonarqube=true:NoSchedule --overwrite=true
-kubectl label node devsecops-w1  sonarqube=true --overwrite=true
+#kubectl taint nodes devsecops-w1 sonarqube=true:NoSchedule --overwrite=true
+#kubectl label node devsecops-w1  sonarqube=true --overwrite=true
 
-helm install -f ~/devsecops/sonarqube/sonarqube-values.yaml -n sonarqube sonarqube ./
+#helm install -f ~/devsecops/sonarqube/sonarqube-values.yaml -n sonarqube sonarqube ./
 
 echo "Your Sonarqube instance is provisioning...."
 while [ `kubectl get sts -n sonarqube | grep 1/1 | wc -l` -ne 2 ]

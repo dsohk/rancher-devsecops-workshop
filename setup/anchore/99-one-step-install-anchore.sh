@@ -16,8 +16,8 @@ fi
 helm repo add anchore https://charts.anchore.io
 helm repo update
 
-helm upgrade --install anchore anchore/anchore-engine \
-  --version 1.20.0 \
+helm install anchore anchore/anchore-engine \
+  --version 1.19.8 \
   --create-namespace \
   -n anchore \
   --set postgresql.persistence.accessMode='ReadWriteMany'

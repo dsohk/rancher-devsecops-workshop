@@ -21,8 +21,8 @@ echo "Install Rancher Server using helm chart on RKE2 ..."
 
 source $HOME/mylab_rancher_version.sh
 
-echo "Install RKE2 v1.22 ..."
-sudo bash -c 'curl -sfL https://get.rke2.io | INSTALL_RKE2_CHANNEL="v1.22" sh -'
+echo "Install RKE2 v1.24 ..."
+sudo bash -c 'curl -sfL https://get.rke2.io | INSTALL_RKE2_CHANNEL="v1.24" sh -'
 sudo mkdir -p /etc/rancher/rke2
 sudo bash -c 'echo "write-kubeconfig-mode: \"0644\"" > /etc/rancher/rke2/config.yaml'
 sudo systemctl enable rke2-server.service
