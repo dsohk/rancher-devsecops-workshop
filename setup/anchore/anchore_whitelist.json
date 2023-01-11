@@ -1,0 +1,162 @@
+{
+    "blacklisted_images": [],
+    "comment": "Default bundle",
+    "id": "2c53a13c-1765-11e8-82ef-23527761d060",
+    "mappings": [
+        {
+            "id": "c4f9bf74-dc38-4ddf-b5cf-00e9c0074611",
+            "image": {
+                "type": "tag",
+                "value": "*"
+            },
+            "name": "default",
+            "policy_id": "48e6f7d6-1765-11e8-b5f9-8b6f228548b6",
+            "registry": "*",
+            "repository": "*",
+            "whitelist_ids": [
+                "37fd763e-1765-11e8-add4-3b16c029ac5c"
+            ]
+        }
+    ],
+    "name": "Default bundle",
+    "policies": [
+        {
+            "comment": "System default policy",
+            "id": "48e6f7d6-1765-11e8-b5f9-8b6f228548b6",
+            "name": "DefaultPolicy",
+            "rules": [
+                {
+                    "action": "STOP",
+                    "gate": "dockerfile",
+                    "id": "ce7b8000-829b-4c27-8122-69cd59018400",
+                    "params": [
+                        {
+                            "name": "ports",
+                            "value": "22"
+                        },
+                        {
+                            "name": "type",
+                            "value": "blacklist"
+                        }
+                    ],
+                    "trigger": "exposed_ports"
+                },
+                {
+                    "action": "WARN",
+                    "gate": "dockerfile",
+                    "id": "312d9e41-1c05-4e2f-ad89-b7d34b0855bb",
+                    "params": [
+                        {
+                            "name": "instruction",
+                            "value": "HEALTHCHECK",
+                    "trigger": "package"
+                },
+                {
+                    "action": "STOP",
+                    "gate": "vulnerabilities",
+                    "id": "b30e8abc-444f-45b1-8a37-55be1b8c8bb5",
+                    "params": [
+                        {
+                            "name": "package_type",
+                            "value": "all"
+                        },
+                        {
+                            "name": "severity_comparison",
+                            "value": ">"
+                        },
+                        {
+                            "name": "severity",
+                            "value": "medium"
+                        }
+                    ],
+                    "trigger": "package"
+                }
+            ],
+            "version": "1_0"
+        }
+    ],
+    "version": "1_0",
+    "whitelisted_images": [
+        {
+            "name": "AllowSpring-petclinic",
+            "registry": "harbor.sst.suse.lab:30443",
+            "repository": "library/samples/spring-petclinic",
+            "image": { "type": "tag", "value": "v1.0.*" }
+          }
+    ],
+    "whitelists": [
+        {
+            "comment": "Default global whitelist",
+            "id": "37fd763e-1765-11e8-add4-3b16c029ac5c",
+            "items": [
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "GHSA-jjjh-jjxp-wpff+*",
+                    "id": "rule1"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "CVE-2021-44228+*",
+                    "id": "rule2"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "CVE-2021-42392+*",
+                    "id": "rule3"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "GHSA-mjmj-j48q-9wg2+*",
+                    "id": "rule4"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "CVE-2021-23463+*",
+                    "id": "rule5"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "CVE-2022-45868+*",
+                    "id": "rule6"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "CVE-2021-45046+*",
+                    "id": "rule7"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "GHSA-57j2-w4cx-62h2+*",
+                    "id": "rule8"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "CVE-2021-44228+*",
+                    "id": "rule9"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "CVE-2021-45046+*",
+                    "id": "rule10"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "GHSA-rgv9-q543-rqg4+*",
+                    "id": "rule11"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "GHSA-3mc7-4q67-w48m+*",
+                    "id": "rule12"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "CVE-2022-23221+*",
+                    "id": "rule13"
+                }
+            ],
+            "name": "Global Whitelist",
+            "version": "1_0"
+        }
+    ]
+}
