@@ -15,6 +15,7 @@ metadata:
   name: m2
   namespace: jenkins-workers
 spec:
+  storageClassName: "longhorn"
   accessModes:
     - ReadWriteOnce
   volumeMode: Filesystem
@@ -41,7 +42,6 @@ rm -f additional-ca-cert-bundle.crt
 echo
 echo --------------------------------
 echo Your Jenkins instance is ready
-echo 
+echo
 cat $HOME/myjenkins.txt
 echo
-

@@ -17,8 +17,9 @@ sudo mv /home/ec2-user/.arkade/bin/kubectl /usr/local/bin/
 #! /bin/bash -e
 
 # Step 1 - Install K3S
-echo "Installing k3s v1.22 ...."
-export INSTALL_K3S_CHANNEL="v1.22"
+echo "Installing k3s ...."
+#export INSTALL_K3S_VERSION="v1.24"
+export INSTALL_K3S_CHANNEL="v1.24"
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" sh -s -
 mkdir -p $HOME/.kube
 cp /etc/rancher/k3s/k3s.yaml $HOME/.kube/config
@@ -63,7 +64,7 @@ export HARBOR_IP=`curl -sq http://checkip.amazonaws.com`
 export HARBOR_ADMIN_PWD=`tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1`
 export HARBOR_NODEPORT=30443
 
-helm install harbor-registry harbor/harbor --version 1.9.3 \
+helm install harbor-registry harbor/harbor --version 1.10.2 \
   -n harbor \
   --set expose.type=nodePort \
   --set expose.nodePort.ports.https.nodePort=${HARBOR_NODEPORT} \
@@ -99,8 +100,8 @@ echo "export HARBOR_URL=${HARBOR_IP}:${HARBOR_NODEPORT}" > myharbor.sh
 echo "export HARBOR_USR=admin" >> myharbor.sh
 echo "export HARBOR_PWD=${HARBOR_ADMIN_PWD}" >> myharbor.sh
 
-echo "Your harbor instance on k3s is up and running!"
-echo "URL: https://${HARBOR_IP}:${HARBOR_NODEPORT}" > harbor-credential.txt
+echo "Your Harbor Instance is ready ..." > harbor-credential.txt
+echo "URL: https://${HARBOR_IP}:${HARBOR_NODEPORT}" >> harbor-credential.txt
 echo "User: admin" >> harbor-credential.txt
 echo "Password: ${HARBOR_ADMIN_PWD}" >> harbor-credential.txt
 echo "Your login credential is saved in a file: harbor-credential.txt"
