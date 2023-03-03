@@ -10,7 +10,7 @@ export KUBECONFIG=$HOME/.kube/devsecops.cfg
 helm repo add longhorn https://charts.longhorn.io
 helm repo update
 
-helm install longhorn longhorn/longhorn \
+helm upgrade --install longhorn longhorn/longhorn \
   --set persistence.defaultClassReplicaCount=1 \
   --set persistence.reclaimPolicy=Delete \
   --version=1.4.0 \
