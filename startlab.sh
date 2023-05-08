@@ -60,7 +60,7 @@ check_sysreq;
 export VM_PREFIX=suse0908
 echo "export VM_PREFIX=$VM_PREFIX" > mylab_vm_prefix.sh
 
-export RANCHER_VERSION=v2.6.9
+export RANCHER_VERSION=v2.7.3
 echo "export RANCHER_VERSION=$RANCHER_VERSION" > mylab_rancher_version.sh
 
 title="Select Your Preferred AWS Environment to run your lab:"
