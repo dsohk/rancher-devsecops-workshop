@@ -64,7 +64,7 @@ export HARBOR_IP=`curl -sq http://checkip.amazonaws.com`
 export HARBOR_ADMIN_PWD=`tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1`
 export HARBOR_NODEPORT=30443
 
-helm install harbor-registry harbor/harbor --version 1.10.2 \
+helm install harbor-registry harbor/harbor --version 1.12.0 \
   -n harbor \
   --set expose.type=nodePort \
   --set expose.nodePort.ports.https.nodePort=${HARBOR_NODEPORT} \
