@@ -15,9 +15,10 @@ fi
 
 helm repo add anchore https://charts.anchore.io
 helm repo update
+helm search repo anchore
 
 helm install anchore anchore/anchore-engine \
-  --version 1.19.8 \
+  --version 1.24.2 \
   --create-namespace \
   -n anchore \
   --set postgresql.persistence.accessMode='ReadWriteMany'
@@ -46,11 +47,11 @@ ANCHORE_CLI_PASS=$(kubectl get secret --namespace anchore anchore-anchore-engine
 ANCHORE_CLI_URL=http://anchore-anchore-engine-api.anchore.svc.cluster.local:8228/v1/
 
 kubectl run -i --tty anchore-cli \
-  --restart=Always 
-  --image anchore/engine-cli  
-  --env ANCHORE_CLI_USER=${ANCHORE_CLI_USER} 
-  --env ANCHORE_CLI_PASS=${ANCHORE_CLI_PASS} 
-  --env ANCHORE_CLI_URL=${ANCHORE_CLI_URL} 
+  --restart=Always \
+  --image anchore/engine-cli  \
+  --env ANCHORE_CLI_USER=${ANCHORE_CLI_USER} \
+  --env ANCHORE_CLI_PASS=${ANCHORE_CLI_PASS} \
+  --env ANCHORE_CLI_URL=${ANCHORE_CLI_URL} \
   -n anchore
 
   

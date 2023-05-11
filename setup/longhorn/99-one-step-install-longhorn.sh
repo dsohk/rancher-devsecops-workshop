@@ -13,7 +13,7 @@ helm repo update
 helm upgrade --install longhorn longhorn/longhorn \
   --set persistence.defaultClassReplicaCount=1 \
   --set persistence.reclaimPolicy=Delete \
-  --version=1.4.0 \
+  --version=1.4.1 \
   --namespace longhorn-system \
   --create-namespace
 
