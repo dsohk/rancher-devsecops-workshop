@@ -95,6 +95,12 @@ do
   kubectl get deploy  -n harbor
 done
 
+
+#export HARBOR_IP=`harbor.example.com`
+#export HARBOR_ADMIN_PWD=`Suse123!`
+#export HARBOR_NODEPORT=30443
+
+
 # save the harbor credential for use at later stage
 echo "export HARBOR_URL=${HARBOR_IP}:${HARBOR_NODEPORT}" > myharbor.sh
 echo "export HARBOR_USR=admin" >> myharbor.sh
