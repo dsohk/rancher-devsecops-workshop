@@ -1,4 +1,4 @@
-# Build Your Own DevSecOps using SUSE Rancher 2.6
+# Build Your Own DevSecOps using SUSE Rancher 2.7
 
 ![SUSE Rancher - DevSecOps Scenario](./overview.png)
 
