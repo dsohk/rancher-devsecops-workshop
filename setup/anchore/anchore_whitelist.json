@@ -153,6 +153,11 @@
                     "gate": "vulnerabilities",
                     "trigger_id": "CVE-2022-23221+*",
                     "id": "rule13"
+                },
+                {
+                    "gate": "vulnerabilities",
+                    "trigger_id": "GHSA-3x8x-79m2-3w2w+*",
+                    "id": "rule14"
                 }
             ],
             "name": "Global Whitelist",

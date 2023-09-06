@@ -1,6 +1,6 @@
 image:
   repository: sonarqube
-  tag: 8.9.9-community
+  tag: lts-community
   pullPolicy: IfNotPresent
   # If using a private repository, the name of the imagePullSecret to use
   # pullSecret: my-repo-secret

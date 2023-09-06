@@ -60,7 +60,7 @@ check_sysreq;
 export VM_PREFIX=suse0908
 echo "export VM_PREFIX=$VM_PREFIX" > mylab_vm_prefix.sh
 
-export RANCHER_VERSION=v2.6.9
+export RANCHER_VERSION=v2.7.3
 echo "export RANCHER_VERSION=$RANCHER_VERSION" > mylab_rancher_version.sh
 
 title="Select Your Preferred AWS Environment to run your lab:"
@@ -197,12 +197,13 @@ done
 # upload files to be deployed onto devsecops cluster
 echo "Upload files to be executed onto devsecops cluster into harbor instance ..."
 HARBOR_IP=`get-vm-public-ip $VM_PREFIX-harbor`
-ssh $SSH_OPTS -i mylab.key ec2-user@$HARBOR_IP mkdir -p devsecops/{jenkins,sonarqube,anchore,longhorn}
+ssh $SSH_OPTS -i mylab.key ec2-user@$HARBOR_IP mkdir -p devsecops/{jenkins,sonarqube,neuvector,longhorn}
 scp $SSH_OPTS -i mylab.key mylab_vm_list.txt ec2-user@$HARBOR_IP:~
 scp $SSH_OPTS -i mylab.key mylab_vm_prefix.sh ec2-user@$HARBOR_IP:~
 scp $SSH_OPTS -i mylab.key setup/jenkins/*.* ec2-user@$HARBOR_IP:~/devsecops/jenkins
 scp $SSH_OPTS -i mylab.key setup/sonarqube/*.* ec2-user@$HARBOR_IP:~/devsecops/sonarqube
-scp $SSH_OPTS -i mylab.key setup/anchore/*.* ec2-user@$HARBOR_IP:~/devsecops/anchore
+#scp $SSH_OPTS -i mylab.key setup/anchore/*.* ec2-user@$HARBOR_IP:~/devsecops/anchore
+scp $SSH_OPTS -i mylab.key setup/neuvector/*.* ec2-user@$HARBOR_IP:~/devsecops/neuvector
 scp $SSH_OPTS -i mylab.key setup/longhorn/*.* ec2-user@$HARBOR_IP:~/devsecops/longhorn
 
 

@@ -3,9 +3,7 @@
 # Install Kubernetes tools
 echo "Installing Kubernetes Client Tools - kubectl and helm ..."
 
-curl -sLS https://dl.get-arkade.dev | sh
-sudo mv arkade /usr/local/bin/arkade
-sudo ln -sf /usr/local/bin/arkade /usr/local/bin/ark
+curl -sLS https://get.arkade.dev | sudo sh
 
 ark get helm
 sudo mv /home/ec2-user/.arkade/bin/helm /usr/local/bin/
@@ -21,8 +19,8 @@ echo "Install Rancher Server using helm chart on RKE2 ..."
 
 source $HOME/mylab_rancher_version.sh
 
-echo "Install RKE2 v1.24 ..."
-sudo bash -c 'curl -sfL https://get.rke2.io | INSTALL_RKE2_CHANNEL="v1.24" sh -'
+echo "Install RKE2 v1.25 ..."
+sudo bash -c 'curl -sfL https://get.rke2.io | INSTALL_RKE2_CHANNEL="v1.25" sh -'
 sudo mkdir -p /etc/rancher/rke2
 sudo bash -c 'echo "write-kubeconfig-mode: \"0644\"" > /etc/rancher/rke2/config.yaml'
 sudo systemctl enable rke2-server.service
@@ -80,6 +78,7 @@ helm install rancher rancher-latest/rancher \
   --namespace cattle-system \
   --set hostname=$RANCHER_FQDN \
   --set replicas=1 \
+  --set global.cattle.psp.enabled=false \
   --version ${RANCHER_VERSION} --devel \
   --create-namespace
 

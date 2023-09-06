@@ -15,9 +15,10 @@ fi
 
 helm repo add anchore https://charts.anchore.io
 helm repo update
+helm search repo anchore
 
 helm install anchore anchore/anchore-engine \
-  --version 1.19.8 \
+  --version 1.24.2 \
   --create-namespace \
   -n anchore \
   --set postgresql.persistence.accessMode='ReadWriteMany'
@@ -39,3 +40,25 @@ echo "URL: http://anchore-anchore-engine-api.anchore.svc.cluster.local:8228/v1/"
 echo "User: admin" >> $HOME/myanchore.txt
 echo "Password: $ANCHORE_PWD" >> $HOME/myanchore.txt
 cat $HOME/myanchore.txt
+
+
+ANCHORE_CLI_USER=admin
+ANCHORE_CLI_PASS=$(kubectl get secret --namespace anchore anchore-anchore-engine-admin-pass -o jsonpath="{.data.ANCHORE_ADMIN_PASSWORD}" | base64 --decode; echo)
+ANCHORE_CLI_URL=http://anchore-anchore-engine-api.anchore.svc.cluster.local:8228/v1/
+
+kubectl run -i --tty anchore-cli \
+  --restart=Always \
+  --image anchore/engine-cli  \
+  --env ANCHORE_CLI_USER=${ANCHORE_CLI_USER} \
+  --env ANCHORE_CLI_PASS=${ANCHORE_CLI_PASS} \
+  --env ANCHORE_CLI_URL=${ANCHORE_CLI_URL} \
+  -n anchore
+
+  
+kubectl exec -it anchore-cli -n anchore -- bash   
+
+
+anchore-cli policy list
+# anchore-cli policy get 2c53a13c-1765-11e8-82ef-23527761d060 --detail > policybundle.json
+anchore-cli policy add policybundle.json
+anchore-cli policy activate 2c53a13c-1765-11e8-82ef-23527761d060
